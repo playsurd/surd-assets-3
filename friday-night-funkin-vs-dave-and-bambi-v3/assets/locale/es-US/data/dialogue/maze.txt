@@ -1,0 +1,10 @@
+:bambi,upset: Mi telefono...
+:bambi,upset: Â¡Miren lo que ustedes dos hicieron!
+:bambi,annoyed: Â¡No saben en que problema me han metido!
+:bambi,annoyed: Â¡Los dos van a morir!
+:gf,what: No creo que quieras intentar eso.
+:bambi,annoyed: Eso es todo.. Â¡Eso es todo!
+:bambi,upset: Una cancion mÃ¡s... Si ganan, Y- Yo, uhh..
+:bambi,upset: Creo que irÃ© a dormir despÃºes de esto...
+:gf,what: Voy a asumir que gritar por casi 6 minutos seguidos puede ser demasiado agotador.
+:bambi,annoyed: No lo es!

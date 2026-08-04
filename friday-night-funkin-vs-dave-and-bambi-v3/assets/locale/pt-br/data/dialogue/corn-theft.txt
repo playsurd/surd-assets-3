@@ -1,0 +1,26 @@
+:bambi,annoyed: Puta que pario!
+:generic: CHAMADA RECEBIDA DE: DAVE
+:bambi,confused: HÃ£? AlÃ´?
+:dave,phone: Ei Bambi, Ã© o Dave...
+:bambi,confused: Por que ta me ligando?
+:dave,phone: Por algum acaso vocÃª tÃ¡ cantando contra dois "invasores" do seu tamanho por conta de milho?
+:bambi,annoyed: Sim... justificadamente!
+:dave,phone: Bambi. Eles nÃ£o tÃ£o invadindo nada.
+:bambi,confused: Como Ã©?
+:dave,phone: Eu te avisei antes que nÃ³s iriamos ter um piquenique por aqui!
+:bambi,confused: Isso nÃ£o faz sentido...
+:dave,phone: Bambi, escuta-
+:bambi,annoyed: Eu sei o que ta acontecendo aqui!
+:bambi,annoyed: Esses nÃ£o sao os amigos que achava que fosse!
+:dave,phone: Bambi cÃª tÃ¡ zoando com a minha cara-
+:generic: CHAMADA ENCERRADA
+:bambi: Uhhh...
+:bambi: VocÃªs tÃ£o usando convite do Dave como desculpa pra roubar milho!?
+:gf,what: A gente chegou nem perto disso!
+:bf,confused: Beep beep vroom vroom!
+:bambi: Ok, quer saber-
+:bambi: NÃ£o ganhe dessa vez... se nÃ£o... se nÃ£o...
+:bambi: Eu vou quebrar meu celular!
+:bambi: Sim, eu vou quebrar meu celular e vocÃª vai ficar de castigo!
+:bf,confused: Bop...
+:gf,what: Se isso Ã© o que vocÃª considera um castigo entÃ£o vocÃª tem problema na cabeÃ§a.

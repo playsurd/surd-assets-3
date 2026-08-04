@@ -1,0 +1,13 @@
+:gf,happy: Que tan buena persona es Dave, que nos esta invitando a esta granja para un picnic.
+:gf,happy: Creo que esto compensa que casi nos mata con toda esa tonterÃ­a en 3D.
+:bf: Skibbido.
+:gf,happy: Espero que ningÃºn granjero enano con poco temperamento aparezca entre nosotros!
+:gf,happy: Especialmente uno con la suposiciÃ³n de que estamos robando su maÃ­z...
+:bambi,annoyed: Â¿Â¿Quien estÃ¡ ahÃ­??
+:bf,confused: Â¿Beep?
+:gf,what: Mierda.
+:bambi,annoyed: Â¡Oigan! Â¿EstÃ¡n intentando robar mi maÃ­z?
+:bf,confused: Bip boop er-
+:bambi,annoyed: Â¡VOY A BLOQUEARTE DE MI GRANJA! No volverÃ¡n nunca pedazos de chatarra en desuso.
+:bf,confused: Â¿Bep?
+:gf,what: Solo empieza con esto Boyfriend.
