@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				900,
+				500
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "death screen titledeath"
+		},
+		{
+			"offsets": [
+				900,
+				500
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "death screen retry loop"
+		},
+		{
+			"offsets": [
+				900,
+				400
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "death screen confirm restart"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/death screen",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		0,
+		230
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

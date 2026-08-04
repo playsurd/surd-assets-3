@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "GF idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-14,
+				1
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "GF NOTE DOWN0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				7
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "GF NOTE UP0",
+			"indices": []
+		},
+		{
+			"offsets": [
+				6,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "GF NOTE RIGHT0"
+		},
+		{
+			"offsets": [
+				-23,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "GF NOTE LEFT0"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-11,
+				4
+			],
+			"anim": "scared",
+			"fps": 24,
+			"name": "GF idle shaking",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/gftabidate",
+	"position": [
+		50,
+		-10
+	],
+	"healthicon": "gf",
+	"flip_x": true,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		30,
+		-20
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

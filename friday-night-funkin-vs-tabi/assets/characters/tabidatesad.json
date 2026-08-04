@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "tabi idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				3
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "tabi left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-6
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "tabi down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				28
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "tabi up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-3
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "tabi right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tabidatesad",
+	"position": [
+		-1030,
+		20
+	],
+	"healthicon": "tabisad",
+	"flip_x": true,
+	"healthbar_colors": [
+		236,
+		192,
+		145
+	],
+	"camera_position": [
+		-130,
+		-40
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

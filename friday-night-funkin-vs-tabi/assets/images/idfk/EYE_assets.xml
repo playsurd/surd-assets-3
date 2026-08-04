@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="EYE_assets.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Yanta MAIN0000" x="0" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta MAIN0001" x="0" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta MAIN0002" x="0" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta MAIN0003" x="121" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta MAIN0004" x="121" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta MAIN0005" x="121" y="0" width="121" height="103"/>
+	<SubTexture name="Yanta arrow assets0000" x="0" y="103" width="120" height="106" frameX="-1" frameY="-2" frameWidth="122" frameHeight="108"/>
+	<SubTexture name="Yanta arrow assets0001" x="0" y="103" width="120" height="106" frameX="0" frameY="-3" frameWidth="122" frameHeight="108"/>
+	<SubTexture name="Yanta arrow assets0002" x="0" y="103" width="120" height="106" frameX="-2" frameY="-1" frameWidth="122" frameHeight="108"/>
+	<SubTexture name="Yanta arrow assets0003" x="120" y="103" width="121" height="106" frameX="-1" frameY="-2" frameWidth="122" frameHeight="108"/>
+	<SubTexture name="Yanta arrow assets0004" x="120" y="103" width="121" height="106" frameX="0" frameY="-2" frameWidth="122" frameHeight="108"/>
+	<SubTexture name="Yanta arrow assets0005" x="120" y="103" width="121" height="106" frameX="-1" frameY="0" frameWidth="122" frameHeight="108"/>
+</TextureAtlas>

@@ -1,0 +1,348 @@
+---SECTION START---
+:class:Cutscene1,
+:bg:cutscenes/0
+:disableTypeSound:
+:switchSound:gfText
+:musicloop:bgms/room
+:enableTypeSound:
+:gf-letsgo:Hey, boyfriend! 
+:bf-left:Bops! Beepi!
+:switchSound:gfText
+:gf-talking:I've got a surprise for you! 
+:bf-left:Beep bop?
+:sound:GF_3
+:gf-letsgo:Ta~da! I've got an invitation from my fatherâ€™s friend! from what I heard, heâ€™s pretty cool!
+:gf-letsgo:We haven't spoken in a year, and it seems like he wants to invite me for something important.
+:gf-talking:Sooo I figured, why not take you with me and introduce y'all to each other? 
+:bf-left:Boop Da bi Da Bam!
+:bf-left:Bop bi bo Babans! BeSkboo
+:switchSound:gfText
+:gf-letsgo:Right! I knew you would love this idea; he loves music too! I bet heâ€™ll like you!
+:gf-letsgo:Okay. Then I'm going to call for a taxi, get ready!
+:disableTypeSound:
+:bg:cutscenes/0-b
+:musicloop:bgms/hall
+:noone:she called for a Taxi and went to the meeting place that uncle specified in the letter.
+:fadeIn:1
+:bg:cutscenes/1
+:musicloop:bgms/1
+:noone:When they arrived GF immediately knew the place! It was her favorite restaurant, how wonderful! She knew this place pretty well.
+:noone:Both entered the ball room that was filled with tables and people, although...
+:noone:GF noticed that their table was surrounded by a bunch of empty ones, they all were occupied, but empty.
+:fadeOut:1
+:enableTypeSound:
+:gf:Dear, it seems that uncle is not there yet, so Iâ€™m gonna go to the bathroom real quick, wait here ok?
+:switchSound:bfText
+:bf-left:Bah Pop Skraaabap!
+:switchSound:gfText
+:gf-letsgo:Oh! My prince wants to escort me to the bathroom himself! That is so romantic! 
+:disableTypeSound:
+:sound:bfText
+:bf-left:*Shy* Hehe 
+:enableTypeSound:
+:gf-letsgo:I love you dear, okay, lets g-..
+:noone:GF notices a strange figure near the bathroom
+:noone:this figure was oddly familiar, she immediately knew who it was just by the look on him
+:noone:recognizable by style of clothing.. Her EX himself.
+:bf-left:Bop?
+:gf-talking:Tabi? Is that you?
+:switchSound:tabiText
+:tabi-mad:...
+:tabi-mad:There you are..
+:disableTypeSound:
+:musicloop:bgms/0
+:cutscene1:
+:bg:cutscenes/2
+:noone:GF realized something...
+:switchSound:gfText
+:musicloop:bgms/1
+:gf-scared:So... It was you... You pretended to be my fatherâ€™s friend and lured us in my favorite restaurant... 
+:gf-scared:I was wondering how my fathers friend would know my favorite restraint. Gh..
+:switchSound:tabiText
+:tabi-mad:You are foolish as always.
+:tabi-mad:And who is this? Your new boyfriend? Or should I say... new victim?
+:bf-right:Beep?
+
+:noone:BF looks at GF with a puzzled face, and sees that she looks a bit odd,
+:noone:Her emotions are like a mix of shame and fear. BF, seeing love of his life being so uncomfortable gets filled with confidence
+:noone:he wants to protect her and show her EX that he won't let him hurt GF.
+:bf-right:Skra!
+:switchSound:tabiText
+:tabi:Hm.
+:tabi:Impressive work, boyfriend, Iâ€™ve been watching you for a long time.
+:tabi:I've seen the power of your love towards her, you fought that bomb guy, then this batshit crazy zombie, but, unfortunately-
+:tabi:-this all is going to end pretty soon. Leave us alone boyfriend, me and your girl need to have a little chat...
+:bf-right:Bap skba!
+:switchSound:tabiText
+:tabi-mad:Just let me end this all, leave!
+:bf-right:Beep!
+:switchSound:tabiText
+:tabi-mad:You do realize she is just using you, right?
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene1,
+:bg:cutscenes/0
+:soundoverwrite:voices/home/1
+:musicloop:bgms/room
+:gf-letsgo:Hey, boyfriend! 
+:soundoverwritestop:
+:bf-left:Bops! Beepi!
+:soundoverwrite:voices/home/2
+:gf-talking:I've got a surprise for you! 
+:soundoverwritestop:
+:bf-left:Beep bop?
+:soundoverwrite:voices/home/3
+:gf-letsgo:Ta~da! I've got an invitation from my fatherâ€™s friend! from what I heard, heâ€™s pretty cool!
+:soundoverwritestop:
+:soundoverwrite:voices/home/4
+:gf-letsgo:We haven't spoken in a year, and it seems like he wants to invite me for something important.
+:soundoverwritestop:
+:soundoverwrite:voices/home/5
+:gf-talking:Right! I knew you would love this idea; he loves music too! I bet heâ€™ll like you!
+:soundoverwritestop:
+:bf-left:Boop Da bi Da Bam!
+:bf-left:Bop bi bo Babans! BeSkboo
+:soundoverwrite:voices/home/6
+:gf-letsgo:Okay. Then I'm going to call for a taxi, get ready!
+:soundoverwritestop:
+:disableTypeSound:
+:bg:cutscenes/0-b
+:musicloop:bgms/hall
+:noone:she called for a Taxi and went to the meeting place that uncle specified in the letter.
+:fadeIn:1
+:bg:cutscenes/1
+:musicloop:bgms/1
+:fadeOut:1
+:noone:When they arrived GF immediately knew the place! It was her favorite restaurant, how wonderful! She knew this place pretty well.
+:noone:Both entered the ball room that was filled with tables and people, although...
+:noone:GF noticed that their table was surrounded by a bunch of empty ones, they all were occupied, but empty.
+:fadeOut:1
+:soundoverwrite:voices/bath/1
+:gf:Dear, it seems that uncle is not there yet, so Iâ€™m gonna go to the bathroom real quick, wait here ok?
+:soundoverwritestop:
+:bf-left:Bah Pop Skraaabap!
+:soundoverwrite:voices/bath/2
+:gf-letsgo:Oh! My prince wants to escort me to the bathroom himself! That is so romantic! 
+:soundoverwritestop:
+:bf-left:*Shy* Hehe 
+:soundoverwrite:voices/bath/3
+:gf-letsgo:I love you dear, okay, lets g-..
+:soundoverwritestop:
+:noone:GF notices a strange figure near the bathroom
+:noone:this figure was oddly familiar, she immediately knew who it was just by the look on him
+:noone:recognizable by style of clothing.. Her EX himself.
+:bf-left:Bop?
+:soundoverwrite:voices/bath/4
+:gf-talking:Tabi? Is that you?
+:switchSound:bfText
+:enableTypeSound:
+:disableTypeSound:
+:tabi-mad:...
+:soundoverwrite:voices/tabi1/1
+:tabi-mad:There you are..
+:soundoverwritestop:
+:musicloop:bgms/0
+:cutscene1:
+:bghide:
+:noone:GF realized something...
+:switchSound:gfText
+:musicloop:bgms/1
+:soundoverwrite:voices/bath/5
+:gf-scared:So... It was you... You pretended to be my fatherâ€™s friend and lured us in my favorite restaurant... 
+:soundoverwrite:voices/bath/6
+:gf-scared:I was wondering how my fathers friend would know my favorite restraint. Gh..
+:switchSound:bfText
+:soundoverwrite:voices/tabi1/2
+:tabi-mad:You are foolish as always.
+:soundoverwrite:voices/tabi1/3
+:tabi-mad:And who is this? Your new boyfriend? Or should I say... new victim?
+:bf-right:Beep?
+:noone:BF looks at GF with a puzzled face, and sees that she looks a bit odd,
+:noone:Her emotions are like a mix of shame and fear. BF, seeing love of his life being so uncomfortable gets filled with confidence
+:noone:he wants to protect her and show her EX that he won't let him hurt GF.
+:bf-right:Skra!
+:soundoverwrite:voices/tabi1/4
+:tabi:Hm.
+:soundoverwrite:voices/tabi1/5
+:tabi:Impressive work, boyfriend, Iâ€™ve been watching you for a long time.
+:soundoverwrite:voices/tabi1/6
+:tabi:I've seen the power of your love towards her, you fought that bomb guy, then this batshit crazy zombie, but, unfortunately-
+:soundoverwrite:voices/tabi1/7
+:tabi:-this all is going to end pretty soon. Leave us alone boyfriend, me and your girl need to have a little chat...
+:bf-right:Bap skba!
+:soundoverwrite:voices/tabi1/8
+:tabi-mad:Just let me end this all, leave!
+:soundoverwritestop:
+:bf-right:Beep!
+:soundoverwrite:voices/tabi1/9
+:tabi-mad:You do realize she is just using you, right?
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene1,
+:bg:cutscenes/0
+:disableTypeSound:
+:switchSound:gfText
+:enableTypeSound:
+:musicloop:bgms/0
+:gf-letsgo:ÐŸÑ€Ð¸Ð²ÐµÑ‚Ð¸Ðº Ð±Ð¾Ð¹Ñ„Ñ€ÐµÐ½Ð´!
+:switchSound:bfText
+:bf-left:Ð‘Ð¸Ð¿!
+:switchSound:gfText
+:gf-letsgo:Ð¯ Ñ…Ð¾Ñ‚ÐµÐ»Ð° Ñ‚ÐµÐ±Ðµ ÑÐºÐ°Ð·Ð°Ñ‚ÑŒ, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐ°ÑŽ Ñ‚ÐµÐ±Ñ Ð² Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½!
+:switchSound:bfText
+:bf-left:Ð‘Ð¸Ð¿?
+:disableTypeSound:
+:sound:GF_3
+:gf-talking:Ð¥Ð¾Ñ€Ð¾ÑˆÐ¸Ð¹ Ð´Ñ€ÑƒÐ³ Ð¼Ð¾ÐµÐ³Ð¾ Ð¾Ñ‚Ñ†Ð°, Ð½Ñƒ, Ð¼Ð¾Ð¹ Ð´ÑÐ´Ñ, Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑÐ¸Ð» Ð¼ÐµÐ½Ñ Ñ‚ÑƒÐ´Ð° Ð¿Ð¾ ÐºÐ°ÐºÐ¾Ð¹-Ñ‚Ð¾ Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½Ðµ
+:switchSound:bfText
+:enableTypeSound:
+:bf-left:Ð¡ÐºÐ±ÑƒÐ¿, Ð±Ð¸Ð¸Ð¿ Ð´Ð¾Ð± ÑÐºÐ±Ð¸Ð¸Ð±?
+:switchSound:gfText
+:gf-letsgo:Ð! Ð•Ñ‰Ñ‘, Ð¾Ð½ ÐºÐ°Ðº Ñ€Ð°Ð· Ð²Ñ‹Ð±Ñ€Ð°Ð» Ð¼Ð¾Ð¹ Ð»ÑŽÐ±Ð¸Ð¼Ñ‹Ð¹ Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½
+:gf-hmm:Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ð¾, Ð¾Ñ‚ÐºÑƒÐ´Ð° Ð¾Ð½ ÑƒÐ·Ð½Ð°Ð»...
+:gf-talking:ÐÐµ Ð²Ð°Ð¶Ð½Ð¾! Ð¯ Ñ…Ð¾Ñ‚ÐµÐ»Ð° Ñ‚ÐµÐ±Ñ Ð²Ð·ÑÑ‚ÑŒ Ñ ÑÐ¾Ð±Ð¾Ð¹, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹ Ð½Ð°ÐºÐ¾Ð½ÐµÑ†-Ñ‚Ð¾ Ð²ÑÑ‚Ñ€ÐµÑ‚Ð¸Ð»Ð¸ÑÑŒ Ñ Ð½Ð¸Ð¼, Ð¾Ð½ Ð¶Ðµ Ð¼Ð¾Ð¹ Ð´ÑÐ´Ñ!
+:switchSound:bfText
+:bf-left:Ð±Ð¸Ð¿
+:switchSound:gfText
+:gf-letsgo:ÐžÑ‚Ð»Ð¸Ñ‡Ð½Ð¾, Ñ‚Ð¾Ð³Ð´Ð° Ñ Ð·Ð°ÐºÐ°Ð¶Ñƒ Ð²Ð°Ð¼
+:disableTypeSound:
+:bg:cutscenes/0-b
+:noone:Ð˜ Ñ‚Ð°Ðº, Ð¾Ð½Ð¸ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¸ÑÑŒ Ð² Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½ Ð½Ð° Ñ‚Ð°ÐºÑÐ¸
+:fadeIn:1
+:bg:cutscenes/1
+:musicloop:bgms/1
+:fadeOut:1
+:enableTypeSound:
+:gf:Ð¥ÐµÐ¹, Ð±Ð¾Ð¹Ñ„Ñ€ÐµÐ½Ð´, Ð¼Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð² Ð´Ð°Ð¼ÑÐºÑƒÑŽ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ñƒ, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸ Ð¼ÐµÐ½Ñ Ñ‚ÑƒÑ‚
+:switchSound:bfText
+:bf-left:Ð‘Ð¸Ð¸Ð¿! Ð¡ÐºÐ±Ð¸Ð¸Ð¿!
+:switchSound:gfText
+:gf-letsgo:ÐÑ…Ð°Ñ…Ð°, Ð»Ð°Ð´Ð½Ð¾-Ð»Ð°Ð´Ð½Ð¾, Ñ‚Ð°Ðº ÑƒÐ¶ Ð¸ Ð±Ñ‹Ñ‚ÑŒ, Ñ€Ð°Ð·Ñ€ÐµÑˆÐ°ÑŽ Ð²Ð°Ð¼ Ð¿Ñ€Ð¾Ð²ÐµÑÑ‚Ð¸ Ð¼ÐµÐ½Ñ Ð´Ð¾ Ñ‚ÑƒÐ°Ð»ÐµÑ‚Ð°, Ð¼Ð¾Ð¹ Ð»ÑŽÐ±Ð¸Ð¼Ñ‹Ð¹ ÐºÐ°Ð²Ð°Ð»ÐµÑ€
+:disableTypeSound:
+:sound:bfText
+:bf-left:*ÑÑ‚ÐµÑÐ½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð±Ð¸Ð¿ Ð±Ð¾Ð¿Ñ‹*
+:enableTypeSound:
+:gf-letsgo:Ð¥ÐµÑ…, Ð»ÑŽÐ±Ð»ÑŽ Ñ‚ÐµÐ±Ñ
+:gf-talking:Ð§Ð¢Ðž? Ð¢ÐÐ‘Ð˜?!
+:switchSound:tabiText
+:tabi-mad:...
+:switchSound:bfText
+:bf-right:Ð¡ÐºÐ±Ð¸Ð¿?
+:disableTypeSound:
+:sound:GF_1
+:gf-worried:Ñ‡ÐµÑ€Ñ‚â€¦
+:cutscene1:
+:bg:cutscenes/2
+:noone:...
+:switchSound:tabiText
+:enableTypeSound:
+:tabi:Ð—Ð½Ð°Ñ‡Ð¸Ñ‚â€¦ Ð¿Ð¾ÑÐ»Ðµ Ñ†ÐµÐ»Ð¾Ð³Ð¾ Ð³Ð¾Ð´Ð° Ð¿Ñ€ÑÑ‚Ð¾Ðº Ð¼Ñ‹ Ð½Ð°ÐºÐ¾Ð½ÐµÑ† Ñ Ñ‚Ð¾Ð±Ð¾Ð¹ Ð²ÑÑ‚Ñ€ÐµÑ‚Ð¸Ð»Ð¸ÑÑŒ?
+:disableTypeSound:
+:sound:GF_4
+:gf-scared:*Ð²Ñ‹Ð³Ð»ÑÐ´Ð¸Ñ‚ Ð½Ð°Ð¿Ñ€ÑÐ¶Ñ‘Ð½Ð½Ð¾Ð¹*
+:enableTypeSound:
+:tabi-mad:Ð¥Ð¼?, Ð° Ð¢Ð« ÐºÑ‚Ð¾ ÐµÑ‰Ñ‘ Ñ‚Ð°ÐºÐ¾Ð¹?
+:switchSound:bfText
+:bf-right:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¾Ð¿ ÑÐºÐ±Ð¸Ð¿!
+:switchSound:tabiText
+:tabi:Ð—Ð½Ð°Ñ‡Ð¸Ñ‚ Ñ‚Ñ‹ Ð½Ð°ÑˆÐ»Ð° Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¶ÐµÐ½Ð¸Ñ…Ð° ÑƒÐ¶Ðµ, Ð½Ðµ Ñ‚Ð°Ðº Ð»Ð¸?
+:tabi:Ð¡Ð»ÑƒÑˆÐ°Ð¹ Ð¼Ð°Ð»Ñ‹Ñˆ, ÑÑ‚Ð¾ Ð¼Ð¾Ð¹ Ð±Ð¾Ð¹, Ð½Ðµ Ñ‚Ð²Ð¾Ð¹, Ð¾ÑÑ‚Ð°Ð²ÑŒ Ð½Ð°Ñ Ñ Ð½ÐµÐ¹ Ð¾Ð´Ð½Ð¸Ñ…, ÑƒÑ…Ð¾Ð´Ð¸
+:switchSound:bfText
+:bf-right:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¿ ÑÐºÐ±Ð¾Ð¿!
+:switchSound:tabiText
+:tabi-mad:ÐÐ°Ð´ÐµÑŽÑÑŒ Ñ‚Ñ‹ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÐµÑˆÑŒ, Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚ÐµÐ±Ñ Ð´Ð»Ñ ÑÐ²Ð¾ÐµÐ¹ Ð²Ñ‹Ð³Ð¾Ð´Ñ‹?
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene1,
+:bg:cutscenes/0
+:disableTypeSound:
+:switchSound:bfText
+:soundoverwrite:voices/home/1
+:musicloop:bgms/0
+:gf-letsgo:ÐŸÑ€Ð¸Ð²ÐµÑ‚Ð¸Ðº Ð±Ð¾Ð¹Ñ„Ñ€ÐµÐ½Ð´!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-left:Ð‘Ð¸Ð¿!
+:disableTypeSound:
+:soundoverwrite:voices/home/2
+:gf-letsgo:Ð¯ Ñ…Ð¾Ñ‚ÐµÐ»Ð° Ñ‚ÐµÐ±Ðµ ÑÐºÐ°Ð·Ð°Ñ‚ÑŒ, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐ°ÑŽ Ñ‚ÐµÐ±Ñ Ð² Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-left:Ð‘Ð¸Ð¿?
+:disableTypeSound:
+:soundoverwrite:voices/home/3
+:gf-talking:Ð¥Ð¾Ñ€Ð¾ÑˆÐ¸Ð¹ Ð´Ñ€ÑƒÐ³ Ð¼Ð¾ÐµÐ³Ð¾ Ð¾Ñ‚Ñ†Ð°, Ð½Ñƒ, Ð¼Ð¾Ð¹ Ð´ÑÐ´Ñ, Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑÐ¸Ð» Ð¼ÐµÐ½Ñ Ñ‚ÑƒÐ´Ð° Ð¿Ð¾ ÐºÐ°ÐºÐ¾Ð¹-Ñ‚Ð¾ Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½Ðµ
+:soundoverwritestop:
+:enableTypeSound:
+:bf-left:Ð¡ÐºÐ±ÑƒÐ¿, Ð±Ð¸Ð¸Ð¿ Ð´Ð¾Ð± ÑÐºÐ±Ð¸Ð¸Ð±?
+:disableTypeSound:
+:soundoverwrite:voices/home/4
+:gf-letsgo:Ð! Ð•Ñ‰Ñ‘, Ð¾Ð½ ÐºÐ°Ðº Ñ€Ð°Ð· Ð²Ñ‹Ð±Ñ€Ð°Ð» Ð¼Ð¾Ð¹ Ð»ÑŽÐ±Ð¸Ð¼Ñ‹Ð¹ Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½
+:soundoverwrite:voices/home/5
+:gf-hmm:Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ð¾, Ð¾Ñ‚ÐºÑƒÐ´Ð° Ð¾Ð½ ÑƒÐ·Ð½Ð°Ð»...
+:soundoverwrite:voices/home/6
+:gf-talking:ÐÐµ Ð²Ð°Ð¶Ð½Ð¾! Ð¯ Ñ…Ð¾Ñ‚ÐµÐ»Ð° Ñ‚ÐµÐ±Ñ Ð²Ð·ÑÑ‚ÑŒ Ñ ÑÐ¾Ð±Ð¾Ð¹, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹ Ð½Ð°ÐºÐ¾Ð½ÐµÑ†-Ñ‚Ð¾ Ð²ÑÑ‚Ñ€ÐµÑ‚Ð¸Ð»Ð¸ÑÑŒ Ñ Ð½Ð¸Ð¼, Ð¾Ð½ Ð¶Ðµ Ð¼Ð¾Ð¹ Ð´ÑÐ´Ñ!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-left:Ð±Ð¸Ð¿
+:disableTypeSound:
+:soundoverwrite:voices/home/7
+:gf-letsgo:ÐžÑ‚Ð»Ð¸Ñ‡Ð½Ð¾, Ñ‚Ð¾Ð³Ð´Ð° Ñ Ð·Ð°ÐºÐ°Ð¶Ñƒ Ð²Ð°Ð¼
+:disableTypeSound:
+:bg:cutscenes/0-b
+:noone:Ð˜ Ñ‚Ð°Ðº, Ð¾Ð½Ð¸ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¸ÑÑŒ Ð² Ñ€ÐµÑÑ‚Ð¾Ñ€Ð°Ð½ Ð½Ð° Ñ‚Ð°ÐºÑÐ¸
+:fadeIn:1
+:bg:cutscenes/1
+:musicloop:bgms/1
+:fadeOut:1
+:soundoverwrite:voices/bath/1
+:gf:Ð¥ÐµÐ¹, Ð±Ð¾Ð¹Ñ„Ñ€ÐµÐ½Ð´, Ð¼Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð² Ð´Ð°Ð¼ÑÐºÑƒÑŽ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ñƒ, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸ Ð¼ÐµÐ½Ñ Ñ‚ÑƒÑ‚
+:soundoverwritestop:
+:enableTypeSound:
+:bf-left:Ð‘Ð¸Ð¸Ð¿! Ð¡ÐºÐ±Ð¸Ð¸Ð¿!
+:disableTypeSound:
+:soundoverwrite:voices/bath/2
+:gf-letsgo:ÐÑ…Ð°Ñ…Ð°, Ð»Ð°Ð´Ð½Ð¾-Ð»Ð°Ð´Ð½Ð¾, Ñ‚Ð°Ðº ÑƒÐ¶ Ð¸ Ð±Ñ‹Ñ‚ÑŒ, Ñ€Ð°Ð·Ñ€ÐµÑˆÐ°ÑŽ Ð²Ð°Ð¼ Ð¿Ñ€Ð¾Ð²ÐµÑÑ‚Ð¸ Ð¼ÐµÐ½Ñ Ð´Ð¾ Ñ‚ÑƒÐ°Ð»ÐµÑ‚Ð°, Ð¼Ð¾Ð¹ Ð»ÑŽÐ±Ð¸Ð¼Ñ‹Ð¹ ÐºÐ°Ð²Ð°Ð»ÐµÑ€
+:soundoverwritestop:
+:sound:bfText
+:bf-left:*ÑÑ‚ÐµÑÐ½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð±Ð¸Ð¿ Ð±Ð¾Ð¿Ñ‹*
+:soundoverwrite:voices/bath/3
+:gf-letsgo:Ð¥ÐµÑ…, Ð»ÑŽÐ±Ð»ÑŽ Ñ‚ÐµÐ±Ñ
+:soundoverwrite:voices/bath/4
+:gf-talking:Ð§Ð¢Ðž? Ð¢ÐÐ‘Ð˜?!
+:switchSound:tabiText
+:enableTypeSound:
+:tabi-mad:...
+:bf-right:Ð¡ÐºÐ±Ð¸Ð¿?
+:soundoverwrite:voices/bath/5
+:gf-worried:Ñ‡ÐµÑ€Ñ‚â€¦
+:soundoverwritestop:
+:cutscene1:
+:bg:cutscenes/2
+:noone:...
+:soundoverwrite:voices/tabi1/1
+:tabi:Ð—Ð½Ð°Ñ‡Ð¸Ñ‚â€¦ Ð¿Ð¾ÑÐ»Ðµ Ñ†ÐµÐ»Ð¾Ð³Ð¾ Ð³Ð¾Ð´Ð° Ð¿Ñ€ÑÑ‚Ð¾Ðº Ð¼Ñ‹ Ð½Ð°ÐºÐ¾Ð½ÐµÑ† Ñ Ñ‚Ð¾Ð±Ð¾Ð¹ Ð²ÑÑ‚Ñ€ÐµÑ‚Ð¸Ð»Ð¸ÑÑŒ?
+:soundoverwritestop:
+:sound:GF_4
+:gf-scared:*Ð²Ñ‹Ð³Ð»ÑÐ´Ð¸Ñ‚ Ð½Ð°Ð¿Ñ€ÑÐ¶Ñ‘Ð½Ð½Ð¾Ð¹*
+:soundoverwrite:voices/tabi1/2
+:tabi-mad:Ð¥Ð¼?, Ð° Ð¢Ð« ÐºÑ‚Ð¾ ÐµÑ‰Ñ‘ Ñ‚Ð°ÐºÐ¾Ð¹?
+:soundoverwritestop:
+:bf-right:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¾Ð¿ ÑÐºÐ±Ð¸Ð¿!
+:soundoverwrite:voices/tabi1/3
+:tabi:Ð—Ð½Ð°Ñ‡Ð¸Ñ‚ Ñ‚Ñ‹ Ð½Ð°ÑˆÐ»Ð° Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¶ÐµÐ½Ð¸Ñ…Ð° ÑƒÐ¶Ðµ, Ð½Ðµ Ñ‚Ð°Ðº Ð»Ð¸?
+:soundoverwrite:voices/tabi1/4
+:tabi:Ð¡Ð»ÑƒÑˆÐ°Ð¹ Ð¼Ð°Ð»Ñ‹Ñˆ, ÑÑ‚Ð¾ Ð¼Ð¾Ð¹ Ð±Ð¾Ð¹, Ð½Ðµ Ñ‚Ð²Ð¾Ð¹, Ð¾ÑÑ‚Ð°Ð²ÑŒ Ð½Ð°Ñ Ñ Ð½ÐµÐ¹ Ð¾Ð´Ð½Ð¸Ñ…, ÑƒÑ…Ð¾Ð´Ð¸
+:soundoverwritestop:
+:bf-right:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¿ ÑÐºÐ±Ð¾Ð¿!
+:soundoverwrite:voices/tabi1/5
+:tabi-mad:ÐÐ°Ð´ÐµÑŽÑÑŒ Ñ‚Ñ‹ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÐµÑˆÑŒ, Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚ÐµÐ±Ñ Ð´Ð»Ñ ÑÐ²Ð¾ÐµÐ¹ Ð²Ñ‹Ð³Ð¾Ð´Ñ‹?
+:soundoverwritestop:
+:musicstop:
+---SECTION END---

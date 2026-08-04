@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "YANTA MIMICK IDLE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				17,
+				-50
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "YANTA MIMICK DOWN",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				22,
+				-30
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "YANTA MIMICK LEFT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-14,
+				9
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "YANTA MIMICK UP",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				-18
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "YANTA MIMICK RIGHT",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Mimick_TABI",
+	"position": [
+		-420,
+		80
+	],
+	"healthicon": "icon-nothing",
+	"flip_x": true,
+	"healthbar_colors": [
+		236,
+		192,
+		145
+	],
+	"camera_position": [
+		-30,
+		140
+	],
+	"sing_duration": 6.1,
+	"scale": 0.7
+}

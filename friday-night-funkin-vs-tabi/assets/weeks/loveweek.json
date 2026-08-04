@@ -1,0 +1,68 @@
+{
+	"songs": [
+		[
+			"Embrace",
+			"tabiandgf",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Date Night",
+			"gf",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Last Memories",
+			"gf",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Freaking Out Alone",
+			"dd",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Judas Kiss",
+			"tabi",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal",
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"storyName": "love week",
+	"weekName": "loveweek",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

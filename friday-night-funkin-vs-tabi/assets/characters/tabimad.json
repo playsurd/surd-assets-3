@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				380,
+				558
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "IdleMAD"
+		},
+		{
+			"offsets": [
+				380,
+				558
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "LeftMAD"
+		},
+		{
+			"offsets": [
+				380,
+				468
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "DownMAD"
+		},
+		{
+			"offsets": [
+				450,
+				648
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "upMAD"
+		},
+		{
+			"offsets": [
+				380,
+				518
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "RightMAD"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tabi_mad",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "tabi",
+	"flip_x": false,
+	"healthbar_colors": [
+		93,
+		106,
+		133
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 0.8
+}

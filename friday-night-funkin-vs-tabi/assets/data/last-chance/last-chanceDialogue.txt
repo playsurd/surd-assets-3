@@ -1,0 +1,111 @@
+---SECTION START---
+:disableTypeSound:
+:switchSound:tabiText
+:enableTypeSound:
+:tabi-mad:Gh! Are you stupid? How can't you realize that this brat is just using you?!
+:fadeOut:0jesus christ its me gwebdev my man needs to calm down lol
+:switchSound:bfText
+:bf-right:Beep! Bap!
+:switchSound:tabiText
+:tabi-mad:Yes, using you for her own career success, like she used me once.
+:tabi-mad:Hah! I used to be a human like you, BF, but she and her father fooled me and took everything from me.
+:tabi-mad:My trust, my feelings, my love, and my heart. I've lost everything!
+:tabi-mad:Now look who I am, because of her!
+:switchSound:bfText
+:bf-right:Skbaa Draa papa!
+:switchSound:gfText
+:gf:...
+:noone:This situation sure is complicated, huh? BF was so confused-- what is this guy even talking about?
+:noone:Could GF really do something like that? No way.
+:noone:BF decides not to believe Tabi.
+:musicstop:
+:switchSound:tabiText
+:tabi-mad:Stop getting in my way you little freak! Let me end this all! Now!
+:switchSound:bfText
+:bf-right:Beepi! Bop dopskoop!
+:switchSound:tabiText
+:tabi-mad:Alright. That's it. I didn't want to do this, but, boyfriend, you didn't listen. 
+:tabi-mad:I have no other choice but to kill the both of you!
+---SECTION END---
+
+---SECTION START---
+:disableTypeSound:
+:switchSound:bfText
+:soundoverwrite:voices/tabi2/1
+:tabi-mad:Gh! Are you stupid? How can't you realize that this brat is just using you?!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-right:Beep! Bap!
+:disableTypeSound:
+:soundoverwrite:voices/tabi2/2
+:tabi-mad:Yes, using you for her own career success, like she used me once.
+:soundoverwrite:voices/tabi2/4
+:tabi-mad:Hah! I used to be a human like you, BF, but she and her father fooled me and took everything from me.
+:soundoverwrite:voices/tabi2/5
+:tabi-mad:My trust, my feelings, my love, and my heart. I've lost everything!
+:soundoverwrite:voices/tabi2/6
+:tabi-mad:Now look who I am, because of her!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-right:Skbaa Draa papa!
+:switchSound:gfText
+:gf:...
+:disableTypeSound:
+:noone:This situation sure is complicated, huh? BF was so confused-- what is this guy even talking about?
+:noone:Could GF really do something like that? No way.
+:noone:BF decides not to believe Tabi.
+:musicstop:
+:soundoverwrite:voices/tabi2/7
+:tabi-mad:Stop getting in my way you little freak! Let me end this all! Now!
+:enableTypeSound:
+:switchSound:bfText
+:bf-right:Beepi! Bop dopskoop!
+:disableTypeSound:
+:soundoverwrite:voices/tabi2/8
+:tabi-mad:Alright. That's it. I didn't want to do this, but, boyfriend, you didn't listen. 
+:soundoverwrite:voices/tabi2/9
+:tabi-mad:I have no other choice but to kill the both of you!
+:soundoverwritestop:
+---SECTION END---
+
+---SECTION START---
+:musicloop:bgms/1
+:disableTypeSound:
+:switchSound:tabiText
+:enableTypeSound:
+:tabi-mad:Ð“Ñ…â€¦ ÐºÐ°Ðº Ñ‚Ñ‹ Ð½Ðµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÐµÑˆÑŒ, Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚ÐµÐ±Ñ Ð»Ð¸ÑˆÑŒ Ð´Ð»Ñ ÑÐ²Ð¾ÐµÐ¹ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð¾Ð¹ Ð²Ñ‹Ð³Ð¾Ð´Ñ‹?!
+:tabi-mad:Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚Ð°Ðº, ÐºÐ°Ðº Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð»Ð°... Ð¼ÐµÐ½Ñ ÐºÐ¾Ð³Ð´Ð°-Ñ‚Ð¾... Ð¢ÐµÐ¿ÐµÑ€ÑŒ Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð¸ Ð½Ð° Ð¼ÐµÐ½Ñ! ÐšÑ‚Ð¾ Ñ Ñ‚ÐµÐ¿ÐµÑ€ÑŒ!? Ð›ÐµÑ‚Ð°ÑŽÑ‰Ð¸Ð¹ Ñ‡ÐµÑ€ÐµÐ¿ Ñ Ð½ÐµÐ²Ð¸Ð´Ð¸Ð¼Ñ‹Ð¼ Ñ‚ÐµÐ»Ð¾Ð¼? Ð¯ Ð¿Ð¾Ñ‚ÐµÑ€ÑÐ» Ð²ÑÑ‘!
+:switchSound:bfText
+:bf-right:Ð‘Ð¸Ð± Ð±Ð¾Ð± Ð±Ð¸Ð± Ð±Ð¾Ð¿ ÑÐ±Ð¾Ð¿ ÑÐºÐ´
+:switchSound:tabiText
+:tabi-mad:Ð¡Ð»ÑƒÑˆÐ°Ð¹ ÑÑŽÐ´Ð°, ÑÑ‚Ð¾ Ñ‚Ð²Ð¾Ð¹ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ ÑˆÐ°Ð½Ñ ÑƒÐ¹Ñ‚Ð¸. Ð¯ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑÑŒ, Ð¿Ð¾ÐºÐ° Ð½Ðµ Ð´Ð¾Ð±ÐµÑ€ÑƒÑÑŒ Ð´Ð¾ ÑÑ‚Ð¾Ð¹ Ð¼ÐµÐ»ÐºÐ¾Ð¹ ÑÑ‚ÐµÑ€Ð²Ñ‹! ÐŸÑ€Ð¾Ð²Ð°Ð»Ð¸Ð²Ð°Ð¹ ÑÐµÐ¹Ñ‡Ð°Ñ-Ð¶Ðµ, Ð¸Ð»Ð¸ ÑƒÐ·Ñ€Ð¸ Ð¿Ð¾ÑÐ»ÐµÐ´ÑÑ‚Ð²Ð¸Ñ
+:switchSound:bfText
+:bf-right:...
+:musicstop:
+:switchSound:tabiText
+:tabi-mad:Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾.. ÐÐµ Ñ…Ð¾Ñ‚ÐµÐ» Ñ Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½ÑÑ‚ÑŒ Ñ‚ÐµÐ±Ðµ Ð²Ñ€ÐµÐ´, Ð¼Ð°Ð»Ñ‹Ñˆ, Ð½Ð¾ Ñ‚Ñ‹ Ð¼Ð½Ðµ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑˆÑŒ Ð²Ñ‹Ð±Ð¾Ñ€Ð°, Ñ€Ð°Ð· Ñ‚Ð°Ðº, Ñ‚Ð¾ Ñ.. Ð£Ð‘Ð¬Ð® Ð’ÐÐ¡ ÐžÐ‘ÐžÐ˜Ð¥!
+---SECTION END---
+
+---SECTION START---
+:musicloop:bgms/1
+:disableTypeSound:
+:switchSound:bfText
+:soundoverwrite:voices/tabi2/1
+:tabi-mad:Ð“Ñ…â€¦ ÐºÐ°Ðº Ñ‚Ñ‹ Ð½Ðµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÐµÑˆÑŒ, Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚ÐµÐ±Ñ Ð»Ð¸ÑˆÑŒ Ð´Ð»Ñ ÑÐ²Ð¾ÐµÐ¹ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð¾Ð¹ Ð²Ñ‹Ð³Ð¾Ð´Ñ‹?!
+:soundoverwrite:voices/tabi2/2
+:tabi-mad:Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ñ‚Ð°Ðº, ÐºÐ°Ðº Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð»Ð°... Ð¼ÐµÐ½Ñ ÐºÐ¾Ð³Ð´Ð°-Ñ‚Ð¾... Ð¢ÐµÐ¿ÐµÑ€ÑŒ Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð¸ Ð½Ð° Ð¼ÐµÐ½Ñ! ÐšÑ‚Ð¾ Ñ Ñ‚ÐµÐ¿ÐµÑ€ÑŒ!? Ð›ÐµÑ‚Ð°ÑŽÑ‰Ð¸Ð¹ Ñ‡ÐµÑ€ÐµÐ¿ Ñ Ð½ÐµÐ²Ð¸Ð´Ð¸Ð¼Ñ‹Ð¼ Ñ‚ÐµÐ»Ð¾Ð¼? Ð¯ Ð¿Ð¾Ñ‚ÐµÑ€ÑÐ» Ð²ÑÑ‘!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-right:Ð‘Ð¸Ð± Ð±Ð¾Ð± Ð±Ð¸Ð± Ð±Ð¾Ð¿ ÑÐ±Ð¾Ð¿ ÑÐºÐ´
+:disableTypeSound:
+:soundoverwrite:voices/tabi2/3
+:tabi-mad:Ð¡Ð»ÑƒÑˆÐ°Ð¹ ÑÑŽÐ´Ð°, ÑÑ‚Ð¾ Ñ‚Ð²Ð¾Ð¹ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ ÑˆÐ°Ð½Ñ ÑƒÐ¹Ñ‚Ð¸. Ð¯ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑÑŒ, Ð¿Ð¾ÐºÐ° Ð½Ðµ Ð´Ð¾Ð±ÐµÑ€ÑƒÑÑŒ Ð´Ð¾ ÑÑ‚Ð¾Ð¹ Ð¼ÐµÐ»ÐºÐ¾Ð¹ ÑÑ‚ÐµÑ€Ð²Ñ‹! ÐŸÑ€Ð¾Ð²Ð°Ð»Ð¸Ð²Ð°Ð¹ ÑÐµÐ¹Ñ‡Ð°Ñ-Ð¶Ðµ, Ð¸Ð»Ð¸ ÑƒÐ·Ñ€Ð¸ Ð¿Ð¾ÑÐ»ÐµÐ´ÑÑ‚Ð²Ð¸Ñ
+:soundoverwritestop:
+:enableTypeSound:
+:bf-right:...
+:disableTypeSound:
+:musicstop:
+:soundoverwrite:voices/tabi2/4
+:tabi-mad:Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾.. ÐÐµ Ñ…Ð¾Ñ‚ÐµÐ» Ñ Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½ÑÑ‚ÑŒ Ñ‚ÐµÐ±Ðµ Ð²Ñ€ÐµÐ´, Ð¼Ð°Ð»Ñ‹Ñˆ, Ð½Ð¾ Ñ‚Ñ‹ Ð¼Ð½Ðµ Ð½Ðµ Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑˆÑŒ Ð²Ñ‹Ð±Ð¾Ñ€Ð°, Ñ€Ð°Ð· Ñ‚Ð°Ðº, Ñ‚Ð¾ Ñ.. Ð£Ð‘Ð¬Ð® Ð’ÐÐ¡ ÐžÐ‘ÐžÐ˜Ð¥!
+:soundoverwritestop:
+---SECTION END---

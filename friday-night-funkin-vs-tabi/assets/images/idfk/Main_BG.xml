@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Main_BG.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MAIN BG0000" x="0" y="0" width="1327" height="1117"/>
+	<SubTexture name="MAIN BG0001" x="0" y="0" width="1327" height="1117"/>
+	<SubTexture name="MAIN BG0002" x="0" y="0" width="1327" height="1117"/>
+	<SubTexture name="MAIN BG0003" x="1327" y="0" width="1327" height="1117"/>
+	<SubTexture name="MAIN BG0004" x="1327" y="0" width="1327" height="1117"/>
+	<SubTexture name="MAIN BG0005" x="1327" y="0" width="1327" height="1117"/>
+</TextureAtlas>

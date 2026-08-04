@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Main_BG_ALT.png">
+	<!-- Created with Adobe Animate version 22.0.8.217 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MAIN BG ALT0000" x="0" y="0" width="1339" height="1128"/>
+	<SubTexture name="MAIN BG ALT0001" x="0" y="0" width="1339" height="1128"/>
+	<SubTexture name="MAIN BG ALT0002" x="0" y="0" width="1339" height="1128"/>
+	<SubTexture name="MAIN BG ALT0003" x="1339" y="0" width="1339" height="1128"/>
+	<SubTexture name="MAIN BG ALT0004" x="1339" y="0" width="1339" height="1128"/>
+	<SubTexture name="MAIN BG ALT0005" x="1339" y="0" width="1339" height="1128"/>
+</TextureAtlas>

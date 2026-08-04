@@ -1,0 +1,151 @@
+---SECTION START---
+:class:Cutscene2,
+:bghide:
+:disableTypeSound:
+:switchSound:tabiText
+:fadeOut:0.5
+:musicloop:bgms/2
+:enableTypeSound:
+:switchSound:tabiText
+:tabi:Gh! Mgh! *cough*
+:sound:bfText
+:bf-exp:Ta!
+:switchSound:gfText
+:gf-explosion:Mgh! Boyfriend! *cough*
+:switchSound:tabiText
+:tabi-mad-g:So you survived the explosion. L-Lucky! *cough*
+:tabi-mad-g:I bet she noticed that I occupied all tables that were near the explosion...
+:tabi-mad-g:That is because i *cough* did not want to hurt innocent people, unlike this little brat! I want her dead!
+:switchSound:bfText
+:bf-exp:...
+:switchSound:tabiText
+:tabi-worried-g:Stop smiling and get out before this place burns down! 
+:fadeOut:0oh wow my man here is fucking crazy chill OUT
+:tabi-worried-g:she is not going with you! She will stay here, and die with me.
+:switchSound:gfText
+:gf-explosion:Ngh.. No, I don't wanna! *cough*
+:noone:BF stood in front of GF, hiding her behind his back and getting in Tabi's way.
+:switchSound:tabiText
+:tabi-worried-g:Why won't you get it?! She is a monster pretending *cough* ngh! -to be sweet and cute, but in reality she is a manipulative little b-
+:switchSound:bfText
+:bf-exp:BEEP!
+:switchSound:tabiText
+:tabi-worried-g:Okay... Then we will die here! Together! You, me, and her!
+:switchSound:gfText
+:gf-explosion-g:We- *cough* will survive! *cough*
+:switchSound:tabiText
+:chromeoffset:4
+:tabi-justdie:Oh? You don't want to? gh! You piss me off! Little shit! I will... I WILL KILL YOU AND WON'T LET HURT ANYBODY ELSE YOU LITTLE BRAT! DIE! DIEE!
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene2,
+:bghide:
+:disableTypeSound:
+:switchSound:bfText
+:bghide:
+:fadeOut:0.5
+:musicloop:bgms/2
+:soundoverwrite:voices/tabi3/1
+:tabi-g:Gh! Mgh! *cough*
+:soundoverwritestop:
+:sound:bfText
+:enableTypeSound:
+:bf-exp:Ta!
+:disableTypeSound:
+:soundoverwrite:voices/bath/7
+:gf-explosion:Mgh! Boyfriend! *cough*
+:soundoverwrite:voices/tabi3/2
+:tabi-mad-g:So you survived the explosion. L-Lucky! *cough*
+:soundoverwrite:voices/tabi3/3
+:tabi-mad-g:I bet she noticed that I occupied all tables that were near the explosion...
+:soundoverwrite:voices/tabi3/4
+:tabi-mad-g:That is because i *cough* did not want to hurt innocent people, unlike this little brat! I want her dead!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-exp:...
+:disableTypeSound:
+:soundoverwrite:voices/tabi3/5
+:tabi-worried-g:Stop smiling and get out before this place burns down! 
+:soundoverwrite:voices/tabi3/6
+:tabi-worried-g:she is not going with you! She will stay here, and die with me.
+:soundoverwrite:voices/bath/8
+:gf-explosion:Ngh.. No, I don't wanna! *cough*
+:soundoverwritestop:
+:noone:BF stood in front of GF, hiding her behind his back and getting in Tabi's way.
+:soundoverwrite:voices/tabi3/7
+:tabi-worried-g:Why won't you get it?! She is a monster pretending *cough* ngh! -to be sweet and cute, but in reality she is a manipulative little b-
+:enableTypeSound:
+:switchSound:bfText
+:bf-exp:BEEP!
+:disableTypeSound:
+:soundoverwrite:voices/tabi3/8
+:tabi-worried-g:Okay... Then we will die here! Together! You, me, and her!
+:soundoverwrite:voices/bath/9
+:gf-explosion:We- *cough* will survive! *cough*
+:chromeoffset:4
+:soundoverwrite:voices/tabi3/9
+:tabi-justdie:Oh? You don't want to? gh! You piss me off! Little shit! I will... I WILL KILL YOU AND WON'T LET HURT ANYBODY ELSE YOU LITTLE BRAT! DIE! DIEE!
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene2,
+:bghide:
+:disableTypeSound:
+:switchSound:tabiText
+:class-use:Cutscene2
+:fadeOut:0.5
+:musicloop:bgms/2
+:enableTypeSound:
+:switchSound:tabiText
+:tabi:Ð¥Ð°Ñ…â€¦ Ð¶Ð¸Ð²Ñ‹Ðµ? â€¦ Ð½Ðµ Ñ‚Ð°Ðº-Ð»Ð¸?
+:disableTypeSound:
+:sound:GF_1
+:gf-scared:*Ð²Ñ‹Ð³Ð»ÑÐ´Ð¸Ñ‚ Ð½Ð°Ð¿ÑƒÐ³Ð°Ð½Ð½Ð¾Ð¹*
+:sound:bfText
+:bf-exp:*Ð½Ð°Ð¿ÑƒÐ³Ð°Ð½Ð½Ñ‹Ðµ Ð±Ð¸Ð¿ Ð±Ð¾Ð¿Ñ‹*
+:enableTypeSound:
+:tabi-mad:Ð¥Ð°Ñ…â€¦ Ð´ÑƒÐ¼Ð°Ð»Ð° Ñ Ñ‚ÑƒÐ¿Ð¾Ð¹? Ð¯ Ð·Ð½Ð°Ð», Ñ‡Ñ‚Ð¾ Ñ‚Ñ‹ Ð¿Ñ€Ð¸Ð²ÐµÐ´Ñ‘ÑˆÑŒ ÐºÐ¾Ð³Ð¾-Ñ‚Ð¾.. Ð¾Ñ…Ñ€Ð°Ð½Ñƒ Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€ Ð¸Ð»Ð¸ Ð³Ð¾Ð»Ð¾Ð²Ð¾Ñ€ÐµÐ·Ð¾Ð², Ð½Ð¾ Ð•Ð“Ðž?!
+:switchSound:bfText
+:bf-exp:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¿ ÑÐºÐ±Ð¸Ð´
+:switchSound:tabiText
+:tabi-worried:ÐœÐÐ• Ð’Ð¡Ð Ð ÐžÐ’ÐÐž! Ðš Ð§Ð•Ð Ð¢Ð£! Ð¯ Ð£Ð‘Ð¬Ð® Ð•Ð Ð›Ð®Ð‘ÐžÐ™ Ð¦Ð•ÐÐžÐ™! Ð”ÐÐ–Ð• Ð•Ð¡Ð›Ð˜ ÐœÐÐ• ÐÐ£Ð–ÐÐž Ð‘Ð£Ð”Ð•Ð¢ Ð’Ð—ÐžÐ Ð’ÐÐ¢Ð¬ Ð¦Ð•Ð›Ð«Ð™ ÐœÐ˜Ð !!!
+:tabi-worried:Ð’Ð¡Ð Ð”Ð›Ð¯ Ð¢ÐžÐ“Ðž Ð§Ð¢ÐžÐ‘Ð« Ð­Ð¢Ð ÐœÐÐ›Ð•ÐÐ¬ÐšÐÐ¯ Ð”Ð Ð¯ÐÐ¬ Ð˜ Ð•Ð ÐŸÐÐŸÐÐ¨Ð Ð¡Ð¢Ð ÐÐ”ÐÐ›Ð˜!
+:chromeoffset:4
+:tabi-worried:Ð¡Ð”ÐžÐ¥ÐÐ˜Ð¢Ð•!!!
+:musicstop:
+---SECTION END---
+
+---SECTION START---
+:class:Cutscene2,
+:disableTypeSound:
+:switchSound:bfText
+:bghide:
+:class-use:Cutscene2
+:fadeOut:0.5
+:musicloop:bgms/2
+:soundoverwrite:voices/tabi3/1
+:tabi:Ð¥Ð°Ñ…â€¦ Ð¶Ð¸Ð²Ñ‹Ðµ? â€¦ Ð½Ðµ Ñ‚Ð°Ðº-Ð»Ð¸?
+:soundoverwritestop:
+:sound:GF_1
+:gf-scared:*Ð²Ñ‹Ð³Ð»ÑÐ´Ð¸Ñ‚ Ð½Ð°Ð¿ÑƒÐ³Ð°Ð½Ð½Ð¾Ð¹*
+:sound:bfText
+:bf-exp:*Ð½Ð°Ð¿ÑƒÐ³Ð°Ð½Ð½Ñ‹Ðµ Ð±Ð¸Ð¿ Ð±Ð¾Ð¿Ñ‹*
+:soundoverwrite:voices/tabi3/2
+:tabi-mad:Ð¥Ð°Ñ…â€¦ Ð´ÑƒÐ¼Ð°Ð»Ð° Ñ Ñ‚ÑƒÐ¿Ð¾Ð¹? Ð¯ Ð·Ð½Ð°Ð», Ñ‡Ñ‚Ð¾ Ñ‚Ñ‹ Ð¿Ñ€Ð¸Ð²ÐµÐ´Ñ‘ÑˆÑŒ ÐºÐ¾Ð³Ð¾-Ñ‚Ð¾.. Ð¾Ñ…Ñ€Ð°Ð½Ñƒ Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€ Ð¸Ð»Ð¸ Ð³Ð¾Ð»Ð¾Ð²Ð¾Ñ€ÐµÐ·Ð¾Ð², Ð½Ð¾ Ð•Ð“Ðž?!
+:soundoverwritestop:
+:enableTypeSound:
+:bf-exp:Ð‘Ð¸Ð¿ Ð±Ð¾Ð¿ ÑÐºÐ±Ð¸Ð´
+:disableTypeSound:
+:soundoverwrite:voices/tabi3/3
+:tabi-worried:ÐœÐÐ• Ð’Ð¡Ð Ð ÐžÐ’ÐÐž! Ðš Ð§Ð•Ð Ð¢Ð£! Ð¯ Ð£Ð‘Ð¬Ð® Ð•Ð Ð›Ð®Ð‘ÐžÐ™ Ð¦Ð•ÐÐžÐ™! Ð”ÐÐ–Ð• Ð•Ð¡Ð›Ð˜ ÐœÐÐ• ÐÐ£Ð–ÐÐž Ð‘Ð£Ð”Ð•Ð¢ Ð’Ð—ÐžÐ Ð’ÐÐ¢Ð¬ Ð¦Ð•Ð›Ð«Ð™ ÐœÐ˜Ð !!!
+:soundoverwrite:voices/tabi3/4
+:tabi-worried:Ð’Ð¡Ð Ð”Ð›Ð¯ Ð¢ÐžÐ“Ðž Ð§Ð¢ÐžÐ‘Ð« Ð­Ð¢Ð ÐœÐÐ›Ð•ÐÐ¬ÐšÐÐ¯ Ð”Ð Ð¯ÐÐ¬ Ð˜ Ð•Ð ÐŸÐÐŸÐÐ¨Ð Ð¡Ð¢Ð ÐÐ”ÐÐ›Ð˜!
+:chromeoffset:4
+:soundoverwrite:voices/tabi3/5
+:tabi-worried:Ð¡Ð”ÐžÐ¥ÐÐ˜Ð¢Ð•!!!
+:soundoverwritestop:
+:musicstop:
+---SECTION END---

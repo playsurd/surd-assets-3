@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				270
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Tabi Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				135,
+				280
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Tabi Right tabi",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				135,
+				270
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "Tabi Right gf",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				270
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Tabi Down tabi",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				250
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "Tabi Down gf",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				300
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Tabi Up tabi",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				300
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "Tabi Up gf",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				300
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Tabi Left tabi",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				290
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "Tabi Left gf",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				125,
+				290
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Tabi Left miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				260
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Tabi Down miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				290
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Tabi Up miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				105,
+				280
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Tabi Right miss",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/love-week/tabi_and_gf",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "tabiandgf",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		155,
+		255
+	],
+	"camera_position": [
+		-330,
+		-190
+	],
+	"sing_duration": 4,
+	"scale": 1.3
+}

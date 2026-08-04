@@ -1,0 +1,29 @@
+{
+	"song": {
+		"speed": 2.8,
+		"stage": "curse",
+		"player1": "bf",
+		"player2": "tabinormal",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Set Cam Zoom",
+						"0.67",
+						"6"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-tabi",
+		"bpm": 190,
+		"arrowSkin": null,
+		"needsVoices": false,
+		"song": "Last Chance"
+	}
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tabidate.png">
+	<!-- Created with Adobe Animate version 23.0.1.70 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="MISS tabi down0000" x="3" y="3" width="407" height="678" frameX="-159" frameY="-4" frameWidth="566" frameHeight="682"/>
+	<SubTexture name="MISS tabi down0001" x="413" y="3" width="566" height="656" frameX="0" frameY="-26" frameWidth="566" frameHeight="682"/>
+	<SubTexture name="MISS tabi down0002" x="982" y="3" width="566" height="677" frameX="0" frameY="-5" frameWidth="566" frameHeight="682"/>
+	<SubTexture name="MISS tabi down0003" x="982" y="3" width="566" height="677" frameX="0" frameY="-5" frameWidth="566" frameHeight="682"/>
+	<SubTexture name="MISS tabi down0004" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0005" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0006" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0007" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0008" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0009" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0010" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0011" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0012" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi down0013" x="1551" y="3" width="566" height="682"/>
+	<SubTexture name="MISS tabi left0000" x="2120" y="3" width="410" height="697"/>
+	<SubTexture name="MISS tabi left0001" x="2533" y="3" width="410" height="697"/>
+	<SubTexture name="MISS tabi left0002" x="2946" y="3" width="410" height="697"/>
+	<SubTexture name="MISS tabi left0003" x="2946" y="3" width="410" height="697"/>
+	<SubTexture name="MISS tabi left0004" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0005" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0006" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0007" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0008" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0009" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0010" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0011" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0012" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi left0013" x="3359" y="3" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="MISS tabi right0000" x="3" y="703" width="407" height="690" frameX="-155" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0001" x="413" y="703" width="562" height="690" frameX="0" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0002" x="978" y="703" width="560" height="690" frameX="-2" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0003" x="978" y="703" width="560" height="690" frameX="-2" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0004" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0005" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0006" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0007" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0008" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0009" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0010" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0011" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0012" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi right0013" x="1541" y="703" width="560" height="691" frameX="-2" frameY="0" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="MISS tabi up0000" x="2104" y="703" width="469" height="741" frameX="0" frameY="-18" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0001" x="2576" y="703" width="469" height="759"/>
+	<SubTexture name="MISS tabi up0002" x="3048" y="703" width="469" height="738" frameX="0" frameY="-21" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0003" x="3048" y="703" width="469" height="738" frameX="0" frameY="-21" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0004" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0005" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0006" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0007" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0008" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0009" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0010" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0011" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0012" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="MISS tabi up0013" x="3520" y="703" width="467" height="731" frameX="-2" frameY="-28" frameWidth="469" frameHeight="759"/>
+	<SubTexture name="tabi down0000" x="3" y="1465" width="407" height="678" frameX="0" frameY="-4" frameWidth="407" frameHeight="682"/>
+	<SubTexture name="tabi down0001" x="3" y="1465" width="407" height="678" frameX="0" frameY="-4" frameWidth="407" frameHeight="682"/>
+	<SubTexture name="tabi down0002" x="413" y="1465" width="407" height="677" frameX="0" frameY="-5" frameWidth="407" frameHeight="682"/>
+	<SubTexture name="tabi down0003" x="413" y="1465" width="407" height="677" frameX="0" frameY="-5" frameWidth="407" frameHeight="682"/>
+	<SubTexture name="tabi down0004" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0005" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0006" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0007" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0008" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0009" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0010" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0011" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0012" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi down0013" x="823" y="1465" width="407" height="682"/>
+	<SubTexture name="tabi idle0000" x="1233" y="1465" width="407" height="688" frameX="0" frameY="-6" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0001" x="1233" y="1465" width="407" height="688" frameX="0" frameY="-6" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0002" x="1643" y="1465" width="407" height="689" frameX="0" frameY="-5" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0003" x="1643" y="1465" width="407" height="689" frameX="0" frameY="-5" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0004" x="2053" y="1465" width="407" height="689" frameX="0" frameY="-5" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0005" x="2053" y="1465" width="407" height="689" frameX="0" frameY="-5" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0006" x="2463" y="1465" width="407" height="688" frameX="0" frameY="-6" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0007" x="2463" y="1465" width="407" height="688" frameX="0" frameY="-6" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0008" x="2873" y="1465" width="407" height="694"/>
+	<SubTexture name="tabi idle0009" x="2873" y="1465" width="407" height="694"/>
+	<SubTexture name="tabi idle0010" x="3283" y="1465" width="407" height="693" frameX="0" frameY="-1" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0011" x="3283" y="1465" width="407" height="693" frameX="0" frameY="-1" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0012" x="3" y="2162" width="407" height="691" frameX="0" frameY="-3" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi idle0013" x="3" y="2162" width="407" height="691" frameX="0" frameY="-3" frameWidth="407" frameHeight="694"/>
+	<SubTexture name="tabi left0000" x="2120" y="3" width="410" height="697"/>
+	<SubTexture name="tabi left0001" x="2120" y="3" width="410" height="697"/>
+	<SubTexture name="tabi left0002" x="413" y="2162" width="410" height="697"/>
+	<SubTexture name="tabi left0003" x="413" y="2162" width="410" height="697"/>
+	<SubTexture name="tabi left0004" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0005" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0006" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0007" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0008" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0009" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0010" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0011" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0012" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi left0013" x="826" y="2162" width="410" height="693" frameX="0" frameY="-4" frameWidth="410" frameHeight="697"/>
+	<SubTexture name="tabi right0000" x="3" y="703" width="407" height="690" frameX="0" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="tabi right0001" x="3" y="703" width="407" height="690" frameX="0" frameY="-1" frameWidth="562" frameHeight="691"/>
+	<SubTexture name="tabi right0002" x="1239" y="2162" width="407" height="690" frameX="0" frameY="-1" frameWidth="407" frameHeight="691"/>
+	<SubTexture name="tabi right0003" x="1239" y="2162" width="407" height="690" frameX="0" frameY="-1" frameWidth="407" frameHeight="691"/>
+	<SubTexture name="tabi right0004" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0005" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0006" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0007" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0008" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0009" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0010" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0011" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0012" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi right0013" x="1649" y="2162" width="407" height="691"/>
+	<SubTexture name="tabi up0000" x="2059" y="2162" width="469" height="741"/>
+	<SubTexture name="tabi up0001" x="2059" y="2162" width="469" height="741"/>
+	<SubTexture name="tabi up0002" x="2531" y="2162" width="469" height="738" frameX="0" frameY="-3" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0003" x="2531" y="2162" width="469" height="738" frameX="0" frameY="-3" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0004" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0005" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0006" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0007" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0008" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0009" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0010" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0011" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0012" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+	<SubTexture name="tabi up0013" x="3003" y="2162" width="467" height="731" frameX="-2" frameY="-10" frameWidth="469" frameHeight="741"/>
+</TextureAtlas>

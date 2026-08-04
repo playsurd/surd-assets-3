@@ -1,0 +1,155 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				35,
+				250
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle instance"
+		},
+		{
+			"offsets": [
+				35,
+				240
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left instance"
+		},
+		{
+			"offsets": [
+				45,
+				160
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down instance"
+		},
+		{
+			"offsets": [
+				35,
+				260
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up instance"
+		},
+		{
+			"offsets": [
+				5,
+				228
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right instance"
+		},
+		{
+			"offsets": [
+				35,
+				240
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "left MISS instance"
+		},
+		{
+			"offsets": [
+				45,
+				160
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "down MISS instance"
+		},
+		{
+			"offsets": [
+				205,
+				260
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "up MISS instance"
+		},
+		{
+			"offsets": [
+				145,
+				208
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "right MISS instance"
+		},
+		{
+			"offsets": [
+				75,
+				260
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "death animation"
+		},
+		{
+			"offsets": [
+				54,
+				246
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "relpay beat instance"
+		},
+		{
+			"offsets": [
+				128,
+				362
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "replay accept instance"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/humantabi",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "tabihuman",
+	"flip_x": true,
+	"healthbar_colors": [
+		236,
+		192,
+		145
+	],
+	"camera_position": [
+		-240,
+		-250
+	],
+	"sing_duration": 4,
+	"scale": 1.2
+}

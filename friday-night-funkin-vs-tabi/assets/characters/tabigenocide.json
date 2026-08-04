@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				310,
+				560
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "IdleGenocide"
+		},
+		{
+			"offsets": [
+				440,
+				580
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "LeftGenocide"
+		},
+		{
+			"offsets": [
+				320,
+				410
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "DownGenocide"
+		},
+		{
+			"offsets": [
+				330,
+				630
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "UpGenocide"
+		},
+		{
+			"offsets": [
+				350,
+				550
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "RightGenocide"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tabi_genocide",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "tabi",
+	"flip_x": false,
+	"healthbar_colors": [
+		93,
+		106,
+		133
+	],
+	"camera_position": [
+		0,
+		-400
+	],
+	"sing_duration": 4,
+	"scale": 0.8
+}

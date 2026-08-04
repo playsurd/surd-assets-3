@@ -1,0 +1,67 @@
+{
+	"songs": [
+		[
+			"My Problem",
+			"tabi",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"My Battle",
+			"tabi",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Last Chance",
+			"tabi",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Genocide",
+			"tabi-crazy",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Skull and Strips",
+			"agoti",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "tabi",
+	"difficulties": "Normal",
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"storyName": "curse",
+	"weekName": "die bitch",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
