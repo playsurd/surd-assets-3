@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+-->
+<TextureAtlas imagePath="paradies_bgcast.png" width="1206" height="2332">
+  <SubTexture name="entire friends0002.png" x="3" y="3"  width="1200" height="288" frameX="-8" frameY="-9" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0004.png" x="3" y="297"  width="1199" height="293" frameX="-9" frameY="-4" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0006.png" x="3" y="596"  width="1199" height="293" frameX="-9" frameY="-4" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0008.png" x="3" y="895"  width="1198" height="293" frameX="-10" frameY="-4" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0009.png" x="3" y="1194"  width="1198" height="292" frameX="-10" frameY="-5" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0012.png" x="3" y="1492"  width="1198" height="277" frameX="-10" frameY="-20" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0014.png" x="3" y="1775"  width="1198" height="275" frameX="-10" frameY="-22" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0000.png" x="3" y="2056"  width="1198" height="273" frameX="-10" frameY="-24" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0001.png" x="3" y="2056"  width="1198" height="273" frameX="-10" frameY="-24" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0003.png" x="3" y="3"  width="1200" height="288" frameX="-8" frameY="-9" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0005.png" x="3" y="297"  width="1199" height="293" frameX="-9" frameY="-4" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0007.png" x="3" y="596"  width="1199" height="293" frameX="-9" frameY="-4" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0010.png" x="3" y="1194"  width="1198" height="292" frameX="-10" frameY="-5" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0011.png" x="3" y="1194"  width="1198" height="292" frameX="-10" frameY="-5" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0013.png" x="3" y="1492"  width="1198" height="277" frameX="-10" frameY="-20" frameWidth="1208" frameHeight="301"/>
+  <SubTexture name="entire friends0015.png" x="3" y="1775"  width="1198" height="275" frameX="-10" frameY="-22" frameWidth="1208" frameHeight="301"/>
+</TextureAtlas>

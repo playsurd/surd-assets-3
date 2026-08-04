@@ -1,0 +1,36 @@
+{
+    "animations": [
+        {
+            "loop": false,
+            "offsets": [
+                -159,
+                -236
+            ],
+            "anim": "yellow",
+            "fps": 24,
+            "name": "code yellow",
+            "indices": []
+        }
+    ],
+    "vocals_file": "",
+    "no_antialiasing": false,
+    "image": "characters/MCM/Propaganda/Reagan/2",
+    "position": [
+        300,
+        100
+    ],
+    "healthicon": "reagan",
+    "flip_x": false,
+    "healthbar_colors": [
+        181,
+        192,
+        113
+    ],
+    "camera_position": [
+        240,
+        0
+    ],
+    "sing_duration": 6.1,
+    "scale": 2.0,
+    "_editor_isPlayer": false
+}

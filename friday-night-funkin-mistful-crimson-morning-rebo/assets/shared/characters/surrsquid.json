@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-157,
+				43
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "surrsquid idle instance 1"
+		},
+		{
+			"offsets": [
+				252,
+				52
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "surrsquid left instance 1"
+		},
+		{
+			"offsets": [
+				-5,
+				1
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "surrsquid down instance 1"
+		},
+		{
+			"offsets": [
+				-136,
+				159
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singUP",
+			"indices": [],
+			"name": "surrsquid up instance 1"
+		},
+		{
+			"offsets": [
+				-85,
+				86
+			],
+			"loop": false,
+			"fps": 30,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "surrsquid right instance 1"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/MCM/Surrogate/surrogate_squidward",
+	"position": [
+		100,
+		254
+	],
+	"healthicon": "surrsquid",
+	"flip_x": true,
+	"healthbar_colors": [
+		62,
+		174,
+		176
+	],
+	"camera_position": [
+		550,
+		-500
+	],
+	"sing_duration": 6.1,
+	"scale": 2.2,
+	"_editor_isPlayer": true
+}

@@ -1,0 +1,262 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				420,
+				473
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle instance"
+		},
+		{
+			"offsets": [
+				196,
+				30
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
+		},
+		{
+			"offsets": [
+				-72,
+				-12
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				100,
+				116
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				-114,
+				42
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				106,
+				116
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "singUP-loop",
+			"indices": [
+				5,
+				6,
+				7
+			],
+			"name": "UpEffect instance 1"
+		},
+		{
+			"offsets": [
+				176,
+				30
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "singLEFT-loop",
+			"indices": [
+				4,
+				5,
+				6
+			],
+			"name": "LeftEffect instance 1"
+		},
+		{
+			"offsets": [
+				-113,
+				42
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "singRIGHT-loop",
+			"indices": [
+				5,
+				6,
+				7
+			],
+			"name": "RightEffect instance 1"
+		},
+		{
+			"offsets": [
+				-72,
+				-14
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "singDOWN-loop",
+			"indices": [],
+			"name": "downeffect instance 1"
+		},
+		{
+			"offsets": [
+				100,
+				116
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singUP-release",
+			"indices": [
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			],
+			"name": "UpEffect instance 1"
+		},
+		{
+			"offsets": [
+				196,
+				30
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singLEFT-release",
+			"indices": [
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			],
+			"name": "LeftEffect instance 1"
+		},
+		{
+			"offsets": [
+				-114,
+				42
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singRIGHT-release",
+			"indices": [
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			],
+			"name": "RightEffect instance 1"
+		},
+		{
+			"offsets": [
+				-72,
+				-12
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singDOWN-release",
+			"indices": [
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			],
+			"name": "downeffect instance 1"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/MCM/Surrogate/Impostward2",
+	"position": [
+		1050,
+		480
+	],
+	"healthicon": "SquidClone2",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		141,
+		135
+	],
+	"camera_position": [
+		-800,
+		-850
+	],
+	"sing_duration": 6.1,
+	"scale": 2.2,
+	"_editor_isPlayer": false
+}

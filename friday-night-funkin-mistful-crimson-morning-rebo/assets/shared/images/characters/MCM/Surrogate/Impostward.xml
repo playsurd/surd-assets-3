@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Impostward.png">
+  <SubTexture name="ImpostDown0000" x="826" y="0" width="154" height="361" frameX="-48" frameY="-88" frameWidth="228" frameHeight="510"/>
+  <SubTexture name="ImpostDown0001" x="826" y="0" width="154" height="361" frameX="-48" frameY="-88" frameWidth="228" frameHeight="510"/>
+  <SubTexture name="ImpostDown0002" x="285" y="0" width="152" height="373" frameX="-50" frameY="-76" frameWidth="228" frameHeight="510"/>
+  <SubTexture name="ImpostDown0003" x="285" y="0" width="152" height="373" frameX="-50" frameY="-76" frameWidth="228" frameHeight="510"/>
+  <SubTexture name="ImpostIdle0000" x="660" y="355" width="166" height="422" frameX="-1" frameY="0" frameWidth="167" frameHeight="424"/>
+  <SubTexture name="ImpostLeft0000" x="0" y="0" width="285" height="397" frameX="-65" frameY="-78" frameWidth="381" frameHeight="499"/>
+  <SubTexture name="ImpostLeft0001" x="0" y="0" width="285" height="397" frameX="-65" frameY="-78" frameWidth="381" frameHeight="499"/>
+  <SubTexture name="ImpostLeft0002" x="0" y="397" width="284" height="392" frameX="-66" frameY="-83" frameWidth="381" frameHeight="499"/>
+  <SubTexture name="ImpostLeft0003" x="0" y="397" width="284" height="392" frameX="-66" frameY="-83" frameWidth="381" frameHeight="499"/>
+  <SubTexture name="ImpostRight0000" x="451" y="456" width="209" height="359" frameX="-59" frameY="-90" frameWidth="268" frameHeight="495"/>
+  <SubTexture name="ImpostRight0001" x="451" y="456" width="209" height="359" frameX="-59" frameY="-90" frameWidth="268" frameHeight="495"/>
+  <SubTexture name="ImpostRight0002" x="616" y="0" width="205" height="355" frameX="-59" frameY="-94" frameWidth="268" frameHeight="495"/>
+  <SubTexture name="ImpostRight0003" x="616" y="0" width="205" height="355" frameX="-59" frameY="-94" frameWidth="268" frameHeight="495"/>
+  <SubTexture name="ImpostUp0000" x="284" y="397" width="167" height="462" frameX="-20" frameY="-2" frameWidth="201" frameHeight="482"/>
+  <SubTexture name="ImpostUp0001" x="284" y="397" width="167" height="462" frameX="-20" frameY="-2" frameWidth="201" frameHeight="482"/>
+  <SubTexture name="ImpostUp0002" x="451" y="0" width="165" height="456" frameX="-22" frameY="-8" frameWidth="201" frameHeight="482"/>
+  <SubTexture name="ImpostUp0003" x="451" y="0" width="165" height="456" frameX="-22" frameY="-8" frameWidth="201" frameHeight="482"/>
+</TextureAtlas>

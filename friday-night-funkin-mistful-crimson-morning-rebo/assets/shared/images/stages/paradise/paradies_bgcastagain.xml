@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="paradies_bgcastagain.png">
+  <SubTexture name="crowdthree0000" x="0" y="0" width="548" height="551" frameX="-14" frameY="-21" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0001" x="0" y="0" width="548" height="551" frameX="-14" frameY="-21" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0002" x="0" y="551" width="550" height="548" frameX="-15" frameY="-24" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0003" x="0" y="551" width="550" height="548" frameX="-15" frameY="-24" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0004" x="548" y="0" width="547" height="551" frameX="-17" frameY="-21" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0005" x="548" y="0" width="547" height="551" frameX="-17" frameY="-21" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0006" x="0" y="1099" width="542" height="555" frameX="-19" frameY="-17" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0007" x="0" y="1099" width="542" height="555" frameX="-19" frameY="-17" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0008" x="0" y="1099" width="542" height="555" frameX="-19" frameY="-17" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0009" x="542" y="1099" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0010" x="542" y="1099" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0011" x="542" y="1099" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0012" x="1082" y="551" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0013" x="1082" y="551" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0014" x="1082" y="1105" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdthree0015" x="1082" y="1105" width="540" height="554" frameX="-19" frameY="-18" frameWidth="580" frameHeight="576"/>
+  <SubTexture name="crowdtwo0000" x="542" y="1653" width="511" height="345" frameX="-4" frameY="-43" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0001" x="542" y="1653" width="511" height="345" frameX="-4" frameY="-43" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0002" x="1561" y="1659" width="510" height="344" frameX="-4" frameY="-44" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0003" x="1561" y="1659" width="510" height="344" frameX="-4" frameY="-44" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0004" x="1053" y="1659" width="508" height="346" frameX="-4" frameY="-43" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0005" x="1053" y="1659" width="508" height="346" frameX="-4" frameY="-43" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0006" x="0" y="1654" width="506" height="348" frameX="-6" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0007" x="0" y="1654" width="506" height="348" frameX="-6" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0008" x="550" y="551" width="506" height="348" frameX="-6" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0009" x="1095" y="0" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0010" x="1597" y="0" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0011" x="1597" y="0" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0012" x="1622" y="348" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0013" x="1622" y="348" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0014" x="1622" y="696" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+  <SubTexture name="crowdtwo0015" x="1622" y="696" width="502" height="348" frameX="-8" frameY="-40" frameWidth="515" frameHeight="390"/>
+</TextureAtlas>

@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-67,
+				48
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "ImpostIdle"
+		},
+		{
+			"offsets": [
+				137,
+				84
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "ImpostLeft"
+		},
+		{
+			"offsets": [
+				-27,
+				84
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "ImpostDown"
+		},
+		{
+			"offsets": [
+				-43,
+				102
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "ImpostUp"
+		},
+		{
+			"offsets": [
+				-25,
+				84
+			],
+			"loop": false,
+			"fps": 40,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "ImpostRight"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/MCM/Surrogate/Impostward",
+	"position": [
+		100,
+		170
+	],
+	"healthicon": "SquidClone",
+	"flip_x": false,
+	"healthbar_colors": [
+		47,
+		94,
+		92
+	],
+	"camera_position": [
+		440,
+		-30
+	],
+	"sing_duration": 6.1,
+	"scale": 1.11,
+	"_editor_isPlayer": false
+}

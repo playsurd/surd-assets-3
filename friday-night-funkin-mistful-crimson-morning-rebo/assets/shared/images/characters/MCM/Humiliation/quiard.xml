@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="quiard.png">
+  <SubTexture name="ough0000" x="454" y="352" width="427" height="352" frameX="-179" frameY="-380" frameWidth="672" frameHeight="840"/>
+  <SubTexture name="ough0001" x="0" y="0" width="465" height="352" frameX="-179" frameY="-380" frameWidth="672" frameHeight="840"/>
+  <SubTexture name="ough0002" x="465" y="0" width="462" height="352" frameX="-179" frameY="-380" frameWidth="672" frameHeight="840"/>
+  <SubTexture name="ough0003" x="0" y="352" width="454" height="355" frameX="-179" frameY="-380" frameWidth="672" frameHeight="840"/>
+  <SubTexture name="ough0004" x="454" y="704" width="287" height="352" frameX="-179" frameY="-380" frameWidth="672" frameHeight="840"/>
+</TextureAtlas>

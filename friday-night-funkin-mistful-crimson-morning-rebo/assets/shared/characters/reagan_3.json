@@ -1,0 +1,36 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-519,
+				-238
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "holdhim",
+			"indices": [],
+			"name": "hold him"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/MCM/Propaganda/Reagan/3",
+	"position": [
+		-30,
+		100
+	],
+	"healthicon": "reagan",
+	"flip_x": false,
+	"healthbar_colors": [
+		181,
+		192,
+		93
+	],
+	"camera_position": [
+		470,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 2,
+	"_editor_isPlayer": false
+}

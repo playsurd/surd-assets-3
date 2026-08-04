@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "ScaredSquidIdle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-810,
+				65
+			],
+			"anim": "singLEFT",
+			"fps": 30,
+			"name": "ScaredSquidLeft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1086,
+				-415
+			],
+			"anim": "singDOWN",
+			"fps": 30,
+			"name": "ScaredSquidDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-970,
+				92
+			],
+			"anim": "singUP",
+			"fps": 30,
+			"name": "ScaredSquidUp",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1081,
+				-168
+			],
+			"anim": "singRIGHT",
+			"fps": 30,
+			"name": "ScaredSquidright",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/MCM/Surrogate/scaredsquid",
+	"position": [
+		-770,
+		240
+	],
+	"healthicon": "surrsquid-scared",
+	"flip_x": true,
+	"healthbar_colors": [
+		105,
+		255,
+		197
+	],
+	"camera_position": [
+		-610,
+		-90
+	],
+	"sing_duration": 6.1,
+	"scale": 2.42,
+	"_editor_isPlayer": true
+}

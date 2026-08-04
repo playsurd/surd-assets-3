@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"propaganda",
+			"reagan",
+			[
+				181,
+				192,
+				113
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "HARD",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "",
+	"weekName": "",
+	"freeplayColor": [
+		89,
+		168,
+		158
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

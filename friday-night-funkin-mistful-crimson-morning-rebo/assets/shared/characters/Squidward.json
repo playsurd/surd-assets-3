@@ -1,0 +1,124 @@
+{
+    "animations": [
+        {
+            "offsets": [
+                -184,
+                -418
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "idle",
+            "indices": [],
+            "name": "Idle"
+        },
+        {
+            "offsets": [
+                -156,
+                -410
+            ],
+            "loop": false,
+            "fps": 20,
+            "anim": "singLEFT",
+            "indices": [],
+            "name": "Left"
+        },
+        {
+            "offsets": [
+                -197,
+                -463
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singDOWN",
+            "indices": [],
+            "name": "Down"
+        },
+        {
+            "offsets": [
+                -180,
+                -359
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singUP",
+            "indices": [],
+            "name": "Up"
+        },
+        {
+            "offsets": [
+                -197,
+                -406
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singRIGHT",
+            "indices": [],
+            "name": "Right"
+        },
+        {
+            "offsets": [
+                -194,
+                -400
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singLEFT-alt",
+            "indices": [],
+            "name": "Clarinet Left"
+        },
+        {
+            "offsets": [
+                -177,
+                -410
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singDOWN-alt",
+            "indices": [],
+            "name": "Clarinet Down"
+        },
+        {
+            "offsets": [
+                -175,
+                -350
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singUP-alt",
+            "indices": [],
+            "name": "Clarinet Up"
+        },
+        {
+            "offsets": [
+                -215,
+                -391
+            ],
+            "loop": false,
+            "fps": 24,
+            "anim": "singRIGHT-alt",
+            "indices": [],
+            "name": "Clarinet Right"
+        }
+    ],
+    "vocals_file": "",
+    "no_antialiasing": false,
+    "image": "characters/MCM/Humiliation/squidward_final",
+    "position": [
+        0,
+        -180
+    ],
+    "healthicon": "Squidward",
+    "flip_x": false,
+    "healthbar_colors": [
+        89,
+        168,
+        158
+    ],
+    "camera_position": [
+        200,
+        450
+    ],
+    "sing_duration": 6.1,
+    "scale": 0.68,
+    "_editor_isPlayer": false
+}

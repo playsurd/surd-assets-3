@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="buttercup.png">
+  <SubTexture name="BGButtercup0000" x="874" y="465" width="234" height="259" frameX="-13" frameY="-15" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0001" x="874" y="465" width="234" height="259" frameX="-13" frameY="-15" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0002" x="696" y="963" width="233" height="261" frameX="-13" frameY="-13" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0003" x="696" y="963" width="233" height="261" frameX="-13" frameY="-13" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0004" x="0" y="940" width="231" height="267" frameX="-14" frameY="-7" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0005" x="0" y="940" width="231" height="267" frameX="-14" frameY="-7" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0006" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0007" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0008" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0009" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0010" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0011" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0012" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="BGButtercup0013" x="231" y="940" width="229" height="269" frameX="-16" frameY="-5" frameWidth="247" frameHeight="274"/>
+  <SubTexture name="evil igor idle0000" x="460" y="963" width="236" height="259" frameX="-219" frameY="-268" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0001" x="905" y="0" width="242" height="250" frameX="-217" frameY="-274" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0002" x="905" y="0" width="242" height="250" frameX="-217" frameY="-274" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0003" x="929" y="979" width="230" height="260" frameX="-221" frameY="-270" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0004" x="929" y="979" width="230" height="260" frameX="-221" frameY="-270" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0005" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0006" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0007" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0008" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0009" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0010" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0011" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0012" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0013" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0014" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0015" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0016" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0017" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0018" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0019" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0020" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0021" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0022" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0023" x="929" y="724" width="235" height="255" frameX="-219" frameY="-273" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0024" x="0" y="0" width="451" height="481" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0025" x="0" y="0" width="451" height="481" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0026" x="466" y="465" width="408" height="498" frameX="-58" frameY="-3" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0027" x="466" y="465" width="408" height="498" frameX="-58" frameY="-3" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0028" x="451" y="0" width="454" height="465" frameX="-12" frameY="-43" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0029" x="451" y="0" width="454" height="465" frameX="-12" frameY="-43" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0030" x="0" y="481" width="466" height="459" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0031" x="0" y="481" width="466" height="459" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0032" x="466" y="465" width="408" height="498" frameX="-58" frameY="-3" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0033" x="466" y="465" width="408" height="498" frameX="-58" frameY="-3" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0034" x="451" y="0" width="454" height="465" frameX="-12" frameY="-43" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0035" x="451" y="0" width="454" height="465" frameX="-12" frameY="-43" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0036" x="0" y="481" width="466" height="459" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+  <SubTexture name="evil igor idle0037" x="0" y="481" width="466" height="459" frameX="0" frameY="-49" frameWidth="466" frameHeight="530"/>
+</TextureAtlas>

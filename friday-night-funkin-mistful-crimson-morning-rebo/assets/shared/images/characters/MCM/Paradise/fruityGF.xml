@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="fruityGF.png">
+  <SubTexture name="FruityGF0000" x="374" y="405" width="374" height="406" frameX="-10" frameY="-10" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0001" x="374" y="405" width="374" height="406" frameX="-10" frameY="-10" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0002" x="0" y="0" width="376" height="405" frameX="-7" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0003" x="0" y="0" width="376" height="405" frameX="-7" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0004" x="374" y="1218" width="377" height="400" frameX="-5" frameY="-16" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0005" x="374" y="1218" width="377" height="400" frameX="-5" frameY="-16" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0006" x="748" y="405" width="376" height="399" frameX="-4" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0007" x="748" y="405" width="376" height="399" frameX="-4" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0008" x="1120" y="804" width="375" height="400" frameX="-6" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0009" x="1120" y="804" width="375" height="400" frameX="-6" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0010" x="1124" y="400" width="372" height="401" frameX="-10" frameY="-15" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0011" x="1124" y="400" width="372" height="401" frameX="-10" frameY="-15" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0012" x="0" y="1217" width="374" height="404" frameX="-10" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0013" x="0" y="1217" width="374" height="404" frameX="-10" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0014" x="0" y="405" width="374" height="407" frameX="-11" frameY="-10" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0015" x="0" y="405" width="374" height="407" frameX="-11" frameY="-10" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0016" x="376" y="0" width="374" height="405" frameX="-11" frameY="-11" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0017" x="376" y="0" width="374" height="405" frameX="-11" frameY="-11" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0018" x="0" y="812" width="375" height="405" frameX="-11" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0019" x="0" y="812" width="375" height="405" frameX="-11" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0020" x="751" y="1215" width="374" height="402" frameX="-12" frameY="-15" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0021" x="751" y="1215" width="374" height="402" frameX="-12" frameY="-15" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0022" x="1123" y="0" width="373" height="400" frameX="-12" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0023" x="1123" y="0" width="373" height="400" frameX="-12" frameY="-17" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0024" x="1125" y="1204" width="374" height="401" frameX="-12" frameY="-16" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0025" x="1125" y="1204" width="374" height="401" frameX="-12" frameY="-16" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0026" x="750" y="0" width="373" height="402" frameX="-13" frameY="-14" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0027" x="750" y="0" width="373" height="402" frameX="-13" frameY="-14" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0028" x="747" y="811" width="373" height="404" frameX="-13" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0029" x="747" y="811" width="373" height="404" frameX="-13" frameY="-12" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0030" x="375" y="811" width="372" height="407" frameX="-13" frameY="-9" frameWidth="399" frameHeight="429"/>
+  <SubTexture name="FruityGF0031" x="375" y="811" width="372" height="407" frameX="-13" frameY="-9" frameWidth="399" frameHeight="429"/>
+</TextureAtlas>

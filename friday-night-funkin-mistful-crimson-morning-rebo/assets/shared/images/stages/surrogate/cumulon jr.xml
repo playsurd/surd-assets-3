@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cumulon jr.png">
+  <SubTexture name="cumulon jr idle0000" x="272" y="0" width="269" height="275" frameX="-46" frameY="-38" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0001" x="272" y="0" width="269" height="275" frameX="-46" frameY="-38" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0002" x="272" y="275" width="269" height="275" frameX="-46" frameY="-38" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0003" x="528" y="550" width="267" height="275" frameX="-46" frameY="-39" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0004" x="528" y="825" width="267" height="275" frameX="-46" frameY="-39" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0005" x="541" y="0" width="267" height="275" frameX="-46" frameY="-39" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0006" x="1058" y="279" width="263" height="276" frameX="-50" frameY="-37" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0007" x="1058" y="279" width="263" height="276" frameX="-50" frameY="-37" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0008" x="795" y="554" width="263" height="276" frameX="-50" frameY="-37" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0009" x="0" y="566" width="264" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0010" x="0" y="849" width="264" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0011" x="264" y="566" width="264" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0012" x="0" y="0" width="272" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0013" x="0" y="283" width="272" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0014" x="0" y="283" width="272" height="283" frameX="-49" frameY="-30" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0015" x="264" y="849" width="264" height="282" frameX="-48" frameY="-29" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0016" x="264" y="849" width="264" height="282" frameX="-48" frameY="-29" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0017" x="264" y="849" width="264" height="282" frameX="-48" frameY="-29" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0018" x="795" y="275" width="263" height="279" frameX="-47" frameY="-31" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0019" x="1058" y="0" width="263" height="279" frameX="-47" frameY="-31" frameWidth="321" frameHeight="315"/>
+  <SubTexture name="cumulon jr idle0020" x="1058" y="0" width="263" height="279" frameX="-47" frameY="-31" frameWidth="321" frameHeight="315"/>
+</TextureAtlas>

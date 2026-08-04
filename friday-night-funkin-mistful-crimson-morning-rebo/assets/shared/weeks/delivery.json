@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"delivery",
+			"delivery",
+			[
+				255,
+				189,
+				37
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "HARD",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "",
+	"weekName": "",
+	"freeplayColor": [
+		89,
+		168,
+		158
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

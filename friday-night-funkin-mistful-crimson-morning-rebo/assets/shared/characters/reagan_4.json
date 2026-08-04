@@ -1,0 +1,80 @@
+{
+    "animations": [
+        {
+            "loop": false,
+            "offsets": [
+                -146,
+                -331
+            ],
+            "anim": "idle",
+            "fps": 24,
+            "name": "idle0",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -135,
+                -331
+            ],
+            "anim": "singLEFT",
+            "fps": 24,
+            "name": "left0",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -145,
+                -344
+            ],
+            "anim": "singDOWN",
+            "fps": 24,
+            "name": "down0",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -153,
+                -298
+            ],
+            "anim": "singUP",
+            "fps": 24,
+            "name": "up0",
+            "indices": []
+        },
+        {
+            "loop": false,
+            "offsets": [
+                -151,
+                -328
+            ],
+            "anim": "singRIGHT",
+            "fps": 24,
+            "name": "right0",
+            "indices": []
+        }
+    ],
+    "vocals_file": "",
+    "no_antialiasing": false,
+    "image": "characters/MCM/Propaganda/Reagan/4",
+    "position": [
+        300,
+        100
+    ],
+    "healthicon": "reagan",
+    "flip_x": false,
+    "healthbar_colors": [
+        181,
+        192,
+        113
+    ],
+    "camera_position": [
+        240,
+        50
+    ],
+    "sing_duration": 6.1,
+    "scale": 2.0,
+    "_editor_isPlayer": false
+}

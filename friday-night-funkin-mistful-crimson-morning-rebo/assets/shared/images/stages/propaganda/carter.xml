@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="carter.png">
+  <SubTexture name="carterIdle0000" x="571" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0001" x="571" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0002" x="683" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0003" x="683" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0004" x="684" y="664" width="111" height="331" frameX="0" frameY="0" frameWidth="111" frameHeight="331"/>
+  <SubTexture name="carterIdle0005" x="684" y="664" width="111" height="331" frameX="0" frameY="0" frameWidth="111" frameHeight="331"/>
+  <SubTexture name="carterIdle0006" x="795" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0007" x="795" y="0" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0008" x="684" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0009" x="684" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0010" x="796" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0011" x="796" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0012" x="796" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="carterIdle0013" x="796" y="332" width="112" height="332" frameX="0" frameY="0" frameWidth="112" frameHeight="332"/>
+  <SubTexture name="kartor preaches idle0000" x="0" y="0" width="115" height="338" frameX="-29" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0001" x="0" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0002" x="0" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0003" x="114" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0004" x="114" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0005" x="115" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0006" x="115" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0007" x="228" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0008" x="228" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0009" x="229" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0010" x="229" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0011" x="342" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0012" x="342" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0013" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0014" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0015" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0016" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0017" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0018" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0019" x="456" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0020" x="456" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0021" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0022" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0023" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0024" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0025" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0026" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0027" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0028" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0029" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0030" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0031" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0032" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0033" x="457" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0034" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0035" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0036" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0037" x="570" y="338" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0038" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+  <SubTexture name="kartor preaches idle0039" x="343" y="0" width="114" height="338" frameX="-30" frameY="-3" frameWidth="190" frameHeight="353"/>
+</TextureAtlas>

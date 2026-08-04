@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="jellyride.png">
+  <SubTexture name="Cymbal0000" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0001" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0002" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0003" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0004" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0005" x="589" y="0" width="199" height="316" frameX="-41" frameY="-88" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0006" x="589" y="0" width="199" height="316" frameX="-41" frameY="-88" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0007" x="798" y="614" width="210" height="276" frameX="-60" frameY="-128" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0008" x="816" y="298" width="210" height="276" frameX="-60" frameY="-128" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0009" x="985" y="0" width="210" height="276" frameX="-60" frameY="-128" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0010" x="601" y="658" width="197" height="298" frameX="-56" frameY="-105" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0011" x="619" y="316" width="197" height="298" frameX="-56" frameY="-105" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0012" x="788" y="0" width="197" height="298" frameX="-56" frameY="-105" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0013" x="408" y="350" width="211" height="308" frameX="-36" frameY="-99" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0014" x="390" y="730" width="211" height="320" frameX="-36" frameY="-87" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0015" x="197" y="396" width="211" height="334" frameX="-36" frameY="-73" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0016" x="394" y="0" width="195" height="350" frameX="-48" frameY="-57" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0017" x="195" y="814" width="195" height="367" frameX="-48" frameY="-40" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0018" x="0" y="814" width="195" height="382" frameX="-48" frameY="-25" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0019" x="197" y="0" width="197" height="396" frameX="-47" frameY="-11" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0020" x="0" y="0" width="197" height="407" frameX="-47" frameY="0" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0021" x="0" y="407" width="197" height="407" frameX="-47" frameY="0" frameWidth="300" frameHeight="453"/>
+  <SubTexture name="Cymbal0022" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0023" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+  <SubTexture name="Cymbal0024" x="798" y="890" width="197" height="286" frameX="-47" frameY="-121" frameWidth="319" frameHeight="453"/>
+</TextureAtlas>

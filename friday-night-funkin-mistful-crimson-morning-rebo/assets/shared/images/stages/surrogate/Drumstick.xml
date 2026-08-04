@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Drumstick.png">
+  <SubTexture name="drumstick0000" x="403" y="645" width="181" height="212" frameX="-29" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0001" x="403" y="645" width="181" height="212" frameX="-29" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0002" x="613" y="624" width="193" height="206" frameX="-17" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0003" x="613" y="624" width="193" height="206" frameX="-17" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0004" x="613" y="212" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0005" x="613" y="212" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0006" x="420" y="0" width="210" height="212" frameX="0" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0007" x="420" y="0" width="210" height="212" frameX="0" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0008" x="806" y="639" width="193" height="206" frameX="-17" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0009" x="806" y="639" width="193" height="206" frameX="-17" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0010" x="823" y="227" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0011" x="823" y="227" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0012" x="630" y="0" width="210" height="212" frameX="0" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0013" x="210" y="660" width="181" height="212" frameX="-29" frameY="-15" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0014" x="840" y="0" width="193" height="227" frameX="-17" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0015" x="0" y="0" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0016" x="0" y="227" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0017" x="0" y="227" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0018" x="0" y="454" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0019" x="0" y="454" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0020" x="420" y="212" width="193" height="227" frameX="-17" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0021" x="420" y="212" width="193" height="227" frameX="-17" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0022" x="0" y="681" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0023" x="0" y="681" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0024" x="210" y="0" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0025" x="210" y="0" width="210" height="227" frameX="0" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0026" x="210" y="227" width="193" height="227" frameX="-17" frameY="0" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0027" x="210" y="454" width="193" height="206" frameX="-17" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0028" x="613" y="418" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0029" x="403" y="439" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0030" x="823" y="433" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+  <SubTexture name="drumstick0031" x="823" y="433" width="210" height="206" frameX="0" frameY="-21" frameWidth="210" frameHeight="227"/>
+</TextureAtlas>

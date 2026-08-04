@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Stain.png">
+  <SubTexture name="stain0000" x="902" y="278" width="213" height="278" frameX="-2" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0001" x="0" y="282" width="245" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0002" x="0" y="564" width="245" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0003" x="0" y="0" width="246" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0004" x="0" y="0" width="246" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0005" x="685" y="282" width="217" height="282" frameX="-3" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0006" x="685" y="842" width="214" height="282" frameX="-4" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0007" x="685" y="842" width="214" height="282" frameX="-4" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0008" x="245" y="564" width="220" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0009" x="686" y="0" width="216" height="282" frameX="-2" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0010" x="686" y="0" width="216" height="282" frameX="-2" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0011" x="686" y="0" width="216" height="282" frameX="-2" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0012" x="686" y="0" width="216" height="282" frameX="-2" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0013" x="467" y="282" width="218" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0014" x="467" y="282" width="218" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0015" x="467" y="282" width="218" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0016" x="468" y="0" width="218" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0017" x="465" y="564" width="220" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0018" x="245" y="282" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0019" x="245" y="282" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0020" x="245" y="282" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0021" x="246" y="0" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0022" x="246" y="0" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0023" x="246" y="0" width="222" height="282" frameX="0" frameY="0" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0024" x="0" y="846" width="224" height="278" frameX="0" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0025" x="0" y="846" width="224" height="278" frameX="0" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0026" x="899" y="842" width="214" height="278" frameX="-7" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0027" x="899" y="842" width="214" height="278" frameX="-7" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0028" x="902" y="0" width="214" height="278" frameX="-4" frameY="-4" frameWidth="247" frameHeight="282"/>
+  <SubTexture name="stain0029" x="685" y="564" width="219" height="278" frameX="-1" frameY="-4" frameWidth="247" frameHeight="282"/>
+</TextureAtlas>

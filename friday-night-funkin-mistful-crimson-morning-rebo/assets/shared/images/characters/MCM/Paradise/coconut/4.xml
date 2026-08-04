@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="4.png">
+  <SubTexture name="time for practice0000" x="2126" y="1384" width="297" height="280" frameX="-147" frameY="-495" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0001" x="1850" y="2101" width="294" height="281" frameX="-152" frameY="-494" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0002" x="2144" y="2101" width="294" height="278" frameX="-142" frameY="-495" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0003" x="1234" y="748" width="308" height="278" frameX="-131" frameY="-497" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0004" x="0" y="0" width="367" height="767" frameX="-111" frameY="-6" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0005" x="1069" y="1091" width="405" height="446" frameX="-73" frameY="-319" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0006" x="0" y="1137" width="441" height="420" frameX="-107" frameY="-379" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0007" x="628" y="1091" width="441" height="421" frameX="-107" frameY="-378" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0008" x="0" y="1557" width="371" height="457" frameX="-152" frameY="-373" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0009" x="441" y="1512" width="371" height="458" frameX="-152" frameY="-372" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0010" x="1474" y="1091" width="362" height="447" frameX="-156" frameY="-381" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0011" x="895" y="1537" width="362" height="447" frameX="-156" frameY="-381" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0012" x="0" y="2014" width="369" height="356" frameX="-151" frameY="-467" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0013" x="1688" y="1538" width="438" height="282" frameX="-151" frameY="-541" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0014" x="1850" y="1820" width="426" height="281" frameX="-158" frameY="-520" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0015" x="1850" y="1820" width="426" height="281" frameX="-158" frameY="-520" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0016" x="1257" y="1538" width="431" height="362" frameX="-224" frameY="-443" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0017" x="1419" y="1900" width="431" height="362" frameX="-224" frameY="-443" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0018" x="1626" y="0" width="584" height="387" frameX="-83" frameY="-418" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0019" x="1003" y="361" width="584" height="387" frameX="-83" frameY="-418" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0020" x="0" y="767" width="628" height="370" frameX="-36" frameY="-435" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0021" x="367" y="0" width="628" height="370" frameX="-36" frameY="-435" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0022" x="367" y="370" width="636" height="362" frameX="-28" frameY="-443" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0023" x="367" y="370" width="636" height="362" frameX="-28" frameY="-443" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0024" x="367" y="370" width="636" height="362" frameX="-28" frameY="-443" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0025" x="995" y="0" width="631" height="361" frameX="-32" frameY="-444" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0026" x="1587" y="387" width="631" height="350" frameX="-32" frameY="-444" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0027" x="628" y="748" width="606" height="343" frameX="-47" frameY="-451" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0028" x="1587" y="737" width="606" height="354" frameX="-47" frameY="-451" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0029" x="895" y="1984" width="524" height="298" frameX="-116" frameY="-496" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0030" x="371" y="1970" width="524" height="309" frameX="-116" frameY="-496" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0031" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0032" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0033" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0034" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0035" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0036" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0037" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0038" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0039" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0040" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0041" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+  <SubTexture name="time for practice0042" x="1836" y="1091" width="411" height="293" frameX="-202" frameY="-503" frameWidth="682" frameHeight="865"/>
+</TextureAtlas>

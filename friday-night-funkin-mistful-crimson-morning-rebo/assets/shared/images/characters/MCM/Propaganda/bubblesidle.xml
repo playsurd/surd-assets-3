@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bubblesidle.png">
+  <SubTexture name="BGBubbles0000" x="0" y="0" width="262" height="321" frameX="-29" frameY="-12" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0001" x="0" y="0" width="262" height="321" frameX="-29" frameY="-12" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0002" x="0" y="321" width="259" height="285" frameX="-31" frameY="-11" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0003" x="0" y="321" width="259" height="285" frameX="-31" frameY="-11" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0004" x="262" y="0" width="254" height="288" frameX="-35" frameY="-8" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0005" x="262" y="0" width="254" height="288" frameX="-35" frameY="-8" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0006" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0007" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0008" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0009" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0010" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0011" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0012" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+  <SubTexture name="BGBubbles0013" x="262" y="288" width="251" height="289" frameX="-37" frameY="-7" frameWidth="335" frameHeight="333"/>
+</TextureAtlas>
