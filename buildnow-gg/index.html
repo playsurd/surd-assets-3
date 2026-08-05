@@ -1,113 +1,111 @@
-<!doctype html><html><head><meta charset="utf-8"><title>buildnow-gg</title></head><body>
+<!doctype html><html><head><meta charset="utf-8"><title>buildnow-gg</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buildnow-gg/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 <script>
     const SPLIT_MAP = {"7db022abd161455e3cc5f207e75d294b.wasm": null, "ab8dd356a41a2943639294657a0990f8.data": null};
     </script>
-<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.godotRunStart=function(){};</script><script>
-    async function mergeParts(baseUrl) {
-      const parts = [];
-      for (let i = 1; i <= 99; i++) {
-        const testUrl = baseUrl + ".part" + i;
-        try {
-          const head = await fetch(testUrl, { method: "HEAD" });
-          if (!head.ok) break;
-          parts.push(testUrl);
-        } catch { break; }
-      }
-      if (parts.length === 0) return baseUrl;
-
-      const buffers = await Promise.all(parts.map(async (u) => {
-        const r = await fetch(u);
-        if (!r.ok) throw new Error("Failed part " + u);
-        return new Uint8Array(await r.arrayBuffer());
-      }));
-
-      const total = buffers.reduce((a, b) => a + b.length, 0);
-      const merged = new Uint8Array(total);
-      let offset = 0;
-      for (const b of buffers) { merged.set(b, offset); offset += b.length; }
-
-      return URL.createObjectURL(new Blob([merged]));
-    }
-
-    async function preMergeAll() {
-      const map = {};
-      const files = Object.entries(SPLIT_MAP);
-      const total = files.length;
-      let done = 0;
-
-      const loadingText = document.getElementById("loading-text");
-
-      for (const [file, _] of files) {
-        const merged = await mergeParts("Build/" + file);
-        map[file] = merged;
-        done++;
-        const percent = Math.floor((done / total) * 100);
-        loadingText.innerText = `LOADING... ${percent}%`;
-        console.log("Premerged:", file, "→", merged);
-      }
-
-      loadingText.style.display = "none";
-
-      return map;
-    }
-
-    (async () => {
-      const mergedMap = await preMergeAll();
-      window.SPLIT_MAP = mergedMap;
-      const origFetch = window.fetch;
-      window.fetch = async function(resource, options) {
-        if (typeof resource === "string") {
-          const key = resource.split("/").pop();
-          if (mergedMap[key]) {
-            console.log("Redirect fetch:", key);
-            return origFetch(mergedMap[key], options);
-          }
-          if (resource.includes("StreamingAssets")) {
-            return origFetch((document.querySelector('base').href !== null ? document.querySelector('base').href+"/" : "") + "StreamingAssets/"+resource.split("/StreamingAssets/")[1])
-          }
-        }
-        return origFetch(resource, options);
-      };
-
-      const OrigXHR = window.XMLHttpRequest;
-      window.XMLHttpRequest = function() {
-        const xhr = new OrigXHR();
-        const origOpen = xhr.open;
-        xhr.open = function(method, url, ...rest) {
-          const key = url.split("/").pop();
-          if (mergedMap[key]) {
-            console.log("Redirect XHR:", key);
-            origOpen.call(xhr, method, mergedMap[key], ...rest);
-          } else {
-            origOpen.call(xhr, method, url, ...rest);
-          }
-        };
-        return xhr;
-      };
-
-      const canvas = document.querySelector("#unity-canvas");
-      const loaderUrl = "Build/7a2dbded24d57e056180125b1583e7c4.loader.js";
-      const config = {
-        dataUrl: "Build/ab8dd356a41a2943639294657a0990f8.data",
-        frameworkUrl: "Build/91a2bfcec140bc524100478b99a4f6d7.framework.js",
-        codeUrl: "Build/7db022abd161455e3cc5f207e75d294b.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "BuildNow GG",
-        productName: "BuildNow GG",
-        productVersion: "1.0.0"
-      };
-
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {}).then((unityInstance) => {
-          window.gameInstance = unityInstance;
-        }).catch((message) => alert(message));
-      };
-      document.body.appendChild(script);
-    })();
-    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
 <script>
     function resizeCanvas() {
       const canvas = document.getElementById("unity-canvas");
@@ -120,6 +118,6 @@
     window.addEventListener("resize", resizeCanvas);
     </script>
 
-<script>window.SURD_GAME = {"id":"buildnow-gg","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buildnow-gg/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/","files":{"data":{"path":"Build/ab8dd356a41a2943639294657a0990f8.data","parts":[".sp0",".sp1",".sp2",".sp3"],"bytes":58609964,"mime":"application/octet-stream"},"framework":{"path":"Build/91a2bfcec140bc524100478b99a4f6d7.framework.js"},"code":{"path":"Build/7db022abd161455e3cc5f207e75d294b.wasm","parts":[".sp0",".sp1",".sp2",".sp3"],"bytes":57704302,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/7a2dbded24d57e056180125b1583e7c4.loader.js","companyName":"BuildNow GG","productName":"BuildNow GG","productVersion":"1.0.0"}};</script>
-<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"buildnow-gg","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buildnow-gg/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v78db416e72/","files":{"data":{"path":"Build/ab8dd356a41a2943639294657a0990f8.data","parts":[".sp0",".sp1",".sp2",".sp3"],"bytes":58609964,"mime":"application/octet-stream"},"framework":{"path":"Build/91a2bfcec140bc524100478b99a4f6d7.framework.js"},"code":{"path":"Build/7db022abd161455e3cc5f207e75d294b.wasm","parts":[".sp0",".sp1",".sp2",".sp3"],"bytes":57704302,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/7a2dbded24d57e056180125b1583e7c4.loader.js","companyName":"BuildNow GG","productName":"BuildNow GG","productVersion":"1.0.0"}};</script>
+<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v78db416e72/runtime.js"></script>
 </body></html>
