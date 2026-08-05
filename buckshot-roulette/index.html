@@ -1,4 +1,123 @@
 <!doctype html><html><head><meta charset="utf-8"><title>buckshot-roulette</title></head><body>
-<script>window.SURD_GAME = {"id":"buckshot-roulette","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buckshot-roulette/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v22896bd64c/","files":{"pck":{"path":"buckshot-roulette.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18"],"mime":"application/octet-stream"}},"config":{"indexJs":"index.js","godotConfig":{"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":false,"executable":"buckshot-roulette","experimentalVK":false,"fileSizes":{"buckshot-roulette.pck":344705792,"buckshot-roulette.wasm":43444261},"focusCanvas":false,"gdextensionLibs":[]}}};</script>
-<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v22896bd64c/runtime.js"></script>
+
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.godotRunStart=function(){};</script><script>
+        const GODOT_CONFIG = {
+            "args": [],
+            "canvasResizePolicy": 2,
+            "ensureCrossOriginIsolationHeaders": false,
+            "executable": "buckshot-roulette",
+            "experimentalVK": false,
+            "fileSizes": {
+                "buckshot-roulette.pck": 344705792,
+                "buckshot-roulette.wasm": 43444261
+            },
+            "focusCanvas": false,
+            "gdextensionLibs": []
+        };
+        const GODOT_THREADS_ENABLED = false;
+        const engine = new Engine(GODOT_CONFIG);
+
+        function run() {
+            const loadingText = document.getElementById('loading-text');
+            const statusOverlay = document.getElementById('status');
+            const statusProgress = document.getElementById('status-progress');
+            const statusNotice = document.getElementById('status-notice');
+            loadingText.remove();
+            let initializing = true;
+            let statusMode = '';
+
+            function setStatusMode(mode) {
+                if (statusMode === mode || !initializing) {
+                    return;
+                }
+                if (mode === 'hidden') {
+                    statusOverlay.remove();
+                    initializing = false;
+                    return;
+                }
+                statusOverlay.style.visibility = 'visible';
+                statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+                statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+                statusMode = mode;
+            }
+
+            function setStatusNotice(text) {
+                while (statusNotice.lastChild) {
+                    statusNotice.removeChild(statusNotice.lastChild);
+                }
+                const lines = text.split('\n');
+                lines.forEach((line) => {
+                    statusNotice.appendChild(document.createTextNode(line));
+                    statusNotice.appendChild(document.createElement('br'));
+                });
+            }
+
+            function displayFailureNotice(err) {
+                console.error(err);
+                if (err instanceof Error) {
+                    setStatusNotice(err.message);
+                } else if (typeof err === 'string') {
+                    setStatusNotice(err);
+                } else {
+                    setStatusNotice('An unknown error occurred.');
+                }
+                setStatusMode('notice');
+                initializing = false;
+            }
+            const missing = Engine.getMissingFeatures({
+                threads: GODOT_THREADS_ENABLED,
+            });
+            if (missing.length !== 0) {
+                if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+                    let serviceWorkerRegistrationPromise;
+                    try {
+                        serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+                    } catch (err) {
+                        serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+                    }
+                    // There's a chance that installing the service worker would fix the issue
+                    Promise.race([
+                        serviceWorkerRegistrationPromise.then((registration) => {
+                            if (registration != null) {
+                                return Promise.reject(new Error('Service worker already exists.'));
+                            }
+                            return registration;
+                        }).then(() => engine.installServiceWorker()),
+                        // For some reason, `getRegistration()` can stall
+                        new Promise((resolve) => {
+                            setTimeout(() => resolve(), 2000);
+                        }),
+                    ]).then(() => {
+                        // Reload if there was no error.
+                        window.location.reload();
+                    }).catch((err) => {
+                        console.error('Error while registering service worker:', err);
+                    });
+                } else {
+                    // Display the message as usual
+                    const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+                    displayFailureNotice(missingMsg + missing.join('\n'));
+                }
+            } else {
+                setStatusMode('progress');
+                engine.startGame({
+                    'onProgress': function (current, total) {
+                        if (current > 0 && total > 0) {
+                            statusProgress.value = current;
+                            statusProgress.max = total;
+                        } else {
+                            statusProgress.removeAttribute('value');
+                            statusProgress.removeAttribute('max');
+                        }
+                    },
+                }).then(() => {
+                    setStatusMode('hidden');
+                }, displayFailureNotice);
+            }
+        };
+        window.godotRunStart = run;
+    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
+
+<script>window.SURD_GAME = {"id":"buckshot-roulette","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buckshot-roulette/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/","files":{"pck":{"path":"buckshot-roulette.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18"],"bytes":344705792,"mime":"application/octet-stream"},"wasm":{"path":"buckshot-roulette.wasm","parts":[".part1",".part2",".part3"],"bytes":43444261,"mime":"application/wasm"}},"config":{"indexJs":"index.js","godotConfig":{"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":false,"executable":"buckshot-roulette","experimentalVK":false,"fileSizes":{"buckshot-roulette.pck":344705792,"buckshot-roulette.wasm":43444261},"focusCanvas":false,"gdextensionLibs":[]}}};</script>
+<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/runtime.js"></script>
 </body></html>
