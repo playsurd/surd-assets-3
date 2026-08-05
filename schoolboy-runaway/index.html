@@ -1,9 +1,109 @@
-<!doctype html><html><head><meta charset="utf-8"><title>schoolboy-runaway</title></head><body>
+<!doctype html><html><head><meta charset="utf-8"><title>schoolboy-runaway</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/schoolboy-runaway/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
-<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.godotRunStart=function(){};</script><script>
-      const loadingText = document.querySelector("#loading-text");
-      let totalBytes = 315673804.8;
-      let loadedBytes = 0;
+<script>
 
       function formatSize(bytes) {
         if (bytes > 1024 * 1024 * 1024) {
@@ -16,118 +116,9 @@
           return bytes + " B";
         }
       }
-      async function fetchWithProgress(url) {
-        const response = await fetch(url);
-        const reader = response.body.getReader();
-        let chunks = [];
-        let received = 0;
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          received += value.length;
-          loadedBytes += value.length;
-          chunks.push(value);
-          const doneText = formatSize(loadedBytes);
-          const totalText = formatSize(totalBytes);
-          const percent =
-            totalBytes > 0
-              ? ((loadedBytes / totalBytes) * 100).toFixed(1)
-              : "?";
-          loadingText.textContent = `LOADING... ${doneText} / ${totalText} (${percent}%)`;
-        }
-        let fullBuffer = new Uint8Array(received);
-        let offset = 0;
-        for (let chunk of chunks) {
-          fullBuffer.set(chunk, offset);
-          offset += chunk.length;
-        }
-        return fullBuffer.buffer;
-      }
-      async function mergeFiles(parts) {
-        const buffers = await Promise.all(parts.map(fetchWithProgress));
-        return URL.createObjectURL(new Blob(buffers));
-      }
 
-      function getParts(file, count) {
-        let parts = [];
-        for (let i = 1; i <= count; i++) {
-          parts.push(file + ".part" + i);
-        }
-        return parts;
-      }
-      (async () => {
-        const dataParts = getParts("Build/schoolboy-runaway.data", 14);
-        const wasmParts = getParts("Build/schoolboy-runaway.wasm", 2);
-        const allParts = [...dataParts, ...wasmParts];
-        const [dataUrl, wasmUrl] = await Promise.all([
-          mergeFiles(dataParts),
-          mergeFiles(wasmParts),
-        ]);
-        var container = document.querySelector("#unity-container");
-        var canvas = document.querySelector("#unity-canvas");
-        var loadingBar = document.querySelector("#unity-loading-bar");
-        var progressBarFull = document.querySelector(
-          "#unity-progress-bar-full"
-        );
-        var warningBanner = document.querySelector("#unity-warning");
+        function unityShowBanner(msg, type) {}</script>
 
-        // Shows a temporary message banner/ribbon for a few seconds, or
-        // a permanent error message on top of the canvas if type=='error'.
-        // If type=='warning', a yellow highlight color is used.
-        // Modify or remove this function to customize the visually presented
-        // way that non-critical warnings and error messages are presented to the
-        // user.
-        function unityShowBanner(msg, type) {}
-
-        var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/schoolboy-runaway.loader.js";
-        var config = {
-          dataUrl: dataUrl,
-          frameworkUrl: buildUrl + "/schoolboy-runaway.framework.js",
-          codeUrl: wasmUrl,
-          streamingAssetsUrl: "StreamingAssets",
-          companyName: "Linked Squad",
-          productName: "SchoolBoy Runaway",
-          productVersion: "0.500",
-          showBanner: unityShowBanner,
-        };
-
-        // By default Unity keeps WebGL canvas render target size matched with
-        // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-        // Set this to false if you want to decouple this synchronization from
-        // happening inside the engine, and you would instead like to size up
-        // the canvas DOM size and WebGL render target sizes yourself.
-        // config.matchWebGLToCanvasSize = false;
-
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-          // Mobile device style: fill the whole browser client area with the game canvas:
-          var meta = document.createElement("meta");
-          meta.name = "viewport";
-          meta.content =
-            "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-          document.getElementsByTagName("head")[0].appendChild(meta);
-        }
-
-        loadingBar.style.display = "block";
-
-        var script = document.createElement("script");
-        script.src = loaderUrl;
-        script.onload = () => {
-          createUnityInstance(canvas, config, (progress) => {
-            progressBarFull.style.width = 100 * progress + "%";
-          })
-            .then((unityInstance) => {
-              loadingText.remove();
-              loadingBar.style.display = "none";
-            })
-            .catch((message) => {
-              alert(message);
-            });
-        };
-        document.body.appendChild(script);
-      })();
-    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-
-<script>window.SURD_GAME = {"id":"schoolboy-runaway","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/schoolboy-runaway/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/","files":{"data":{"path":"Build/schoolboy-runaway.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14"],"bytes":282326156,"mime":"application/octet-stream"},"framework":{"path":"Build/schoolboy-runaway.framework.js"},"code":{"path":"Build/schoolboy-runaway.wasm","parts":[".sp0",".sp1"],"bytes":33319242,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/schoolboy-runaway.loader.js","companyName":"Linked Squad","productName":"SchoolBoy Runaway","productVersion":"0.500"}};</script>
-<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2f29c73163/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"schoolboy-runaway","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/schoolboy-runaway/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v78db416e72/","files":{"data":{"path":"Build/schoolboy-runaway.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14"],"bytes":282326156,"mime":"application/octet-stream"},"framework":{"path":"Build/schoolboy-runaway.framework.js"},"code":{"path":"Build/schoolboy-runaway.wasm","parts":[".sp0",".sp1"],"bytes":33319242,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/schoolboy-runaway.loader.js","companyName":"Linked Squad","productName":"SchoolBoy Runaway","productVersion":"0.500"}};</script>
+<script src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v78db416e72/runtime.js"></script>
 </body></html>
