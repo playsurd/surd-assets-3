@@ -24,6 +24,7 @@
     W.PokiSDK = {
       init: resolved, initPokiBridge: function () {}, setDebug: function () {},
       gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
       gameplayStart: function () {}, gameplayStop: function () {},
       commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
       happyTime: function () {}, customEvent: function () {}, captureError: function () {},
@@ -87,6 +88,9 @@
       ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
     };
   }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -101,8 +105,9 @@
     } };
   }
 })();
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
+
 <script>
 
       function formatSize(bytes) {
@@ -118,7 +123,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</
       }
 
         function unityShowBanner(msg, type) {}</script>
-
-<script>window.SURD_GAME = {"id":"baldis-basics-plus","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/baldis-basics-plus/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/","files":{"data":{"path":"Build/BaldiPlusNew.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":83511347,"mime":"application/octet-stream"},"framework":{"path":"Build/BaldiPlusNew.framework.js","bytes":448398},"code":{"path":"Build/BaldiPlusNew.wasm","parts":[".sp0",".sp1",".sp2"],"bytes":40999369,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/BaldiPlusNew.loader.js","companyName":"Basically Games","productName":"Baldi","productVersion":"0.12.2a"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"baldis-basics-plus","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/baldis-basics-plus/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Build/BaldiPlusNew.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":83511347,"mime":"application/octet-stream"},"framework":{"path":"Build/BaldiPlusNew.framework.js","bytes":448398,"mime":"text/javascript"},"code":{"path":"Build/BaldiPlusNew.wasm","parts":[".sp0",".sp1",".sp2"],"bytes":40999369,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/BaldiPlusNew.loader.js","companyName":"Basically Games","productName":"Baldi","productVersion":"0.12.2a"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
 </body></html>
