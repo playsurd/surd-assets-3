@@ -24,6 +24,7 @@
     W.PokiSDK = {
       init: resolved, initPokiBridge: function () {}, setDebug: function () {},
       gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
       gameplayStart: function () {}, gameplayStop: function () {},
       commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
       happyTime: function () {}, customEvent: function () {}, captureError: function () {},
@@ -87,6 +88,9 @@
       ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
     };
   }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -101,14 +105,14 @@
     } };
   }
 })();
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
+
 <script>
 
       function unityShowBanner(msg, type) {
 
       }</script>
-
-<script>window.SURD_GAME = {"id":"five-nights-at-epsteins","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-epsteins/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/","files":{"data":{"path":"Build/fnae.data","parts":[".sp0",".sp1",".sp2"],"bytes":48946887,"mime":"application/octet-stream"},"framework":{"path":"Build/fnae.framework.js","bytes":485490},"code":{"path":"Build/fnae.wasm","parts":[".sp0",".sp1",".sp2"],"bytes":53068432,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/fnae.loader.js","companyName":"DefaultCompany","productName":"fnae","productVersion":"1.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"five-nights-at-epsteins","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-epsteins/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Build/fnae.data","parts":[".sp0",".sp1",".sp2"],"bytes":48946887,"mime":"application/octet-stream"},"framework":{"path":"Build/fnae.framework.js","bytes":485490,"mime":"text/javascript"},"code":{"path":"Build/fnae.wasm","parts":[".sp0",".sp1",".sp2"],"bytes":53068432,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/fnae.loader.js","companyName":"DefaultCompany","productName":"fnae","productVersion":"1.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
 </body></html>
