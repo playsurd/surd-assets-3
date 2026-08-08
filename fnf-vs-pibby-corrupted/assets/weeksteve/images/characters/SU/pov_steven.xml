@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="POV_Steven.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Steven Down0000" x="0" y="0" width="847" height="790" frameX="0" frameY="-24" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0001" x="897" y="0" width="829" height="801" frameX="-18" frameY="-13" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0002" x="1776" y="0" width="721" height="785" frameX="-63" frameY="-23" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0003" x="1776" y="0" width="721" height="785" frameX="-63" frameY="-23" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0004" x="2547" y="0" width="713" height="798" frameX="-66" frameY="-10" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0005" x="2547" y="0" width="713" height="798" frameX="-66" frameY="-10" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0006" x="3310" y="0" width="703" height="803" frameX="-71" frameY="-5" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0007" x="3310" y="0" width="703" height="803" frameX="-71" frameY="-5" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0008" x="4063" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0009" x="4063" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0010" x="4811" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0011" x="4811" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0012" x="5559" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Down0013" x="5559" y="0" width="698" height="808" frameX="-76" frameY="0" frameWidth="847" frameHeight="814"/>
+	<SubTexture name="Steven Idle0000" x="6307" y="0" width="677" height="933" frameX="0" frameY="-7" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0001" x="7034" y="0" width="677" height="933" frameX="0" frameY="-7" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0002" x="0" y="983" width="574" height="922" frameX="-50" frameY="-9" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0003" x="0" y="983" width="574" height="922" frameX="-50" frameY="-9" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0004" x="624" y="983" width="548" height="928" frameX="-61" frameY="-3" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0005" x="624" y="983" width="548" height="928" frameX="-61" frameY="-3" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0006" x="1222" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0007" x="1222" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0008" x="1813" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0009" x="1813" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0010" x="2404" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0011" x="2404" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0012" x="2995" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Idle0013" x="2995" y="983" width="541" height="931" frameX="-64" frameY="0" frameWidth="677" frameHeight="940"/>
+	<SubTexture name="Steven Left0000" x="3586" y="983" width="925" height="898" frameX="-14" frameY="-19" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0001" x="4561" y="983" width="939" height="891" frameX="0" frameY="-27" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0002" x="5550" y="983" width="794" height="877" frameX="-36" frameY="-33" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0003" x="5550" y="983" width="794" height="877" frameX="-36" frameY="-33" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0004" x="6394" y="983" width="802" height="901" frameX="-37" frameY="-17" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0005" x="6394" y="983" width="802" height="901" frameX="-37" frameY="-17" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0006" x="7246" y="983" width="809" height="923" frameX="-37" frameY="-4" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0007" x="7246" y="983" width="809" height="923" frameX="-37" frameY="-4" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0008" x="0" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0009" x="858" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0010" x="1716" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0011" x="1716" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0012" x="2574" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Left0013" x="2574" y="1964" width="808" height="910" frameX="-37" frameY="0" frameWidth="940" frameHeight="927"/>
+	<SubTexture name="Steven Right0000" x="3432" y="1964" width="1293" height="875" frameX="0" frameY="-31" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0001" x="4775" y="1964" width="1293" height="879" frameX="0" frameY="-27" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0002" x="6118" y="1964" width="1211" height="856" frameX="-33" frameY="-44" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0003" x="6118" y="1964" width="1211" height="856" frameX="-33" frameY="-44" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0004" x="0" y="2924" width="1225" height="873" frameX="-19" frameY="-27" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0005" x="0" y="2924" width="1225" height="873" frameX="-19" frameY="-27" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0006" x="1275" y="2924" width="1236" height="895" frameX="-8" frameY="-5" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0007" x="1275" y="2924" width="1236" height="895" frameX="-8" frameY="-5" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0008" x="2561" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0009" x="2561" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0010" x="3847" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0011" x="3847" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0012" x="5133" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Right0013" x="5133" y="2924" width="1236" height="900" frameX="-8" frameY="0" frameWidth="1293" frameHeight="906"/>
+	<SubTexture name="Steven Up0000" x="6419" y="2924" width="1273" height="1059" frameX="0" frameY="-1" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0001" x="0" y="4033" width="1273" height="1060"/>
+	<SubTexture name="Steven Up0002" x="1323" y="4033" width="1185" height="1048" frameX="-44" frameY="-7" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0003" x="1323" y="4033" width="1185" height="1048" frameX="-44" frameY="-7" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0004" x="2558" y="4033" width="1159" height="1043" frameX="-55" frameY="-12" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0005" x="2558" y="4033" width="1159" height="1043" frameX="-55" frameY="-12" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0006" x="3767" y="4033" width="1135" height="1038" frameX="-69" frameY="-17" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0007" x="3767" y="4033" width="1135" height="1038" frameX="-69" frameY="-17" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0008" x="4952" y="4033" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0009" x="4952" y="4033" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0010" x="6127" y="4033" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0011" x="6127" y="4033" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0012" x="0" y="5143" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+	<SubTexture name="Steven Up0013" x="0" y="5143" width="1125" height="1036" frameX="-73" frameY="-19" frameWidth="1273" frameHeight="1060"/>
+</TextureAtlas>

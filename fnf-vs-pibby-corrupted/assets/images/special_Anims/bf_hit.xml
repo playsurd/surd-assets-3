@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf_hit.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="hit0000" x="0" y="934" width="539" height="489" frameX="-54" frameY="1" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0001" x="1244" y="0" width="549" height="491" frameX="-60" frameY="2" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0002" x="651" y="0" width="593" height="481" frameX="-55" frameY="-7" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0003" x="0" y="459" width="615" height="475" frameX="-34" frameY="-12" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0004" x="1793" y="0" width="500" height="456" frameX="0" frameY="-33" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0005" x="1046" y="934" width="500" height="458" frameX="0" frameY="-31" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0006" x="0" y="0" width="651" height="459" frameX="2" frameY="-30" frameWidth="647" frameHeight="487"/>
+	<SubTexture name="hit0007" x="539" y="934" width="507" height="461" frameX="2" frameY="-28" frameWidth="647" frameHeight="487"/>
+</TextureAtlas>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Jake_Mechanic2.png">
+	<!-- Created with Adobe Animate version 24.0.3.19 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Jake Mechanic2 Charge0000" x="0" y="0" width="274" height="233" frameX="-777" frameY="-717" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0001" x="274" y="0" width="495" height="242" frameX="-557" frameY="-715" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0002" x="769" y="0" width="975" height="397" frameX="-65" frameY="-568" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0003" x="769" y="0" width="975" height="397" frameX="-65" frameY="-568" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0004" x="1744" y="0" width="1002" height="788" frameX="-36" frameY="-172" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0005" x="1744" y="0" width="1002" height="788" frameX="-36" frameY="-172" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0006" x="2746" y="0" width="1025" height="964" frameX="-10" frameY="-12" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0007" x="2746" y="0" width="1025" height="964" frameX="-10" frameY="-12" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0008" x="0" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Charge0009" x="0" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Idle0000" x="1033" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1035" frameHeight="984"/>
+	<SubTexture name="Jake Mechanic2 Idle0001" x="1033" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1035" frameHeight="984"/>
+	<SubTexture name="Jake Mechanic2 Idle0002" x="2066" y="964" width="1034" height="984" frameX="-1" frameY="0" frameWidth="1035" frameHeight="984"/>
+	<SubTexture name="Jake Mechanic2 Idle0003" x="2066" y="964" width="1034" height="984" frameX="-1" frameY="0" frameWidth="1035" frameHeight="984"/>
+  <SubTexture name="Jake Mechanic2 Bye0009" x="0" y="0" width="274" height="233" frameX="-777" frameY="-717" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0008" x="274" y="0" width="495" height="242" frameX="-557" frameY="-715" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0007" x="769" y="0" width="975" height="397" frameX="-65" frameY="-568" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0006" x="769" y="0" width="975" height="397" frameX="-65" frameY="-568" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0005" x="1744" y="0" width="1002" height="788" frameX="-36" frameY="-172" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0004" x="1744" y="0" width="1002" height="788" frameX="-36" frameY="-172" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0003" x="2746" y="0" width="1025" height="964" frameX="-10" frameY="-12" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0002" x="2746" y="0" width="1025" height="964" frameX="-10" frameY="-12" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0001" x="0" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1052" frameHeight="983"/>
+	<SubTexture name="Jake Mechanic2 Bye0000" x="0" y="964" width="1033" height="983" frameX="0" frameY="0" frameWidth="1052" frameHeight="983"/>
+
+</TextureAtlas>

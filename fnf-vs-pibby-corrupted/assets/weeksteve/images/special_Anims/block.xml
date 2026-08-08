@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="shield-steven-alt.png" width="2907" height="3268">
+	<SubTexture name="Block0000" x="20" y="1637" width="651" height="799" frameX="-6" frameY="-18" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0001" x="1478" y="1648" width="689" height="791" frameX="-0" frameY="-23" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0002" x="766" y="1619" width="708" height="791" frameX="-0" frameY="-23" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0003" x="2171" y="1650" width="681" height="787" frameX="-27" frameY="-27" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0004" x="1279" y="2443" width="583" height="787" frameX="-27" frameY="-27" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0005" x="20" y="2440" width="583" height="800" frameX="-37" frameY="-14" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0006" x="20" y="2440" width="583" height="800" frameX="-37" frameY="-14" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0007" x="675" y="2414" width="600" height="807" frameX="-40" frameY="-7" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0008" x="675" y="2414" width="600" height="807" frameX="-40" frameY="-7" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0009" x="2171" y="2441" width="616" height="807" frameX="-23" frameY="-7" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0010" x="2171" y="2441" width="616" height="807" frameX="-23" frameY="-7" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0011" x="2224" y="20" width="658" height="808" frameX="-22" frameY="-6" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0012" x="2214" y="838" width="673" height="808" frameX="-22" frameY="-6" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0013" x="20" y="20" width="744" height="805" frameX="-26" frameY="-9" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0014" x="768" y="20" width="744" height="805" frameX="-26" frameY="-9" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0015" x="20" y="829" width="742" height="804" frameX="-40" frameY="-10" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0016" x="20" y="829" width="742" height="804" frameX="-40" frameY="-10" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0017" x="1502" y="838" width="708" height="806" frameX="-64" frameY="-8" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0018" x="1502" y="838" width="708" height="806" frameX="-64" frameY="-8" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0019" x="1516" y="20" width="704" height="814" frameX="-80" frameY="-0" frameWidth="819" frameHeight="819"/>
+	<SubTexture name="Block0020" x="766" y="829" width="732" height="786" frameX="-82" frameY="-28" frameWidth="819" frameHeight="819"/>
+</TextureAtlas>

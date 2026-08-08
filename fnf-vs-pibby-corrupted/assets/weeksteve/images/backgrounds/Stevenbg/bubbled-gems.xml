@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bubbled-gems.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Bubble0000" x="0" y="0" width="131" height="130" frameX="-9" frameY="0" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0001" x="181" y="0" width="131" height="131" frameX="-9" frameY="0" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0002" x="362" y="0" width="141" height="130" frameX="0" frameY="0" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0003" x="553" y="0" width="141" height="129" frameX="0" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0004" x="744" y="0" width="140" height="129" frameX="-2" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0005" x="0" y="181" width="140" height="130" frameX="-2" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0006" x="190" y="181" width="136" height="129" frameX="-7" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0007" x="376" y="181" width="136" height="129" frameX="-7" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0008" x="562" y="181" width="130" height="130" frameX="-9" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0009" x="562" y="181" width="130" height="130" frameX="-9" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0010" x="742" y="181" width="130" height="129" frameX="-9" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0011" x="0" y="361" width="130" height="130" frameX="-9" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0012" x="180" y="361" width="130" height="129" frameX="-9" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0013" x="360" y="361" width="130" height="129" frameX="-9" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0014" x="540" y="361" width="130" height="130" frameX="-9" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0015" x="540" y="361" width="130" height="130" frameX="-9" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0016" x="0" y="0" width="131" height="130" frameX="-9" frameY="-5" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0017" x="720" y="361" width="131" height="131" frameX="-9" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0018" x="0" y="542" width="141" height="130" frameX="0" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0019" x="191" y="542" width="141" height="129" frameX="0" frameY="-4" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0020" x="0" y="181" width="140" height="130" frameX="-2" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0021" x="0" y="181" width="140" height="130" frameX="-2" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0022" x="382" y="542" width="136" height="129" frameX="-7" frameY="-3" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0023" x="568" y="542" width="136" height="130" frameX="-7" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0024" x="754" y="542" width="130" height="130" frameX="-9" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0025" x="0" y="722" width="130" height="129" frameX="-9" frameY="-2" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0026" x="0" y="361" width="130" height="130" frameX="-9" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0027" x="742" y="181" width="130" height="129" frameX="-9" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0028" x="360" y="361" width="130" height="129" frameX="-9" frameY="-1" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0029" x="180" y="722" width="130" height="130" frameX="-9" frameY="0" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0030" x="540" y="361" width="130" height="130" frameX="-9" frameY="0" frameWidth="143" frameHeight="135"/>
+	<SubTexture name="Bubble0031" x="360" y="722" width="130" height="129" frameX="-9" frameY="0" frameWidth="143" frameHeight="135"/>
+</TextureAtlas>

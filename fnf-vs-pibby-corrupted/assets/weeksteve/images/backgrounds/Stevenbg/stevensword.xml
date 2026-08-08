@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="stevensword.png" width="3715" height="499">
+	<SubTexture name="sword glitch0000" x="1078" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0001" x="1078" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0002" x="1603" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0003" x="1603" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0004" x="2128" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0005" x="2128" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0006" x="2653" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0007" x="2653" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0008" x="3178" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0009" x="3178" y="20" width="517" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0010" x="20" y="20" width="521" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0011" x="20" y="20" width="521" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0012" x="549" y="20" width="521" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+	<SubTexture name="sword glitch0013" x="549" y="20" width="521" height="459" frameX="-0" frameY="-0" frameWidth="521" frameHeight="459"/>
+</TextureAtlas>

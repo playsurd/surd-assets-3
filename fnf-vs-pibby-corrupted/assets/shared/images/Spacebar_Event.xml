@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Spacebar_Event.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="Space_Now0000" x="0" y="0" width="335" height="306" frameX="2" frameY="2" frameWidth="331" frameHeight="302"/>
+	<SubTexture name="Space_Now0001" x="0" y="306" width="335" height="306" frameX="2" frameY="2" frameWidth="331" frameHeight="302"/>
+	<SubTexture name="Space_Wait0000" x="335" y="0" width="335" height="306" frameX="2" frameY="2" frameWidth="331" frameHeight="302"/>
+	<SubTexture name="Space_Wait0001" x="335" y="306" width="335" height="306" frameX="2" frameY="2" frameWidth="331" frameHeight="302"/>
+	<SubTexture name="Space_Wait0002" x="670" y="0" width="335" height="306" frameX="2" frameY="2" frameWidth="331" frameHeight="302"/>
+</TextureAtlas>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Willie_BGflag.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="flag 0000" x="10" y="10" width="366" height="270"/>
+	<SubTexture name="flag 0001" x="386" y="10" width="366" height="270"/>
+	<SubTexture name="flag 0002" x="762" y="10" width="366" height="270"/>
+	<SubTexture name="flag 0003" x="1138" y="10" width="366" height="270"/>
+	<SubTexture name="flag 0004" x="1514" y="10" width="366" height="270"/>
+	<SubTexture name="flag 0005" x="10" y="290" width="366" height="270"/>
+	<SubTexture name="flag 0006" x="386" y="290" width="366" height="270"/>
+	<SubTexture name="flag 0007" x="762" y="290" width="366" height="270"/>
+	<SubTexture name="flag 0008" x="1138" y="290" width="366" height="270"/>
+	<SubTexture name="flag 0009" x="1514" y="290" width="366" height="270"/>
+</TextureAtlas>

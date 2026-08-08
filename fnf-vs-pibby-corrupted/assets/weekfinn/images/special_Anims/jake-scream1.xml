@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="jake-scream1.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Jake Scream10000" x="0" y="0" width="861" height="577" frameX="-37" frameY="-370" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10001" x="911" y="0" width="861" height="573" frameX="-37" frameY="-374" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10002" x="1822" y="0" width="854" height="558" frameX="-16" frameY="-393" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10003" x="2726" y="0" width="854" height="560" frameX="-16" frameY="-391" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10004" x="0" y="627" width="805" height="575" frameX="-31" frameY="-356" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10005" x="0" y="627" width="805" height="575" frameX="-31" frameY="-356" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10006" x="855" y="627" width="808" height="569" frameX="0" frameY="-343" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10007" x="1713" y="627" width="808" height="569" frameX="0" frameY="-343" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10008" x="2571" y="627" width="1007" height="698" frameX="-87" frameY="-225" frameWidth="1314" frameHeight="951"/>
+	<SubTexture name="Jake Scream10009" x="0" y="1375" width="1205" height="923" frameX="-109" frameY="0" frameWidth="1314" frameHeight="951"/>
+</TextureAtlas>

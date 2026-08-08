@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ivashka.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ivashka_down0000" x="0" y="0" width="462" height="467" frameX="0" frameY="-13" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0001" x="0" y="0" width="462" height="467" frameX="0" frameY="-13" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0002" x="462" y="0" width="462" height="480"/>
+	<SubTexture name="ivashka_down0003" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0004" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0005" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0006" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0007" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0008" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0009" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0010" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0011" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0012" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0013" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_down0014" x="924" y="0" width="462" height="479" frameX="0" frameY="-1" frameWidth="462" frameHeight="480"/>
+	<SubTexture name="ivashka_idle0000" x="1386" y="0" width="462" height="503"/>
+	<SubTexture name="ivashka_idle0001" x="1386" y="0" width="462" height="503"/>
+	<SubTexture name="ivashka_idle0002" x="1848" y="0" width="462" height="503"/>
+	<SubTexture name="ivashka_idle0003" x="1848" y="0" width="462" height="503"/>
+	<SubTexture name="ivashka_idle0004" x="2310" y="0" width="462" height="493" frameX="0" frameY="-10" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0005" x="2310" y="0" width="462" height="493" frameX="0" frameY="-10" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0006" x="2772" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0007" x="2772" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0008" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0009" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0010" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0011" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0012" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0013" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_idle0014" x="3234" y="0" width="462" height="495" frameX="0" frameY="-8" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_left0000" x="0" y="503" width="467" height="488" frameX="0" frameY="0" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0001" x="0" y="503" width="467" height="488" frameX="0" frameY="0" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0002" x="467" y="503" width="464" height="485" frameX="-5" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0003" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0004" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0005" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0006" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0007" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0008" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0009" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0010" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0011" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0012" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0013" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_left0014" x="931" y="503" width="462" height="485" frameX="-4" frameY="-3" frameWidth="469" frameHeight="488"/>
+	<SubTexture name="ivashka_right0000" x="1393" y="503" width="470" height="492" frameX="-6" frameY="0" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0001" x="1393" y="503" width="470" height="492" frameX="-6" frameY="0" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0002" x="1863" y="503" width="467" height="490" frameX="0" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0003" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0004" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0005" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0006" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0007" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0008" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0009" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0010" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0011" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0012" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0013" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_right0014" x="2330" y="503" width="462" height="490" frameX="-5" frameY="-2" frameWidth="476" frameHeight="492"/>
+	<SubTexture name="ivashka_up0000" x="2792" y="503" width="462" height="503"/>
+	<SubTexture name="ivashka_up0001" x="2792" y="503" width="462" height="503"/>
+	<SubTexture name="ivashka_up0002" x="3254" y="503" width="462" height="490" frameX="0" frameY="-13" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0003" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0004" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0005" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0006" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0007" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0008" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0009" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0010" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0011" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0012" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0013" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="ivashka_up0014" x="0" y="1006" width="462" height="492" frameX="0" frameY="-11" frameWidth="462" frameHeight="503"/>
+	<SubTexture name="miss_ivashka_down0000" x="462" y="1006" width="462" height="464" frameX="0" frameY="-30" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0001" x="462" y="1006" width="462" height="464" frameX="0" frameY="-30" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0002" x="924" y="1006" width="462" height="494"/>
+	<SubTexture name="miss_ivashka_down0003" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0004" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0005" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0006" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0007" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0008" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0009" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0010" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0011" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0012" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0013" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_down0014" x="1386" y="1006" width="462" height="485" frameX="0" frameY="-9" frameWidth="462" frameHeight="494"/>
+	<SubTexture name="miss_ivashka_left0000" x="1848" y="1006" width="471" height="474" frameX="0" frameY="-5" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0001" x="1848" y="1006" width="471" height="474" frameX="0" frameY="-5" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0002" x="2319" y="1006" width="466" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0003" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0004" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0005" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0006" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0007" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0008" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0009" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0010" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0011" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0012" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0013" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_left0014" x="2785" y="1006" width="462" height="479" frameX="-9" frameY="0" frameWidth="475" frameHeight="479"/>
+	<SubTexture name="miss_ivashka_right0000" x="3247" y="1006" width="471" height="485" frameX="-4" frameY="-5" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0001" x="3247" y="1006" width="471" height="485" frameX="-4" frameY="-5" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0002" x="0" y="1500" width="466" height="490" frameX="0" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0003" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0004" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0005" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0006" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0007" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0008" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0009" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0010" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0011" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0012" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0013" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_right0014" x="466" y="1500" width="462" height="490" frameX="-4" frameY="0" frameWidth="475" frameHeight="490"/>
+	<SubTexture name="miss_ivashka_up0000" x="928" y="1500" width="462" height="505" frameX="0" frameY="0" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0001" x="928" y="1500" width="462" height="505" frameX="0" frameY="0" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0002" x="1390" y="1500" width="462" height="482" frameX="0" frameY="-24" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0003" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0004" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0005" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0006" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0007" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0008" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0009" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0010" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0011" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0012" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0013" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+	<SubTexture name="miss_ivashka_up0014" x="1852" y="1500" width="462" height="492" frameX="0" frameY="-13" frameWidth="462" frameHeight="506"/>
+</TextureAtlas>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="leftCorner.png" width="844" height="784">
+	<SubTexture name="Idle0000" x="582" y="268" width="256" height="238" frameX="-76" frameY="-4" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Idle0001" x="582" y="268" width="256" height="238" frameX="-76" frameY="-4" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Idle0002" x="5" y="5" width="266" height="249" frameX="-66" frameY="-1" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Idle0003" x="5" y="5" width="266" height="249" frameX="-66" frameY="-1" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Idle0004" x="5" y="278" width="265" height="241" frameX="-67" frameY="-7" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Idle0005" x="5" y="278" width="265" height="241" frameX="-67" frameY="-7" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0000" x="582" y="5" width="257" height="239" frameX="-76" frameY="-4" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0001" x="582" y="5" width="257" height="239" frameX="-76" frameY="-4" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0002" x="5" y="543" width="258" height="236" frameX="-76" frameY="-6" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0003" x="5" y="543" width="258" height="236" frameX="-76" frameY="-6" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0004" x="295" y="5" width="260" height="238" frameX="-76" frameY="-2" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0005" x="295" y="5" width="260" height="238" frameX="-76" frameY="-2" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0006" x="294" y="278" width="264" height="241" frameX="-74" frameY="-0" frameWidth="395" frameHeight="300"/>
+	<SubTexture name="Spreading0007" x="294" y="278" width="264" height="241" frameX="-74" frameY="-0" frameWidth="395" frameHeight="300"/>
+</TextureAtlas>

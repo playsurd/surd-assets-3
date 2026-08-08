@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="krakus.png" width="3392" height="415">
+	<SubTexture name="krakus0000" x="20" y="20" width="488" height="332" frameX="-7" frameY="-36" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0001" x="20" y="20" width="488" height="332" frameX="-7" frameY="-36" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0002" x="512" y="20" width="485" height="342" frameX="-3" frameY="-28" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0003" x="512" y="20" width="485" height="342" frameX="-3" frameY="-28" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0004" x="1001" y="20" width="478" height="354" frameX="-0" frameY="-16" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0005" x="1001" y="20" width="478" height="354" frameX="-0" frameY="-16" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0006" x="1483" y="20" width="475" height="357" frameX="-4" frameY="-13" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0007" x="1483" y="20" width="475" height="357" frameX="-4" frameY="-13" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0008" x="1962" y="20" width="470" height="364" frameX="-6" frameY="-9" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0009" x="1962" y="20" width="470" height="364" frameX="-6" frameY="-9" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0010" x="2436" y="20" width="468" height="364" frameX="-4" frameY="-6" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0011" x="2436" y="20" width="468" height="364" frameX="-4" frameY="-6" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0012" x="2908" y="20" width="464" height="375" frameX="-1" frameY="-0" frameWidth="496" frameHeight="376"/>
+	<SubTexture name="krakus0013" x="2908" y="20" width="464" height="375" frameX="-1" frameY="-0" frameWidth="496" frameHeight="376"/>
+</TextureAtlas>

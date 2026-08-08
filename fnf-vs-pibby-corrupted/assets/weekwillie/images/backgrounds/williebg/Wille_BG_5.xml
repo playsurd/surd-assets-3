@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Willie_Glitch6.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bird20000" x="10" y="10" width="775" height="440"/>
+	<SubTexture name="bird20001" x="795" y="10" width="775" height="440"/>
+	<SubTexture name="bird20002" x="1580" y="10" width="775" height="440"/>
+	<SubTexture name="bird20003" x="2365" y="10" width="775" height="440"/>
+	<SubTexture name="bird20004" x="3150" y="10" width="775" height="440"/>
+	<SubTexture name="bird20005" x="10" y="460" width="775" height="440"/>
+	<SubTexture name="bird20006" x="795" y="460" width="775" height="440"/>
+	<SubTexture name="bird20007" x="1580" y="460" width="775" height="440"/>
+	<SubTexture name="bird20008" x="2365" y="460" width="775" height="440"/>
+	<SubTexture name="bird20009" x="3150" y="460" width="775" height="440"/>
+	<SubTexture name="bird20010" x="10" y="910" width="775" height="440"/>
+	<SubTexture name="bird20011" x="795" y="910" width="775" height="440"/>
+	<SubTexture name="bird20012" x="1580" y="910" width="775" height="440"/>
+	<SubTexture name="bird20013" x="2365" y="910" width="775" height="440"/>
+	<SubTexture name="bird20014" x="3150" y="910" width="775" height="440"/>
+</TextureAtlas>

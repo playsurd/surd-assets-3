@@ -1,0 +1,41 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "robot",
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Malware",
+			"jenny",
+			[
+				46,
+				73,
+				113
+			]
+		],
+		[
+			"Nanovirus",
+			"jenny",
+			[
+				46,
+				73,
+				113
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "mlaatr"
+}

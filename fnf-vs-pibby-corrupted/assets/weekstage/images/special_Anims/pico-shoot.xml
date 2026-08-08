@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pico-shoot.png">
+	<!-- Created with Adobe Animate version 24.0.3.19 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Shoot0000" x="0" y="0" width="664" height="453" frameX="-287" frameY="-115" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0001" x="664" y="0" width="679" height="455" frameX="-272" frameY="-115" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0002" x="1343" y="0" width="746" height="451" frameX="-216" frameY="-123" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0003" x="2089" y="0" width="862" height="501" frameX="-100" frameY="-67" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0004" x="2951" y="0" width="962" height="540" frameX="0" frameY="-29" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0005" x="0" y="540" width="548" height="525" frameX="-414" frameY="-44" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0006" x="548" y="540" width="585" height="491" frameX="-372" frameY="-78" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0007" x="1133" y="540" width="590" height="558" frameX="-367" frameY="-11" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0008" x="1723" y="540" width="520" height="513" frameX="-439" frameY="-56" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0009" x="2243" y="540" width="583" height="509" frameX="-376" frameY="-60" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0010" x="2826" y="540" width="577" height="569" frameX="-378" frameY="0" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0011" x="3403" y="540" width="516" height="513" frameX="-439" frameY="-56" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0012" x="0" y="1109" width="579" height="509" frameX="-376" frameY="-60" frameWidth="962" frameHeight="574"/>
+	<SubTexture name="Shoot0013" x="579" y="1109" width="577" height="569" frameX="-378" frameY="0" frameWidth="962" frameHeight="574"/>
+</TextureAtlas>

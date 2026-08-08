@@ -1,0 +1,41 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "mouse",
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Rusted Steamboat",
+			"disneyduo",
+			[
+				100,
+				80,
+				80
+			]
+		],
+		[
+			"house-of-mouse",
+			"disneyduo",
+			[
+				100,
+				80,
+				80
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "willie"
+}

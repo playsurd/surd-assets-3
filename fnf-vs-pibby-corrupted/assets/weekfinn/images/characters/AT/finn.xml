@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="finn.png" width="7003" height="5384">
+	<SubTexture name="Finn Down0000" x="1872" y="4651" width="740" height="632" frameX="-29" frameY="-164" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0001" x="917" y="4662" width="740" height="660" frameX="-29" frameY="-136" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0002" x="6052" y="4062" width="750" height="722" frameX="-11" frameY="-73" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0003" x="2805" y="4514" width="750" height="722" frameX="-11" frameY="-73" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0004" x="3829" y="4478" width="767" height="717" frameX="-2" frameY="-77" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0005" x="3829" y="4478" width="767" height="717" frameX="-2" frameY="-77" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0006" x="4676" y="3982" width="782" height="757" frameX="-0" frameY="-37" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0007" x="5462" y="3982" width="586" height="757" frameX="-113" frameY="-37" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0008" x="6344" y="2170" width="591" height="767" frameX="-107" frameY="-27" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0009" x="6344" y="2170" width="591" height="767" frameX="-107" frameY="-27" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Down0010" x="2887" y="2853" width="587" height="794" frameX="-111" frameY="-0" frameWidth="782" frameHeight="801"/>
+	<SubTexture name="Finn Idle0000" x="1121" y="2917" width="751" height="946" frameX="-176" frameY="-10" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0001" x="6213" y="3112" width="750" height="946" frameX="-176" frameY="-10" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0002" x="3829" y="3673" width="843" height="801" frameX="-99" frameY="-155" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0003" x="3829" y="3673" width="843" height="801" frameX="-99" frameY="-155" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0004" x="20" y="3799" width="945" height="768" frameX="-48" frameY="-188" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0005" x="20" y="3799" width="945" height="768" frameX="-48" frameY="-188" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0006" x="2887" y="3673" width="938" height="837" frameX="-0" frameY="-128" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0007" x="2887" y="3673" width="938" height="837" frameX="-0" frameY="-128" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0008" x="1876" y="3717" width="925" height="930" frameX="-21" frameY="-53" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0009" x="1876" y="3717" width="925" height="930" frameX="-21" frameY="-53" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0010" x="3522" y="2700" width="919" height="969" frameX="-29" frameY="-20" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0011" x="3522" y="2700" width="919" height="969" frameX="-29" frameY="-20" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0012" x="4547" y="2171" width="709" height="956" frameX="-143" frameY="-0" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Idle0013" x="4547" y="2171" width="709" height="956" frameX="-143" frameY="-0" frameWidth="993" frameHeight="989"/>
+	<SubTexture name="Finn Left0000" x="1234" y="20" width="1160" height="776" frameX="-11" frameY="-77" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0001" x="2398" y="20" width="1159" height="780" frameX="-12" frameY="-76" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0002" x="3522" y="1844" width="1021" height="852" frameX="-111" frameY="-13" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0003" x="3522" y="1844" width="1021" height="852" frameX="-111" frameY="-13" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0004" x="1926" y="2853" width="957" height="860" frameX="-176" frameY="-3" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0005" x="1926" y="2853" width="957" height="860" frameX="-176" frameY="-3" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0006" x="5260" y="3112" width="949" height="866" frameX="-186" frameY="-0" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0007" x="20" y="3006" width="949" height="789" frameX="-186" frameY="-77" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0008" x="20" y="4571" width="893" height="793" frameX="-242" frameY="-79" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0009" x="20" y="4571" width="893" height="793" frameX="-242" frameY="-79" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Left0010" x="969" y="3867" width="899" height="791" frameX="-236" frameY="-80" frameWidth="1183" frameHeight="873"/>
+	<SubTexture name="Finn Right0000" x="3561" y="779" width="1131" height="1061" frameX="-63" frameY="-3" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0001" x="2395" y="1785" width="1123" height="1064" frameX="-72" frameY="-0" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0002" x="1234" y="800" width="1157" height="1003" frameX="-60" frameY="-60" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0003" x="20" y="1005" width="1144" height="1016" frameX="-73" frameY="-47" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0004" x="2395" y="804" width="1129" height="977" frameX="-74" frameY="-86" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0005" x="20" y="2025" width="1097" height="977" frameX="-106" frameY="-86" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0006" x="20" y="20" width="1210" height="981" frameX="-0" frameY="-82" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0007" x="3561" y="20" width="1140" height="755" frameX="-0" frameY="-308" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0008" x="5338" y="2170" width="1002" height="938" frameX="-124" frameY="-125" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Right0009" x="5338" y="2170" width="1002" height="938" frameX="-124" frameY="-125" frameWidth="1217" frameHeight="1068"/>
+	<SubTexture name="Finn Up0000" x="5478" y="1100" width="748" height="1063" frameX="-67" frameY="-81" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0001" x="6246" y="20" width="737" height="1075" frameX="-77" frameY="-70" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0002" x="1168" y="1807" width="754" height="1106" frameX="-23" frameY="-38" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0003" x="1168" y="1807" width="754" height="1106" frameX="-23" frameY="-38" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0004" x="4705" y="20" width="769" height="1140" frameX="-10" frameY="-0" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0005" x="4705" y="20" width="769" height="1140" frameX="-10" frameY="-0" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0006" x="5478" y="20" width="764" height="1076" frameX="-0" frameY="-64" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0007" x="6246" y="1099" width="630" height="1067" frameX="-134" frameY="-73" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0008" x="4696" y="1164" width="638" height="1003" frameX="-109" frameY="-137" frameWidth="830" frameHeight="1149"/>
+	<SubTexture name="Finn Up0009" x="4696" y="1164" width="638" height="1003" frameX="-109" frameY="-137" frameWidth="830" frameHeight="1149"/>
+</TextureAtlas>

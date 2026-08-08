@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pirate 2.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="pirate 2 idle0000" x="0" y="0" width="349" height="461" frameX="0" frameY="-20" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0001" x="0" y="0" width="349" height="461" frameX="0" frameY="-20" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0002" x="349" y="0" width="337" height="470" frameX="-6" frameY="-11" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0003" x="349" y="0" width="337" height="470" frameX="-6" frameY="-11" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0004" x="686" y="0" width="328" height="472" frameX="-11" frameY="-9" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0005" x="686" y="0" width="328" height="472" frameX="-11" frameY="-9" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0006" x="1014" y="0" width="323" height="481" frameX="-13" frameY="0" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0007" x="1014" y="0" width="323" height="481" frameX="-13" frameY="0" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0008" x="1337" y="0" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0009" x="1337" y="0" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0010" x="1660" y="0" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0011" x="1660" y="0" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0012" x="0" y="481" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+	<SubTexture name="pirate 2 idle0013" x="0" y="481" width="323" height="477" frameX="-13" frameY="-4" frameWidth="349" frameHeight="481"/>
+</TextureAtlas>

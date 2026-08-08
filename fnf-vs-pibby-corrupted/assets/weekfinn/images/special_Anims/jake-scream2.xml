@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="jake-scream2.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Jake Scream20000" x="0" y="0" width="1465" height="1142" frameX="-196" frameY="-8" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20001" x="1515" y="0" width="1464" height="1150" frameX="-201" frameY="0" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20002" x="3029" y="0" width="1444" height="1126" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20003" x="4523" y="0" width="1441" height="1132" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20004" x="6014" y="0" width="1453" height="1164" frameX="-198" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20005" x="0" y="1214" width="1457" height="1156" frameX="-195" frameY="-24" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20006" x="1507" y="1214" width="1444" height="1169" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20007" x="3001" y="1214" width="1441" height="1175" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20008" x="4492" y="1214" width="1444" height="1145" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20009" x="5986" y="1214" width="1441" height="1151" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20010" x="0" y="2439" width="1444" height="1122" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20011" x="1494" y="2439" width="1441" height="1128" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20012" x="2985" y="2439" width="1444" height="1136" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20013" x="4479" y="2439" width="1441" height="1142" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20014" x="5970" y="2439" width="1444" height="1134" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20015" x="0" y="3631" width="1441" height="1140" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20016" x="1491" y="3631" width="1444" height="1126" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20017" x="2985" y="3631" width="1441" height="1132" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20018" x="4476" y="3631" width="1450" height="1164" frameX="-201" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20019" x="5976" y="3631" width="1441" height="1170" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20020" x="0" y="4851" width="1444" height="1169" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20021" x="1494" y="4851" width="1441" height="1175" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20022" x="2985" y="4851" width="1444" height="1145" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20023" x="4479" y="4851" width="1441" height="1151" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20024" x="5970" y="4851" width="1444" height="1122" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20025" x="0" y="6076" width="1441" height="1128" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20026" x="1491" y="6076" width="1444" height="1136" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20027" x="2985" y="6076" width="1441" height="1142" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20028" x="4476" y="6076" width="1444" height="1134" frameX="-207" frameY="-16" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20029" x="5970" y="6076" width="1441" height="1140" frameX="-211" frameY="-10" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20079" x="0" y="7268" width="1446" height="831" frameX="0" frameY="-330" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20080" x="1496" y="7268" width="992" height="722" frameX="-131" frameY="-416" frameWidth="1668" frameHeight="1185"/>
+	<SubTexture name="Jake Scream20081" x="2538" y="7268" width="950" height="640" frameX="-93" frameY="-535" frameWidth="1668" frameHeight="1185"/>
+</TextureAtlas>

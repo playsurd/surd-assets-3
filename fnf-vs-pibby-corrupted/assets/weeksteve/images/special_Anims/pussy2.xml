@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="steven-alt.png" width="2868" height="2428">
+	<SubTexture name="Shield Transition0000" x="2258" y="828" width="590" height="818" frameX="-14" frameY="-0" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0001" x="2258" y="828" width="590" height="818" frameX="-14" frameY="-0" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0002" x="1571" y="20" width="755" height="804" frameX="-0" frameY="-14" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0003" x="1571" y="20" width="755" height="804" frameX="-0" frameY="-14" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0004" x="1536" y="1614" width="718" height="757" frameX="-10" frameY="-58" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0005" x="1536" y="1614" width="718" height="757" frameX="-10" frameY="-58" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0006" x="20" y="1615" width="732" height="780" frameX="-19" frameY="-35" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0007" x="20" y="1615" width="732" height="780" frameX="-19" frameY="-35" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0008" x="1539" y="828" width="679" height="778" frameX="-28" frameY="-36" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0009" x="1539" y="828" width="679" height="778" frameX="-28" frameY="-36" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0010" x="20" y="20" width="774" height="790" frameX="-29" frameY="-24" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0011" x="20" y="20" width="774" height="790" frameX="-29" frameY="-24" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0012" x="786" y="818" width="749" height="792" frameX="-29" frameY="-22" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0013" x="786" y="818" width="749" height="792" frameX="-29" frameY="-22" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0014" x="786" y="1614" width="746" height="794" frameX="-29" frameY="-20" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0015" x="786" y="1614" width="746" height="794" frameX="-29" frameY="-20" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0016" x="20" y="814" width="762" height="797" frameX="-23" frameY="-18" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0017" x="20" y="814" width="762" height="797" frameX="-23" frameY="-18" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0018" x="798" y="20" width="769" height="794" frameX="-19" frameY="-21" frameWidth="810" frameHeight="818"/>
+	<SubTexture name="Shield Transition0019" x="798" y="20" width="769" height="794" frameX="-19" frameY="-21" frameWidth="810" frameHeight="818"/>
+</TextureAtlas>

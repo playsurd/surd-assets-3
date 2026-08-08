@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Willie_Glitch2.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bush_goop0000" x="10" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0001" x="245" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0002" x="480" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0003" x="715" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0004" x="950" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0005" x="1185" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0006" x="1420" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0007" x="1655" y="10" width="225" height="286"/>
+	<SubTexture name="bush_goop0008" x="10" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0009" x="245" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0010" x="480" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0011" x="715" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0012" x="950" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0013" x="1185" y="306" width="225" height="286"/>
+	<SubTexture name="bush_goop0014" x="1420" y="306" width="225" height="286"/>
+</TextureAtlas>

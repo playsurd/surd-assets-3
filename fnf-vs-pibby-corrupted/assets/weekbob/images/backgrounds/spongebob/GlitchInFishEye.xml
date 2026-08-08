@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GlitchInFishEye.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="GlitchInFishEye0000" x="0" y="0" width="81" height="104" frameX="0" frameY="0" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0001" x="0" y="0" width="81" height="104" frameX="0" frameY="0" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0002" x="0" y="0" width="81" height="104" frameX="0" frameY="0" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0003" x="81" y="0" width="76" height="113" frameX="-3" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0004" x="81" y="0" width="76" height="113" frameX="-3" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0005" x="81" y="0" width="76" height="113" frameX="-3" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0006" x="157" y="0" width="74" height="118" frameX="-4" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0007" x="157" y="0" width="74" height="118" frameX="-4" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0008" x="157" y="0" width="74" height="118" frameX="-4" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0009" x="231" y="0" width="72" height="126" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0010" x="231" y="0" width="72" height="126" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0011" x="231" y="0" width="72" height="126" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0012" x="303" y="0" width="74" height="135" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0013" x="303" y="0" width="74" height="135" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0014" x="303" y="0" width="74" height="135" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0015" x="377" y="0" width="72" height="145" frameX="-4" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0016" x="377" y="0" width="72" height="145" frameX="-4" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0017" x="377" y="0" width="72" height="145" frameX="-4" frameY="-1" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0018" x="0" y="145" width="71" height="181" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0019" x="0" y="145" width="71" height="181" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0020" x="0" y="145" width="71" height="181" frameX="-4" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0021" x="71" y="145" width="75" height="207" frameX="-2" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0022" x="71" y="145" width="75" height="207" frameX="-2" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0023" x="71" y="145" width="75" height="207" frameX="-2" frameY="-3" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0024" x="146" y="145" width="76" height="243" frameX="-2" frameY="-4" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0025" x="146" y="145" width="76" height="243" frameX="-2" frameY="-4" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0026" x="146" y="145" width="76" height="243" frameX="-2" frameY="-4" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0027" x="222" y="145" width="77" height="281" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0028" x="222" y="145" width="77" height="281" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+	<SubTexture name="GlitchInFishEye0029" x="222" y="145" width="77" height="281" frameX="-2" frameY="-2" frameWidth="81" frameHeight="283"/>
+</TextureAtlas>

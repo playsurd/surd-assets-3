@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="slavya_n.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="slavya_n0000" x="0" y="0" width="374" height="485" frameX="-3" frameY="-18" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0001" x="0" y="0" width="374" height="485" frameX="-3" frameY="-18" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0002" x="374" y="0" width="377" height="487" frameX="0" frameY="-16" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0003" x="751" y="0" width="377" height="487" frameX="0" frameY="-16" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0004" x="1128" y="0" width="374" height="487" frameX="-3" frameY="-16" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0005" x="1502" y="0" width="374" height="487" frameX="-3" frameY="-16" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0006" x="0" y="487" width="362" height="485" frameX="-15" frameY="-18" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0007" x="362" y="487" width="332" height="482" frameX="-45" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0008" x="362" y="487" width="332" height="482" frameX="-45" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0009" x="362" y="487" width="332" height="482" frameX="-45" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0010" x="694" y="487" width="343" height="480" frameX="-34" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0011" x="694" y="487" width="343" height="480" frameX="-34" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0012" x="694" y="487" width="343" height="480" frameX="-34" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0013" x="1037" y="487" width="345" height="483" frameX="-32" frameY="-20" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0014" x="1037" y="487" width="345" height="483" frameX="-32" frameY="-20" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0015" x="1382" y="487" width="366" height="502" frameX="-30" frameY="-1" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0016" x="1382" y="487" width="366" height="502" frameX="-30" frameY="-1" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0017" x="0" y="989" width="366" height="503" frameX="-32" frameY="0" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0018" x="366" y="989" width="366" height="503" frameX="-32" frameY="0" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0019" x="732" y="989" width="358" height="503" frameX="-34" frameY="0" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0020" x="1090" y="989" width="358" height="503" frameX="-34" frameY="0" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0021" x="1448" y="989" width="339" height="496" frameX="-41" frameY="-7" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0022" x="0" y="1492" width="328" height="482" frameX="-49" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0023" x="0" y="1492" width="328" height="482" frameX="-49" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0024" x="0" y="1492" width="328" height="482" frameX="-49" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0025" x="328" y="1492" width="330" height="480" frameX="-47" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0026" x="328" y="1492" width="330" height="480" frameX="-47" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0027" x="328" y="1492" width="330" height="480" frameX="-47" frameY="-23" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0028" x="658" y="1492" width="332" height="482" frameX="-45" frameY="-21" frameWidth="398" frameHeight="503"/>
+	<SubTexture name="slavya_n0029" x="658" y="1492" width="332" height="482" frameX="-45" frameY="-21" frameWidth="398" frameHeight="503"/>
+</TextureAtlas>

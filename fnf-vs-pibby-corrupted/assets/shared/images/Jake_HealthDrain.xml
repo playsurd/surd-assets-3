@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Jake_HealthDrain.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="Jake Drain Idle0000" x="1334" y="0" width="365" height="584" frameX="2" frameY="1" frameWidth="361" frameHeight="581"/>
+	<SubTexture name="Jake Drain Idle0001" x="1334" y="0" width="365" height="584" frameX="2" frameY="1" frameWidth="361" frameHeight="581"/>
+	<SubTexture name="Jake Drain Idle0002" x="0" y="1000" width="362" height="582" frameX="-1" frameY="2" frameWidth="361" frameHeight="581"/>
+	<SubTexture name="Jake Drain Idle0003" x="0" y="1000" width="362" height="582" frameX="-1" frameY="2" frameWidth="361" frameHeight="581"/>
+	<SubTexture name="Jake Drain Leave0000" x="0" y="412" width="393" height="588" frameX="-24" frameY="2" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Leave0001" x="969" y="0" width="365" height="587" frameX="-58" frameY="2" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Leave0002" x="595" y="0" width="374" height="598" frameX="-140" frameY="-42" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Leave0003" x="0" y="0" width="595" height="412" frameX="2" frameY="-288" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Leave0004" x="362" y="1000" width="577" height="304" frameX="-3" frameY="-405" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Start0000" x="362" y="1000" width="577" height="304" frameX="-3" frameY="-405" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Start0001" x="0" y="0" width="595" height="412" frameX="2" frameY="-288" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Start0002" x="595" y="0" width="374" height="598" frameX="-140" frameY="-42" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Start0003" x="969" y="0" width="365" height="587" frameX="-58" frameY="2" frameWidth="591" frameHeight="707"/>
+	<SubTexture name="Jake Drain Start0004" x="0" y="412" width="393" height="588" frameX="-24" frameY="2" frameWidth="591" frameHeight="707"/>
+</TextureAtlas>

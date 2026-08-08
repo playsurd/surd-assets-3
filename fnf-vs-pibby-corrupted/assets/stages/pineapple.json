@@ -1,0 +1,15 @@
+{
+	"directory": "weekbob",
+	"defaultZoom": 0.76,
+	"stageUI": "",
+
+	"boyfriend": [950, 130],
+	"girlfriend": [950, 150],
+	"opponent": [90, 55],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [0, -80],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [0, 0],
+	"camera_speed": 1
+}

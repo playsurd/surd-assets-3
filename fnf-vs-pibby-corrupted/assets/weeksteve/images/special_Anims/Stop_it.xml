@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="Pink_steven.png" width="4423" height="4857">
+	<SubTexture name="Stop It0000" x="598" y="1664" width="578" height="865" frameX="-46" frameY="-5" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0001" x="598" y="1664" width="578" height="865" frameX="-46" frameY="-5" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0002" x="20" y="1664" width="574" height="869" frameX="-55" frameY="-1" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0003" x="20" y="1664" width="574" height="869" frameX="-55" frameY="-1" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0004" x="1970" y="20" width="524" height="853" frameX="-81" frameY="-28" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0005" x="1180" y="827" width="524" height="854" frameX="-81" frameY="-28" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0006" x="746" y="3341" width="502" height="785" frameX="-101" frameY="-97" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0007" x="3787" y="20" width="616" height="744" frameX="-69" frameY="-172" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0008" x="3787" y="768" width="560" height="719" frameX="-110" frameY="-173" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0009" x="2498" y="20" width="555" height="819" frameX="-69" frameY="-63" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0010" x="3783" y="1491" width="553" height="718" frameX="-110" frameY="-184" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0011" x="3639" y="2213" width="473" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0012" x="3639" y="2213" width="473" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0013" x="3635" y="3271" width="467" height="703" frameX="-111" frameY="-179" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0014" x="3635" y="3271" width="467" height="703" frameX="-111" frameY="-179" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0015" x="20" y="4136" width="457" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0016" x="20" y="4136" width="457" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0017" x="481" y="4136" width="457" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0018" x="481" y="4136" width="457" height="701" frameX="-111" frameY="-181" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0019" x="942" y="4130" width="457" height="700" frameX="-111" frameY="-182" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0020" x="942" y="4130" width="457" height="700" frameX="-111" frameY="-182" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0021" x="3175" y="3271" width="456" height="717" frameX="-110" frameY="-165" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0022" x="2715" y="3292" width="456" height="746" frameX="-110" frameY="-136" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0023" x="2454" y="877" width="495" height="799" frameX="-99" frameY="-83" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0024" x="2240" y="2491" width="669" height="797" frameX="-91" frameY="-85" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0025" x="1252" y="3337" width="729" height="784" frameX="-88" frameY="-103" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0026" x="20" y="2537" width="734" height="800" frameX="-88" frameY="-87" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0027" x="1086" y="20" width="880" height="803" frameX="-0" frameY="-84" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0028" x="20" y="855" width="900" height="805" frameX="-54" frameY="-82" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0029" x="20" y="20" width="1062" height="831" frameX="-8" frameY="-82" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0030" x="1180" y="1685" width="832" height="805" frameX="-88" frameY="-82" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0031" x="1708" y="877" width="742" height="803" frameX="-88" frameY="-84" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0032" x="2016" y="1684" width="742" height="803" frameX="-88" frameY="-84" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0033" x="758" y="2533" width="742" height="800" frameX="-88" frameY="-87" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0034" x="758" y="2533" width="742" height="800" frameX="-88" frameY="-87" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0035" x="1504" y="2494" width="732" height="798" frameX="-89" frameY="-89" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0036" x="2762" y="1680" width="732" height="792" frameX="-89" frameY="-95" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0037" x="3057" y="20" width="726" height="795" frameX="-89" frameY="-92" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0038" x="1985" y="3296" width="726" height="776" frameX="-89" frameY="-111" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0039" x="3057" y="819" width="722" height="793" frameX="-89" frameY="-94" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0040" x="3057" y="819" width="722" height="793" frameX="-89" frameY="-94" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0041" x="2913" y="2476" width="722" height="791" frameX="-89" frameY="-96" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0042" x="2913" y="2476" width="722" height="791" frameX="-89" frameY="-96" frameWidth="1074" frameHeight="920"/>
+	<SubTexture name="Stop It0043" x="20" y="3341" width="722" height="791" frameX="-89" frameY="-96" frameWidth="1074" frameHeight="920"/>
+</TextureAtlas>

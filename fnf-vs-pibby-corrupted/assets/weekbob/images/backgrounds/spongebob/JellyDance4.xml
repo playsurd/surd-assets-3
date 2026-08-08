@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="JellyDance4.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="JellyDance40000" x="0" y="0" width="132" height="258" frameX="-57" frameY="-52" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40001" x="0" y="0" width="132" height="258" frameX="-57" frameY="-52" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40002" x="132" y="0" width="139" height="275" frameX="-50" frameY="-62" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40003" x="132" y="0" width="139" height="275" frameX="-50" frameY="-62" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40004" x="271" y="0" width="139" height="293" frameX="-50" frameY="-69" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40005" x="271" y="0" width="139" height="293" frameX="-50" frameY="-69" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40006" x="410" y="0" width="151" height="234" frameX="-45" frameY="-74" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40007" x="410" y="0" width="151" height="234" frameX="-45" frameY="-74" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40008" x="561" y="0" width="168" height="237" frameX="-37" frameY="-79" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40009" x="561" y="0" width="168" height="237" frameX="-37" frameY="-79" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40010" x="729" y="0" width="277" height="271" frameX="-6" frameY="0" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40011" x="729" y="0" width="277" height="271" frameX="-6" frameY="0" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40012" x="0" y="293" width="279" height="304" frameX="0" frameY="-4" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40013" x="0" y="293" width="279" height="304" frameX="0" frameY="-4" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40014" x="279" y="293" width="268" height="337" frameX="-6" frameY="-12" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40015" x="279" y="293" width="268" height="337" frameX="-6" frameY="-12" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40016" x="547" y="293" width="207" height="357" frameX="-23" frameY="-25" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40017" x="547" y="293" width="207" height="357" frameX="-23" frameY="-25" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40018" x="754" y="293" width="168" height="330" frameX="-43" frameY="-33" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40019" x="754" y="293" width="168" height="330" frameX="-43" frameY="-33" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40020" x="0" y="650" width="132" height="349" frameX="-57" frameY="-40" frameWidth="283" frameHeight="389"/>
+	<SubTexture name="JellyDance40021" x="0" y="650" width="132" height="349" frameX="-57" frameY="-40" frameWidth="283" frameHeight="389"/>
+</TextureAtlas>

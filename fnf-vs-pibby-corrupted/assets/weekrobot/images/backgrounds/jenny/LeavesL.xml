@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LeavesL.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="left_leaves0000" x="458" y="0" width="149" height="590" frameX="-1" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0001" x="458" y="0" width="149" height="590" frameX="-1" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0002" x="0" y="586" width="151" height="588" frameX="2" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0003" x="0" y="586" width="151" height="588" frameX="2" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0004" x="302" y="586" width="149" height="586" frameX="1" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0005" x="302" y="586" width="149" height="586" frameX="1" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0006" x="0" y="0" width="154" height="586" frameX="2" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0007" x="0" y="0" width="154" height="586" frameX="2" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0008" x="154" y="0" width="152" height="586" frameX="0" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0009" x="154" y="0" width="152" height="586" frameX="0" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0010" x="306" y="0" width="152" height="586" frameX="0" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0011" x="306" y="0" width="152" height="586" frameX="0" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0012" x="151" y="586" width="151" height="586" frameX="-1" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="left_leaves0013" x="151" y="586" width="151" height="586" frameX="-1" frameY="2" frameWidth="2621" frameHeight="586"/>
+</TextureAtlas>

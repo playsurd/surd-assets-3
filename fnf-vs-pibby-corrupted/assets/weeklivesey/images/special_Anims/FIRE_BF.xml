@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="FIRE_BF.png" width="2221" height="1850">
+	<SubTexture name="shot10000" x="1460" y="20" width="741" height="449" frameX="-627" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10001" x="20" y="20" width="1436" height="709" frameX="-94" frameY="-171" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10002" x="20" y="733" width="939" height="548" frameX="-447" frameY="-203" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10003" x="20" y="1285" width="839" height="545" frameX="-550" frameY="-206" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10004" x="963" y="733" width="774" height="561" frameX="-615" frameY="-207" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10005" x="1301" y="1298" width="409" height="449" frameX="-976" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10006" x="1301" y="1298" width="409" height="449" frameX="-976" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10007" x="863" y="1298" width="434" height="449" frameX="-941" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10008" x="863" y="1298" width="434" height="449" frameX="-941" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10009" x="1741" y="926" width="453" height="449" frameX="-914" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10010" x="1741" y="926" width="453" height="449" frameX="-914" frameY="-302" frameWidth="1530" frameHeight="880"/>
+	<SubTexture name="shot10011" x="1741" y="473" width="454" height="449" frameX="-910" frameY="-302" frameWidth="1530" frameHeight="880"/>
+</TextureAtlas>

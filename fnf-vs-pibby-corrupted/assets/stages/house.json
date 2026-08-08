@@ -1,0 +1,15 @@
+{
+    "directory": "weekrobot",
+    "defaultZoom": 0.3,
+    "isPixelStage": false,
+
+    "boyfriend": [1578, 370],
+    "girlfriend": [1080, 400],
+    "opponent": [788, 495],
+    "hide_girlfriend": false,
+
+    "camera_boyfriend": [100, -30],
+    "camera_opponent": [0, 0],
+    "camera_girlfriend": [0, 0],
+    "camera_speed": 1
+}

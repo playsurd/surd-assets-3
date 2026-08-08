@@ -1,0 +1,59 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "fnf",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Blue balled",
+			"pibboyfriend",
+			[
+				86,
+				133,
+				193
+			]
+		],
+		[
+			"Spooked",
+			"pibspooky",
+			[
+				86,
+				53,
+				73
+			]
+		],
+		[
+			"Schoolhouse Massacre",
+			"pibpico",
+			[
+				60,
+				133,
+				73
+			]
+		],
+		[
+			"Self Restraint",
+			"fuckers",
+			[
+				86,
+				133,
+				193
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "fridaynightfunkin",
+	"hiddenUntilUnlocked": false
+}

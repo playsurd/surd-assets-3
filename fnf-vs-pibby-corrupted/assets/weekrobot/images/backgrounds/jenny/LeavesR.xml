@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LeavesR.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="right_leaves0000" x="859" y="0" width="210" height="454" frameX="-2407" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0001" x="859" y="0" width="210" height="454" frameX="-2407" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0002" x="1069" y="0" width="205" height="456" frameX="-2409" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0003" x="1069" y="0" width="205" height="456" frameX="-2409" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0004" x="0" y="459" width="209" height="455" frameX="-2410" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0005" x="0" y="459" width="209" height="455" frameX="-2410" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0006" x="434" y="0" width="213" height="453" frameX="-2409" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0007" x="434" y="0" width="213" height="453" frameX="-2409" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0008" x="647" y="0" width="212" height="455" frameX="-2406" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0009" x="647" y="0" width="212" height="455" frameX="-2406" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0010" x="217" y="0" width="217" height="458" frameX="-2402" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0011" x="217" y="0" width="217" height="458" frameX="-2402" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0012" x="0" y="0" width="217" height="459" frameX="-2402" frameY="2" frameWidth="2621" frameHeight="586"/>
+	<SubTexture name="right_leaves0013" x="0" y="0" width="217" height="459" frameX="-2402" frameY="2" frameWidth="2621" frameHeight="586"/>
+</TextureAtlas>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GaryAnims.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Gary Anim0000" x="0" y="0" width="45" height="57" frameX="0" frameY="-2" frameWidth="45" frameHeight="59"/>
+	<SubTexture name="Gary Anim0001" x="0" y="0" width="45" height="57" frameX="0" frameY="-2" frameWidth="45" frameHeight="59"/>
+	<SubTexture name="Gary Anim0002" x="0" y="0" width="45" height="57" frameX="0" frameY="-2" frameWidth="45" frameHeight="59"/>
+	<SubTexture name="Gary Anim0003" x="45" y="0" width="45" height="59"/>
+	<SubTexture name="Gary Anim0004" x="45" y="0" width="45" height="59"/>
+	<SubTexture name="Gary Anim0005" x="45" y="0" width="45" height="59"/>
+	<SubTexture name="Gary Anim0006" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0007" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0008" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0009" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0010" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0011" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0012" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0013" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0014" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0015" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0016" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0017" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0018" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0019" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0020" x="0" y="59" width="45" height="59"/>
+	<SubTexture name="Gary Anim0021" x="0" y="59" width="45" height="59"/>
+</TextureAtlas>

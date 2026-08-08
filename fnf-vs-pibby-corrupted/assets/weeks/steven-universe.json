@@ -1,0 +1,50 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "steven",
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"My Monster",
+			"steven",
+			[
+				186,
+				93,
+				133
+			]
+		],
+		[
+			"Save The Day",
+			"steven",
+			[
+				186,
+				93,
+				133
+			]
+		],
+		[
+			"Glitched Gem",
+			"buffsteven",
+			[
+				186,
+				93,
+				133
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "stevenuniverse"
+}

@@ -1,0 +1,41 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Black Mark",
+			"livesey",
+			[
+				40,
+				60,
+				40
+			]
+		],
+		[
+			"Treasure Island",
+			"livesey",
+			[
+				40,
+				60,
+				40
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "livesey"
+}

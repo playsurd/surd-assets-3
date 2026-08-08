@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GlitchBehindChair.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="GlitchBehindChair0000" x="0" y="0" width="62" height="52" frameX="0" frameY="0" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0001" x="0" y="0" width="62" height="52" frameX="0" frameY="0" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0002" x="0" y="0" width="62" height="52" frameX="0" frameY="0" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0003" x="62" y="0" width="60" height="50" frameX="-1" frameY="-2" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0004" x="62" y="0" width="60" height="50" frameX="-1" frameY="-2" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0005" x="62" y="0" width="60" height="50" frameX="-1" frameY="-2" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0006" x="122" y="0" width="60" height="46" frameX="0" frameY="-7" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0007" x="122" y="0" width="60" height="46" frameX="0" frameY="-7" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0008" x="122" y="0" width="60" height="46" frameX="0" frameY="-7" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0009" x="182" y="0" width="59" height="44" frameX="-1" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0010" x="182" y="0" width="59" height="44" frameX="-1" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0011" x="182" y="0" width="59" height="44" frameX="-1" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0012" x="0" y="52" width="56" height="44" frameX="-2" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0013" x="0" y="52" width="56" height="44" frameX="-2" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0014" x="0" y="52" width="56" height="44" frameX="-2" frameY="-9" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0015" x="56" y="52" width="56" height="48" frameX="-2" frameY="-6" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0016" x="56" y="52" width="56" height="48" frameX="-2" frameY="-6" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0017" x="56" y="52" width="56" height="48" frameX="-2" frameY="-6" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0018" x="112" y="52" width="57" height="50" frameX="-2" frameY="-2" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0019" x="112" y="52" width="57" height="50" frameX="-2" frameY="-2" frameWidth="62" frameHeight="54"/>
+	<SubTexture name="GlitchBehindChair0020" x="112" y="52" width="57" height="50" frameX="-2" frameY="-2" frameWidth="62" frameHeight="54"/>
+</TextureAtlas>

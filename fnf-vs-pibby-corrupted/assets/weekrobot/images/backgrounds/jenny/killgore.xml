@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="killgore.png" width="519" height="450">
+	<SubTexture name="killgore0006" x="20" y="20" width="238" height="199" frameX="-0" frameY="-8" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0007" x="20" y="20" width="238" height="199" frameX="-0" frameY="-8" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0008" x="262" y="20" width="237" height="202" frameX="-1" frameY="-4" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0009" x="262" y="20" width="237" height="202" frameX="-1" frameY="-4" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0010" x="20" y="223" width="238" height="207" frameX="-2" frameY="-0" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0011" x="20" y="223" width="238" height="207" frameX="-2" frameY="-0" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0012" x="262" y="226" width="235" height="204" frameX="-5" frameY="-1" frameWidth="241" frameHeight="207"/>
+	<SubTexture name="killgore0013" x="262" y="226" width="235" height="204" frameX="-5" frameY="-1" frameWidth="241" frameHeight="207"/>
+</TextureAtlas>

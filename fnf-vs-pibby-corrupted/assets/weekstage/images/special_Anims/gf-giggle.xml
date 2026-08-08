@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="gf-alt.png" width="2587" height="2931">
+	<SubTexture name="GF_GIGGLE0000" x="1714" y="1956" width="443" height="469" frameX="-0" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0001" x="20" y="2442" width="443" height="469" frameX="-0" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0002" x="2134" y="20" width="433" height="473" frameX="-5" frameY="-10" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0003" x="2134" y="497" width="433" height="473" frameX="-5" frameY="-10" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0004" x="20" y="506" width="416" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0005" x="440" y="506" width="416" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0006" x="860" y="506" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0007" x="862" y="20" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0008" x="20" y="990" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0009" x="444" y="990" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0010" x="868" y="990" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0011" x="1286" y="20" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0012" x="1284" y="504" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0013" x="20" y="1474" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0014" x="20" y="990" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0015" x="444" y="1474" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0016" x="868" y="990" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0017" x="868" y="1474" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0018" x="1710" y="20" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0019" x="1708" y="504" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0020" x="1292" y="988" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0021" x="1292" y="1472" width="420" height="480" frameX="-14" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0022" x="1716" y="988" width="414" height="480" frameX="-20" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0023" x="467" y="2442" width="429" height="469" frameX="-10" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0024" x="467" y="2442" width="429" height="469" frameX="-10" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0025" x="2134" y="974" width="430" height="473" frameX="-7" frameY="-9" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0026" x="2134" y="974" width="430" height="473" frameX="-7" frameY="-9" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0027" x="20" y="1958" width="419" height="480" frameX="-15" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0028" x="443" y="1958" width="419" height="480" frameX="-15" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0029" x="20" y="20" width="417" height="482" frameX="-15" frameY="-0" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0030" x="441" y="20" width="417" height="482" frameX="-15" frameY="-0" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0031" x="900" y="2442" width="435" height="469" frameX="-4" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0032" x="900" y="2442" width="435" height="469" frameX="-4" frameY="-13" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0033" x="2134" y="1451" width="430" height="473" frameX="-7" frameY="-9" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0034" x="2134" y="1451" width="430" height="473" frameX="-7" frameY="-9" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0035" x="866" y="1958" width="421" height="480" frameX="-13" frameY="-2" frameWidth="443" frameHeight="483"/>
+	<SubTexture name="GF_GIGGLE0036" x="1291" y="1958" width="419" height="480" frameX="-12" frameY="-2" frameWidth="443" frameHeight="483"/>
+</TextureAtlas>

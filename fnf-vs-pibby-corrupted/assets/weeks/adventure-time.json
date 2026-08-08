@@ -1,0 +1,59 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "adventure_time",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Corrupted Hero",
+			"finn",
+			[
+				86,
+				113,
+				175
+			]
+		],
+		[
+			"Elastic Destruction",
+			"jake",
+			[
+				206,
+				115,
+				60
+			]
+		],
+		[
+			"Gummy Substance",
+			"bubblegum",
+			[
+				186,
+				73,
+				133
+			]
+		],
+		[
+			"Together Forever",
+			"siblings",
+			[
+				86,
+				113,
+				175
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "adventuretime",
+	"hiddenUntilUnlocked": false
+}

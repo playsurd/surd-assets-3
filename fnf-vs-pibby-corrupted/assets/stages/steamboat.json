@@ -1,0 +1,15 @@
+{
+	"directory": "weekwillie",
+	"defaultZoom": 0.7,
+	"isPixelStage": false,
+
+	"boyfriend": [1750, 700],
+	"girlfriend": [400, 0],
+	"opponent": [650, 380],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [-50, -80],
+	"camera_opponent": [-80, 0],
+	"camera_girlfriend": [0, 0],
+	"camera_speed": 1
+}

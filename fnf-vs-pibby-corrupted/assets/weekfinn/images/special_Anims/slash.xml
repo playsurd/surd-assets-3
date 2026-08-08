@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="finn-alt.png" width="4480" height="3085">
+	<SubTexture name="Finn Slash0000" x="20" y="20" width="1453" height="952" frameX="-0" frameY="-0" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0001" x="20" y="976" width="1545" height="877" frameX="-57" frameY="-129" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0002" x="1599" y="2454" width="1511" height="572" frameX="-95" frameY="-434" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0003" x="1521" y="1857" width="1528" height="593" frameX="-86" frameY="-451" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0004" x="20" y="2485" width="1575" height="580" frameX="-87" frameY="-451" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0005" x="20" y="1857" width="1497" height="624" frameX="-85" frameY="-449" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0006" x="1477" y="20" width="1479" height="634" frameX="-85" frameY="-449" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0007" x="2960" y="20" width="1051" height="654" frameX="-86" frameY="-406" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0008" x="1569" y="658" width="1051" height="654" frameX="-86" frameY="-406" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0009" x="2624" y="678" width="1049" height="648" frameX="-25" frameY="-332" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0010" x="3053" y="1330" width="1049" height="648" frameX="-25" frameY="-332" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0011" x="3114" y="1982" width="766" height="737" frameX="-36" frameY="-248" frameWidth="1662" frameHeight="1083"/>
+	<SubTexture name="Finn Slash0012" x="3884" y="1982" width="576" height="903" frameX="-35" frameY="-58" frameWidth="1662" frameHeight="1083"/>
+</TextureAtlas>

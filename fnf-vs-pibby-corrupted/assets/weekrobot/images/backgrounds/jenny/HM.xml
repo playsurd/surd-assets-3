@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BgM.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="bgM0000" x="0" y="0" width="789" height="879" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0001" x="0" y="0" width="789" height="879" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0002" x="789" y="0" width="789" height="872" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0003" x="789" y="0" width="789" height="872" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0004" x="1578" y="0" width="789" height="863" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0005" x="1578" y="0" width="789" height="863" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0006" x="789" y="879" width="789" height="849" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0007" x="789" y="879" width="789" height="849" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0008" x="1578" y="879" width="789" height="838" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0009" x="1578" y="879" width="789" height="838" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0010" x="2367" y="0" width="789" height="834" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0011" x="2367" y="0" width="789" height="834" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0012" x="0" y="879" width="789" height="858" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+	<SubTexture name="bgM0013" x="0" y="879" width="789" height="858" frameX="-831" frameY="2" frameWidth="2534" frameHeight="1077"/>
+</TextureAtlas>

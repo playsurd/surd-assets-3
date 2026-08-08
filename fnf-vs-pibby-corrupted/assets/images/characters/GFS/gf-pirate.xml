@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gf-pirate.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="gf beat0000" x="0" y="0" width="593" height="1234" frameX="0" frameY="-9" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0001" x="593" y="0" width="593" height="1234" frameX="0" frameY="-15" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0002" x="1186" y="0" width="593" height="1234" frameX="0" frameY="-21" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0003" x="593" y="0" width="593" height="1234" frameX="0" frameY="-12" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0004" x="1779" y="0" width="593" height="1234" frameX="0" frameY="-3" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0005" x="2372" y="0" width="593" height="1234" frameX="0" frameY="-1" frameWidth="593" frameHeight="1255"/>
+	<SubTexture name="gf beat0006" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0007" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0008" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0009" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0010" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0011" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0012" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0013" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf beat0014" x="2965" y="0" width="593" height="1234" frameX="0" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0000" x="2965" y="0" width="593" height="1234" frameX="-60" frameY="0" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0001" x="3558" y="0" width="597" height="1235" frameX="-57" frameY="-88" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0002" x="4155" y="0" width="601" height="1237" frameX="-53" frameY="-176" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0003" x="4756" y="0" width="604" height="1238" frameX="-50" frameY="-264" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0004" x="5360" y="0" width="608" height="1239" frameX="-46" frameY="-352" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0005" x="5968" y="0" width="612" height="1241" frameX="-42" frameY="-440" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0006" x="6580" y="0" width="615" height="1242" frameX="-39" frameY="-528" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0007" x="7195" y="0" width="620" height="1244" frameX="-35" frameY="-616" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0008" x="0" y="1244" width="624" height="1246" frameX="-31" frameY="-703" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0009" x="624" y="1244" width="627" height="1247" frameX="-28" frameY="-791" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0010" x="1251" y="1244" width="631" height="1249" frameX="-24" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0011" x="1882" y="1244" width="610" height="1241" frameX="-44" frameY="-874" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0012" x="2492" y="1244" width="598" height="1237" frameX="-60" frameY="-868" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0013" x="3090" y="1244" width="619" height="1245" frameX="-59" frameY="-863" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0014" x="3709" y="1244" width="639" height="1252" frameX="-59" frameY="-858" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0015" x="4348" y="1244" width="658" height="1259" frameX="-59" frameY="-853" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0016" x="5006" y="1244" width="634" height="1251" frameX="-59" frameY="-858" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0017" x="5640" y="1244" width="608" height="1241" frameX="-60" frameY="-863" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0018" x="6248" y="1244" width="604" height="1240" frameX="-50" frameY="-868" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0019" x="6852" y="1244" width="630" height="1249" frameX="-25" frameY="-874" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0020" x="7482" y="1244" width="655" height="1257" frameX="0" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0021" x="0" y="2503" width="641" height="1253" frameX="-14" frameY="-875" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0022" x="641" y="2503" width="628" height="1248" frameX="-27" frameY="-872" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0023" x="1269" y="2503" width="613" height="1242" frameX="-41" frameY="-869" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0024" x="1882" y="2503" width="599" height="1237" frameX="-55" frameY="-866" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0025" x="2481" y="2503" width="602" height="1239" frameX="-60" frameY="-862" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0026" x="3083" y="2503" width="616" height="1244" frameX="-60" frameY="-859" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0027" x="3699" y="2503" width="631" height="1249" frameX="-59" frameY="-856" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0028" x="4330" y="2503" width="626" height="1247" frameX="-59" frameY="-859" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0029" x="4956" y="2503" width="621" height="1246" frameX="-59" frameY="-862" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0030" x="5577" y="2503" width="614" height="1243" frameX="-60" frameY="-866" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0031" x="6191" y="2503" width="609" height="1241" frameX="-60" frameY="-869" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0032" x="6800" y="2503" width="604" height="1239" frameX="-60" frameY="-872" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0033" x="7404" y="2503" width="599" height="1237" frameX="-60" frameY="-875" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0034" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0035" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0036" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0037" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0038" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+	<SubTexture name="gf fall0039" x="0" y="3756" width="593" height="1235" frameX="-60" frameY="-879" frameWidth="717" frameHeight="2136"/>
+</TextureAtlas>

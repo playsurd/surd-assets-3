@@ -1,0 +1,86 @@
+{
+	"storyName": "",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Corrupted Hero SCX",
+			"finn",
+			[
+				86,
+				113,
+				175
+			]
+		],
+		[
+			"I'll Be Fine",
+			"stevespinel",
+			[
+				146,
+				60,
+				93
+			]
+		],
+		[
+			"The Change",
+			"stevespinel",
+			[
+				146,
+				60,
+				93
+			]
+		],
+		[
+			"Familiar",
+			"steven",
+			[
+				186,
+				93,
+				133
+			]
+		],
+		[
+			"Gunshot",
+			"pibpico",
+			[
+				60,
+				133,
+				73
+			]
+		],
+		[
+			"Last Spooktober",
+			"pibspooky",
+			[
+				86,
+				53,
+				73
+			]
+		],
+		[
+			"Wish Come True",
+			"vicky",
+			[
+				86,
+				53,
+				73
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "finnextras"
+}
