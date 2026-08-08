@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-candys/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
+<script>window.SURD_GAME={"id":"five-nights-at-candys","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-candys/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/","files":{},"config":{},"split":[{"p":"resources.zip.part1","u":["resources.zip.part1.sp0","resources.zip.part1.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part2","u":["resources.zip.part2.sp0","resources.zip.part2.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part3","u":["resources.zip.part3.sp0","resources.zip.part3.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part4","u":["resources.zip.part4.sp0","resources.zip.part4.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part5","u":["resources.zip.part5.sp0","resources.zip.part5.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part6","u":["resources.zip.part6.sp0","resources.zip.part6.sp1"],"b":20971520,"m":"application/octet-stream","v":1}]};</script>
+<script>(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var p = Promise.all(urls.map(function (u, n) {
+      return nativeFetch(u).then(function (r) {
+        if (!r.ok) throw new Error('surd: ' + r.status + ' on ' + u);
+        return r.blob();
+      }).then(function (b) { got[n] = b; });
+    })).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/runtime.js"></script>
+
+    
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Five Nights at Candy's 1</title>
+<style>
+
+
+
+
+.sidebar-frame {
+  width: 160px;
+  height: 600px;
+  border: none;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+    <div style="display: inline-block; -webkit-user-select: none; text-align: left">
+        <canvas id="MMFCanvas" width="1280" height="720"> Your browser does not support Canvas, Please try again. </canvas>
+    </div>
+    <div id="progress-container">
+        <div style="margin-bottom: 6px;">Downloading... <span id="download-text">0%</span></div>
+        <div style="width: 100%; background: #444; border-radius: 6px; overflow: hidden;">
+            <div id="download-bar" style="height: 10px; background: #3b82f6; width: 0%; transition: width 0.2s;"></div>
+        </div>
+        <div style="margin: 12px 0 6px;">Extracting... <span id="extract-text">0%</span></div>
+        <div style="width: 100%; background: #444; border-radius: 6px; overflow: hidden;">
+            <div id="extract-bar" style="height: 10px; background: #10b981; width: 0%; transition: width 0.2s;"></div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>
