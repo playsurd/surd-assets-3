@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
@@ -113,6 +123,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
       function unityShowBanner(msg, type) {
 
       }</script>
-<script>window.SURD_GAME = {"id":"3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Build/minus3bog.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":93733327,"mime":"application/octet-stream"},"framework":{"path":"Build/minus3bog.framework.js","bytes":415509,"mime":"text/javascript"},"code":{"path":"Build/minus3bog.wasm","parts":[".sp0",".sp1"],"bytes":22875899,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/minus3bog.loader.js","companyName":"Mauzer2137","productName":"-3","productVersion":"3.-3"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"data":{"path":"Build/minus3bog.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":93733327,"mime":"application/octet-stream"},"framework":{"path":"Build/minus3bog.framework.js","bytes":415605,"mime":"text/javascript"},"code":{"path":"Build/minus3bog.wasm","parts":[".sp0",".sp1"],"bytes":22875899,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/minus3bog.loader.js","companyName":"Mauzer2137","productName":"-3","productVersion":"3.-3"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </body></html>
