@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 
 
@@ -225,6 +235,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         };
         window.godotRunStart = run;
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"buckshot-roulette","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buckshot-roulette/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"pck":{"path":"buckshot-roulette.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18"],"bytes":344705792,"mime":"application/octet-stream"},"wasm":{"path":"buckshot-roulette.wasm","parts":[".part1",".part2",".part3"],"bytes":43444261,"mime":"application/wasm"}},"config":{"indexJs":"buckshot-roulette.js","godotConfig":{"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":false,"executable":"buckshot-roulette","experimentalVK":false,"fileSizes":{"buckshot-roulette.pck":344705792,"buckshot-roulette.wasm":43444261},"focusCanvas":false,"gdextensionLibs":[]}}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"buckshot-roulette","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/buckshot-roulette/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"pck":{"path":"buckshot-roulette.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18"],"bytes":344705792,"mime":"application/octet-stream"},"wasm":{"path":"buckshot-roulette.wasm","parts":[".part1",".part2",".part3"],"bytes":43444261,"mime":"application/wasm"}},"config":{"indexJs":"buckshot-roulette.js","godotConfig":{"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":false,"executable":"buckshot-roulette","experimentalVK":false,"fileSizes":{"buckshot-roulette.pck":344705792,"buckshot-roulette.wasm":43444261},"focusCanvas":false,"gdextensionLibs":[]}}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </body></html>
