@@ -115,12 +115,55 @@ try {
     if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
   }
 } catch (e) {  }
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
+(function(){
+    var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
+    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    var of = window.fetch;
+    if (of) window.fetch = function(i, o){
+      var u = (i && i.url) ? i.url : i;
+      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      return of.apply(this, arguments);
+    };
+    var oo = window.XMLHttpRequest && window.XMLHttpRequest.prototype.open;
+    if (oo) window.XMLHttpRequest.prototype.open = function(m, u){
+      if (bad(u)) { arguments[1] = 'data:text/plain,'; }
+      return oo.apply(this, arguments);
+    };
+    if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
+      navigator.sendBeacon = function(u, d){ return bad(u) ? true : ob(u, d); }; }
+    var OW = window.WebSocket;
+    if (OW) window.WebSocket = function(u, p){
+      if (bad(u)) u = 'ws://127.0.0.1:1';
+      return p === undefined ? new OW(u) : new OW(u, p);
+    };
+    /* setAttribute('src', …) bypasses the property setter patched below, and several ad
+     * tags use exactly that form (moto-x3m still reached googlesyndication until this). */
+    try {
+      var osa = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(n, v){
+        if (n && /^(src|href|data)$/i.test(n) && bad(v)) return;
+        return osa.apply(this, arguments);
+      };
+    } catch(e){}
+    /* Element src= is how most ad tags actually load. */
+    try {
+      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement'].forEach(function(k){
+        var P = window[k] && window[k].prototype; if (!P) return;
+        var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
+        Object.defineProperty(P, 'src', {
+          configurable: true, enumerable: d.enumerable, get: d.get,
+          set: function(v){ if (bad(v)) return; return d.set.call(this, v); }
+        });
+      });
+    } catch(e){}
+  })();</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
-<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.godotRunStart=function(){};window.main=function(){};</script><script>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine,rp:window.RufflePlayer};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.RufflePlayer={newest:function(){return{createPlayer:function(){var d=document.createElement("div");d.load=function(){};return d;}};}};window.godotRunStart=function(){};window.main=function(){};</script><script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build.json");
-    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"slendytubbies-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/slendytubbies-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"memory":{"path":"Build/Build.asm.memory.unityweb","bytes":1561696,"mime":"application/octet-stream"},"data":{"path":"Build/Build.data.unityweb","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14"],"bytes":282378830,"mime":"application/octet-stream"},"code":{"path":"Build/Build.asm.code.unityweb","parts":[".sp0",".sp1"],"bytes":30744399,"mime":"text/javascript"},"framework":{"path":"Build/Build.asm.framework.unityweb","bytes":434551,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"asm","loaderJs":"Build/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":1073741824,"asmCodeUrl":"Build.asm.code.unityweb","asmMemoryUrl":"Build.asm.memory.unityweb","asmFrameworkUrl":"Build.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#000000"},"companyName":"surd","productName":"slendytubbies-2","totalMemory":268435456}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
+    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
+<script>window.SURD_GAME = {"id":"slendytubbies-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/slendytubbies-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"memory":{"path":"Build/Build.asm.memory.unityweb","bytes":1561696,"mime":"application/octet-stream"},"data":{"path":"Build/Build.data.unityweb","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14"],"bytes":282378830,"mime":"application/octet-stream"},"code":{"path":"Build/Build.asm.code.unityweb","parts":[".sp0",".sp1"],"bytes":30744399,"mime":"text/javascript"},"framework":{"path":"Build/Build.asm.framework.unityweb","bytes":434551,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"asm","loaderJs":"Build/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":1073741824,"asmCodeUrl":"Build.asm.code.unityweb","asmMemoryUrl":"Build.asm.memory.unityweb","asmFrameworkUrl":"Build.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#000000"},"companyName":"surd","productName":"slendytubbies-2","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
 </body></html>
