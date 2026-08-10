@@ -2359,8 +2359,8 @@ function unityFramework(Module) {
   }
 
   function _JS_SystemInfo_GetDocumentURL(buffer, bufferSize) {
-    if (buffer) stringToUTF8(document.URL, buffer, bufferSize);
-    return lengthBytesUTF8(document.URL)
+    if (buffer) stringToUTF8("https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/rogue-sergeant-the-final-operation/", buffer, bufferSize);
+    return lengthBytesUTF8("https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/rogue-sergeant-the-final-operation/")
   }
 
   function _JS_SystemInfo_GetGPUInfo(buffer, bufferSize) {
