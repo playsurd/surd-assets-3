@@ -123,9 +123,188 @@ try {
     if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
   }
 } catch (e) {  }
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"fallout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fallout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
+(function(){
+    var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
+    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    var of = window.fetch;
+    if (of) window.fetch = function(i, o){
+      var u = (i && i.url) ? i.url : i;
+      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      return of.apply(this, arguments);
+    };
+    var oo = window.XMLHttpRequest && window.XMLHttpRequest.prototype.open;
+    if (oo) window.XMLHttpRequest.prototype.open = function(m, u){
+      if (bad(u)) { arguments[1] = 'data:text/plain,'; }
+      return oo.apply(this, arguments);
+    };
+    if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
+      navigator.sendBeacon = function(u, d){ return bad(u) ? true : ob(u, d); }; }
+    var OW = window.WebSocket;
+    if (OW) window.WebSocket = function(u, p){
+      if (bad(u)) u = 'ws://127.0.0.1:1';
+      return p === undefined ? new OW(u) : new OW(u, p);
+    };
+    /* setAttribute('src', …) bypasses the property setter patched below, and several ad
+     * tags use exactly that form (moto-x3m still reached googlesyndication until this). */
+    try {
+      var osa = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(n, v){
+        if (n && /^(src|href|data)$/i.test(n) && bad(v)) return;
+        return osa.apply(this, arguments);
+      };
+    } catch(e){}
+    /* Element src= is how most ad tags actually load. */
+    try {
+      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement'].forEach(function(k){
+        var P = window[k] && window[k].prototype; if (!P) return;
+        var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
+        Object.defineProperty(P, 'src', {
+          configurable: true, enumerable: d.enumerable, get: d.get,
+          set: function(v){ if (bad(v)) return; return d.set.call(this, v); }
+        });
+      });
+    } catch(e){}
+  })();</script>
+<script>window.SURD_GAME={"id":"fallout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fallout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{},"split":[{"p":"softs/command-conquer/Command__Conquer_1995.zip","u":["softs/command-conquer/Command__Conquer_1995.zip.sp0","softs/command-conquer/Command__Conquer_1995.zip.sp1","softs/command-conquer/Command__Conquer_1995.zip.sp2","softs/command-conquer/Command__Conquer_1995.zip.sp3","softs/command-conquer/Command__Conquer_1995.zip.sp4","softs/command-conquer/Command__Conquer_1995.zip.sp5","softs/command-conquer/Command__Conquer_1995.zip.sp6","softs/command-conquer/Command__Conquer_1995.zip.sp7","softs/command-conquer/Command__Conquer_1995.zip.sp8","softs/command-conquer/Command__Conquer_1995.zip.sp9","softs/command-conquer/Command__Conquer_1995.zip.sp10","softs/command-conquer/Command__Conquer_1995.zip.sp11","softs/command-conquer/Command__Conquer_1995.zip.sp12","softs/command-conquer/Command__Conquer_1995.zip.sp13","softs/command-conquer/Command__Conquer_1995.zip.sp14","softs/command-conquer/Command__Conquer_1995.zip.sp15","softs/command-conquer/Command__Conquer_1995.zip.sp16","softs/command-conquer/Command__Conquer_1995.zip.sp17","softs/command-conquer/Command__Conquer_1995.zip.sp18","softs/command-conquer/Command__Conquer_1995.zip.sp19","softs/command-conquer/Command__Conquer_1995.zip.sp20","softs/command-conquer/Command__Conquer_1995.zip.sp21","softs/command-conquer/Command__Conquer_1995.zip.sp22","softs/command-conquer/Command__Conquer_1995.zip.sp23","softs/command-conquer/Command__Conquer_1995.zip.sp24","softs/command-conquer/Command__Conquer_1995.zip.sp25","softs/command-conquer/Command__Conquer_1995.zip.sp26","softs/command-conquer/Command__Conquer_1995.zip.sp27","softs/command-conquer/Command__Conquer_1995.zip.sp28","softs/command-conquer/Command__Conquer_1995.zip.sp29","softs/command-conquer/Command__Conquer_1995.zip.sp30","softs/command-conquer/Command__Conquer_1995.zip.sp31","softs/command-conquer/Command__Conquer_1995.zip.sp32","softs/command-conquer/Command__Conquer_1995.zip.sp33","softs/command-conquer/Command__Conquer_1995.zip.sp34","softs/command-conquer/Command__Conquer_1995.zip.sp35","softs/command-conquer/Command__Conquer_1995.zip.sp36","softs/command-conquer/Command__Conquer_1995.zip.sp37","softs/command-conquer/Command__Conquer_1995.zip.sp38","softs/command-conquer/Command__Conquer_1995.zip.sp39","softs/command-conquer/Command__Conquer_1995.zip.sp40","softs/command-conquer/Command__Conquer_1995.zip.sp41","softs/command-conquer/Command__Conquer_1995.zip.sp42","softs/command-conquer/Command__Conquer_1995.zip.sp43","softs/command-conquer/Command__Conquer_1995.zip.sp44","softs/command-conquer/Command__Conquer_1995.zip.sp45","softs/command-conquer/Command__Conquer_1995.zip.sp46","softs/command-conquer/Command__Conquer_1995.zip.sp47","softs/command-conquer/Command__Conquer_1995.zip.sp48","softs/command-conquer/Command__Conquer_1995.zip.sp49","softs/command-conquer/Command__Conquer_1995.zip.sp50","softs/command-conquer/Command__Conquer_1995.zip.sp51","softs/command-conquer/Command__Conquer_1995.zip.sp52","softs/command-conquer/Command__Conquer_1995.zip.sp53","softs/command-conquer/Command__Conquer_1995.zip.sp54","softs/command-conquer/Command__Conquer_1995.zip.sp55","softs/command-conquer/Command__Conquer_1995.zip.sp56","softs/command-conquer/Command__Conquer_1995.zip.sp57","softs/command-conquer/Command__Conquer_1995.zip.sp58","softs/command-conquer/Command__Conquer_1995.zip.sp59","softs/command-conquer/Command__Conquer_1995.zip.sp60","softs/command-conquer/Command__Conquer_1995.zip.sp61","softs/command-conquer/Command__Conquer_1995.zip.sp62"],"b":1313868574,"m":"application/octet-stream","v":1},{"p":"softs/daggerfall/Daggerfall.zip","u":["softs/daggerfall/Daggerfall.zip.sp0","softs/daggerfall/Daggerfall.zip.sp1","softs/daggerfall/Daggerfall.zip.sp2","softs/daggerfall/Daggerfall.zip.sp3","softs/daggerfall/Daggerfall.zip.sp4","softs/daggerfall/Daggerfall.zip.sp5","softs/daggerfall/Daggerfall.zip.sp6","softs/daggerfall/Daggerfall.zip.sp7"],"b":152807870,"m":"application/octet-stream","v":1},{"p":"softs/fallout/fallout.zip","u":["softs/fallout/fallout.zip.sp0","softs/fallout/fallout.zip.sp1","softs/fallout/fallout.zip.sp2","softs/fallout/fallout.zip.sp3","softs/fallout/fallout.zip.sp4","softs/fallout/fallout.zip.sp5","softs/fallout/fallout.zip.sp6","softs/fallout/fallout.zip.sp7","softs/fallout/fallout.zip.sp8","softs/fallout/fallout.zip.sp9","softs/fallout/fallout.zip.sp10","softs/fallout/fallout.zip.sp11","softs/fallout/fallout.zip.sp12","softs/fallout/fallout.zip.sp13","softs/fallout/fallout.zip.sp14","softs/fallout/fallout.zip.sp15","softs/fallout/fallout.zip.sp16","softs/fallout/fallout.zip.sp17","softs/fallout/fallout.zip.sp18","softs/fallout/fallout.zip.sp19","softs/fallout/fallout.zip.sp20","softs/fallout/fallout.zip.sp21"],"b":455634200,"m":"application/octet-stream","v":1},{"p":"softs/gta/GTA.zip","u":["softs/gta/GTA.zip.sp0","softs/gta/GTA.zip.sp1"],"b":36113632,"m":"application/octet-stream","v":1},{"p":"softs/quake/Quake.zip","u":["softs/quake/Quake.zip.sp0","softs/quake/Quake.zip.sp1","softs/quake/Quake.zip.sp2","softs/quake/Quake.zip.sp3","softs/quake/Quake.zip.sp4","softs/quake/Quake.zip.sp5","softs/quake/Quake.zip.sp6","softs/quake/Quake.zip.sp7","softs/quake/Quake.zip.sp8","softs/quake/Quake.zip.sp9","softs/quake/Quake.zip.sp10","softs/quake/Quake.zip.sp11","softs/quake/Quake.zip.sp12","softs/quake/Quake.zip.sp13","softs/quake/Quake.zip.sp14","softs/quake/Quake.zip.sp15","softs/quake/Quake.zip.sp16","softs/quake/Quake.zip.sp17","softs/quake/Quake.zip.sp18","softs/quake/Quake.zip.sp19","softs/quake/Quake.zip.sp20","softs/quake/Quake.zip.sp21","softs/quake/Quake.zip.sp22","softs/quake/Quake.zip.sp23","softs/quake/Quake.zip.sp24","softs/quake/Quake.zip.sp25","softs/quake/Quake.zip.sp26","softs/quake/Quake.zip.sp27","softs/quake/Quake.zip.sp28","softs/quake/Quake.zip.sp29"],"b":617183918,"m":"application/octet-stream","v":1},{"p":"softs/sam/samnmax.zip","u":["softs/sam/samnmax.zip.sp0","softs/sam/samnmax.zip.sp1","softs/sam/samnmax.zip.sp2","softs/sam/samnmax.zip.sp3","softs/sam/samnmax.zip.sp4","softs/sam/samnmax.zip.sp5"],"b":114807202,"m":"application/octet-stream","v":1},{"p":"softs/scream/scream.zip","u":["softs/scream/scream.zip.sp0","softs/scream/scream.zip.sp1","softs/scream/scream.zip.sp2","softs/scream/scream.zip.sp3","softs/scream/scream.zip.sp4","softs/scream/scream.zip.sp5","softs/scream/scream.zip.sp6","softs/scream/scream.zip.sp7","softs/scream/scream.zip.sp8","softs/scream/scream.zip.sp9","softs/scream/scream.zip.sp10","softs/scream/scream.zip.sp11","softs/scream/scream.zip.sp12","softs/scream/scream.zip.sp13","softs/scream/scream.zip.sp14","softs/scream/scream.zip.sp15","softs/scream/scream.zip.sp16","softs/scream/scream.zip.sp17","softs/scream/scream.zip.sp18","softs/scream/scream.zip.sp19","softs/scream/scream.zip.sp20","softs/scream/scream.zip.sp21","softs/scream/scream.zip.sp22","softs/scream/scream.zip.sp23","softs/scream/scream.zip.sp24","softs/scream/scream.zip.sp25","softs/scream/scream.zip.sp26","softs/scream/scream.zip.sp27","softs/scream/scream.zip.sp28","softs/scream/scream.zip.sp29","softs/scream/scream.zip.sp30","softs/scream/scream.zip.sp31","softs/scream/scream.zip.sp32","softs/scream/scream.zip.sp33","softs/scream/scream.zip.sp34","softs/scream/scream.zip.sp35","softs/scream/scream.zip.sp36","softs/scream/scream.zip.sp37","softs/scream/scream.zip.sp38","softs/scream/scream.zip.sp39","softs/scream/scream.zip.sp40","softs/scream/scream.zip.sp41","softs/scream/scream.zip.sp42","softs/scream/scream.zip.sp43","softs/scream/scream.zip.sp44","softs/scream/scream.zip.sp45","softs/scream/scream.zip.sp46","softs/scream/scream.zip.sp47"],"b":990753093,"m":"application/octet-stream","v":1}]};</script>
+<script>(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var p = Promise.all(urls.map(function (u, n) {
+      return nativeFetch(u).then(function (r) {
+        if (!r.ok) throw new Error('surd: ' + r.status + ' on ' + u);
+        return r.blob();
+      }).then(function (b) { got[n] = b; });
+    })).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Fallout</title>
