@@ -467,11 +467,7 @@
         outputContainerElement.hidden = true;
       }
 
-      document.addEventListener("visibilitychange", (event) => {
-        if (document.visibilityState != "visible") {
-          pause();
-        }
-      });
+      
 
       window.addEventListener("load", (event) => {
         if ((!window.oprt || !window.oprt.enterFullscreen) && (!window.chrome || !window.chrome.runtime || !window.chrome.runtime.sendMessage)) {
