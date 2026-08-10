@@ -119,8 +119,51 @@ try {
     if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
   }
 } catch (e) {  }
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"pizza-tower-scoutdigo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/pizza-tower-scoutdigo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.part1","game.unx.part2","game.unx.part3","game.unx.part4","game.unx.part5","game.unx.part6","game.unx.part7","game.unx.part8","game.unx.part9","game.unx.part10","game.unx.part11","game.unx.part12","game.unx.part13","game.unx.part14","game.unx.part15","game.unx.part16"],"b":315181892,"m":"application/octet-stream"}]};</script>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
+(function(){
+    var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
+    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    var of = window.fetch;
+    if (of) window.fetch = function(i, o){
+      var u = (i && i.url) ? i.url : i;
+      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      return of.apply(this, arguments);
+    };
+    var oo = window.XMLHttpRequest && window.XMLHttpRequest.prototype.open;
+    if (oo) window.XMLHttpRequest.prototype.open = function(m, u){
+      if (bad(u)) { arguments[1] = 'data:text/plain,'; }
+      return oo.apply(this, arguments);
+    };
+    if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
+      navigator.sendBeacon = function(u, d){ return bad(u) ? true : ob(u, d); }; }
+    var OW = window.WebSocket;
+    if (OW) window.WebSocket = function(u, p){
+      if (bad(u)) u = 'ws://127.0.0.1:1';
+      return p === undefined ? new OW(u) : new OW(u, p);
+    };
+    /* setAttribute('src', …) bypasses the property setter patched below, and several ad
+     * tags use exactly that form (moto-x3m still reached googlesyndication until this). */
+    try {
+      var osa = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(n, v){
+        if (n && /^(src|href|data)$/i.test(n) && bad(v)) return;
+        return osa.apply(this, arguments);
+      };
+    } catch(e){}
+    /* Element src= is how most ad tags actually load. */
+    try {
+      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement'].forEach(function(k){
+        var P = window[k] && window[k].prototype; if (!P) return;
+        var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
+        Object.defineProperty(P, 'src', {
+          configurable: true, enumerable: d.enumerable, get: d.get,
+          set: function(v){ if (bad(v)) return; return d.set.call(this, v); }
+        });
+      });
+    } catch(e){}
+  })();</script>
+<script>window.SURD_GAME={"id":"pizza-tower-scoutdigo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/pizza-tower-scoutdigo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.part1","game.unx.part2","game.unx.part3","game.unx.part4","game.unx.part5","game.unx.part6","game.unx.part7","game.unx.part8","game.unx.part9","game.unx.part10","game.unx.part11","game.unx.part12","game.unx.part13","game.unx.part14","game.unx.part15","game.unx.part16"],"b":315181892,"m":"application/octet-stream"}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -257,7 +300,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   }
   window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
 
     
     <meta charset="utf-8" />
