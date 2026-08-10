@@ -59,7 +59,7 @@ function createUnityInstance(t, n, l) {
     disabledCanvasEvents: ["contextmenu", "dragstart"]
   };
   for (o in e(n, "companyName", "Unity"), e(n, "productName", "WebGL Player"), e(n, "productVersion", "1.0"), n) u[o] = n[o];
-  u.streamingAssetsUrl = new URL(u.streamingAssetsUrl, document.URL).href;
+  u.streamingAssetsUrl = new URL(u.streamingAssetsUrl, "https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/baldis-basics-the-ultra-decompile/").href;
   var a = u.disabledCanvasEvents.slice();
 
   function i(e) {
