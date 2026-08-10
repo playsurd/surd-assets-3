@@ -1,0 +1,415 @@
+<!doctype html><html><head><meta charset="utf-8"><title>the-minions-resurrection</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/the-minions-resurrection/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};</script></head><body>
+
+
+<script>
+(function(){try{var m=(window.location.search||'').match(/[?&]__lp=([^&]+)/);var n=m?decodeURIComponent(m[1]):'';if(window.parent&&window.parent!==window){window.parent.postMessage({__lumin:'frame-ok',game:'selenite/minion',nonce:n},'*');}}catch(e){}})();
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L69H1VNZ27');
+</script>
+<script>
+  window.__lumin_game_id = 'selenite/minion';
+  console.log('[LuminSDK] Game loaded:', 'selenite/minion');
+</script>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine,rp:window.RufflePlayer};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.RufflePlayer={newest:function(){return{createPlayer:function(){var d=document.createElement("div");d.load=function(){};return d;}};}};window.godotRunStart=function(){};window.main=function(){};</script><script>//<![CDATA[
+
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":2925248,"index.wasm":18790437},"focusCanvas":true,"gdnativeLibs":[]};
+		var engine = new Engine(GODOT_CONFIG);
+	// Continuously rotate the background image
+		const Background = document.querySelector('.background');
+		let rotation = 0;
+		const rotationSpeed = 0.5; // Change this value to control the rotation speed
+		function rotateBackground() {
+			rotation += rotationSpeed;
+			Background.style.transform = `rotate(${rotation}deg) scale(${4.5})`;
+			requestAnimationFrame(rotateBackground);
+		}
+
+		rotateBackground();
+		// Function to generate a random hue
+
+		let currentHue = getRandomHue();
+		let animationRequestId = null;
+
+		function getRandomHue() {
+		  return Math.floor(Math.random() * 360);
+		}
+
+		function animateColorChange(timestamp) {
+		  if (!animationRequestId) {
+			animationRequestId = timestamp;
+		  }
+
+		  const background = document.querySelector('.background');
+		  const currentTime = timestamp || performance.now();
+		  const duration = 5000; // Duration of the animation in milliseconds
+
+		  function updateColor(currentTime) {
+			const startTime = animationRequestId;
+			const elapsed = currentTime - startTime;
+			const progress = (elapsed % duration) / duration;
+
+			const currentHueShift = 30 * Math.sin(2 * Math.PI * progress);
+			const currentColor = (currentHue + currentHueShift + 360) % 360;
+			background.style.backgroundImage = `radial-gradient(at 40% 25%, hsl(${currentColor}, 100%, 60%), hsl(${(currentColor + 180) % 360}, 100%, 50%) 50%)`;
+
+			animationRequestId = requestAnimationFrame(updateColor);
+		  }
+
+		  requestAnimationFrame(updateColor);
+		}
+
+		// Call the function when the page loads
+		window.addEventListener('load', () => {
+		  animateColorChange();
+		});
+
+
+
+		(function() {
+			const INDETERMINATE_STATUS_STEP_MS = 100;
+			var statusProgress = document.getElementById('status-progress');
+			var statusProgressInner = document.getElementById('status-progress-inner');
+			var statusIndeterminate = document.getElementById('status-indeterminate');
+			var statusNotice = document.getElementById('status-notice');
+
+			var initializing = true;
+			var statusMode = 'hidden';
+
+			var animationCallbacks = [];
+			function animate(time) {
+				animationCallbacks.forEach(callback => callback(time));
+				requestAnimationFrame(animate);
+			}
+			requestAnimationFrame(animate);
+
+			function setStatusMode(mode) {
+
+				if (statusMode === mode || !initializing)
+					return;
+				[statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
+					elem.style.display = 'none';
+				});
+				animationCallbacks = animationCallbacks.filter(function(value) {
+					return (value != animateStatusIndeterminate);
+				});
+				switch (mode) {
+					case 'progress':
+						statusProgress.style.display = 'block';
+						break;
+					case 'indeterminate':
+						statusIndeterminate.style.display = 'block';
+						animationCallbacks.push(animateStatusIndeterminate);
+						break;
+					case 'notice':
+						statusNotice.style.display = 'block';
+						break;
+					case 'hidden':
+						break;
+					default:
+						throw new Error('Invalid status mode');
+						
+				}
+				statusMode = mode;
+			}
+
+			function animateStatusIndeterminate(ms) {
+				var i = Math.floor(ms / INDETERMINATE_STATUS_STEP_MS % 8);
+				if (statusIndeterminate.children[i].style.borderTopColor == '') {
+					Array.prototype.slice.call(statusIndeterminate.children).forEach(child => {
+						child.style.borderTopColor = '';
+					});
+					statusIndeterminate.children[i].style.borderTopColor = '#dfdfdf';
+				}
+			}
+
+			function setStatusNotice(text) {
+				while (statusNotice.lastChild) {
+					statusNotice.removeChild(statusNotice.lastChild);
+				}
+				var lines = text.split('\n');
+				lines.forEach((line) => {
+					statusNotice.appendChild(document.createTextNode(line));
+					statusNotice.appendChild(document.createElement('br'));
+				});
+			};
+
+			function displayFailureNotice(err) {
+				var msg = err.message || err;
+				console.error(msg);
+				setStatusNotice(msg);
+				setStatusMode('notice');
+				initializing = false;
+				// Step 1: Get a reference to the div element
+				const divElement = document.getElementById('loading-footer');
+
+				// Step 2: Create a new anchor element
+				const linkElement = document.createElement('a');
+
+				// Step 3: Set the 'href' attribute of the anchor element
+				const linkURL = 'https://alimad.itch.io/theminions'; // Replace with your desired link URL
+				linkElement.setAttribute('href', linkURL);
+
+				// Step 4: Set the inner text or HTML content of the anchor element
+				const linkText = 'Retry'; // Replace with your desired link text
+				linkElement.innerText = linkText; // If you want to set plain text
+				// Alternatively, you can set HTML content like this:
+				// linkElement.innerHTML = '<strong>Click here to visit the link</strong>';
+				linkElement.style.textDecoration = 'none'; // Disable underline
+				linkElement.style.color = 'white'; // Make the text white
+				// Step 5: Replace the content of the div element with the anchor element
+				divElement.innerHTML = ''; // Clear existing content of the div
+				divElement.appendChild(linkElement); // Add the anchor element to the div
+
+			};
+
+			if (!Engine.isWebGLAvailable()) {
+				displayFailureNotice('WebGL not available');
+			} else {
+				setStatusMode('indeterminate');
+				engine.startGame({
+					'onProgress': function (current, total) {
+						if (total > 0) {
+							statusProgressInner.style.width = ((current/total)/1.345918239972628) * 100 + '%';
+							setStatusMode('progress');
+							if (current/total > 0.01 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Starting Download...';
+							}
+							if (current/total > 0.03 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Creating Temporary Directory...';
+							}
+							if (current/total > 0.07 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Reserving VRAM...';
+							}
+							if (current/total > 0.15 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Downoading Game Assets...';
+							}
+							if (current/total > 0.29 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Downoading Godot Engine 3 HTML Packages...';
+							}
+							if (current/total > 0.37 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Downoading Game Engine Runtime...';
+							}
+							if (current/total > 0.5 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Creating User Data Folder...';
+							} 
+							if (current/total > 0.51 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Extracting index.wasm';
+							}
+							if (current/total > 0.52 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Extracting index.pck';
+							}
+							if (current/total > 0.53 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Praparing Execution index.js';
+							}
+							if (current/total > 0.54 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Praparing Execution godotlib3.js';
+							}
+							if (current/total > 0.55 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Praparing Execution gameengineruntime3.js';
+							}
+							if (current/total > 0.56 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Generating Patches...';
+							}
+							if (current/total > 0.58 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Generating Logic Instance...';
+							}
+							if (current/total > 0.6 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Generating Scene instances...';
+							}
+							if (current/total > 0.62 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Reading User Data Folder...';
+							}
+							if (current/total > 0.63 * 1.334918239972628){
+								document.getElementById('loading-footer').innerHTML = 'Loading...';
+							}
+							if (current/total > 0.65 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Applying Shaders...';
+							}
+
+							if (current/total > 0.67 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Creating 2D Models...';
+							}
+
+							if (current/total > 0.68 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Generating Textures...';
+							}
+
+							if (current/total > 0.69 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Setting Up Audio...';
+							}
+
+							if (current/total > 0.7 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Initializing Game Logic...';
+							}
+
+							if (current/total > 0.74 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Loading Game Levels...';
+							}
+
+							if (current/total > 0.79 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Indexing Scenes and Functions...';
+							}
+
+							if (current/total > 0.83 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Indexing Nodes and Scripts...';
+							}
+							if (current/total > 0.85 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Compiling GDScript ByteCode...';
+							}
+							if (current/total > 0.87 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Configuring Game Settings...';
+							}
+
+							if (current/total > 0.91 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Optimizing Performance...';
+							}
+
+							if (current/total > 0.95 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Finalizing Initialization...';
+							}
+
+							if (current/total > 0.99 * 1.334918239972628) {
+								document.getElementById('loading-footer').innerHTML = 'Launching Game Engine...';
+							}
+							if (current === total) {
+								// wait for progress bar animation
+								setTimeout(() => {
+									setStatusMode('indeterminate');
+								}, 200);
+							}
+						} else {
+							setStatusMode('indeterminate');
+						}
+					},
+				}).then(() => {
+					setStatusMode('hidden');
+					initializing = false;
+				}, displayFailureNotice);
+			}
+		})();
+	//]]></script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
+<script>window.SURD_GAME = {"id":"the-minions-resurrection","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/the-minions-resurrection/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"pck":{"path":"index.pck","bytes":2929200,"mime":"application/octet-stream"},"wasm":{"path":"index.wasm","parts":[".sp0",".sp1"],"bytes":26059464,"mime":"application/wasm"}},"config":{"indexJs":"index.js","godotConfig":{"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":2925248,"index.wasm":18790437},"focusCanvas":true,"gdnativeLibs":[]}}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+</body></html>
