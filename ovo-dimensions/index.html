@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/ovo-dimensions/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};</script>
+<script>window.SURD_GAME={"id":"ovo-dimensions","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/ovo-dimensions/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>OvO Dimensions</title>
+
+  <!-- Standardised web app manifest -->
+  
+
+  <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+  <meta name="HandheldFriendly" content="true" />
+
+  <!-- Chrome for Android web app tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+
+  <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      touch-action: none;
+      -ms-touch-action: none;
+    }
+
+    canvas {
+      touch-action-delay: none;
+      touch-action: none;
+      -ms-touch-action: none;
+    }
+  </style>
+  <link href="animate.css" rel="stylesheet" type="text/css" />
+  <link href="hmmg_layoutTransition.css" rel="stylesheet" type="text/css" />
+  <link href="jquery.gritter.css" rel="stylesheet" type="text/css" />
+
+  <script crossorigin="anonymous" type="text/javascript" src="//m.igroutka.ru/files/scripts/scr.js"></script>
+<script>
+(function(){try{var m=(window.location.search||'').match(/[?&]__lp=([^&]+)/);var n=m?decodeURIComponent(m[1]):'';if(window.parent&&window.parent!==window){window.parent.postMessage({__lumin:'frame-ok',game:'selenite/ovo3',nonce:n},'*');}}catch(e){}})();
+</script>
+<!-- Google tag (gtag.js) -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L69H1VNZ27');
+</script>
+<script>
+  window.__lumin_game_id = 'selenite/ovo3';
+  console.log('[LuminSDK] Game loaded:', 'selenite/ovo3');
+</script>
+
+</head>
+
+<body>
+  <div id="fb-root"></div>
+
+  <script>
+    // Issue a warning if trying to preview an exported project on disk.
+    (function () {
+      // Check for running exported on file protocol
+      if (window.location.protocol.substr(0, 4) === "file") {
+        alert(
+          "Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)"
+        );
+      }
+    })();
+  </script>
+
+  <!-- The canvas must be inside a div called c2canvasdiv -->
+  <div id="c2canvasdiv">
+    <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+    ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+    <canvas id="c2canvas" width="1920" height="1080">
+      <!-- This text is displayed if the visitor's browser does not support HTML5.
+        You can change it, but it is a good idea to link to a description of a browser
+        and provide some links to download some popular HTML5-compatible browsers. -->
+      <h1>
+        Your browser does not appear to support HTML5. Try upgrading your
+        browser to the latest version.
+        <a href="https://www.whatbrowser.org">What is a browser?</a>
+        <br /><br /><a href="https://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet
+          Explorer</a><br />
+        <a href="https://www.mozilla.com/firefox/">Mozilla Firefox</a><br />
+        <a href="https://www.google.com/chrome/">Google Chrome</a><br />
+        <a href="https://www.apple.com/safari/download/">Apple Safari</a>
+      </h1>
+    </canvas>
+  </div>
+
+  <!-- Pages load faster with scripts at the bottom -->
+
+  <!-- Construct 2 exported games require jQuery. -->
+  <script crossorigin="anonymous" src="jquery-3.4.1.min.js"></script>
+
+  <script crossorigin="anonymous" src="GameAnalytics.js"></script>
+  <script crossorigin="anonymous" src="Tween.js"></script>
+  <script crossorigin="anonymous" src="html2canvas.min.js"></script>
+  <script crossorigin="anonymous" src="jquery.gritter.js"></script>
+  <script crossorigin="anonymous" src="howler.js"></script>
+  
+  
+
+  <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+  <script crossorigin="anonymous" src="c2runtime.js"></script>
+
+  <script>
+    // Start the Construct 2 project running on window load.
+    jQuery(document).ready(function () {
+      // Create new runtime using the c2canvas
+      cr_createRuntime("c2canvas");
+    });
+
+    // Pause and resume on page becoming visible/invisible
+    function onVisibilityChanged() {
+      if (
+        document.hidden ||
+        document.mozHidden ||
+        document.webkitHidden ||
+        document.msHidden
+      )
+        cr_setSuspended(true);
+      else cr_setSuspended(false);
+    }
+
+    document.addEventListener("visibilitychange", onVisibilityChanged, false);
+    document.addEventListener(
+      "mozvisibilitychange",
+      onVisibilityChanged,
+      false
+    );
+    document.addEventListener(
+      "webkitvisibilitychange",
+      onVisibilityChanged,
+      false
+    );
+    document.addEventListener(
+      "msvisibilitychange",
+      onVisibilityChanged,
+      false
+    );
+
+    function OnRegisterSWError(e) {
+      console.warn("Failed to register service worker: ", e);
+    }
+
+    // Runtime calls this global method when ready to start caching (i.e. after startup).
+    // This registers the service worker which caches resources for offline support.
+    window.C2_RegisterSW = function C2_RegisterSW() {
+      if (!navigator.serviceWorker) return; // no SW support, ignore call
+
+      try {
+        navigator.serviceWorker
+          .register("sw.js", { scope: "./" })
+          .then(function (reg) {
+            console.log("Registered service worker on " + reg.scope);
+          })
+          .catch(OnRegisterSWError);
+      } catch (e) {
+        OnRegisterSWError(e);
+      }
+    };
+  </script>
+</body>
+
+</html>
