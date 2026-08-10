@@ -59,7 +59,7 @@ function createUnityInstance(t, n, c) {
     disabledCanvasEvents: ["contextmenu", "dragstart"]
   };
   for (o in e(n, "companyName", "Unity"), e(n, "productName", "WebGL Player"), e(n, "productVersion", "1.0"), n) l[o] = n[o];
-  l.streamingAssetsUrl = new URL(l.streamingAssetsUrl, document.URL).href;
+  l.streamingAssetsUrl = new URL(l.streamingAssetsUrl, "https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/rogue-sergeant-the-final-operation/").href;
   var a = l.disabledCanvasEvents.slice();
 
   function i(e) {
