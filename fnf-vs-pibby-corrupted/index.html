@@ -157,9 +157,24 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
      * very game from rendering at all), so at install time there is no base to capture. */
     function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
     function rebase(u){
       try {
         if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
         var B = gbase(); if (!B) return u;
         B = B.replace(/\/?$/, '/');
         if (u.indexOf(B) === 0) return u;                        // already where it belongs
@@ -170,7 +185,13 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
         if (RT && u.indexOf(RT) === 0) return u;
         if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
-        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
         /* An engine that builds its own absolute URLs from location, rather than letting the
          * browser resolve a relative path, lands on the SITE origin — which holds no game
          * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
@@ -184,7 +205,11 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
-      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
       if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
@@ -222,12 +247,39 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
         });
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"fnf-vs-pibby-corrupted","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fnf-vs-pibby-corrupted/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/","files":{},"config":{},"split":[{"p":"assets/songs/rusted-steamboat/Voices.mp3","u":["assets/songs/rusted-steamboat/Voices.mp3"],"b":8332471,"m":"audio/mpeg","pf":1},{"p":"assets/songs/rusted-steamboat/Inst.mp3","u":["assets/songs/rusted-steamboat/Inst.mp3"],"b":7208859,"m":"audio/mpeg","pf":1},{"p":"assets/songs/house-of-mouse/Inst.mp3","u":["assets/songs/house-of-mouse/Inst.mp3"],"b":6239895,"m":"audio/mpeg","pf":1},{"p":"assets/songs/house-of-mouse/Voices.mp3","u":["assets/songs/house-of-mouse/Voices.mp3"],"b":6081574,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ill-be-fine/Inst.mp3","u":["assets/songs/ill-be-fine/Inst.mp3"],"b":5934265,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ill-be-fine/Voices.mp3","u":["assets/songs/ill-be-fine/Voices.mp3"],"b":5764849,"m":"audio/mpeg","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":5347425,"m":"audio/mpeg","pf":1},{"p":"assets/songs/treasure-island/Voices.mp3","u":["assets/songs/treasure-island/Voices.mp3"],"b":5059277,"m":"audio/mpeg","pf":1},{"p":"assets/songs/together-forever/Inst.mp3","u":["assets/songs/together-forever/Inst.mp3"],"b":4841288,"m":"audio/mpeg","pf":1},{"p":"assets/songs/elastic-destruction/Inst.mp3","u":["assets/songs/elastic-destruction/Inst.mp3"],"b":4824769,"m":"audio/mpeg","pf":1},{"p":"assets/songs/corrupted-hero-scx/Voices.mp3","u":["assets/songs/corrupted-hero-scx/Voices.mp3"],"b":4784693,"m":"audio/mpeg","pf":1},{"p":"assets/songs/together-forever/Voices.mp3","u":["assets/songs/together-forever/Voices.mp3"],"b":4754331,"m":"audio/mpeg","pf":1},{"p":"assets/songs/self-restraint/Inst.mp3","u":["assets/songs/self-restraint/Inst.mp3"],"b":4732847,"m":"audio/mpeg","pf":1},{"p":"assets/songs/glitched-gem/Inst.mp3","u":["assets/songs/glitched-gem/Inst.mp3"],"b":4615957,"m":"audio/mpeg","pf":1},{"p":"assets/songs/self-restraint/Voices.mp3","u":["assets/songs/self-restraint/Voices.mp3"],"b":4606103,"m":"audio/mpeg","pf":1},{"p":"assets/songs/elastic-destruction/Voices.mp3","u":["assets/songs/elastic-destruction/Voices.mp3"],"b":4566415,"m":"audio/mpeg","pf":1},{"p":"assets/weekbob/images/characters/Random_ass_characters/spongebob.png","u":["assets/weekbob/images/characters/Random_ass_characters/spongebob.png"],"b":4503187,"m":"image/png","pf":1},{"p":"assets/songs/familiar/Inst.mp3","u":["assets/songs/familiar/Inst.mp3"],"b":4432891,"m":"audio/mpeg","pf":1},{"p":"assets/weekfinn/images/characters/AT/jake.png","u":["assets/weekfinn/images/characters/AT/jake.png"],"b":4345085,"m":"image/png","pf":1},{"p":"assets/images/characters/PLAYABLE/final-ivashka.png","u":["assets/images/characters/PLAYABLE/final-ivashka.png"],"b":4342833,"m":"image/png","pf":1},{"p":"assets/songs/corrupted-hero-scx/Inst.mp3","u":["assets/songs/corrupted-hero-scx/Inst.mp3"],"b":4293916,"m":"audio/mpeg","pf":1},{"p":"assets/weeklivesey/images/characters/livesey/livesey.png","u":["assets/weeklivesey/images/characters/livesey/livesey.png"],"b":4190779,"m":"image/png","pf":1},{"p":"assets/songs/treasure-island/Inst.mp3","u":["assets/songs/treasure-island/Inst.mp3"],"b":4157685,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/PLAYABLE/divashka.png","u":["assets/images/characters/PLAYABLE/divashka.png"],"b":4130127,"m":"image/png","pf":1},{"p":"assets/songs/familiar/Voices.mp3","u":["assets/songs/familiar/Voices.mp3"],"b":3998413,"m":"audio/mpeg","pf":1},{"p":"assets/songs/malware/Inst.mp3","u":["assets/songs/malware/Inst.mp3"],"b":3934541,"m":"audio/mpeg","pf":1},{"p":"assets/songs/last-spooktober/Inst.mp3","u":["assets/songs/last-spooktober/Inst.mp3"],"b":3861841,"m":"audio/mpeg","pf":1},{"p":"assets/songs/corrupted-hero/Voices.mp3","u":["assets/songs/corrupted-hero/Voices.mp3"],"b":3818690,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ready-or-not/Voices.mp3","u":["assets/songs/ready-or-not/Voices.mp3"],"b":3747180,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ready-or-not/Inst.mp3","u":["assets/songs/ready-or-not/Inst.mp3"],"b":3744658,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/GFS/gf-pirate.png","u":["assets/images/characters/GFS/gf-pirate.png"],"b":3738116,"m":"image/png","pf":1},{"p":"assets/songs/corrupted-hero/Inst.mp3","u":["assets/songs/corrupted-hero/Inst.mp3"],"b":3731846,"m":"audio/mpeg","pf":1},{"p":"assets/songs/malware/Voices.mp3","u":["assets/songs/malware/Voices.mp3"],"b":3700688,"m":"audio/mpeg","pf":1},{"p":"assets/songs/glitched-gem/Voices.mp3","u":["assets/songs/glitched-gem/Voices.mp3"],"b":3682561,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-monster/Voices.mp3","u":["assets/songs/my-monster/Voices.mp3"],"b":3645751,"m":"audio/mpeg","pf":1},{"p":"assets/weekfinn/images/characters/AT/bubblegum.png","u":["assets/weekfinn/images/characters/AT/bubblegum.png"],"b":3610745,"m":"image/png","pf":1},{"p":"assets/images/characters/Game_Over/ivashka-dies.png","u":["assets/images/characters/Game_Over/ivashka-dies.png"],"b":3603906,"m":"image/png","pf":1},{"p":"assets/images/characters/PLAYABLE/survivor_boyfriend.png","u":["assets/images/characters/PLAYABLE/survivor_boyfriend.png"],"b":3461969,"m":"image/png","pf":1},{"p":"assets/weekfinn/images/characters/AT/finn.png","u":["assets/weekfinn/images/characters/AT/finn.png"],"b":3436627,"m":"image/png","pf":1},{"p":"assets/songs/black-mark/Inst.mp3","u":["assets/songs/black-mark/Inst.mp3"],"b":3405825,"m":"audio/mpeg","pf":1},{"p":"assets/songs/wish-come-true/Inst.mp3","u":["assets/songs/wish-come-true/Inst.mp3"],"b":3384745,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-monster/Inst.mp3","u":["assets/songs/my-monster/Inst.mp3"],"b":3374067,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gummy-substance/Inst.mp3","u":["assets/songs/gummy-substance/Inst.mp3"],"b":3356548,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gummy-substance/Voices.mp3","u":["assets/songs/gummy-substance/Voices.mp3"],"b":3321144,"m":"audio/mpeg","pf":1},{"p":"assets/songs/black-mark/Voices.mp3","u":["assets/songs/black-mark/Voices.mp3"],"b":3266912,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spooked/Voices.mp3","u":["assets/songs/spooked/Voices.mp3"],"b":3198690,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gunshot/Inst.mp3","u":["assets/songs/gunshot/Inst.mp3"],"b":3169681,"m":"audio/mpeg","pf":1},{"p":"assets/songs/wish-come-true/Voices.mp3","u":["assets/songs/wish-come-true/Voices.mp3"],"b":3136115,"m":"audio/mpeg","pf":1},{"p":"assets/songs/last-spooktober/Voices.mp3","u":["assets/songs/last-spooktober/Voices.mp3"],"b":3125739,"m":"audio/mpeg","pf":1},{"p":"assets/weekwillie/images/characters/SB/willie.png","u":["assets/weekwillie/images/characters/SB/willie.png"],"b":3067896,"m":"image/png","pf":1},{"p":"assets/songs/spooked/Inst.mp3","u":["assets/songs/spooked/Inst.mp3"],"b":3044264,"m":"audio/mpeg","pf":1},{"p":"assets/songs/schoolhouse-massacre/Inst.mp3","u":["assets/songs/schoolhouse-massacre/Inst.mp3"],"b":3014979,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blue-balled/Inst.mp3","u":["assets/songs/blue-balled/Inst.mp3"],"b":2979537,"m":"audio/mpeg","pf":1},{"p":"assets/songs/the-change/Voices.mp3","u":["assets/songs/the-change/Voices.mp3"],"b":2958836,"m":"audio/mpeg","pf":1},{"p":"assets/songs/the-change/Inst.mp3","u":["assets/songs/the-change/Inst.mp3"],"b":2821764,"m":"audio/mpeg","pf":1},{"p":"assets/songs/nanovirus/Inst.mp3","u":["assets/songs/nanovirus/Inst.mp3"],"b":2241855,"m":"audio/mpeg","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"fnf-vs-pibby-corrupted","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fnf-vs-pibby-corrupted/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"assets/songs/rusted-steamboat/Voices.mp3","u":["assets/songs/rusted-steamboat/Voices.mp3"],"b":8332471,"m":"audio/mpeg","pf":1},{"p":"assets/songs/rusted-steamboat/Inst.mp3","u":["assets/songs/rusted-steamboat/Inst.mp3"],"b":7208859,"m":"audio/mpeg","pf":1},{"p":"assets/songs/house-of-mouse/Inst.mp3","u":["assets/songs/house-of-mouse/Inst.mp3"],"b":6239895,"m":"audio/mpeg","pf":1},{"p":"assets/songs/house-of-mouse/Voices.mp3","u":["assets/songs/house-of-mouse/Voices.mp3"],"b":6081574,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ill-be-fine/Inst.mp3","u":["assets/songs/ill-be-fine/Inst.mp3"],"b":5934265,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ill-be-fine/Voices.mp3","u":["assets/songs/ill-be-fine/Voices.mp3"],"b":5764849,"m":"audio/mpeg","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":5347425,"m":"audio/mpeg","pf":1},{"p":"assets/songs/treasure-island/Voices.mp3","u":["assets/songs/treasure-island/Voices.mp3"],"b":5059277,"m":"audio/mpeg","pf":1},{"p":"assets/songs/together-forever/Inst.mp3","u":["assets/songs/together-forever/Inst.mp3"],"b":4841288,"m":"audio/mpeg","pf":1},{"p":"assets/songs/elastic-destruction/Inst.mp3","u":["assets/songs/elastic-destruction/Inst.mp3"],"b":4824769,"m":"audio/mpeg","pf":1},{"p":"assets/songs/corrupted-hero-scx/Voices.mp3","u":["assets/songs/corrupted-hero-scx/Voices.mp3"],"b":4784693,"m":"audio/mpeg","pf":1},{"p":"assets/songs/together-forever/Voices.mp3","u":["assets/songs/together-forever/Voices.mp3"],"b":4754331,"m":"audio/mpeg","pf":1},{"p":"assets/songs/self-restraint/Inst.mp3","u":["assets/songs/self-restraint/Inst.mp3"],"b":4732847,"m":"audio/mpeg","pf":1},{"p":"assets/songs/glitched-gem/Inst.mp3","u":["assets/songs/glitched-gem/Inst.mp3"],"b":4615957,"m":"audio/mpeg","pf":1},{"p":"assets/songs/self-restraint/Voices.mp3","u":["assets/songs/self-restraint/Voices.mp3"],"b":4606103,"m":"audio/mpeg","pf":1},{"p":"assets/songs/elastic-destruction/Voices.mp3","u":["assets/songs/elastic-destruction/Voices.mp3"],"b":4566415,"m":"audio/mpeg","pf":1},{"p":"assets/weekbob/images/characters/Random_ass_characters/spongebob.png","u":["assets/weekbob/images/characters/Random_ass_characters/spongebob.png"],"b":4503187,"m":"image/png","pf":1},{"p":"assets/songs/familiar/Inst.mp3","u":["assets/songs/familiar/Inst.mp3"],"b":4432891,"m":"audio/mpeg","pf":1},{"p":"assets/weekfinn/images/characters/AT/jake.png","u":["assets/weekfinn/images/characters/AT/jake.png"],"b":4345085,"m":"image/png","pf":1},{"p":"assets/images/characters/PLAYABLE/final-ivashka.png","u":["assets/images/characters/PLAYABLE/final-ivashka.png"],"b":4342833,"m":"image/png","pf":1},{"p":"assets/songs/corrupted-hero-scx/Inst.mp3","u":["assets/songs/corrupted-hero-scx/Inst.mp3"],"b":4293916,"m":"audio/mpeg","pf":1},{"p":"assets/weeklivesey/images/characters/livesey/livesey.png","u":["assets/weeklivesey/images/characters/livesey/livesey.png"],"b":4190779,"m":"image/png","pf":1},{"p":"assets/songs/treasure-island/Inst.mp3","u":["assets/songs/treasure-island/Inst.mp3"],"b":4157685,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/PLAYABLE/divashka.png","u":["assets/images/characters/PLAYABLE/divashka.png"],"b":4130127,"m":"image/png","pf":1},{"p":"assets/songs/familiar/Voices.mp3","u":["assets/songs/familiar/Voices.mp3"],"b":3998413,"m":"audio/mpeg","pf":1},{"p":"assets/songs/malware/Inst.mp3","u":["assets/songs/malware/Inst.mp3"],"b":3934541,"m":"audio/mpeg","pf":1},{"p":"assets/songs/last-spooktober/Inst.mp3","u":["assets/songs/last-spooktober/Inst.mp3"],"b":3861841,"m":"audio/mpeg","pf":1},{"p":"assets/songs/corrupted-hero/Voices.mp3","u":["assets/songs/corrupted-hero/Voices.mp3"],"b":3818690,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ready-or-not/Voices.mp3","u":["assets/songs/ready-or-not/Voices.mp3"],"b":3747180,"m":"audio/mpeg","pf":1},{"p":"assets/songs/ready-or-not/Inst.mp3","u":["assets/songs/ready-or-not/Inst.mp3"],"b":3744658,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/GFS/gf-pirate.png","u":["assets/images/characters/GFS/gf-pirate.png"],"b":3738116,"m":"image/png","pf":1},{"p":"assets/songs/corrupted-hero/Inst.mp3","u":["assets/songs/corrupted-hero/Inst.mp3"],"b":3731846,"m":"audio/mpeg","pf":1},{"p":"assets/songs/malware/Voices.mp3","u":["assets/songs/malware/Voices.mp3"],"b":3700688,"m":"audio/mpeg","pf":1},{"p":"assets/songs/glitched-gem/Voices.mp3","u":["assets/songs/glitched-gem/Voices.mp3"],"b":3682561,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-monster/Voices.mp3","u":["assets/songs/my-monster/Voices.mp3"],"b":3645751,"m":"audio/mpeg","pf":1},{"p":"assets/weekfinn/images/characters/AT/bubblegum.png","u":["assets/weekfinn/images/characters/AT/bubblegum.png"],"b":3610745,"m":"image/png","pf":1},{"p":"assets/images/characters/Game_Over/ivashka-dies.png","u":["assets/images/characters/Game_Over/ivashka-dies.png"],"b":3603906,"m":"image/png","pf":1},{"p":"assets/images/characters/PLAYABLE/survivor_boyfriend.png","u":["assets/images/characters/PLAYABLE/survivor_boyfriend.png"],"b":3461969,"m":"image/png","pf":1},{"p":"assets/weekfinn/images/characters/AT/finn.png","u":["assets/weekfinn/images/characters/AT/finn.png"],"b":3436627,"m":"image/png","pf":1},{"p":"assets/songs/black-mark/Inst.mp3","u":["assets/songs/black-mark/Inst.mp3"],"b":3405825,"m":"audio/mpeg","pf":1},{"p":"assets/songs/wish-come-true/Inst.mp3","u":["assets/songs/wish-come-true/Inst.mp3"],"b":3384745,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-monster/Inst.mp3","u":["assets/songs/my-monster/Inst.mp3"],"b":3374067,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gummy-substance/Inst.mp3","u":["assets/songs/gummy-substance/Inst.mp3"],"b":3356548,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gummy-substance/Voices.mp3","u":["assets/songs/gummy-substance/Voices.mp3"],"b":3321144,"m":"audio/mpeg","pf":1},{"p":"assets/songs/black-mark/Voices.mp3","u":["assets/songs/black-mark/Voices.mp3"],"b":3266912,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spooked/Voices.mp3","u":["assets/songs/spooked/Voices.mp3"],"b":3198690,"m":"audio/mpeg","pf":1},{"p":"assets/songs/gunshot/Inst.mp3","u":["assets/songs/gunshot/Inst.mp3"],"b":3169681,"m":"audio/mpeg","pf":1},{"p":"assets/songs/wish-come-true/Voices.mp3","u":["assets/songs/wish-come-true/Voices.mp3"],"b":3136115,"m":"audio/mpeg","pf":1},{"p":"assets/songs/last-spooktober/Voices.mp3","u":["assets/songs/last-spooktober/Voices.mp3"],"b":3125739,"m":"audio/mpeg","pf":1},{"p":"assets/weekwillie/images/characters/SB/willie.png","u":["assets/weekwillie/images/characters/SB/willie.png"],"b":3067896,"m":"image/png","pf":1},{"p":"assets/songs/spooked/Inst.mp3","u":["assets/songs/spooked/Inst.mp3"],"b":3044264,"m":"audio/mpeg","pf":1},{"p":"assets/songs/schoolhouse-massacre/Inst.mp3","u":["assets/songs/schoolhouse-massacre/Inst.mp3"],"b":3014979,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blue-balled/Inst.mp3","u":["assets/songs/blue-balled/Inst.mp3"],"b":2979537,"m":"audio/mpeg","pf":1},{"p":"assets/songs/the-change/Voices.mp3","u":["assets/songs/the-change/Voices.mp3"],"b":2958836,"m":"audio/mpeg","pf":1},{"p":"assets/songs/the-change/Inst.mp3","u":["assets/songs/the-change/Inst.mp3"],"b":2821764,"m":"audio/mpeg","pf":1},{"p":"assets/songs/nanovirus/Inst.mp3","u":["assets/songs/nanovirus/Inst.mp3"],"b":2241855,"m":"audio/mpeg","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -393,7 +445,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
     for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
     window.SURD_PREFETCH = st;
-    var next = 0, LANES = 3;
+    var next = 0, LANES = 2;
     var pump = function () {
       if (next >= pf.length) return;
       var e = pf[next++];
@@ -403,7 +455,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
 
 
 
