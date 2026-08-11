@@ -158,9 +158,24 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
      * very game from rendering at all), so at install time there is no base to capture. */
     function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
     function rebase(u){
       try {
         if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
         var B = gbase(); if (!B) return u;
         B = B.replace(/\/?$/, '/');
         if (u.indexOf(B) === 0) return u;                        // already where it belongs
@@ -171,7 +186,13 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
         if (RT && u.indexOf(RT) === 0) return u;
         if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
-        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
         /* An engine that builds its own absolute URLs from location, rather than letting the
          * browser resolve a relative path, lands on the SITE origin — which holds no game
          * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
@@ -185,7 +206,11 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
-      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
       if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
@@ -223,12 +248,39 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
         });
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"friday-night-funkin-hit-single-real","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-hit-single-real/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/","files":{},"config":{},"split":[{"p":"assets/songs/silly-billy/Voices.mp3","u":["assets/songs/silly-billy/Voices.mp3"],"b":11882855,"m":"audio/mpeg","pf":1},{"p":"assets/songs/silly-billy/Inst.mp3","u":["assets/songs/silly-billy/Inst.mp3"],"b":11528644,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/XDamaged.png","u":["assets/images/characters/XDamaged.png"],"b":8947501,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/XDamaged.png","u":["assets/weeklord/images/characters/XDamaged.png"],"b":8947501,"m":"image/png","pf":1},{"p":"assets/songs/joyous/Inst.mp3","u":["assets/songs/joyous/Inst.mp3"],"b":6763316,"m":"audio/mpeg","pf":1},{"p":"assets/songs/joyous/Voices.mp3","u":["assets/songs/joyous/Voices.mp3"],"b":6619664,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/3D_X.png","u":["assets/images/characters/3D_X.png"],"b":5812850,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/3D_X.png","u":["assets/weeklord/images/characters/3D_X.png"],"b":5812850,"m":"image/png","pf":1},{"p":"assets/videos/fakeintro.mp4","u":["assets/videos/fakeintro.mp4"],"b":5712056,"m":"video/mp4","pf":1},{"p":"assets/songs/fakebaby/Inst.mp3","u":["assets/songs/fakebaby/Inst.mp3"],"b":5227553,"m":"audio/mpeg","pf":1},{"p":"assets/songs/fakebaby/Voices.mp3","u":["assets/songs/fakebaby/Voices.mp3"],"b":4948991,"m":"audio/mpeg","pf":1},{"p":"assets/songs/darnell-wet-fart/Inst.mp3","u":["assets/songs/darnell-wet-fart/Inst.mp3"],"b":4931895,"m":"audio/mpeg","pf":1},{"p":"assets/songs/darnell-wet-fart/Voices.mp3","u":["assets/songs/darnell-wet-fart/Voices.mp3"],"b":4875428,"m":"audio/mpeg","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":4641893,"m":"audio/mpeg","pf":1},{"p":"assets/songs/trichael/Voices.mp3","u":["assets/songs/trichael/Voices.mp3"],"b":3952847,"m":"audio/mpeg","pf":1},{"p":"assets/songs/trichael/Inst.mp3","u":["assets/songs/trichael/Inst.mp3"],"b":3933016,"m":"audio/mpeg","pf":1},{"p":"assets/images/bg/broken_mirror.png","u":["assets/images/bg/broken_mirror.png"],"b":2621888,"m":"image/png","pf":1},{"p":"assets/videos/So_Stay_Final.mp4","u":["assets/videos/So_Stay_Final.mp4"],"b":2598870,"m":"video/mp4","pf":1},{"p":"assets/images/darnell/THE_GOG.png","u":["assets/images/darnell/THE_GOG.png"],"b":2350592,"m":"image/png","pf":1},{"p":"assets/images/bg/bgAssets.png","u":["assets/images/bg/bgAssets.png"],"b":2157181,"m":"image/png","pf":1},{"p":"assets/images/characters/HSLookalikeDialogue2.png","u":["assets/images/characters/HSLookalikeDialogue2.png"],"b":2149489,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/lord_x_encore.png","u":["assets/weeklord/images/characters/lord_x_encore.png"],"b":1999453,"m":"image/png","pf":1},{"p":"assets/images/bg/Silly_clouds.png","u":["assets/images/bg/Silly_clouds.png"],"b":1972322,"m":"image/png","pf":1},{"p":"assets/images/darnell/Stage.png","u":["assets/images/darnell/Stage.png"],"b":1949908,"m":"image/png","pf":1},{"p":"assets/images/characters/Lookalike_Assets.png","u":["assets/images/characters/Lookalike_Assets.png"],"b":1739350,"m":"image/png","pf":1},{"p":"assets/images/bg/silly_mirror.png","u":["assets/images/bg/silly_mirror.png"],"b":1688320,"m":"image/png","pf":1},{"p":"assets/videos/fakefinale.mp4","u":["assets/videos/fakefinale.mp4"],"b":1585621,"m":"video/mp4","pf":1},{"p":"assets/images/characters/lord_x_encore.png","u":["assets/images/characters/lord_x_encore.png"],"b":1431212,"m":"image/png","pf":1},{"p":"assets/images/characters/Yourself_BF_Assets.png","u":["assets/images/characters/Yourself_BF_Assets.png"],"b":1399079,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1368913,"m":"audio/mpeg","pf":1},{"p":"assets/images/darnell/TheBg.png","u":["assets/images/darnell/TheBg.png"],"b":1238538,"m":"image/png","pf":1},{"p":"assets/images/characters/mr_krabs.png","u":["assets/images/characters/mr_krabs.png"],"b":1153811,"m":"image/png","pf":1},{"p":"assets/music/offsetSong.mp3","u":["assets/music/offsetSong.mp3"],"b":1123313,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/KrabsViolin.png","u":["assets/images/characters/KrabsViolin.png"],"b":1085515,"m":"image/png","pf":1},{"p":"assets/music/breakfast.mp3","u":["assets/music/breakfast.mp3"],"b":1017360,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/HSLookalikeDialogue1.png","u":["assets/images/characters/HSLookalikeDialogue1.png"],"b":854483,"m":"image/png","pf":1},{"p":"assets/images/characters/unshrink.png","u":["assets/images/characters/unshrink.png"],"b":825311,"m":"image/png","pf":1},{"p":"assets/music/gameOver.mp3","u":["assets/music/gameOver.mp3"],"b":764910,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/starved_squidward.png","u":["assets/images/characters/starved_squidward.png"],"b":661869,"m":"image/png","pf":1},{"p":"assets/videos/Open.mp4","u":["assets/videos/Open.mp4"],"b":568569,"m":"video/mp4","pf":1},{"p":"assets/images/characters/Lookalike_Alt.png","u":["assets/images/characters/Lookalike_Alt.png"],"b":535121,"m":"image/png","pf":1},{"p":"assets/videos/realinnodeathscreen.mp4","u":["assets/videos/realinnodeathscreen.mp4"],"b":532387,"m":"video/mp4","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"friday-night-funkin-hit-single-real","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-hit-single-real/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"assets/songs/silly-billy/Voices.mp3","u":["assets/songs/silly-billy/Voices.mp3"],"b":11882855,"m":"audio/mpeg","pf":1},{"p":"assets/songs/silly-billy/Inst.mp3","u":["assets/songs/silly-billy/Inst.mp3"],"b":11528644,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/XDamaged.png","u":["assets/images/characters/XDamaged.png"],"b":8947501,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/XDamaged.png","u":["assets/weeklord/images/characters/XDamaged.png"],"b":8947501,"m":"image/png","pf":1},{"p":"assets/songs/joyous/Inst.mp3","u":["assets/songs/joyous/Inst.mp3"],"b":6763316,"m":"audio/mpeg","pf":1},{"p":"assets/songs/joyous/Voices.mp3","u":["assets/songs/joyous/Voices.mp3"],"b":6619664,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/3D_X.png","u":["assets/images/characters/3D_X.png"],"b":5812850,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/3D_X.png","u":["assets/weeklord/images/characters/3D_X.png"],"b":5812850,"m":"image/png","pf":1},{"p":"assets/videos/fakeintro.mp4","u":["assets/videos/fakeintro.mp4"],"b":5712056,"m":"video/mp4","pf":1},{"p":"assets/songs/fakebaby/Inst.mp3","u":["assets/songs/fakebaby/Inst.mp3"],"b":5227553,"m":"audio/mpeg","pf":1},{"p":"assets/songs/fakebaby/Voices.mp3","u":["assets/songs/fakebaby/Voices.mp3"],"b":4948991,"m":"audio/mpeg","pf":1},{"p":"assets/songs/darnell-wet-fart/Inst.mp3","u":["assets/songs/darnell-wet-fart/Inst.mp3"],"b":4931895,"m":"audio/mpeg","pf":1},{"p":"assets/songs/darnell-wet-fart/Voices.mp3","u":["assets/songs/darnell-wet-fart/Voices.mp3"],"b":4875428,"m":"audio/mpeg","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":4641893,"m":"audio/mpeg","pf":1},{"p":"assets/songs/trichael/Voices.mp3","u":["assets/songs/trichael/Voices.mp3"],"b":3952847,"m":"audio/mpeg","pf":1},{"p":"assets/songs/trichael/Inst.mp3","u":["assets/songs/trichael/Inst.mp3"],"b":3933016,"m":"audio/mpeg","pf":1},{"p":"assets/images/bg/broken_mirror.png","u":["assets/images/bg/broken_mirror.png"],"b":2621888,"m":"image/png","pf":1},{"p":"assets/videos/So_Stay_Final.mp4","u":["assets/videos/So_Stay_Final.mp4"],"b":2598870,"m":"video/mp4","pf":1},{"p":"assets/images/darnell/THE_GOG.png","u":["assets/images/darnell/THE_GOG.png"],"b":2350592,"m":"image/png","pf":1},{"p":"assets/images/bg/bgAssets.png","u":["assets/images/bg/bgAssets.png"],"b":2157181,"m":"image/png","pf":1},{"p":"assets/images/characters/HSLookalikeDialogue2.png","u":["assets/images/characters/HSLookalikeDialogue2.png"],"b":2149489,"m":"image/png","pf":1},{"p":"assets/weeklord/images/characters/lord_x_encore.png","u":["assets/weeklord/images/characters/lord_x_encore.png"],"b":1999453,"m":"image/png","pf":1},{"p":"assets/images/bg/Silly_clouds.png","u":["assets/images/bg/Silly_clouds.png"],"b":1972322,"m":"image/png","pf":1},{"p":"assets/images/darnell/Stage.png","u":["assets/images/darnell/Stage.png"],"b":1949908,"m":"image/png","pf":1},{"p":"assets/images/characters/Lookalike_Assets.png","u":["assets/images/characters/Lookalike_Assets.png"],"b":1739350,"m":"image/png","pf":1},{"p":"assets/images/bg/silly_mirror.png","u":["assets/images/bg/silly_mirror.png"],"b":1688320,"m":"image/png","pf":1},{"p":"assets/videos/fakefinale.mp4","u":["assets/videos/fakefinale.mp4"],"b":1585621,"m":"video/mp4","pf":1},{"p":"assets/images/characters/lord_x_encore.png","u":["assets/images/characters/lord_x_encore.png"],"b":1431212,"m":"image/png","pf":1},{"p":"assets/images/characters/Yourself_BF_Assets.png","u":["assets/images/characters/Yourself_BF_Assets.png"],"b":1399079,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1368913,"m":"audio/mpeg","pf":1},{"p":"assets/images/darnell/TheBg.png","u":["assets/images/darnell/TheBg.png"],"b":1238538,"m":"image/png","pf":1},{"p":"assets/images/characters/mr_krabs.png","u":["assets/images/characters/mr_krabs.png"],"b":1153811,"m":"image/png","pf":1},{"p":"assets/music/offsetSong.mp3","u":["assets/music/offsetSong.mp3"],"b":1123313,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/KrabsViolin.png","u":["assets/images/characters/KrabsViolin.png"],"b":1085515,"m":"image/png","pf":1},{"p":"assets/music/breakfast.mp3","u":["assets/music/breakfast.mp3"],"b":1017360,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/HSLookalikeDialogue1.png","u":["assets/images/characters/HSLookalikeDialogue1.png"],"b":854483,"m":"image/png","pf":1},{"p":"assets/images/characters/unshrink.png","u":["assets/images/characters/unshrink.png"],"b":825311,"m":"image/png","pf":1},{"p":"assets/music/gameOver.mp3","u":["assets/music/gameOver.mp3"],"b":764910,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/starved_squidward.png","u":["assets/images/characters/starved_squidward.png"],"b":661869,"m":"image/png","pf":1},{"p":"assets/videos/Open.mp4","u":["assets/videos/Open.mp4"],"b":568569,"m":"video/mp4","pf":1},{"p":"assets/images/characters/Lookalike_Alt.png","u":["assets/images/characters/Lookalike_Alt.png"],"b":535121,"m":"image/png","pf":1},{"p":"assets/videos/realinnodeathscreen.mp4","u":["assets/videos/realinnodeathscreen.mp4"],"b":532387,"m":"video/mp4","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -394,7 +446,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
     for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
     window.SURD_PREFETCH = st;
-    var next = 0, LANES = 3;
+    var next = 0, LANES = 2;
     var pump = function () {
       if (next >= pf.length) return;
       var e = pf[next++];
@@ -404,7 +456,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
 
 	
 	<meta charset="utf-8">
