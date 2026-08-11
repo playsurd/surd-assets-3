@@ -96,6 +96,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -164,8 +182,159 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"friday-night-funkin-pibby-apocalypse","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-pibby-apocalypse/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME={"id":"friday-night-funkin-pibby-apocalypse","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-pibby-apocalypse/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{},"config":{},"split":[{"p":"assets/songs/suffering-siblings/Voices.mp3","u":["assets/songs/suffering-siblings/Voices.mp3"],"b":7602032,"m":"audio/mpeg","pf":1},{"p":"assets/songs/suffering-siblings/Inst.mp3","u":["assets/songs/suffering-siblings/Inst.mp3"],"b":6195550,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Voices.mp3","u":["assets/songs/childs-play/Voices.mp3"],"b":6033487,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Inst.mp3","u":["assets/songs/childs-play/Inst.mp3"],"b":5361934,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Voices.mp3","u":["assets/songs/brotherly-love/Voices.mp3"],"b":5208385,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Inst.mp3","u":["assets/songs/mindless/Inst.mp3"],"b":5202732,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Inst.mp3","u":["assets/songs/brotherly-love/Inst.mp3"],"b":5066156,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Voices.mp3","u":["assets/songs/my-amazing-world/Voices.mp3"],"b":4901976,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Voices.mp3","u":["assets/songs/mindless/Voices.mp3"],"b":4900673,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfjakedeath.png","u":["assets/images/characters/bfjakedeath.png"],"b":4889562,"m":"image/png","pf":1},{"p":"assets/images/characters/cartoon_bf_Gun.png","u":["assets/images/characters/cartoon_bf_Gun.png"],"b":4802498,"m":"image/png","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":4641615,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfdeathfinn.png","u":["assets/images/characters/bfdeathfinn.png"],"b":4366483,"m":"image/png","pf":1},{"p":"assets/songs/forgotten-world/Inst.mp3","u":["assets/songs/forgotten-world/Inst.mp3"],"b":4341646,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Inst.mp3","u":["assets/songs/my-amazing-world/Inst.mp3"],"b":4141175,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Voices.mp3","u":["assets/songs/come-along-with-me/Voices.mp3"],"b":4024224,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Inst.mp3","u":["assets/songs/come-along-with-me/Inst.mp3"],"b":3868668,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Inst.mp3","u":["assets/songs/retcon/Inst.mp3"],"b":3698337,"m":"audio/mpeg","pf":1},{"p":"assets/songs/forgotten-world/Voices.mp3","u":["assets/songs/forgotten-world/Voices.mp3"],"b":3645556,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Voices.mp3","u":["assets/songs/retcon/Voices.mp3"],"b":3243081,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Fake_Finn.png","u":["assets/images/characters/Fake_Finn.png"],"b":2862930,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword.png","u":["assets/images/characters/Finn-sword.png"],"b":2840530,"m":"image/png","pf":1},{"p":"assets/songs/no-hero-remix/Voices.mp3","u":["assets/songs/no-hero-remix/Voices.mp3"],"b":2801601,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Voices.mp3","u":["assets/songs/blessed-by-swords/Voices.mp3"],"b":2520935,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Inst.mp3","u":["assets/songs/blessed-by-swords/Inst.mp3"],"b":2457785,"m":"audio/mpeg","pf":1},{"p":"assets/songs/no-hero-remix/Inst.mp3","u":["assets/songs/no-hero-remix/Inst.mp3"],"b":2450376,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/treehouse/back.png","u":["assets/shared/images/treehouse/back.png"],"b":2447996,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-Slash.png","u":["assets/images/characters/Finn-Slash.png"],"b":2229213,"m":"image/png","pf":1},{"p":"assets/images/characters/assbf.png","u":["assets/images/characters/assbf.png"],"b":2081613,"m":"image/png","pf":1},{"p":"assets/images/characters/GF_assets.png","u":["assets/images/characters/GF_assets.png"],"b":1928343,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-CN.png","u":["assets/images/characters/Finn-CN.png"],"b":1925958,"m":"image/png","pf":1},{"p":"assets/images/characters/finn_reveal.png","u":["assets/images/characters/finn_reveal.png"],"b":1880836,"m":"image/png","pf":1},{"p":"assets/images/characters/Jake.png","u":["assets/images/characters/Jake.png"],"b":1710566,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu2.mp3","u":["assets/music/freakyMenu2.mp3"],"b":1706042,"m":"audio/mpeg","pf":1},{"p":"assets/music/creditsmenu.mp3","u":["assets/music/creditsmenu.mp3"],"b":1587057,"m":"audio/mpeg","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1559284,"m":"audio/mpeg","pf":1},{"p":"assets/music/fpmenu.mp3","u":["assets/music/fpmenu.mp3"],"b":1506347,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/voidFW/void3/1.png","u":["assets/shared/images/voidFW/void3/1.png"],"b":1446868,"m":"image/png","pf":1},{"p":"assets/images/characters/midfin.png","u":["assets/images/characters/midfin.png"],"b":1406943,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_BF.png","u":["assets/images/characters/COME_ALONG_BF.png"],"b":1376411,"m":"image/png","pf":1},{"p":"assets/images/characters/gumball.png","u":["assets/images/characters/gumball.png"],"b":1361464,"m":"image/png","pf":1},{"p":"assets/images/characters/pibby.png","u":["assets/images/characters/pibby.png"],"b":1357161,"m":"image/png","pf":1},{"p":"assets/music/breakfast.mp3","u":["assets/music/breakfast.mp3"],"b":1222384,"m":"audio/mpeg","pf":1},{"p":"assets/music/LWP_Week_theme.mp3","u":["assets/music/LWP_Week_theme.mp3"],"b":1217091,"m":"audio/mpeg","pf":1},{"p":"assets/music/offsetSong.mp3","u":["assets/music/offsetSong.mp3"],"b":1123260,"m":"audio/mpeg","pf":1},{"p":"assets/music/gameOver.mp3","u":["assets/music/gameOver.mp3"],"b":1058361,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Darwin.png","u":["assets/images/characters/Darwin.png"],"b":1056244,"m":"image/png","pf":1},{"p":"assets/images/characters/BF_Intro.png","u":["assets/images/characters/BF_Intro.png"],"b":1055594,"m":"image/png","pf":1},{"p":"assets/images/logoPeb.png","u":["assets/images/logoPeb.png"],"b":935020,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-noremote.png","u":["assets/images/characters/darwin-noremote.png"],"b":884282,"m":"image/png","pf":1},{"p":"assets/images/characters/BOYFRIEND.png","u":["assets/images/characters/BOYFRIEND.png"],"b":875627,"m":"image/png","pf":1},{"p":"assets/images/noherocutscenefirst.png","u":["assets/images/noherocutscenefirst.png"],"b":822100,"m":"image/png","pf":1},{"p":"assets/videos/forgottenscene.mp4","u":["assets/videos/forgottenscene.mp4"],"b":813558,"m":"video/mp4","pf":1},{"p":"assets/images/characters/finnfalse.png","u":["assets/images/characters/finnfalse.png"],"b":757895,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_Finn.png","u":["assets/images/characters/COME_ALONG_Finn.png"],"b":705293,"m":"image/png","pf":1},{"p":"assets/images/characters/Cumball.png","u":["assets/images/characters/Cumball.png"],"b":665723,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-fw.png","u":["assets/images/characters/darwin-fw.png"],"b":639361,"m":"image/png","pf":1},{"p":"assets/images/characters/badfinn.png","u":["assets/images/characters/badfinn.png"],"b":631542,"m":"image/png","pf":1},{"p":"assets/images/storymenu/finn_BG.png","u":["assets/images/storymenu/finn_BG.png"],"b":601455,"m":"image/png","pf":1},{"p":"assets/images/characters/CAWM_FINN.png","u":["assets/images/characters/CAWM_FINN.png"],"b":581484,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword-shader.png","u":["assets/images/characters/Finn-sword-shader.png"],"b":550395,"m":"image/png","pf":1}]};</script>
+<script>(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var p = Promise.all(urls.map(function (u, n) {
+      return nativeFetch(u).then(function (r) {
+        if (!r.ok) throw new Error('surd: ' + r.status + ' on ' + u);
+        return r.blob();
+      }).then(function (b) { got[n] = b; });
+    })).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+  var pf = [];
+  for (i = 0; i < table.length; i++) if (table[i].pf) pf.push(table[i]);
+  if (pf.length) {
+    var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
+    for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
+    window.SURD_PREFETCH = st;
+    var next = 0, LANES = 3;
+    var pump = function () {
+      if (next >= pf.length) return;
+      var e = pf[next++];
+      assemble(e)['catch'](function () { st.failed++; })
+        .then(function () { st.done++; st.doneBytes += e.b || 0; pump(); });
+    };
+    for (i = 0; i < LANES && i < pf.length; i++) pump();
+  }
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 
 	
 	<meta charset="utf-8">
