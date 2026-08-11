@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -166,6 +184,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       function unityShowBanner(msg, type) {
 
       }</script>
-<script>window.SURD_GAME = {"id":"3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"Build/minus3bog.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":93733327,"mime":"application/octet-stream"},"framework":{"path":"Build/minus3bog.framework.js","bytes":415605,"mime":"text/javascript"},"code":{"path":"Build/minus3bog.wasm","parts":[".sp0",".sp1"],"bytes":22875899,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/minus3bog.loader.js","companyName":"Mauzer2137","productName":"-3","productVersion":"3.-3"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"data":{"path":"Build/minus3bog.data","parts":[".sp0",".sp1",".sp2",".sp3",".sp4"],"bytes":93733327,"mime":"application/octet-stream"},"framework":{"path":"Build/minus3bog.framework.js","bytes":415605,"mime":"text/javascript"},"code":{"path":"Build/minus3bog.wasm","parts":[".sp0",".sp1"],"bytes":22875899,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/minus3bog.loader.js","companyName":"Mauzer2137","productName":"-3","productVersion":"3.-3"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
