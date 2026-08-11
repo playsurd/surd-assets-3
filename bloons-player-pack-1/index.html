@@ -154,9 +154,24 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
      * very game from rendering at all), so at install time there is no base to capture. */
     function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
     function rebase(u){
       try {
         if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
         var B = gbase(); if (!B) return u;
         B = B.replace(/\/?$/, '/');
         if (u.indexOf(B) === 0) return u;                        // already where it belongs
@@ -167,7 +182,13 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
         if (RT && u.indexOf(RT) === 0) return u;
         if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
-        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
         /* An engine that builds its own absolute URLs from location, rather than letting the
          * browser resolve a relative path, lands on the SITE origin — which holds no game
          * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
@@ -181,7 +202,11 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
-      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
       if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
@@ -219,7 +244,34 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
         });
       });
     } catch(e){}
@@ -252,6 +304,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         player.load("flash.swf");
       });
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"bloons-player-pack-1","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/bloons-player-pack-1/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/","files":{"swf":{"path":"flash.swf","bytes":512467,"mime":"application/octet-stream"}},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"bloons-player-pack-1","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/bloons-player-pack-1/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{"swf":{"path":"flash.swf","bytes":512467,"mime":"application/octet-stream"}},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
 </body></html>
