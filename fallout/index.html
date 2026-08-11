@@ -146,15 +146,57 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
 (function(){
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
     function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
+     *
+     * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
+     * is the site (or an opaque blob origin) and never holds game assets — so every such
+     * request is a guaranteed 404. 2048-merge-run asked for /version.json, /fileconfig.json
+     * and every one of its scene files this way and showed a black screen with nothing but
+     * "Script error." to go on; a-dark-room does the same with /audio/*.flac.
+     *
+     * Since no host-absolute path can ever be correct here, point them all at the game's own
+     * base. This is a rewrite rather than a refusal: the files exist, just one level up.
+     * Protocol-relative "//host/x" is a different thing (a real remote host) and is left to
+     * the denylist above. */
+    /* Read the base LAZILY. This guard is deliberately installed before the manifest script
+     * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
+     * very game from rendering at all), so at install time there is no base to capture. */
+    function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    function rebase(u){
+      try {
+        if (typeof u !== 'string' || !u) return u;
+        var B = gbase(); if (!B) return u;
+        B = B.replace(/\/?$/, '/');
+        if (u.indexOf(B) === 0) return u;                        // already where it belongs
+        /* Never touch OUR OWN plumbing. The runtime and its adapters live at a different path
+         * (and in production a different origin), and rebasing them points the loader at the
+         * game's asset directory, where no adapter exists. */
+        var RT = '';
+        try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
+        if (RT && u.indexOf(RT) === 0) return u;
+        if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* An engine that builds its own absolute URLs from location, rather than letting the
+         * browser resolve a relative path, lands on the SITE origin — which holds no game
+         * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
+         * so matching only a leading slash was not enough. Our origin is never a legitimate
+         * place for a game to fetch from, so the same redirect applies. */
+        var o = location.origin;
+        if (o && o !== 'null' && u.indexOf(o + '/') === 0) return B + u.slice(o.length + 1);
+        return u;
+      } catch(e){ return u; }
+    }
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
       if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
     var oo = window.XMLHttpRequest && window.XMLHttpRequest.prototype.open;
     if (oo) window.XMLHttpRequest.prototype.open = function(m, u){
       if (bad(u)) { arguments[1] = 'data:text/plain,'; }
+      else if (typeof u === 'string') { arguments[1] = rebase(u); }
       return oo.apply(this, arguments);
     };
     if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
@@ -169,23 +211,28 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     try {
       var osa = Element.prototype.setAttribute;
       Element.prototype.setAttribute = function(n, v){
-        if (n && /^(src|href|data)$/i.test(n) && bad(v)) return;
+        if (n && /^(src|href|data)$/i.test(n)) {
+          if (bad(v)) return;
+          /* Same host-absolute problem, reached through an attribute: an <img> or <audio>
+           * given "/audio/x.flac" resolves against the origin and 404s. */
+          if (typeof v === 'string') arguments[1] = rebase(v);
+        }
         return osa.apply(this, arguments);
       };
     } catch(e){}
     /* Element src= is how most ad tags actually load. */
     try {
-      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement'].forEach(function(k){
+      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement','HTMLAudioElement','HTMLVideoElement','HTMLSourceElement'].forEach(function(k){
         var P = window[k] && window[k].prototype; if (!P) return;
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, v); }
+          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
         });
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"fallout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fallout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{},"config":{},"split":[{"p":"softs/command-conquer/Command__Conquer_1995.zip","u":["softs/command-conquer/Command__Conquer_1995.zip.sp0","softs/command-conquer/Command__Conquer_1995.zip.sp1","softs/command-conquer/Command__Conquer_1995.zip.sp2","softs/command-conquer/Command__Conquer_1995.zip.sp3","softs/command-conquer/Command__Conquer_1995.zip.sp4","softs/command-conquer/Command__Conquer_1995.zip.sp5","softs/command-conquer/Command__Conquer_1995.zip.sp6","softs/command-conquer/Command__Conquer_1995.zip.sp7","softs/command-conquer/Command__Conquer_1995.zip.sp8","softs/command-conquer/Command__Conquer_1995.zip.sp9","softs/command-conquer/Command__Conquer_1995.zip.sp10","softs/command-conquer/Command__Conquer_1995.zip.sp11","softs/command-conquer/Command__Conquer_1995.zip.sp12","softs/command-conquer/Command__Conquer_1995.zip.sp13","softs/command-conquer/Command__Conquer_1995.zip.sp14","softs/command-conquer/Command__Conquer_1995.zip.sp15","softs/command-conquer/Command__Conquer_1995.zip.sp16","softs/command-conquer/Command__Conquer_1995.zip.sp17","softs/command-conquer/Command__Conquer_1995.zip.sp18","softs/command-conquer/Command__Conquer_1995.zip.sp19","softs/command-conquer/Command__Conquer_1995.zip.sp20","softs/command-conquer/Command__Conquer_1995.zip.sp21","softs/command-conquer/Command__Conquer_1995.zip.sp22","softs/command-conquer/Command__Conquer_1995.zip.sp23","softs/command-conquer/Command__Conquer_1995.zip.sp24","softs/command-conquer/Command__Conquer_1995.zip.sp25","softs/command-conquer/Command__Conquer_1995.zip.sp26","softs/command-conquer/Command__Conquer_1995.zip.sp27","softs/command-conquer/Command__Conquer_1995.zip.sp28","softs/command-conquer/Command__Conquer_1995.zip.sp29","softs/command-conquer/Command__Conquer_1995.zip.sp30","softs/command-conquer/Command__Conquer_1995.zip.sp31","softs/command-conquer/Command__Conquer_1995.zip.sp32","softs/command-conquer/Command__Conquer_1995.zip.sp33","softs/command-conquer/Command__Conquer_1995.zip.sp34","softs/command-conquer/Command__Conquer_1995.zip.sp35","softs/command-conquer/Command__Conquer_1995.zip.sp36","softs/command-conquer/Command__Conquer_1995.zip.sp37","softs/command-conquer/Command__Conquer_1995.zip.sp38","softs/command-conquer/Command__Conquer_1995.zip.sp39","softs/command-conquer/Command__Conquer_1995.zip.sp40","softs/command-conquer/Command__Conquer_1995.zip.sp41","softs/command-conquer/Command__Conquer_1995.zip.sp42","softs/command-conquer/Command__Conquer_1995.zip.sp43","softs/command-conquer/Command__Conquer_1995.zip.sp44","softs/command-conquer/Command__Conquer_1995.zip.sp45","softs/command-conquer/Command__Conquer_1995.zip.sp46","softs/command-conquer/Command__Conquer_1995.zip.sp47","softs/command-conquer/Command__Conquer_1995.zip.sp48","softs/command-conquer/Command__Conquer_1995.zip.sp49","softs/command-conquer/Command__Conquer_1995.zip.sp50","softs/command-conquer/Command__Conquer_1995.zip.sp51","softs/command-conquer/Command__Conquer_1995.zip.sp52","softs/command-conquer/Command__Conquer_1995.zip.sp53","softs/command-conquer/Command__Conquer_1995.zip.sp54","softs/command-conquer/Command__Conquer_1995.zip.sp55","softs/command-conquer/Command__Conquer_1995.zip.sp56","softs/command-conquer/Command__Conquer_1995.zip.sp57","softs/command-conquer/Command__Conquer_1995.zip.sp58","softs/command-conquer/Command__Conquer_1995.zip.sp59","softs/command-conquer/Command__Conquer_1995.zip.sp60","softs/command-conquer/Command__Conquer_1995.zip.sp61","softs/command-conquer/Command__Conquer_1995.zip.sp62"],"b":1313868574,"m":"application/octet-stream","v":1},{"p":"softs/daggerfall/Daggerfall.zip","u":["softs/daggerfall/Daggerfall.zip.sp0","softs/daggerfall/Daggerfall.zip.sp1","softs/daggerfall/Daggerfall.zip.sp2","softs/daggerfall/Daggerfall.zip.sp3","softs/daggerfall/Daggerfall.zip.sp4","softs/daggerfall/Daggerfall.zip.sp5","softs/daggerfall/Daggerfall.zip.sp6","softs/daggerfall/Daggerfall.zip.sp7"],"b":152807870,"m":"application/octet-stream","v":1,"pf":1},{"p":"softs/fallout/fallout.zip","u":["softs/fallout/fallout.zip.sp0","softs/fallout/fallout.zip.sp1","softs/fallout/fallout.zip.sp2","softs/fallout/fallout.zip.sp3","softs/fallout/fallout.zip.sp4","softs/fallout/fallout.zip.sp5","softs/fallout/fallout.zip.sp6","softs/fallout/fallout.zip.sp7","softs/fallout/fallout.zip.sp8","softs/fallout/fallout.zip.sp9","softs/fallout/fallout.zip.sp10","softs/fallout/fallout.zip.sp11","softs/fallout/fallout.zip.sp12","softs/fallout/fallout.zip.sp13","softs/fallout/fallout.zip.sp14","softs/fallout/fallout.zip.sp15","softs/fallout/fallout.zip.sp16","softs/fallout/fallout.zip.sp17","softs/fallout/fallout.zip.sp18","softs/fallout/fallout.zip.sp19","softs/fallout/fallout.zip.sp20","softs/fallout/fallout.zip.sp21"],"b":455634200,"m":"application/octet-stream","v":1},{"p":"softs/gta/GTA.zip","u":["softs/gta/GTA.zip.sp0","softs/gta/GTA.zip.sp1"],"b":36113632,"m":"application/octet-stream","v":1,"pf":1},{"p":"softs/quake/Quake.zip","u":["softs/quake/Quake.zip.sp0","softs/quake/Quake.zip.sp1","softs/quake/Quake.zip.sp2","softs/quake/Quake.zip.sp3","softs/quake/Quake.zip.sp4","softs/quake/Quake.zip.sp5","softs/quake/Quake.zip.sp6","softs/quake/Quake.zip.sp7","softs/quake/Quake.zip.sp8","softs/quake/Quake.zip.sp9","softs/quake/Quake.zip.sp10","softs/quake/Quake.zip.sp11","softs/quake/Quake.zip.sp12","softs/quake/Quake.zip.sp13","softs/quake/Quake.zip.sp14","softs/quake/Quake.zip.sp15","softs/quake/Quake.zip.sp16","softs/quake/Quake.zip.sp17","softs/quake/Quake.zip.sp18","softs/quake/Quake.zip.sp19","softs/quake/Quake.zip.sp20","softs/quake/Quake.zip.sp21","softs/quake/Quake.zip.sp22","softs/quake/Quake.zip.sp23","softs/quake/Quake.zip.sp24","softs/quake/Quake.zip.sp25","softs/quake/Quake.zip.sp26","softs/quake/Quake.zip.sp27","softs/quake/Quake.zip.sp28","softs/quake/Quake.zip.sp29"],"b":617183918,"m":"application/octet-stream","v":1},{"p":"softs/sam/samnmax.zip","u":["softs/sam/samnmax.zip.sp0","softs/sam/samnmax.zip.sp1","softs/sam/samnmax.zip.sp2","softs/sam/samnmax.zip.sp3","softs/sam/samnmax.zip.sp4","softs/sam/samnmax.zip.sp5"],"b":114807202,"m":"application/octet-stream","v":1},{"p":"softs/scream/scream.zip","u":["softs/scream/scream.zip.sp0","softs/scream/scream.zip.sp1","softs/scream/scream.zip.sp2","softs/scream/scream.zip.sp3","softs/scream/scream.zip.sp4","softs/scream/scream.zip.sp5","softs/scream/scream.zip.sp6","softs/scream/scream.zip.sp7","softs/scream/scream.zip.sp8","softs/scream/scream.zip.sp9","softs/scream/scream.zip.sp10","softs/scream/scream.zip.sp11","softs/scream/scream.zip.sp12","softs/scream/scream.zip.sp13","softs/scream/scream.zip.sp14","softs/scream/scream.zip.sp15","softs/scream/scream.zip.sp16","softs/scream/scream.zip.sp17","softs/scream/scream.zip.sp18","softs/scream/scream.zip.sp19","softs/scream/scream.zip.sp20","softs/scream/scream.zip.sp21","softs/scream/scream.zip.sp22","softs/scream/scream.zip.sp23","softs/scream/scream.zip.sp24","softs/scream/scream.zip.sp25","softs/scream/scream.zip.sp26","softs/scream/scream.zip.sp27","softs/scream/scream.zip.sp28","softs/scream/scream.zip.sp29","softs/scream/scream.zip.sp30","softs/scream/scream.zip.sp31","softs/scream/scream.zip.sp32","softs/scream/scream.zip.sp33","softs/scream/scream.zip.sp34","softs/scream/scream.zip.sp35","softs/scream/scream.zip.sp36","softs/scream/scream.zip.sp37","softs/scream/scream.zip.sp38","softs/scream/scream.zip.sp39","softs/scream/scream.zip.sp40","softs/scream/scream.zip.sp41","softs/scream/scream.zip.sp42","softs/scream/scream.zip.sp43","softs/scream/scream.zip.sp44","softs/scream/scream.zip.sp45","softs/scream/scream.zip.sp46","softs/scream/scream.zip.sp47"],"b":990753093,"m":"application/octet-stream","v":1},{"p":"softs/ARENA.zip","u":["softs/ARENA.zip"],"b":9842543,"m":"application/octet-stream","pf":1},{"p":"softs/DOOM2.zip","u":["softs/DOOM2.zip"],"b":6722025,"m":"application/octet-stream","pf":1},{"p":"softs/DOOM.zip","u":["softs/DOOM.zip"],"b":5964128,"m":"application/octet-stream","pf":1},{"p":"softs/WOLF3D.zip","u":["softs/WOLF3D.zip"],"b":2865970,"m":"application/octet-stream","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"fallout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/fallout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v5c425bed98/","files":{},"config":{},"split":[{"p":"softs/command-conquer/Command__Conquer_1995.zip","u":["softs/command-conquer/Command__Conquer_1995.zip.sp0","softs/command-conquer/Command__Conquer_1995.zip.sp1","softs/command-conquer/Command__Conquer_1995.zip.sp2","softs/command-conquer/Command__Conquer_1995.zip.sp3","softs/command-conquer/Command__Conquer_1995.zip.sp4","softs/command-conquer/Command__Conquer_1995.zip.sp5","softs/command-conquer/Command__Conquer_1995.zip.sp6","softs/command-conquer/Command__Conquer_1995.zip.sp7","softs/command-conquer/Command__Conquer_1995.zip.sp8","softs/command-conquer/Command__Conquer_1995.zip.sp9","softs/command-conquer/Command__Conquer_1995.zip.sp10","softs/command-conquer/Command__Conquer_1995.zip.sp11","softs/command-conquer/Command__Conquer_1995.zip.sp12","softs/command-conquer/Command__Conquer_1995.zip.sp13","softs/command-conquer/Command__Conquer_1995.zip.sp14","softs/command-conquer/Command__Conquer_1995.zip.sp15","softs/command-conquer/Command__Conquer_1995.zip.sp16","softs/command-conquer/Command__Conquer_1995.zip.sp17","softs/command-conquer/Command__Conquer_1995.zip.sp18","softs/command-conquer/Command__Conquer_1995.zip.sp19","softs/command-conquer/Command__Conquer_1995.zip.sp20","softs/command-conquer/Command__Conquer_1995.zip.sp21","softs/command-conquer/Command__Conquer_1995.zip.sp22","softs/command-conquer/Command__Conquer_1995.zip.sp23","softs/command-conquer/Command__Conquer_1995.zip.sp24","softs/command-conquer/Command__Conquer_1995.zip.sp25","softs/command-conquer/Command__Conquer_1995.zip.sp26","softs/command-conquer/Command__Conquer_1995.zip.sp27","softs/command-conquer/Command__Conquer_1995.zip.sp28","softs/command-conquer/Command__Conquer_1995.zip.sp29","softs/command-conquer/Command__Conquer_1995.zip.sp30","softs/command-conquer/Command__Conquer_1995.zip.sp31","softs/command-conquer/Command__Conquer_1995.zip.sp32","softs/command-conquer/Command__Conquer_1995.zip.sp33","softs/command-conquer/Command__Conquer_1995.zip.sp34","softs/command-conquer/Command__Conquer_1995.zip.sp35","softs/command-conquer/Command__Conquer_1995.zip.sp36","softs/command-conquer/Command__Conquer_1995.zip.sp37","softs/command-conquer/Command__Conquer_1995.zip.sp38","softs/command-conquer/Command__Conquer_1995.zip.sp39","softs/command-conquer/Command__Conquer_1995.zip.sp40","softs/command-conquer/Command__Conquer_1995.zip.sp41","softs/command-conquer/Command__Conquer_1995.zip.sp42","softs/command-conquer/Command__Conquer_1995.zip.sp43","softs/command-conquer/Command__Conquer_1995.zip.sp44","softs/command-conquer/Command__Conquer_1995.zip.sp45","softs/command-conquer/Command__Conquer_1995.zip.sp46","softs/command-conquer/Command__Conquer_1995.zip.sp47","softs/command-conquer/Command__Conquer_1995.zip.sp48","softs/command-conquer/Command__Conquer_1995.zip.sp49","softs/command-conquer/Command__Conquer_1995.zip.sp50","softs/command-conquer/Command__Conquer_1995.zip.sp51","softs/command-conquer/Command__Conquer_1995.zip.sp52","softs/command-conquer/Command__Conquer_1995.zip.sp53","softs/command-conquer/Command__Conquer_1995.zip.sp54","softs/command-conquer/Command__Conquer_1995.zip.sp55","softs/command-conquer/Command__Conquer_1995.zip.sp56","softs/command-conquer/Command__Conquer_1995.zip.sp57","softs/command-conquer/Command__Conquer_1995.zip.sp58","softs/command-conquer/Command__Conquer_1995.zip.sp59","softs/command-conquer/Command__Conquer_1995.zip.sp60","softs/command-conquer/Command__Conquer_1995.zip.sp61","softs/command-conquer/Command__Conquer_1995.zip.sp62"],"b":1313868574,"m":"application/octet-stream","v":1},{"p":"softs/daggerfall/Daggerfall.zip","u":["softs/daggerfall/Daggerfall.zip.sp0","softs/daggerfall/Daggerfall.zip.sp1","softs/daggerfall/Daggerfall.zip.sp2","softs/daggerfall/Daggerfall.zip.sp3","softs/daggerfall/Daggerfall.zip.sp4","softs/daggerfall/Daggerfall.zip.sp5","softs/daggerfall/Daggerfall.zip.sp6","softs/daggerfall/Daggerfall.zip.sp7"],"b":152807870,"m":"application/octet-stream","v":1,"pf":1},{"p":"softs/fallout/fallout.zip","u":["softs/fallout/fallout.zip.sp0","softs/fallout/fallout.zip.sp1","softs/fallout/fallout.zip.sp2","softs/fallout/fallout.zip.sp3","softs/fallout/fallout.zip.sp4","softs/fallout/fallout.zip.sp5","softs/fallout/fallout.zip.sp6","softs/fallout/fallout.zip.sp7","softs/fallout/fallout.zip.sp8","softs/fallout/fallout.zip.sp9","softs/fallout/fallout.zip.sp10","softs/fallout/fallout.zip.sp11","softs/fallout/fallout.zip.sp12","softs/fallout/fallout.zip.sp13","softs/fallout/fallout.zip.sp14","softs/fallout/fallout.zip.sp15","softs/fallout/fallout.zip.sp16","softs/fallout/fallout.zip.sp17","softs/fallout/fallout.zip.sp18","softs/fallout/fallout.zip.sp19","softs/fallout/fallout.zip.sp20","softs/fallout/fallout.zip.sp21"],"b":455634200,"m":"application/octet-stream","v":1},{"p":"softs/gta/GTA.zip","u":["softs/gta/GTA.zip.sp0","softs/gta/GTA.zip.sp1"],"b":36113632,"m":"application/octet-stream","v":1,"pf":1},{"p":"softs/quake/Quake.zip","u":["softs/quake/Quake.zip.sp0","softs/quake/Quake.zip.sp1","softs/quake/Quake.zip.sp2","softs/quake/Quake.zip.sp3","softs/quake/Quake.zip.sp4","softs/quake/Quake.zip.sp5","softs/quake/Quake.zip.sp6","softs/quake/Quake.zip.sp7","softs/quake/Quake.zip.sp8","softs/quake/Quake.zip.sp9","softs/quake/Quake.zip.sp10","softs/quake/Quake.zip.sp11","softs/quake/Quake.zip.sp12","softs/quake/Quake.zip.sp13","softs/quake/Quake.zip.sp14","softs/quake/Quake.zip.sp15","softs/quake/Quake.zip.sp16","softs/quake/Quake.zip.sp17","softs/quake/Quake.zip.sp18","softs/quake/Quake.zip.sp19","softs/quake/Quake.zip.sp20","softs/quake/Quake.zip.sp21","softs/quake/Quake.zip.sp22","softs/quake/Quake.zip.sp23","softs/quake/Quake.zip.sp24","softs/quake/Quake.zip.sp25","softs/quake/Quake.zip.sp26","softs/quake/Quake.zip.sp27","softs/quake/Quake.zip.sp28","softs/quake/Quake.zip.sp29"],"b":617183918,"m":"application/octet-stream","v":1},{"p":"softs/sam/samnmax.zip","u":["softs/sam/samnmax.zip.sp0","softs/sam/samnmax.zip.sp1","softs/sam/samnmax.zip.sp2","softs/sam/samnmax.zip.sp3","softs/sam/samnmax.zip.sp4","softs/sam/samnmax.zip.sp5"],"b":114807202,"m":"application/octet-stream","v":1},{"p":"softs/scream/scream.zip","u":["softs/scream/scream.zip.sp0","softs/scream/scream.zip.sp1","softs/scream/scream.zip.sp2","softs/scream/scream.zip.sp3","softs/scream/scream.zip.sp4","softs/scream/scream.zip.sp5","softs/scream/scream.zip.sp6","softs/scream/scream.zip.sp7","softs/scream/scream.zip.sp8","softs/scream/scream.zip.sp9","softs/scream/scream.zip.sp10","softs/scream/scream.zip.sp11","softs/scream/scream.zip.sp12","softs/scream/scream.zip.sp13","softs/scream/scream.zip.sp14","softs/scream/scream.zip.sp15","softs/scream/scream.zip.sp16","softs/scream/scream.zip.sp17","softs/scream/scream.zip.sp18","softs/scream/scream.zip.sp19","softs/scream/scream.zip.sp20","softs/scream/scream.zip.sp21","softs/scream/scream.zip.sp22","softs/scream/scream.zip.sp23","softs/scream/scream.zip.sp24","softs/scream/scream.zip.sp25","softs/scream/scream.zip.sp26","softs/scream/scream.zip.sp27","softs/scream/scream.zip.sp28","softs/scream/scream.zip.sp29","softs/scream/scream.zip.sp30","softs/scream/scream.zip.sp31","softs/scream/scream.zip.sp32","softs/scream/scream.zip.sp33","softs/scream/scream.zip.sp34","softs/scream/scream.zip.sp35","softs/scream/scream.zip.sp36","softs/scream/scream.zip.sp37","softs/scream/scream.zip.sp38","softs/scream/scream.zip.sp39","softs/scream/scream.zip.sp40","softs/scream/scream.zip.sp41","softs/scream/scream.zip.sp42","softs/scream/scream.zip.sp43","softs/scream/scream.zip.sp44","softs/scream/scream.zip.sp45","softs/scream/scream.zip.sp46","softs/scream/scream.zip.sp47"],"b":990753093,"m":"application/octet-stream","v":1},{"p":"softs/ARENA.zip","u":["softs/ARENA.zip"],"b":9842543,"m":"application/octet-stream","pf":1},{"p":"softs/DOOM2.zip","u":["softs/DOOM2.zip"],"b":6722025,"m":"application/octet-stream","pf":1},{"p":"softs/DOOM.zip","u":["softs/DOOM.zip"],"b":5964128,"m":"application/octet-stream","pf":1},{"p":"softs/WOLF3D.zip","u":["softs/WOLF3D.zip"],"b":2865970,"m":"application/octet-stream","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -238,17 +285,41 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     blobs[u] = blob; urlOf[e.p] = u;
     return u;
   }
+  function mirrorUrl(url) {
+    var m = /^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.*)$/.exec(url || '');
+    return m ? 'https://raw.githubusercontent.com/' + m[1] + '/' + m[2] + '/' + m[3] + '/' + m[4] : null;
+  }
+  var TRANSIENT = { 403: 1, 408: 1, 425: 1, 429: 1, 500: 1, 502: 1, 503: 1, 504: 1, 522: 1 };
+  function fetchPart(url, attempt) {
+    attempt = attempt || 1;
+    var alt = mirrorUrl(url);
+    var target = (alt && attempt % 2 === 0) ? alt : url;
+    return nativeFetch(target).then(function (r) {
+      if (r.ok) return r.blob();
+      var e = new Error('surd: ' + r.status + ' on ' + target);
+      e.status = r.status;
+      throw e;
+    })['catch'](function (err) {
+      var retryable = !err.status || TRANSIENT[err.status];
+      if (attempt >= 4 || (!retryable && attempt > 1)) throw err;
+      return new Promise(function (r) { setTimeout(r, Math.min(8000, 400 * attempt * attempt)); })
+        .then(function () { return fetchPart(url, attempt + 1); });
+    });
+  }
   function assemble(e) {
     if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
     if (pending[e.p]) return pending[e.p];
     var urls = partUrls(e);
     var got = new Array(urls.length);
-    var p = Promise.all(urls.map(function (u, n) {
-      return nativeFetch(u).then(function (r) {
-        if (!r.ok) throw new Error('surd: ' + r.status + ' on ' + u);
-        return r.blob();
-      }).then(function (b) { got[n] = b; });
-    })).then(function () { return finish(e, got); });
+    var next = 0;
+    function lane() {
+      if (next >= urls.length) return Promise.resolve();
+      var n = next++;
+      return fetchPart(urls[n]).then(function (b) { got[n] = b; return lane(); });
+    }
+    var lanes = [];
+    for (var k = 0; k < Math.min(6, urls.length); k++) lanes.push(lane());
+    var p = Promise.all(lanes).then(function () { return finish(e, got); });
     pending[e.p] = p;
     return p;
   }
@@ -337,7 +408,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v5c425bed98/runtime.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Fallout</title>
