@@ -1,0 +1,41 @@
+{
+  "ServerAddress1" : "https://protondev.xyz:8511/",
+  "ServerAddress2" : "https://protondev.xyz:8521/",
+  "ServerAddress3" : "https://protondev.xyz:8531/",
+  "MinVersion" : "0.0.1",
+  "ShopLink" : "https://playhop.com/app/398438",
+  "StartupMessage": "startup_maintenance",
+  "StartupAvailable": true,
+  "APKValidation": false,
+  "URLValidation": false,
+  "BannedURLs": "no_data",
+  "PhotonID":"d49c09b4-6aa6-47c1-b62f-12f43a2a0e16",
+  "CatalogCacheEnabled": true,
+  "BadWordsRemoteEnabled ":false,
+  "BadWordsRemoteAddress": "",
+  
+      "AddressDeletionRequest": "",
+  "IsComplexDeletionRequest": false,
+  
+  "AdsServicesWorld": "admob,yandex",
+  
+  "AdsServices": "admob",
+  "AdsServicesRU": "yandex",
+
+  "AdsServices2": "admob",
+  "AdsServices2RU": "yandex",
+
+  "AdsServices3": "admob",
+  "AdsServices3RU": "none",
+  
+  
+  "TermsOfServiceAddress" : "",
+  "PrivacyPolicyAddress" : "https://fahrenheitdev.com/privacy_policy",
+  
+  "ServerSession":{
+    "Enable" : true,
+	"Address" : "ws://protondev.xyz:8710/",
+	"StatusEnable": false,
+	"CheckPauseEnable" : false
+  }
+}
