@@ -96,6 +96,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -164,7 +182,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"five-nights-at-freddys-3","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-freddys-3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{},"split":[{"p":"resources.zip","u":["resources.zip.sp0","resources.zip.sp1","resources.zip.sp2","resources.zip.sp3","resources.zip.sp4","resources.zip.sp5","resources.zip.sp6","resources.zip.sp7","resources.zip.sp8","resources.zip.sp9"],"b":190798736,"m":"application/octet-stream","v":1}]};</script>
+<script>window.SURD_GAME={"id":"five-nights-at-freddys-3","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-freddys-3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{},"config":{},"split":[{"p":"resources.zip","u":["resources.zip.sp0","resources.zip.sp1","resources.zip.sp2","resources.zip.sp3","resources.zip.sp4","resources.zip.sp5","resources.zip.sp6","resources.zip.sp7","resources.zip.sp8","resources.zip.sp9"],"b":190798736,"m":"application/octet-stream","v":1,"pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -300,8 +318,23 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     (0, eval)(code + '\n//# sourceURL=' + base + e.p);
   }
   window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+  var pf = [];
+  for (i = 0; i < table.length; i++) if (table[i].pf) pf.push(table[i]);
+  if (pf.length) {
+    var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
+    for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
+    window.SURD_PREFETCH = st;
+    var next = 0, LANES = 3;
+    var pump = function () {
+      if (next >= pf.length) return;
+      var e = pf[next++];
+      assemble(e)['catch'](function () { st.failed++; })
+        .then(function () { st.done++; st.doneBytes += e.b || 0; pump(); });
+    };
+    for (i = 0; i < LANES && i < pf.length; i++) pump();
+  }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 
 	
     <link rel="stylesheet" type="text/css" href="style.css"/>
