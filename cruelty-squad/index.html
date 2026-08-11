@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -268,6 +286,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
 		})();
 	};
 	</script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"cruelty-squad","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/cruelty-squad/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"pck":{"path":"index.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18",".sp19",".sp20",".sp21",".sp22",".sp23",".sp24",".sp25",".sp26",".sp27",".sp28",".sp29",".sp30"],"bytes":566922656,"mime":"application/octet-stream"},"wasm":{"path":"index.wasm","bytes":17860295,"mime":"application/wasm"}},"config":{"indexJs":"index.js","godotConfig":{"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":540769488,"index.wasm":17860295},"focusCanvas":true,"gdnativeLibs":[]}}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"cruelty-squad","engine":"godot","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/cruelty-squad/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"pck":{"path":"index.pck","parts":[".sp0",".sp1",".sp2",".sp3",".sp4",".sp5",".sp6",".sp7",".sp8",".sp9",".sp10",".sp11",".sp12",".sp13",".sp14",".sp15",".sp16",".sp17",".sp18",".sp19",".sp20",".sp21",".sp22",".sp23",".sp24",".sp25",".sp26",".sp27",".sp28",".sp29",".sp30"],"bytes":566922656,"mime":"application/octet-stream"},"wasm":{"path":"index.wasm","bytes":17860295,"mime":"application/wasm"}},"config":{"indexJs":"index.js","godotConfig":{"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":540769488,"index.wasm":17860295},"focusCanvas":true,"gdnativeLibs":[]}}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
