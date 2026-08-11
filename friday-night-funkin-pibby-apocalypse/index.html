@@ -159,9 +159,24 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
      * very game from rendering at all), so at install time there is no base to capture. */
     function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
     function rebase(u){
       try {
         if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
         var B = gbase(); if (!B) return u;
         B = B.replace(/\/?$/, '/');
         if (u.indexOf(B) === 0) return u;                        // already where it belongs
@@ -172,7 +187,13 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
         if (RT && u.indexOf(RT) === 0) return u;
         if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
-        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
         /* An engine that builds its own absolute URLs from location, rather than letting the
          * browser resolve a relative path, lands on the SITE origin — which holds no game
          * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
@@ -186,7 +207,11 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
-      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
       if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
@@ -224,12 +249,39 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
         });
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"friday-night-funkin-pibby-apocalypse","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-pibby-apocalypse/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/","files":{},"config":{},"split":[{"p":"assets/songs/suffering-siblings/Voices.mp3","u":["assets/songs/suffering-siblings/Voices.mp3"],"b":7602032,"m":"audio/mpeg","pf":1},{"p":"assets/songs/suffering-siblings/Inst.mp3","u":["assets/songs/suffering-siblings/Inst.mp3"],"b":6195550,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Voices.mp3","u":["assets/songs/childs-play/Voices.mp3"],"b":6033487,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Inst.mp3","u":["assets/songs/childs-play/Inst.mp3"],"b":5361934,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Voices.mp3","u":["assets/songs/brotherly-love/Voices.mp3"],"b":5208385,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Inst.mp3","u":["assets/songs/mindless/Inst.mp3"],"b":5202732,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Inst.mp3","u":["assets/songs/brotherly-love/Inst.mp3"],"b":5066156,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Voices.mp3","u":["assets/songs/my-amazing-world/Voices.mp3"],"b":4901976,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Voices.mp3","u":["assets/songs/mindless/Voices.mp3"],"b":4900673,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfjakedeath.png","u":["assets/images/characters/bfjakedeath.png"],"b":4889562,"m":"image/png","pf":1},{"p":"assets/images/characters/cartoon_bf_Gun.png","u":["assets/images/characters/cartoon_bf_Gun.png"],"b":4802498,"m":"image/png","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":4641615,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfdeathfinn.png","u":["assets/images/characters/bfdeathfinn.png"],"b":4366483,"m":"image/png","pf":1},{"p":"assets/songs/forgotten-world/Inst.mp3","u":["assets/songs/forgotten-world/Inst.mp3"],"b":4341646,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Inst.mp3","u":["assets/songs/my-amazing-world/Inst.mp3"],"b":4141175,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Voices.mp3","u":["assets/songs/come-along-with-me/Voices.mp3"],"b":4024224,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Inst.mp3","u":["assets/songs/come-along-with-me/Inst.mp3"],"b":3868668,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Inst.mp3","u":["assets/songs/retcon/Inst.mp3"],"b":3698337,"m":"audio/mpeg","pf":1},{"p":"assets/songs/forgotten-world/Voices.mp3","u":["assets/songs/forgotten-world/Voices.mp3"],"b":3645556,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Voices.mp3","u":["assets/songs/retcon/Voices.mp3"],"b":3243081,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Fake_Finn.png","u":["assets/images/characters/Fake_Finn.png"],"b":2862930,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword.png","u":["assets/images/characters/Finn-sword.png"],"b":2840530,"m":"image/png","pf":1},{"p":"assets/songs/no-hero-remix/Voices.mp3","u":["assets/songs/no-hero-remix/Voices.mp3"],"b":2801601,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Voices.mp3","u":["assets/songs/blessed-by-swords/Voices.mp3"],"b":2520935,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Inst.mp3","u":["assets/songs/blessed-by-swords/Inst.mp3"],"b":2457785,"m":"audio/mpeg","pf":1},{"p":"assets/songs/no-hero-remix/Inst.mp3","u":["assets/songs/no-hero-remix/Inst.mp3"],"b":2450376,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/treehouse/back.png","u":["assets/shared/images/treehouse/back.png"],"b":2447996,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-Slash.png","u":["assets/images/characters/Finn-Slash.png"],"b":2229213,"m":"image/png","pf":1},{"p":"assets/images/characters/assbf.png","u":["assets/images/characters/assbf.png"],"b":2081613,"m":"image/png","pf":1},{"p":"assets/images/characters/GF_assets.png","u":["assets/images/characters/GF_assets.png"],"b":1928343,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-CN.png","u":["assets/images/characters/Finn-CN.png"],"b":1925958,"m":"image/png","pf":1},{"p":"assets/images/characters/finn_reveal.png","u":["assets/images/characters/finn_reveal.png"],"b":1880836,"m":"image/png","pf":1},{"p":"assets/images/characters/Jake.png","u":["assets/images/characters/Jake.png"],"b":1710566,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu2.mp3","u":["assets/music/freakyMenu2.mp3"],"b":1706042,"m":"audio/mpeg","pf":1},{"p":"assets/music/creditsmenu.mp3","u":["assets/music/creditsmenu.mp3"],"b":1587057,"m":"audio/mpeg","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1559284,"m":"audio/mpeg","pf":1},{"p":"assets/music/fpmenu.mp3","u":["assets/music/fpmenu.mp3"],"b":1506347,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/voidFW/void3/1.png","u":["assets/shared/images/voidFW/void3/1.png"],"b":1446868,"m":"image/png","pf":1},{"p":"assets/images/characters/midfin.png","u":["assets/images/characters/midfin.png"],"b":1406943,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_BF.png","u":["assets/images/characters/COME_ALONG_BF.png"],"b":1376411,"m":"image/png","pf":1},{"p":"assets/images/characters/gumball.png","u":["assets/images/characters/gumball.png"],"b":1361464,"m":"image/png","pf":1},{"p":"assets/images/characters/pibby.png","u":["assets/images/characters/pibby.png"],"b":1357161,"m":"image/png","pf":1},{"p":"assets/music/breakfast.mp3","u":["assets/music/breakfast.mp3"],"b":1222384,"m":"audio/mpeg","pf":1},{"p":"assets/music/LWP_Week_theme.mp3","u":["assets/music/LWP_Week_theme.mp3"],"b":1217091,"m":"audio/mpeg","pf":1},{"p":"assets/music/offsetSong.mp3","u":["assets/music/offsetSong.mp3"],"b":1123260,"m":"audio/mpeg","pf":1},{"p":"assets/music/gameOver.mp3","u":["assets/music/gameOver.mp3"],"b":1058361,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Darwin.png","u":["assets/images/characters/Darwin.png"],"b":1056244,"m":"image/png","pf":1},{"p":"assets/images/characters/BF_Intro.png","u":["assets/images/characters/BF_Intro.png"],"b":1055594,"m":"image/png","pf":1},{"p":"assets/images/logoPeb.png","u":["assets/images/logoPeb.png"],"b":935020,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-noremote.png","u":["assets/images/characters/darwin-noremote.png"],"b":884282,"m":"image/png","pf":1},{"p":"assets/images/characters/BOYFRIEND.png","u":["assets/images/characters/BOYFRIEND.png"],"b":875627,"m":"image/png","pf":1},{"p":"assets/images/noherocutscenefirst.png","u":["assets/images/noherocutscenefirst.png"],"b":822100,"m":"image/png","pf":1},{"p":"assets/videos/forgottenscene.mp4","u":["assets/videos/forgottenscene.mp4"],"b":813558,"m":"video/mp4","pf":1},{"p":"assets/images/characters/finnfalse.png","u":["assets/images/characters/finnfalse.png"],"b":757895,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_Finn.png","u":["assets/images/characters/COME_ALONG_Finn.png"],"b":705293,"m":"image/png","pf":1},{"p":"assets/images/characters/Cumball.png","u":["assets/images/characters/Cumball.png"],"b":665723,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-fw.png","u":["assets/images/characters/darwin-fw.png"],"b":639361,"m":"image/png","pf":1},{"p":"assets/images/characters/badfinn.png","u":["assets/images/characters/badfinn.png"],"b":631542,"m":"image/png","pf":1},{"p":"assets/images/storymenu/finn_BG.png","u":["assets/images/storymenu/finn_BG.png"],"b":601455,"m":"image/png","pf":1},{"p":"assets/images/characters/CAWM_FINN.png","u":["assets/images/characters/CAWM_FINN.png"],"b":581484,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword-shader.png","u":["assets/images/characters/Finn-sword-shader.png"],"b":550395,"m":"image/png","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"friday-night-funkin-pibby-apocalypse","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-pibby-apocalypse/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"assets/songs/suffering-siblings/Voices.mp3","u":["assets/songs/suffering-siblings/Voices.mp3"],"b":7602032,"m":"audio/mpeg","pf":1},{"p":"assets/songs/suffering-siblings/Inst.mp3","u":["assets/songs/suffering-siblings/Inst.mp3"],"b":6195550,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Voices.mp3","u":["assets/songs/childs-play/Voices.mp3"],"b":6033487,"m":"audio/mpeg","pf":1},{"p":"assets/songs/childs-play/Inst.mp3","u":["assets/songs/childs-play/Inst.mp3"],"b":5361934,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Voices.mp3","u":["assets/songs/brotherly-love/Voices.mp3"],"b":5208385,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Inst.mp3","u":["assets/songs/mindless/Inst.mp3"],"b":5202732,"m":"audio/mpeg","pf":1},{"p":"assets/songs/brotherly-love/Inst.mp3","u":["assets/songs/brotherly-love/Inst.mp3"],"b":5066156,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Voices.mp3","u":["assets/songs/my-amazing-world/Voices.mp3"],"b":4901976,"m":"audio/mpeg","pf":1},{"p":"assets/songs/mindless/Voices.mp3","u":["assets/songs/mindless/Voices.mp3"],"b":4900673,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfjakedeath.png","u":["assets/images/characters/bfjakedeath.png"],"b":4889562,"m":"image/png","pf":1},{"p":"assets/images/characters/cartoon_bf_Gun.png","u":["assets/images/characters/cartoon_bf_Gun.png"],"b":4802498,"m":"image/png","pf":1},{"p":"assets/music/tea-time.mp3","u":["assets/music/tea-time.mp3"],"b":4641615,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/bfdeathfinn.png","u":["assets/images/characters/bfdeathfinn.png"],"b":4366483,"m":"image/png","pf":1},{"p":"assets/songs/forgotten-world/Inst.mp3","u":["assets/songs/forgotten-world/Inst.mp3"],"b":4341646,"m":"audio/mpeg","pf":1},{"p":"assets/songs/my-amazing-world/Inst.mp3","u":["assets/songs/my-amazing-world/Inst.mp3"],"b":4141175,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Voices.mp3","u":["assets/songs/come-along-with-me/Voices.mp3"],"b":4024224,"m":"audio/mpeg","pf":1},{"p":"assets/songs/come-along-with-me/Inst.mp3","u":["assets/songs/come-along-with-me/Inst.mp3"],"b":3868668,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Inst.mp3","u":["assets/songs/retcon/Inst.mp3"],"b":3698337,"m":"audio/mpeg","pf":1},{"p":"assets/songs/forgotten-world/Voices.mp3","u":["assets/songs/forgotten-world/Voices.mp3"],"b":3645556,"m":"audio/mpeg","pf":1},{"p":"assets/songs/retcon/Voices.mp3","u":["assets/songs/retcon/Voices.mp3"],"b":3243081,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Fake_Finn.png","u":["assets/images/characters/Fake_Finn.png"],"b":2862930,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword.png","u":["assets/images/characters/Finn-sword.png"],"b":2840530,"m":"image/png","pf":1},{"p":"assets/songs/no-hero-remix/Voices.mp3","u":["assets/songs/no-hero-remix/Voices.mp3"],"b":2801601,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Voices.mp3","u":["assets/songs/blessed-by-swords/Voices.mp3"],"b":2520935,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blessed-by-swords/Inst.mp3","u":["assets/songs/blessed-by-swords/Inst.mp3"],"b":2457785,"m":"audio/mpeg","pf":1},{"p":"assets/songs/no-hero-remix/Inst.mp3","u":["assets/songs/no-hero-remix/Inst.mp3"],"b":2450376,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/treehouse/back.png","u":["assets/shared/images/treehouse/back.png"],"b":2447996,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-Slash.png","u":["assets/images/characters/Finn-Slash.png"],"b":2229213,"m":"image/png","pf":1},{"p":"assets/images/characters/assbf.png","u":["assets/images/characters/assbf.png"],"b":2081613,"m":"image/png","pf":1},{"p":"assets/images/characters/GF_assets.png","u":["assets/images/characters/GF_assets.png"],"b":1928343,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-CN.png","u":["assets/images/characters/Finn-CN.png"],"b":1925958,"m":"image/png","pf":1},{"p":"assets/images/characters/finn_reveal.png","u":["assets/images/characters/finn_reveal.png"],"b":1880836,"m":"image/png","pf":1},{"p":"assets/images/characters/Jake.png","u":["assets/images/characters/Jake.png"],"b":1710566,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu2.mp3","u":["assets/music/freakyMenu2.mp3"],"b":1706042,"m":"audio/mpeg","pf":1},{"p":"assets/music/creditsmenu.mp3","u":["assets/music/creditsmenu.mp3"],"b":1587057,"m":"audio/mpeg","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1559284,"m":"audio/mpeg","pf":1},{"p":"assets/music/fpmenu.mp3","u":["assets/music/fpmenu.mp3"],"b":1506347,"m":"audio/mpeg","pf":1},{"p":"assets/shared/images/voidFW/void3/1.png","u":["assets/shared/images/voidFW/void3/1.png"],"b":1446868,"m":"image/png","pf":1},{"p":"assets/images/characters/midfin.png","u":["assets/images/characters/midfin.png"],"b":1406943,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_BF.png","u":["assets/images/characters/COME_ALONG_BF.png"],"b":1376411,"m":"image/png","pf":1},{"p":"assets/images/characters/gumball.png","u":["assets/images/characters/gumball.png"],"b":1361464,"m":"image/png","pf":1},{"p":"assets/images/characters/pibby.png","u":["assets/images/characters/pibby.png"],"b":1357161,"m":"image/png","pf":1},{"p":"assets/music/breakfast.mp3","u":["assets/music/breakfast.mp3"],"b":1222384,"m":"audio/mpeg","pf":1},{"p":"assets/music/LWP_Week_theme.mp3","u":["assets/music/LWP_Week_theme.mp3"],"b":1217091,"m":"audio/mpeg","pf":1},{"p":"assets/music/offsetSong.mp3","u":["assets/music/offsetSong.mp3"],"b":1123260,"m":"audio/mpeg","pf":1},{"p":"assets/music/gameOver.mp3","u":["assets/music/gameOver.mp3"],"b":1058361,"m":"audio/mpeg","pf":1},{"p":"assets/images/characters/Darwin.png","u":["assets/images/characters/Darwin.png"],"b":1056244,"m":"image/png","pf":1},{"p":"assets/images/characters/BF_Intro.png","u":["assets/images/characters/BF_Intro.png"],"b":1055594,"m":"image/png","pf":1},{"p":"assets/images/logoPeb.png","u":["assets/images/logoPeb.png"],"b":935020,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-noremote.png","u":["assets/images/characters/darwin-noremote.png"],"b":884282,"m":"image/png","pf":1},{"p":"assets/images/characters/BOYFRIEND.png","u":["assets/images/characters/BOYFRIEND.png"],"b":875627,"m":"image/png","pf":1},{"p":"assets/images/noherocutscenefirst.png","u":["assets/images/noherocutscenefirst.png"],"b":822100,"m":"image/png","pf":1},{"p":"assets/videos/forgottenscene.mp4","u":["assets/videos/forgottenscene.mp4"],"b":813558,"m":"video/mp4","pf":1},{"p":"assets/images/characters/finnfalse.png","u":["assets/images/characters/finnfalse.png"],"b":757895,"m":"image/png","pf":1},{"p":"assets/images/characters/COME_ALONG_Finn.png","u":["assets/images/characters/COME_ALONG_Finn.png"],"b":705293,"m":"image/png","pf":1},{"p":"assets/images/characters/Cumball.png","u":["assets/images/characters/Cumball.png"],"b":665723,"m":"image/png","pf":1},{"p":"assets/images/characters/darwin-fw.png","u":["assets/images/characters/darwin-fw.png"],"b":639361,"m":"image/png","pf":1},{"p":"assets/images/characters/badfinn.png","u":["assets/images/characters/badfinn.png"],"b":631542,"m":"image/png","pf":1},{"p":"assets/images/storymenu/finn_BG.png","u":["assets/images/storymenu/finn_BG.png"],"b":601455,"m":"image/png","pf":1},{"p":"assets/images/characters/CAWM_FINN.png","u":["assets/images/characters/CAWM_FINN.png"],"b":581484,"m":"image/png","pf":1},{"p":"assets/images/characters/Finn-sword-shader.png","u":["assets/images/characters/Finn-sword-shader.png"],"b":550395,"m":"image/png","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -395,7 +447,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
     for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
     window.SURD_PREFETCH = st;
-    var next = 0, LANES = 3;
+    var next = 0, LANES = 2;
     var pump = function () {
       if (next >= pf.length) return;
       var e = pf[next++];
@@ -405,7 +457,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
 
 	
 	<meta charset="utf-8">
