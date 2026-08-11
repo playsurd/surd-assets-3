@@ -95,6 +95,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -163,8 +181,159 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"friday-night-funkin-darkness-takeover","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-darkness-takeover/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME={"id":"friday-night-funkin-darkness-takeover","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/friday-night-funkin-darkness-takeover/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{},"config":{},"split":[{"p":"assets/images/animated/dl/DLBG.png","u":["assets/images/animated/dl/DLBG.png"],"b":19919222,"m":"image/png","pf":1},{"p":"assets/images/animated/twinkle/Twinklebg4.png","u":["assets/images/animated/twinkle/Twinklebg4.png"],"b":13768830,"m":"image/png","pf":1},{"p":"assets/songs/final-fight/Inst.ogg","u":["assets/songs/final-fight/Inst.ogg"],"b":11345117,"m":"audio/ogg","pf":1},{"p":"assets/songs/final-fight/Voices.ogg","u":["assets/songs/final-fight/Voices.ogg"],"b":11167694,"m":"audio/ogg","pf":1},{"p":"assets/images/animated/twinkle/Twinklebg6.png","u":["assets/images/animated/twinkle/Twinklebg6.png"],"b":8985172,"m":"image/png","pf":1},{"p":"assets/images/animated/twinkle/SkybackBg3.png","u":["assets/images/animated/twinkle/SkybackBg3.png"],"b":8552615,"m":"image/png","pf":1},{"p":"assets/images/animated/twinkle/Bg3.png","u":["assets/images/animated/twinkle/Bg3.png"],"b":8328987,"m":"image/png","pf":1},{"p":"assets/images/animated/dl/CorruptionDL2.png","u":["assets/images/animated/dl/CorruptionDL2.png"],"b":7911402,"m":"image/png","pf":1},{"p":"assets/shared/music/tea-time.ogg","u":["assets/shared/music/tea-time.ogg"],"b":7844067,"m":"audio/ogg","pf":1},{"p":"assets/images/animated/fv/clam3.png","u":["assets/images/animated/fv/clam3.png"],"b":6881472,"m":"image/png","pf":1},{"p":"assets/songs/death-lives/Inst.ogg","u":["assets/songs/death-lives/Inst.ogg"],"b":6706948,"m":"audio/ogg","pf":1},{"p":"assets/images/animated/twinkle/Twinklebg2.png","u":["assets/images/animated/twinkle/Twinklebg2.png"],"b":6429809,"m":"image/png","pf":1},{"p":"assets/songs/twinkle/Inst.ogg","u":["assets/songs/twinkle/Inst.ogg"],"b":6044015,"m":"audio/ogg","pf":1},{"p":"assets/images/characters/CorruptStewiePh3.png","u":["assets/images/characters/CorruptStewiePh3.png"],"b":5843434,"m":"image/png","pf":1},{"p":"assets/images/characters/Family.png","u":["assets/images/characters/Family.png"],"b":5783403,"m":"image/png","pf":1},{"p":"assets/images/animated/dl/CorruptionDL1.png","u":["assets/images/animated/dl/CorruptionDL1.png"],"b":5763115,"m":"image/png","pf":1},{"p":"assets/images/animated/dl/Wave.png","u":["assets/images/animated/dl/Wave.png"],"b":5615382,"m":"image/png","pf":1},{"p":"assets/images/animated/ff/FuckedAirport.png","u":["assets/images/animated/ff/FuckedAirport.png"],"b":5524532,"m":"image/png","pf":1},{"p":"assets/songs/airborne/Inst.ogg","u":["assets/songs/airborne/Inst.ogg"],"b":5271932,"m":"audio/ogg","pf":1},{"p":"assets/songs/rooten-family/Inst.ogg","u":["assets/songs/rooten-family/Inst.ogg"],"b":5206330,"m":"audio/ogg","pf":1},{"p":"assets/images/animated/dl/CorruptionDL3.png","u":["assets/images/animated/dl/CorruptionDL3.png"],"b":5164784,"m":"image/png","pf":1},{"p":"assets/songs/airborne/Voices.ogg","u":["assets/songs/airborne/Voices.ogg"],"b":5162117,"m":"audio/ogg","pf":1},{"p":"assets/images/logoBumpin.png","u":["assets/images/logoBumpin.png"],"b":4779563,"m":"image/png","pf":1},{"p":"assets/images/characters/QuagmireTwinkle3.png","u":["assets/images/characters/QuagmireTwinkle3.png"],"b":4598334,"m":"image/png","pf":1},{"p":"assets/songs/twinkle/Voices.ogg","u":["assets/songs/twinkle/Voices.ogg"],"b":4529515,"m":"audio/ogg","pf":1},{"p":"assets/images/characters/Retep.png","u":["assets/images/characters/Retep.png"],"b":4250867,"m":"image/png","pf":1},{"p":"assets/songs/a-family-guy/Inst.ogg","u":["assets/songs/a-family-guy/Inst.ogg"],"b":4076315,"m":"audio/ogg","pf":1},{"p":"assets/images/characters/MegandChris.png","u":["assets/images/characters/MegandChris.png"],"b":3601968,"m":"image/png","pf":1},{"p":"assets/images/animated/rooten/bg2.png","u":["assets/images/animated/rooten/bg2.png"],"b":3323840,"m":"image/png","pf":1},{"p":"assets/images/characters/CorruptedCleveland2.png","u":["assets/images/characters/CorruptedCleveland2.png"],"b":3172807,"m":"image/png","pf":1},{"p":"assets/images/animated/fv/clam2.png","u":["assets/images/animated/fv/clam2.png"],"b":3127774,"m":"image/png","pf":1},{"p":"assets/images/animated/rooten/bg3.png","u":["assets/images/animated/rooten/bg3.png"],"b":3103946,"m":"image/png","pf":1},{"p":"assets/images/animated/bg3.png","u":["assets/images/animated/bg3.png"],"b":3001981,"m":"image/png","pf":1},{"p":"assets/images/characters/CorruptCleveland.png","u":["assets/images/characters/CorruptCleveland.png"],"b":2737128,"m":"image/png","pf":1},{"p":"assets/images/animated/ff/Airport.png","u":["assets/images/animated/ff/Airport.png"],"b":2696482,"m":"image/png","pf":1},{"p":"assets/images/characters/CorruptStewiePh2.png","u":["assets/images/characters/CorruptStewiePh2.png"],"b":2498869,"m":"image/png","pf":1},{"p":"assets/images/animated/rooten/bgeffect.png","u":["assets/images/animated/rooten/bgeffect.png"],"b":2498441,"m":"image/png","pf":1},{"p":"assets/images/characters/ErnieCorrupt.png","u":["assets/images/characters/ErnieCorrupt.png"],"b":2456564,"m":"image/png","pf":1},{"p":"assets/images/characters/Lois.png","u":["assets/images/characters/Lois.png"],"b":2446185,"m":"image/png","pf":1},{"p":"assets/images/characters/Airborne_Quagmire.png","u":["assets/images/characters/Airborne_Quagmire.png"],"b":539799,"m":"image/png","pf":1}]};</script>
+<script>(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var p = Promise.all(urls.map(function (u, n) {
+      return nativeFetch(u).then(function (r) {
+        if (!r.ok) throw new Error('surd: ' + r.status + ' on ' + u);
+        return r.blob();
+      }).then(function (b) { got[n] = b; });
+    })).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+  var pf = [];
+  for (i = 0; i < table.length; i++) if (table[i].pf) pf.push(table[i]);
+  if (pf.length) {
+    var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
+    for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
+    window.SURD_PREFETCH = st;
+    var next = 0, LANES = 3;
+    var pump = function () {
+      if (next >= pf.length) return;
+      var e = pf[next++];
+      assemble(e)['catch'](function () { st.failed++; })
+        .then(function () { st.done++; st.doneBytes += e.b || 0; pump(); });
+    };
+    for (i = 0; i < LANES && i < pf.length; i++) pump();
+  }
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 
 	
 	<meta charset="utf-8">
