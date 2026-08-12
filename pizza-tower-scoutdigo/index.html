@@ -280,7 +280,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"pizza-tower-scoutdigo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/pizza-tower-scoutdigo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.part1","game.unx.part2","game.unx.part3","game.unx.part4","game.unx.part5","game.unx.part6","game.unx.part7","game.unx.part8","game.unx.part9","game.unx.part10","game.unx.part11","game.unx.part12","game.unx.part13","game.unx.part14","game.unx.part15","game.unx.part16"],"b":315181892,"m":"application/octet-stream"},{"p":"game.unx.part1","u":["game.unx.part1"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part10","u":["game.unx.part10"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part11","u":["game.unx.part11"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part12","u":["game.unx.part12"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part13","u":["game.unx.part13"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part14","u":["game.unx.part14"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part15","u":["game.unx.part15"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part2","u":["game.unx.part2"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part3","u":["game.unx.part3"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part4","u":["game.unx.part4"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part5","u":["game.unx.part5"],"b":20866662,"m":"application/octet-stream","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"pizza-tower-scoutdigo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/pizza-tower-scoutdigo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.part1","game.unx.part2","game.unx.part3","game.unx.part4","game.unx.part5","game.unx.part6","game.unx.part7","game.unx.part8","game.unx.part9","game.unx.part10","game.unx.part11","game.unx.part12","game.unx.part13","game.unx.part14","game.unx.part15","game.unx.part16"],"b":315181892,"m":"application/octet-stream"},{"p":"game.unx.part1","u":["game.unx.part1"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part10","u":["game.unx.part10"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part11","u":["game.unx.part11"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part12","u":["game.unx.part12"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part13","u":["game.unx.part13"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part14","u":["game.unx.part14"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part15","u":["game.unx.part15"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part2","u":["game.unx.part2"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part3","u":["game.unx.part3"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part4","u":["game.unx.part4"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"game.unx.part5","u":["game.unx.part5"],"b":20866662,"m":"application/octet-stream","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -305,6 +305,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -456,7 +460,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
     
     <meta charset="utf-8" />
