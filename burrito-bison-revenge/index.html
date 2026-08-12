@@ -286,7 +286,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"burrito-bison-revenge","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/burrito-bison-revenge/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"ext":{"https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/ruffle.min.js":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/ruffle.min.js","https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/core.ruffle.ae1054522f49580946c0.js":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/core.ruffle.ae1054522f49580946c0.js","https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm"},"split":[{"p":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm","u":["_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm"],"b":12831880,"m":"application/wasm","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"burrito-bison-revenge","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/burrito-bison-revenge/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"ext":{"https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/ruffle.min.js":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/ruffle.min.js","https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/core.ruffle.ae1054522f49580946c0.js":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/core.ruffle.ae1054522f49580946c0.js","https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm"},"split":[{"p":"_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm","u":["_ext/cdn.jsdelivr.net/npm/_ruffle-rs/ruffle_0.2.0-nightly.2025.10.2/f7f28eb60b84863611ca.wasm"],"b":12831880,"m":"application/wasm","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -311,6 +311,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -462,7 +466,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
