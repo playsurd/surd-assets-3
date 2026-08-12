@@ -280,7 +280,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"sonic-robo-blast-2","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/sonic-robo-blast-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"srb2.data","u":["srb2.data.part1","srb2.data.part2","srb2.data.part3","srb2.data.part4","srb2.data.part5","srb2.data.part6","srb2.data.part7","srb2.data.part8","srb2.data.part9"],"b":170302652,"m":"application/octet-stream","pf":1},{"p":"srb2.data.part1","u":["srb2.data.part1"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"srb2.data.part2","u":["srb2.data.part2"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"srb2.wasm","u":["srb2.wasm"],"b":4790245,"m":"application/wasm","pf":1},{"p":"srb2.data.part9","u":["srb2.data.part9"],"b":3369356,"m":"application/octet-stream","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"sonic-robo-blast-2","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/sonic-robo-blast-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"srb2.data","u":["srb2.data.part1","srb2.data.part2","srb2.data.part3","srb2.data.part4","srb2.data.part5","srb2.data.part6","srb2.data.part7","srb2.data.part8","srb2.data.part9"],"b":170302652,"m":"application/octet-stream","pf":1},{"p":"srb2.data.part1","u":["srb2.data.part1"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"srb2.data.part2","u":["srb2.data.part2"],"b":20866662,"m":"application/octet-stream","pf":1},{"p":"srb2.wasm","u":["srb2.wasm"],"b":4790245,"m":"application/wasm","pf":1},{"p":"srb2.data.part9","u":["srb2.data.part9"],"b":3369356,"m":"application/octet-stream","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -305,6 +305,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -456,7 +460,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
     
 		<meta charset=utf-8>
