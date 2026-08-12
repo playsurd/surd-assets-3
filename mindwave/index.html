@@ -280,7 +280,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"mindwave","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/mindwave/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.sp0","game.unx.sp1","game.unx.sp2","game.unx.sp3","game.unx.sp4","game.unx.sp5","game.unx.sp6","game.unx.sp7","game.unx.sp8","game.unx.sp9","game.unx.sp10","game.unx.sp11","game.unx.sp12","game.unx.sp13","game.unx.sp14","game.unx.sp15","game.unx.sp16"],"b":339469380,"m":"application/octet-stream","v":1},{"p":"runner.data","u":["runner.data"],"b":12828607,"m":"application/octet-stream","pf":1},{"p":"runner.wasm","u":["runner.wasm"],"b":5499715,"m":"application/wasm","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"mindwave","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/mindwave/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"game.unx","u":["game.unx.sp0","game.unx.sp1","game.unx.sp2","game.unx.sp3","game.unx.sp4","game.unx.sp5","game.unx.sp6","game.unx.sp7","game.unx.sp8","game.unx.sp9","game.unx.sp10","game.unx.sp11","game.unx.sp12","game.unx.sp13","game.unx.sp14","game.unx.sp15","game.unx.sp16"],"b":339469380,"m":"application/octet-stream","v":1},{"p":"runner.data","u":["runner.data"],"b":12828607,"m":"application/octet-stream","pf":1},{"p":"runner.wasm","u":["runner.wasm"],"b":5499715,"m":"application/wasm","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -305,6 +305,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -456,7 +460,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
     
     <meta charset="utf-8" />
