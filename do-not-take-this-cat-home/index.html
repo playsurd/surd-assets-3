@@ -281,7 +281,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"do-not-take-this-cat-home","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/do-not-take-this-cat-home/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"renpy.wasm","u":["renpy.wasm"],"b":19503634,"m":"application/wasm","pf":1},{"p":"renpy.data","u":["renpy.data"],"b":16370126,"m":"application/octet-stream","pf":1},{"p":"game.zip","u":["game.zip"],"b":11013809,"m":"application/octet-stream","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"do-not-take-this-cat-home","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/do-not-take-this-cat-home/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"renpy.wasm","u":["renpy.wasm"],"b":19503634,"m":"application/wasm","pf":1},{"p":"renpy.data","u":["renpy.data"],"b":16370126,"m":"application/octet-stream","pf":1},{"p":"game.zip","u":["game.zip"],"b":11013809,"m":"application/octet-stream","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -306,6 +306,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -457,7 +461,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
   
   <meta charset="utf-8">
