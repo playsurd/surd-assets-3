@@ -141,8 +141,18 @@ try {
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
 window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
 (function(){
+    /* DEAD HOSTS, blocked for a different reason than the ad networks below.
+     *
+     * Sixteen files across the catalogue live on hosts that no longer answer. Vendoring could not
+     * save them (nothing to download, and none are in the Wayback Machine), but every one turned
+     * out to be inessential once looked at: an ad SWF (bbplayer), a portal logo (kizi), portal
+     * SDKs (gamemix, gmsdk), a sitelock check (pegasgames' "wheely7sec.swf" — wheely-7 ships its
+     * real game in _vendor), cosmetic images, and duplicates of files the game already has
+     * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
+     * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
+    var DEAD = /(bbplayer.net|cdn0.kizi.com|gmapi.gamemix.com|r3tq6l1/gmsdk|candystand.com|eags.us|iep-esy.ir|pegasgames.com|ngames365.github.io|yurivish.com|chicken.royalredeemerlutheranschool.org|marketjs-us/en/patch|cdn.jsdelivr.net/discount.json)/i;
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
-    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
      * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
@@ -281,7 +291,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"five-nights-at-candys","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-candys/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/","files":{},"config":{},"split":[{"p":"resources.zip","u":["resources.zip.sp0","resources.zip.sp1","resources.zip.sp2","resources.zip.sp3","resources.zip.sp4","resources.zip.sp5","resources.zip.sp6"],"b":145526998,"m":"application/octet-stream","v":1,"pf":1}]};</script>
+<script>window.SURD_GAME={"id":"five-nights-at-candys","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/five-nights-at-candys/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{},"split":[{"p":"resources.zip","u":["resources.zip.sp0","resources.zip.sp1","resources.zip.sp2","resources.zip.sp3","resources.zip.sp4","resources.zip.sp5","resources.zip.sp6"],"b":145526998,"m":"application/octet-stream","v":1,"pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -461,7 +471,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 
     
     <link rel="stylesheet" type="text/css" href="style.css"/>
