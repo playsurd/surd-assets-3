@@ -148,7 +148,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * real game in _vendor), cosmetic images, and duplicates of files the game already has
      * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
      * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
-    var DEAD = /(bbplayer.net|cdn0.kizi.com|gmapi.gamemix.com|r3tq6l1/gmsdk|candystand.com|eags.us|iep-esy.ir|pegasgames.com|ngames365.github.io|yurivish.com|chicken.royalredeemerlutheranschool.org|marketjs-us/en/patch|cdn.jsdelivr.net/discount.json)/i;
+    var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
     function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
