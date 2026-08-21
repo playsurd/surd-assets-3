@@ -139,8 +139,18 @@ try {
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
 window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
 (function(){
+    /* DEAD HOSTS, blocked for a different reason than the ad networks below.
+     *
+     * Sixteen files across the catalogue live on hosts that no longer answer. Vendoring could not
+     * save them (nothing to download, and none are in the Wayback Machine), but every one turned
+     * out to be inessential once looked at: an ad SWF (bbplayer), a portal logo (kizi), portal
+     * SDKs (gamemix, gmsdk), a sitelock check (pegasgames' "wheely7sec.swf" — wheely-7 ships its
+     * real game in _vendor), cosmetic images, and duplicates of files the game already has
+     * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
+     * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
+    var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
-    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
      * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
@@ -279,8 +289,8 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"thirty-dollar-website","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/thirty-dollar-website/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va3a178faa6/","files":{},"config":{},"ext":{"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js":"_ext/ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js","https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js":"_ext/ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va3a178faa6/runtime.js"></script>
+<script>window.SURD_GAME={"id":"thirty-dollar-website","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/thirty-dollar-website/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{},"ext":{"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js":"_ext/ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 
         
 
@@ -294,7 +304,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         <meta property="og:type" content="website">
         <meta name="og:image" itemprop="image" content="https://thirtydollar.website/assets/🗿.png">
         <script crossorigin="anonymous" src="_ext/ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script crossorigin="anonymous" src="_ext/ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script crossorigin="anonymous" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         
     <script>
 (function(){try{var m=(window.location.search||'').match(/[?&]__lp=([^&]+)/);var n=m?decodeURIComponent(m[1]):'';if(window.parent&&window.parent!==window){window.parent.postMessage({__lumin:'frame-ok',game:'selenite/thirtydollarwebsite',nonce:n},'*');}}catch(e){}})();
