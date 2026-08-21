@@ -136,8 +136,18 @@ try {
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
 window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
 (function(){
+    /* DEAD HOSTS, blocked for a different reason than the ad networks below.
+     *
+     * Sixteen files across the catalogue live on hosts that no longer answer. Vendoring could not
+     * save them (nothing to download, and none are in the Wayback Machine), but every one turned
+     * out to be inessential once looked at: an ad SWF (bbplayer), a portal logo (kizi), portal
+     * SDKs (gamemix, gmsdk), a sitelock check (pegasgames' "wheely7sec.swf" — wheely-7 ships its
+     * real game in _vendor), cosmetic images, and duplicates of files the game already has
+     * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
+     * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
+    var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
-    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
      * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
@@ -304,6 +314,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         player.load("tu95.swf");
       });
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"tu-95","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/tu-95/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/","files":{"swf":{"path":"tu95.swf","bytes":2857599,"mime":"application/octet-stream"}},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"tu-95","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/tu-95/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{"swf":{"path":"tu95.swf","bytes":2857599,"mime":"application/octet-stream"}},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 </body></html>
