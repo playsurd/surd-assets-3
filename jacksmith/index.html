@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>jacksmith</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/jacksmith/">
-<script>(function () {
+<script data-surd="1">(function () {
   var W = window;
   var unityTarget = null;
   function tellUnity(methods, arg) {
@@ -146,7 +146,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
      * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
     var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
-    var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
+    var BAD = /(doubleclick\.net|googlesyndication\.com|googleadservices\.com|googleads\.g\.doubleclick\.net|adtrafficquality\.google|2mdn\.net|imasdk\.googleapis\.com|adsbygoogle|google-analytics\.com|googletagmanager\.com|gstatic\.com\/firebasejs|gamemonetize\.com|fliplineads\.com|cpmstar\.com|ngads\.com|adinplay\.com|mochibot\.com|mochiads\.com|gamedistribution\.com|msgrt\.gamedistribution\.com|azerioncircle\.com|gamemonkey\.org|gameanalytics\.com|gamedock\.io|enjoy4fun\.com|gamebridge\.games|gamearter\.com|poki\.io|famobi\.com|softgames\.de|analytics\.shapez\.io|scorecardresearch\.com|moatads\.com|amazon-adsystem\.com|criteo|pubmatic|rubiconproject|adnxs\.com|casalemedia|smartadserver|taboola|outbrain|hotjar\.com|mixpanel|clarity\.ms|rudderlabs\.com|analytics\.tiktok\.com|connect\.facebook\.net|yandex\.ru\/metrika|mc\.yandex|cloud\.unity3d\.com|pushalert\.co|quizvana\.com|serviceclic\.com|atpnd\.com|r9x\.in|adsgram\.ai)/i;
     function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
@@ -314,6 +314,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         player.load("jacksmith_v2.swf");
       });
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"jacksmith","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/jacksmith/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{"swf":{"path":"jacksmith_v2.swf","bytes":6836673,"mime":"application/octet-stream"}},"config":{}};</script>
+<script data-surd="1">window.SURD_GAME = {"id":"jacksmith","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/jacksmith/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{"swf":{"path":"jacksmith_v2.swf","bytes":6836673,"mime":"application/octet-stream"}},"config":{}};</script>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 </body></html>
