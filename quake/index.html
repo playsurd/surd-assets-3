@@ -1,6 +1,6 @@
 <!doctypehtml><html lang=en-us><head>
 <base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/">
-<script>(function () {
+<script data-surd="1">(function () {
   var W = window;
   var unityTarget = null;
   function tellUnity(methods, arg) {
@@ -147,7 +147,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
      * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
     var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
-    var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
+    var BAD = /(doubleclick\.net|googlesyndication\.com|googleadservices\.com|googleads\.g\.doubleclick\.net|adtrafficquality\.google|2mdn\.net|imasdk\.googleapis\.com|adsbygoogle|google-analytics\.com|googletagmanager\.com|gstatic\.com\/firebasejs|gamemonetize\.com|fliplineads\.com|cpmstar\.com|ngads\.com|adinplay\.com|mochibot\.com|mochiads\.com|gamedistribution\.com|msgrt\.gamedistribution\.com|azerioncircle\.com|gamemonkey\.org|gameanalytics\.com|gamedock\.io|enjoy4fun\.com|gamebridge\.games|gamearter\.com|poki\.io|famobi\.com|softgames\.de|analytics\.shapez\.io|scorecardresearch\.com|moatads\.com|amazon-adsystem\.com|criteo|pubmatic|rubiconproject|adnxs\.com|casalemedia|smartadserver|taboola|outbrain|hotjar\.com|mixpanel|clarity\.ms|rudderlabs\.com|analytics\.tiktok\.com|connect\.facebook\.net|yandex\.ru\/metrika|mc\.yandex|cloud\.unity3d\.com|pushalert\.co|quizvana\.com|serviceclic\.com|atpnd\.com|r9x\.in|adsgram\.ai)/i;
     function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
@@ -287,7 +287,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"quake","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{}};</script>
+<script data-surd="1">window.SURD_GAME={"id":"quake","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{}};</script>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 <meta charset=utf-8><meta content="text/html; charset=utf-8"http-equiv=Content-Type><title>Qwasm</title><style>body{background-color:#202020;color:#e0e0e0;font-family:Arial,Helvetica,sans-serif;font-size:16px;margin:0}.emscripten{padding-right:0;margin-left:auto;margin-right:auto;display:block}textarea.emscripten{font-family:monospace;font-size:14px;width:calc(100% - 24px);height:calc(100vh - 24px);margin-top:8px;background-color:inherit;color:silver;border:1px solid #404040;resize:none;display:none;outline:0}div.emscripten{text-align:center}canvas.emscripten{border:0 none;background-color:#000;width:calc(min(100vw,100vh * 4 / 3));height:calc(min(100vh,100vw * .75));margin-top:calc(.5 * (100vh - (min(100vh,100vw * .75))));display:none;outline:0}.spinner{height:50px;width:50px;margin:0 auto;-webkit-animation:rotation .8s linear infinite;-moz-animation:rotation .8s linear infinite;-o-animation:rotation .8s linear infinite;animation:rotation .8s linear infinite;border-left:10px solid #606060;border-right:10px solid #606060;border-bottom:10px solid #606060;border-top:10px solid #fff;border-radius:100%;background-color:#202020}@-webkit-keyframes rotation{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@-moz-keyframes rotation{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(360deg)}}@-o-keyframes rotation{from{-o-transform:rotate(0)}to{-o-transform:rotate(360deg)}}@keyframes rotation{from{transform:rotate(0)}to{transform:rotate(360deg)}}</style><script>
 (function(){try{var m=(window.location.search||'').match(/[?&]__lp=([^&]+)/);var n=m?decodeURIComponent(m[1]):'';if(window.parent&&window.parent!==window){window.parent.postMessage({__lumin:'frame-ok',game:'truffled/quake',nonce:n},'*');}}catch(e){}})();
