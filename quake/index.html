@@ -1,4 +1,6 @@
-<!doctypehtml><html lang=en-us><head>
+<!doctype html>
+<html lang="en-us">
+  <head>
 <base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/">
 <script data-surd="1">(function () {
   var W = window;
@@ -287,22 +289,543 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script data-surd="1">window.SURD_GAME={"id":"quake","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
-<meta charset=utf-8><meta content="text/html; charset=utf-8"http-equiv=Content-Type><title>Qwasm</title><style>body{background-color:#202020;color:#e0e0e0;font-family:Arial,Helvetica,sans-serif;font-size:16px;margin:0}.emscripten{padding-right:0;margin-left:auto;margin-right:auto;display:block}textarea.emscripten{font-family:monospace;font-size:14px;width:calc(100% - 24px);height:calc(100vh - 24px);margin-top:8px;background-color:inherit;color:silver;border:1px solid #404040;resize:none;display:none;outline:0}div.emscripten{text-align:center}canvas.emscripten{border:0 none;background-color:#000;width:calc(min(100vw,100vh * 4 / 3));height:calc(min(100vh,100vw * .75));margin-top:calc(.5 * (100vh - (min(100vh,100vw * .75))));display:none;outline:0}.spinner{height:50px;width:50px;margin:0 auto;-webkit-animation:rotation .8s linear infinite;-moz-animation:rotation .8s linear infinite;-o-animation:rotation .8s linear infinite;animation:rotation .8s linear infinite;border-left:10px solid #606060;border-right:10px solid #606060;border-bottom:10px solid #606060;border-top:10px solid #fff;border-radius:100%;background-color:#202020}@-webkit-keyframes rotation{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@-moz-keyframes rotation{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(360deg)}}@-o-keyframes rotation{from{-o-transform:rotate(0)}to{-o-transform:rotate(360deg)}}@keyframes rotation{from{transform:rotate(0)}to{transform:rotate(360deg)}}</style><script>
-(function(){try{var m=(window.location.search||'').match(/[?&]__lp=([^&]+)/);var n=m?decodeURIComponent(m[1]):'';if(window.parent&&window.parent!==window){window.parent.postMessage({__lumin:'frame-ok',game:'truffled/quake',nonce:n},'*');}}catch(e){}})();
-</script>
-<!-- Google tag (gtag.js) -->
+<script data-surd="1">window.SURD_GAME={"id":"quake","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/quake/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v53aeb7210d/","files":{},"config":{},"split":[{"p":"fteassets/id1/pak0.pak","u":["fteassets/id1/pak0.pak"],"b":18689235,"m":"application/octet-stream","pf":1},{"p":"ftewebgl.wasm","u":["ftewebgl.wasm"],"b":5248274,"m":"application/wasm","pf":1}]};</script>
+<script data-surd="1">(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function mirrorUrl(url) {
+    var m = /^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.*)$/.exec(url || '');
+    return m ? 'https://raw.githubusercontent.com/' + m[1] + '/' + m[2] + '/' + m[3] + '/' + m[4] : null;
+  }
+  var TRANSIENT = { 403: 1, 408: 1, 425: 1, 429: 1, 500: 1, 502: 1, 503: 1, 504: 1, 522: 1 };
+  function fetchPart(url, attempt) {
+    attempt = attempt || 1;
+    var alt = mirrorUrl(url);
+    var target = (alt && attempt % 2 === 0) ? alt : url;
+    return nativeFetch(target).then(function (r) {
+      if (r.ok) return r.blob();
+      var e = new Error('surd: ' + r.status + ' on ' + target);
+      e.status = r.status;
+      throw e;
+    })['catch'](function (err) {
+      var retryable = !err.status || TRANSIENT[err.status];
+      if (attempt >= 4 || (!retryable && attempt > 1)) throw err;
+      return new Promise(function (r) { setTimeout(r, Math.min(8000, 400 * attempt * attempt)); })
+        .then(function () { return fetchPart(url, attempt + 1); });
+    });
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var next = 0;
+    function lane() {
+      if (next >= urls.length) return Promise.resolve();
+      var n = next++;
+      return fetchPart(urls[n]).then(function (b) { got[n] = b; return lane(); });
+    }
+    var lanes = [];
+    for (var k = 0; k < Math.min(6, urls.length); k++) lanes.push(lane());
+    var p = Promise.all(lanes).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+  var pf = [];
+  for (i = 0; i < table.length; i++) if (table[i].pf) pf.push(table[i]);
+  if (pf.length) {
+    var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
+    for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
+    window.SURD_PREFETCH = st;
+    var next = 0, LANES = 2;
+    var pump = function () {
+      if (next >= pf.length) return;
+      var e = pf[next++];
+      assemble(e)['catch'](function () { st.failed++; })
+        .then(function () { st.done++; st.doneBytes += e.b || 0; pump(); });
+    };
+    for (i = 0; i < LANES && i < pf.length; i++) pump();
+  }
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v53aeb7210d/runtime.js"></script>
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L69H1VNZ27');
-</script>
-<script>
-  window.__lumin_game_id = 'truffled/quake';
-  console.log('[LuminSDK] Game loaded:', 'truffled/quake');
-</script>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+	<title>QuakeWorld</title>
+	<script>
+	// Keep our own page title even though the FTE engine tries to rewrite
+	// document.title at runtime (to the server name / map / "FTE QuakeWorld").
+	(function(){
+		var FIXED = "QuakeWorld";
+		try {
+			Object.defineProperty(document, 'title', {
+				configurable: true,
+				get: function(){ return FIXED; },
+				set: function(){ /* ignore engine attempts to change it */ }
+			});
+		} catch(e){}
+		// Backstop: if anything writes the <title> element text directly,
+		// reset it. Guarded so we never loop on our own write.
+		function force(){
+			var t = document.getElementsByTagName('title')[0];
+			if (t && t.textContent !== FIXED) t.textContent = FIXED;
+		}
+		try {
+			var t = document.getElementsByTagName('title')[0];
+			if (t) new MutationObserver(force).observe(t, {childList:true});
+		} catch(e){}
+		document.addEventListener('DOMContentLoaded', force);
+	})();
+	</script>
+	<style>
+	html,body { background-color:#000000; color:#808080; height:100%;width:100%;margin:0;padding:0;}
+	.emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+	div.emscripten { text-align: center; padding:0; margin: 0;}
+	/* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+	canvas.emscripten { border: 0px none; width:100%; height:100%; padding:0; margin: 0;}
+	#spinner{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;}
+	.spinner{height:50px;width:50px;border-radius:100%;border-left:10px solid rgba(255,255,255,.25);border-right:10px solid rgba(255,255,255,.25);border-bottom:10px solid rgba(255,255,255,.25);border-top:10px solid #fff;animation:rotation .8s linear infinite;}
+	@keyframes rotation{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+	</style>
+  </head>
+  <body ondrop="gotdrop(event);" ondragover="event.preventDefault()">
+	<figure id="spinner"><div class="spinner"></div></figure>
+	<div class="emscripten" id="status" style="display:none">Please allow/unblock our javascript to play.</div>
+	<div id="dropzone" ondrop="gotdrop(event);" ondragover="event.preventDefault()" hidden=1>Drop Zone</div>
+	<button type="button" onclick="begin()" id="begin" hidden=1>Click To Begin!</button>
+	<div class="emscripten" style="display:none">
+		<progress value="0" max="100" id="progress" hidden=1></progress>
+	</div>
+	<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" hidden=1></canvas>
+	<script type='text/javascript'>
+// connect to canvas
+var Module = {
+	setWindowTitle: function(){},   // keep our own page title; ignore engine updates
+	arguments: (function(){
+		// Explicit manifest URL: without it, FTE derives the manifest name from
+		// the page path (/play -> play.fmf -> 404), so it loads NO packages and
+		// re-downloads everything (incl. maps) from the game server every time.
+		// vid_hardwaregamma 2 = always-GLSL gamma (hardware gamma doesn't exist in
+		// WebGL, so without this the gamma cvar is a no-op and the screen stays dark).
+		var a = ["-manifest", "ftewebgl.html.fmf", "+set", "con_stayhidden", "1", "+set", "vid_hardwaregamma", "2", "+set", "gamma", "1.05"];
+		try {
+			var n = (new URLSearchParams(location.search).get('name') || (function(){try{return localStorage.getItem('surd_player_name')}catch(e){return ''}})() || '').replace(/[^A-Za-z0-9 _.\[\]\-]/g,'').trim().slice(0,15);
+			if (n) a = a.concat(["+set", "name", n]);
+		} catch(e){}
+		return a.concat(["+connect", "wss://q1.pieter.com"]);
+	})(),
+	files:
+	{	//these can be arraybuffers(you'll need a helper to define those) or promises(fte will block till they complete), or strings (which will be interpretted as urls and downloaded before any C code is run)
+		//note that the code below will skip the file-drop prompt if there's any files specified here (or there's a #foo.fmf file specified)
+//		"default.fmf": "default.fmf",
+//		"id1/pak0.pak": "pak0.pak",
+	},
+	print: function(msg)
+	{	//stdout...
+		console.log(msg);
+	},
+	printErr: function(text)
+	{	//stderr...
+		console.log(text);
+	},
+	canvas: document.getElementById('canvas'),	//for webgl to attach to
+	setStatus: function(text)
+	{	//gets spammed some prints during startup. blame emscripten.
+		if (Module.setStatus.interval)
+			clearInterval(Module.setStatus.interval);
+		var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+		var statusElement = document.getElementById('status');
+		var progressElement = document.getElementById('progress');
+		if (m) {
+			text = m[1];
+			progressElement.value = parseInt(m[2])*100;
+			progressElement.max = parseInt(m[4])*100;
+			progressElement.hidden = false;
+		} else {
+			progressElement.value = null;
+			progressElement.max = null;
+			progressElement.hidden = true;
+		}
+		statusElement.innerHTML = text;
+		statusElement.hidden = text.length==0;
+	},
+//	preRun: [],
+	totalDependencies: 0,
+	monitorRunDependencies: function(left)
+	{	//progress is progress...
+		this.totalDependencies = Math.max(this.totalDependencies, left);
+		Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+	},
+//	onRuntimeInitialized: function(){},
+	postRun:
+	[	//each of these are called after main was run. we should have our mainloop set up now
+		function(){ var sp=document.getElementById('spinner'); if(sp) sp.style.display='none'; },
+		function()
+		{
+			if (Module["sched"] === undefined)
+			{	//our main function failed to set up the main loop. ie: main didn't get called. panic.
+				alert("Unable to initialise. You may need to restart your browser. If you get this often and inconsistently, consider using a 64bit browser instead.");
+				Module.setStatus("Initialisation Failure");
+			}
+		}
+	],
+};
+function begin()
+{
+	if (Module.began)
+		return;
+	// Automated browsers (headless crawlers, Playwright/Selenium, etc. all set
+	// navigator.webdriver) must not load the engine and join the live server.
+	
+	// Phones/tablets are allowed: /assets/touch-controls.js (shared pieter.com touch layout) gives them
+	// a joystick, drag-to-look and shoot/jump buttons (2026-10-07; this used to show "Desktop required").
+	Module.began = true;
+	document.getElementById('dropzone').hidden = true;
+	document.getElementById('begin').hidden = true;
+	Module.setStatus('Downloading...');
 
-</head><body><figure id=spinner style=overflow:visible><div class=spinner></div><center style=margin-top:.5em><strong>Qwasm</strong></center></figure><div class=emscripten id=status>Downloading...</div><div class=emscripten><progress hidden id=progress max=100 value=0></progress></div><textarea class=emscripten id=output readonly></textarea><canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas><a hidden id=exportFile></a><script>var statusElement=document.getElementById("status"),progressElement=document.getElementById("progress"),spinnerElement=document.getElementById("spinner"),canvasElement=document.getElementById("canvas"),outputElement=document.getElementById("output"),exportElement=document.getElementById("exportFile"),Module={preRun:[],postRun:[],_canLockPointer:!0,print:(outputElement.value="",function(e){arguments.length>1&&(e=Array.prototype.slice.call(arguments).join(" ")),console.log(e),outputElement.value+=e+"\n",outputElement.scrollTop=outputElement.scrollHeight}),canvas:(canvasElement.addEventListener("webglcontextlost",(function(e){alert("WebGL context lost. You will need to reload the page."),e.preventDefault()}),!1),canvasElement),setStatus:function(e){if(Module.setStatus.last||(Module.setStatus.last={time:Date.now(),text:""}),e!==Module.setStatus.last.text){var t=e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),n=Date.now();t&&n-Module.setStatus.last.time<30||(Module.setStatus.last.time=n,Module.setStatus.last.text=e,t?(e=t[1],progressElement.value=100*parseInt(t[2]),progressElement.max=100*parseInt(t[4]),progressElement.hidden=!1,spinnerElement.hidden=!1):(progressElement.value=null,progressElement.max=null,progressElement.hidden=!0,e||(spinnerElement.hidden=!0)),statusElement.innerHTML=e)}},hideConsole:function(){outputElement.style.display="none",canvasElement.style.display="block",canvasElement.focus()},showConsole:function(){canvasElement.style.display="none",outputElement.style.display="block",outputElement.scrollTop=outputElement.scrollHeight,outputElement.focus()},exportFile:function(e){try{const t=e.split("/"),n=new Uint8Array(FS.readFile(e)),o=new Blob([n],{type:"application/octet-stream"}),l=URL.createObjectURL(o);exportElement.href=l,exportElement.download=t[t.length-1],exportElement.click(),URL.revokeObjectURL(l)}catch(e){console.error("Error exporting file:",e)}},setGamma:function(e){e=Number(Number(e).toFixed(2)),console.info("Detected canvas gamma change: "+e),canvasElement.style.filter="brightness("+2*(1.35-e)+")"},captureMouse:function(){Module._canLockPointer&&!Module._attemptPointerLock()&&(Module._canLockPointer=!1,console.info("Delayed pointer lock requested."),document.addEventListener("keydown",Module._lockPointerOnKey))},_attemptPointerLock:function(){return null===document.pointerLockElement&&canvasElement.requestPointerLock(),null!==document.pointerLockElement},_lockPointerOnKey:function(e){("Escape"===e.key||Module._attemptPointerLock())&&(document.removeEventListener("keydown",Module._lockPointerOnKey),console.info("Delayed pointer lock complete."),Module._canLockPointer=!0)},totalDependencies:0,monitorRunDependencies:function(e){this.totalDependencies=Math.max(this.totalDependencies,e),Module.setStatus(e?"Preparing... ("+(this.totalDependencies-e)+"/"+this.totalDependencies+")":"All downloads complete.")},onRuntimeInitialized:function(){outputElement.style.display="block"}};Module.arguments=window.location.search.length>1?window.location.search.substr(1).split("&"):[],Module.setStatus("Downloading..."),window.onerror=function(){Module.setStatus("Exception thrown, see JavaScript console"),spinnerElement.style.display="none",Module.setStatus=function(e){e&&console.error("[post-exception status] "+e)}}</script><script async src=index.js></script></body></html>
+	// make a script. do it the hard way for the error.
+	var s = document.createElement('script');
+	// set it up
+	s.setAttribute('src',"ftewebgl.js");
+	s.setAttribute('type',"text/javascript");
+	s.setAttribute('charset',"utf-8");
+	s.addEventListener('error', function() {alert("Oh noes! we got an error!"); Module.setStatus("Unable to download engine javascript");}, false);
+	// add to DOM
+	document.head.appendChild(s);
+}
+
+//stuff to facilitate our drag+drop filesystem support
+function fixupfilepath(fname, path)
+{	//we just have a filename, try to guess where to put it.
+	if (path != "")
+		return path+fname;	//already has a path. use it. this allows people to drag+drop gamedirs.
+	var ext = fname.substr(fname.lastIndexOf('.') + 1);
+	if (ext == 'fmf' || ext == 'kpf')	//these are the only files that really make sense in the root.
+		return fname;
+	if (ext == 'bsp' || ext == 'map' || ext == 'lit' || ext == 'lux')
+		return "id1/maps/" + fname;	//bsps get their own extra subdir
+	return "id1/" + fname;	//probably a pak. maybe a cfg, no idea really.
+}
+function showfiles()
+{	//print the pending file list in some pretty way
+	if (Module.began)
+		return;
+	Module.setStatus('');
+	document.getElementById('dropzone').hidden = false;
+	document.getElementById('begin').hidden = false;
+	var nt = "Drag gamedirs or individual package files here to make them available!<br/>Active Files:<br/><pre>";
+	var keys = Object.keys(Module.files);
+	for(var i = 0; i < keys.length; i++)
+	{
+		if (Module.files[keys[i]] instanceof ArrayBuffer)
+		{
+			var sz = Module.files[keys[i]].byteLength;
+			if (sz > 512*1024)
+				sz = (sz / (1024*1024)) + "mb";
+			else if (sz > 512)
+				sz = (sz / 1024) + "kb";
+			else
+				sz = (sz) + " bytes";
+			nt += "    " + keys[i] + " ("+sz+")<br/>";
+		}
+		else
+			nt += "    " + keys[i] + "<br/>";
+	}
+	nt += "</pre>("+keys.length+" files)";
+	document.getElementById('dropzone').innerHTML = nt;
+}
+function scanfiles(item,path)
+{	//for directory drops
+	if (item.isFile)
+	{
+		item.file(function(f)
+		{
+			let n = fixupfilepath(f.name, path);
+			Module.files[n]=f.arrayBuffer();	//actually a promise...
+			Module.files[n].then(buf=>{Module.files[n]=buf;showfiles();});	//try and resolve it now.
+    	});
+	}
+	else if (item.isDirectory)
+	{
+		// Get folder contents
+		var dirReader = item.createReader();
+		dirReader.readEntries(function(entries)
+		{
+			for (var i=0; i<entries.length; i++)
+				scanfiles(entries[i], path + item.name + "/");
+		});
+	}
+}
+function gotdrop(ev)
+{	//user drag+dropped something. 
+	ev.preventDefault();
+	for (var i = 0; i < ev.dataTransfer.items.length; i++)
+		if (ev.dataTransfer.items[i].webkitGetAsEntry)
+		{
+			var d = ev.dataTransfer.items[i].webkitGetAsEntry();
+			if (d)
+				scanfiles(d, "");
+		}
+		else if (ev.dataTransfer.items[i].kind === 'file')
+		{
+			var f = ev.dataTransfer.items[i].getAsFile();
+			var n = fixupfilepath(f.name);
+			Module.files[n]=f.arrayBuffer();	//actually a promise...
+			Module.files[n].then(buf=>{Module.files[n]=buf;showfiles();});	//try and resolve it now.
+		}
+	showfiles();
+}
+// Hide the loading spinner as soon as the engine takes over the canvas
+// (backstop to postRun, in case the canvas is shown before main returns).
+(function(){
+	var cv=document.getElementById('canvas'), sp=document.getElementById('spinner');
+	if(!cv||!sp) return;
+	function chk(){ try{ if(!cv.hidden && getComputedStyle(cv).display!=='none'){ sp.style.display='none'; } }catch(e){} }
+	new MutationObserver(chk).observe(cv,{attributes:true,attributeFilter:['hidden','style','class','width','height']});
+})();
+// --- Stuck-key fix ---
+// When the tab loses focus mid-keypress (Ctrl+Tab, alt-tab, click away), the
+// browser never delivers the keyup, so the engine thinks the key/mouse is still
+// held (e.g. Ctrl = +attack keeps firing forever). Track held keys and
+// synthesize the release when focus is lost.
+//
+// FTE maps keys by event.keyCode -- but the KeyboardEvent constructor IGNORES
+// keyCode/which (they come back as 0), so a naive synthetic keyup releases
+// "key 0" and the real Ctrl stays stuck. We keep the numeric keyCode and force
+// it onto the synthetic event with defineProperty so the engine actually matches.
+(function(){
+  var canvas = document.getElementById('canvas');
+  var down = new Map();   // keyCode -> {keyCode, which, code, key, location}
+  addEventListener('keydown', function(e){
+    down.set(e.keyCode, {keyCode:e.keyCode, which:e.which, code:e.code, key:e.key, location:e.location});
+  }, true);
+  addEventListener('keyup', function(e){ down.delete(e.keyCode); }, true);
+  function synthKeyup(d){
+    var ev = new KeyboardEvent('keyup', {code:d.code, key:d.key, location:d.location||0, bubbles:true, cancelable:true});
+    try { Object.defineProperty(ev, 'keyCode', {get:function(){return d.keyCode;}}); } catch(_){}
+    try { Object.defineProperty(ev, 'which',   {get:function(){return d.which||d.keyCode;}}); } catch(_){}
+    return ev;
+  }
+  function releaseAll(){
+    var targets = [canvas, document, window].filter(Boolean);
+    down.forEach(function(d){
+      targets.forEach(function(t){
+        try { t.dispatchEvent(synthKeyup(d)); } catch(_){}
+      });
+    });
+    down.clear();
+    [0,1,2].forEach(function(b){
+      try { canvas && canvas.dispatchEvent(new MouseEvent('mouseup', {button:b, bubbles:true, cancelable:true})); } catch(_){}
+    });
+    try { if (document.pointerLockElement) document.exitPointerLock(); } catch(_){}
+  }
+  addEventListener('blur', releaseAll);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) releaseAll(); });
+})();
+
+// --- Background-tab keepalive ---
+// Browsers pause requestAnimationFrame (and clamp timers) in hidden/background
+// tabs, so the engine main loop stops stepping -> it stops sending netchan
+// packets -> the server times us out and we return to a dead connection.
+// Drive the engine's rAF callbacks from a Web Worker tick while hidden (workers
+// aren't subject to the hidden-tab rAF pause nor the 1/min "intensive" timer
+// throttling), so a keepalive packet keeps flowing and the slot stays alive.
+// When visible, the real requestAnimationFrame is used unchanged.
+(function(){
+  var realRAF = window.requestAnimationFrame
+        ? window.requestAnimationFrame.bind(window)
+        : function(cb){ return setTimeout(function(){ cb(performance.now()); }, 16); };
+  var realCAF = window.cancelAnimationFrame ? window.cancelAnimationFrame.bind(window) : clearTimeout;
+  var pend = [], worker = null;
+  function run(rec){
+    if (rec.done) return;
+    rec.done = true;
+    var i = pend.indexOf(rec); if (i >= 0) pend.splice(i, 1);
+    try { rec.cb(performance.now()); } catch(e){}
+  }
+  function fireAll(){
+    if (!document.hidden) return;
+    var cur = pend.slice();
+    for (var i = 0; i < cur.length; i++) run(cur[i]);
+  }
+  try {
+    worker = new Worker(URL.createObjectURL(new Blob(
+      ["setInterval(function(){postMessage(0)},100)"], {type:'text/javascript'})));
+    worker.onmessage = fireAll;
+  } catch(e){}
+  // Fallback if the Worker can't be created (CSP/old browser): self-pumping timer.
+  function bgPump(){ if (document.hidden && !worker){ fireAll(); setTimeout(bgPump, 200); } }
+  window.requestAnimationFrame = function(cb){
+    var rec = { cb: cb, done: false, id: 0 };
+    pend.push(rec);
+    if (!document.hidden) rec.id = realRAF(function(){ run(rec); });
+    return rec.id;
+  };
+  window.cancelAnimationFrame = function(id){
+    if (id) for (var i = 0; i < pend.length; i++) if (pend[i].id === id){ pend[i].done = true; pend.splice(i, 1); break; }
+    try { realCAF(id); } catch(e){}
+  };
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden){ fireAll(); bgPump(); }
+    else pend.slice().forEach(function(rec){ if (!rec.done && !rec.id) rec.id = realRAF(function(){ run(rec); }); });
+  });
+})();
+
+// --- Mute audio while the tab is hidden ---
+// The background keepalive above keeps the engine running when backgrounded, so
+// without this it would keep playing sound in another tab. Capture every
+// AudioContext the engine creates and suspend it while hidden; resume on return.
+(function(){
+  var AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  var ctxs = [];
+  function Wrapped(opts){
+    var c = new AC(opts);
+    ctxs.push(c);
+    if (document.hidden) { try { c.suspend(); } catch(e){} }
+    return c;
+  }
+  Wrapped.prototype = AC.prototype;
+  window.AudioContext = Wrapped;
+  if (window.webkitAudioContext) window.webkitAudioContext = Wrapped;
+  document.addEventListener('visibilitychange', function(){
+    for (var i = 0; i < ctxs.length; i++) {
+      try { document.hidden ? ctxs[i].suspend() : ctxs[i].resume(); } catch(e){}
+    }
+  });
+})();
+
+// Auto-start: the manifest defaults to ftewebgl.html.fmf (in this dir), so no
+// hash and no click needed. Drag-drop dropper is bypassed.
+begin();
+    </script>      
+  <!-- Alt+Enter fullscreen: opt-in via keypress, never auto-fullscreens. Handled at the DOM level inside the real user gesture. -->
+  <style>#canvas:fullscreen,#canvas:-webkit-full-screen{width:100vw!important;height:100vh!important;object-fit:contain}</style>
+  <script>(function(){function cur(){return document.fullscreenElement||document.webkitFullscreenElement}function exit(){var x=document.exitFullscreen||document.webkitExitFullscreen;if(x)try{x.call(document)}catch(e){}}function enter(el){if(!el)return;var r=el.requestFullscreen||el.webkitRequestFullscreen;if(!r)return;try{var p=r.call(el);if(p&&p.catch)p.catch(function(e){console.warn('fullscreen blocked',e)})}catch(e){console.warn('fullscreen blocked',e)}}addEventListener('keydown',function(e){if(e.altKey&&(e.code==='Enter'||e.key==='Enter'||e.keyCode===13)){e.preventDefault();e.stopImmediatePropagation();if(cur())exit();else enter(document.getElementById('canvas'))}},true)})();</script>
+  
+  <script crossorigin="anonymous" src="assets/touch-controls.js"></script><script>PieterTouch.autoStart({layout:"classic"})</script></body>
+</html>

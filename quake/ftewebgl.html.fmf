@@ -1,0 +1,39 @@
+game quake
+name "Quake 1 (FTE)"
+basegame id1
+basegame *fte
+
+bind w +forward
+bind s +back
+bind a +moveleft
+bind d +moveright
+bind mouse1 +attack
+bind tab +showscores
+bind mouse2 +jump
+bind t messagemode
+bind y messagemode2
+
+// --- gamepad (consistent layout across pieter games) ---
+set in_joystick 1
+// left stick = move
+bind GP_LTHUMB_UP +forward
+bind GP_LTHUMB_DOWN +back
+bind GP_LTHUMB_LEFT +moveleft
+bind GP_LTHUMB_RIGHT +moveright
+// right stick = turn / look
+bind GP_RTHUMB_LEFT +left
+bind GP_RTHUMB_RIGHT +right
+bind GP_RTHUMB_UP +lookup
+bind GP_RTHUMB_DOWN +lookdown
+bind GP_RTRIGGER +attack
+bind GP_LTRIGGER +speed
+bind GP_A +jump
+bind GP_B +movedown
+bind GP_Y +use
+bind GP_LSHOULDER weapprev
+bind GP_RSHOULDER weapnext
+bind GP_LTHUMB +speed
+bind GP_START togglemenu
+bind GP_BACK +showscores
+
+package id1/pak0.pak - "fteassets/id1/pak0.pak"

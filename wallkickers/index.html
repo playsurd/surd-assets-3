@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/wallkickers/">
+<script data-surd="1">(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
+    }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
+window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
+(function(){
+    /* DEAD HOSTS, blocked for a different reason than the ad networks below.
+     *
+     * Sixteen files across the catalogue live on hosts that no longer answer. Vendoring could not
+     * save them (nothing to download, and none are in the Wayback Machine), but every one turned
+     * out to be inessential once looked at: an ad SWF (bbplayer), a portal logo (kizi), portal
+     * SDKs (gamemix, gmsdk), a sitelock check (pegasgames' "wheely7sec.swf" — wheely-7 ships its
+     * real game in _vendor), cosmetic images, and duplicates of files the game already has
+     * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
+     * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
+    var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
+    var BAD = /(doubleclick\.net|googlesyndication\.com|googleadservices\.com|googleads\.g\.doubleclick\.net|adtrafficquality\.google|2mdn\.net|imasdk\.googleapis\.com|adsbygoogle|google-analytics\.com|googletagmanager\.com|gstatic\.com\/firebasejs|gamemonetize\.com|fliplineads\.com|cpmstar\.com|ngads\.com|adinplay\.com|mochibot\.com|mochiads\.com|gamedistribution\.com|msgrt\.gamedistribution\.com|azerioncircle\.com|gamemonkey\.org|gameanalytics\.com|gamedock\.io|enjoy4fun\.com|gamebridge\.games|gamearter\.com|poki\.io|famobi\.com|softgames\.de|analytics\.shapez\.io|scorecardresearch\.com|moatads\.com|amazon-adsystem\.com|criteo|pubmatic|rubiconproject|adnxs\.com|casalemedia|smartadserver|taboola|outbrain|hotjar\.com|mixpanel|clarity\.ms|rudderlabs\.com|analytics\.tiktok\.com|connect\.facebook\.net|yandex\.ru\/metrika|mc\.yandex|cloud\.unity3d\.com|pushalert\.co|quizvana\.com|serviceclic\.com|atpnd\.com|r9x\.in|adsgram\.ai)/i;
+    function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
+    /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
+     *
+     * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
+     * is the site (or an opaque blob origin) and never holds game assets — so every such
+     * request is a guaranteed 404. 2048-merge-run asked for /version.json, /fileconfig.json
+     * and every one of its scene files this way and showed a black screen with nothing but
+     * "Script error." to go on; a-dark-room does the same with /audio/*.flac.
+     *
+     * Since no host-absolute path can ever be correct here, point them all at the game's own
+     * base. This is a rewrite rather than a refusal: the files exist, just one level up.
+     * Protocol-relative "//host/x" is a different thing (a real remote host) and is left to
+     * the denylist above. */
+    /* Read the base LAZILY. This guard is deliberately installed before the manifest script
+     * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
+     * very game from rendering at all), so at install time there is no base to capture. */
+    function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
+    function rebase(u){
+      try {
+        if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
+        var B = gbase(); if (!B) return u;
+        B = B.replace(/\/?$/, '/');
+        if (u.indexOf(B) === 0) return u;                        // already where it belongs
+        /* Never touch OUR OWN plumbing. The runtime and its adapters live at a different path
+         * (and in production a different origin), and rebasing them points the loader at the
+         * game's asset directory, where no adapter exists. */
+        var RT = '';
+        try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
+        if (RT && u.indexOf(RT) === 0) return u;
+        if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
+        /* An engine that builds its own absolute URLs from location, rather than letting the
+         * browser resolve a relative path, lands on the SITE origin — which holds no game
+         * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
+         * so matching only a leading slash was not enough. Our origin is never a legitimate
+         * place for a game to fetch from, so the same redirect applies. */
+        var o = location.origin;
+        if (o && o !== 'null' && u.indexOf(o + '/') === 0) return B + u.slice(o.length + 1);
+        return u;
+      } catch(e){ return u; }
+    }
+    var of = window.fetch;
+    if (of) window.fetch = function(i, o){
+      var u = (i && i.url) ? i.url : i;
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
+      if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
+      return of.apply(this, arguments);
+    };
+    var oo = window.XMLHttpRequest && window.XMLHttpRequest.prototype.open;
+    if (oo) window.XMLHttpRequest.prototype.open = function(m, u){
+      if (bad(u)) { arguments[1] = 'data:text/plain,'; }
+      else if (typeof u === 'string') { arguments[1] = rebase(u); }
+      return oo.apply(this, arguments);
+    };
+    if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
+      navigator.sendBeacon = function(u, d){ return bad(u) ? true : ob(u, d); }; }
+    var OW = window.WebSocket;
+    if (OW) window.WebSocket = function(u, p){
+      if (bad(u)) u = 'ws://127.0.0.1:1';
+      return p === undefined ? new OW(u) : new OW(u, p);
+    };
+    /* setAttribute('src', …) bypasses the property setter patched below, and several ad
+     * tags use exactly that form (moto-x3m still reached googlesyndication until this). */
+    try {
+      var osa = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(n, v){
+        if (n && /^(src|href|data)$/i.test(n)) {
+          if (bad(v)) return;
+          /* Same host-absolute problem, reached through an attribute: an <img> or <audio>
+           * given "/audio/x.flac" resolves against the origin and 404s. */
+          if (typeof v === 'string') arguments[1] = rebase(v);
+        }
+        return osa.apply(this, arguments);
+      };
+    } catch(e){}
+    /* Element src= is how most ad tags actually load. */
+    try {
+      ['HTMLImageElement','HTMLScriptElement','HTMLIFrameElement','HTMLAudioElement','HTMLVideoElement','HTMLSourceElement'].forEach(function(k){
+        var P = window[k] && window[k].prototype; if (!P) return;
+        var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
+        Object.defineProperty(P, 'src', {
+          configurable: true, enumerable: d.enumerable, get: d.get,
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
+        });
+      });
+    } catch(e){}
+  })();</script>
+<script data-surd="1">window.SURD_GAME={"id":"wallkickers","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets-3@main/wallkickers/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v53aeb7210d/","files":{},"config":{},"split":[{"p":"app.data","u":["app.data.sp0","app.data.sp1"],"b":35697753,"m":"application/octet-stream","v":1,"pf":1},{"p":"app.wasm","u":["app.wasm.sp0","app.wasm.sp1","app.wasm.sp2"],"b":50618080,"m":"application/wasm","v":1,"pf":1}]};</script>
+<script data-surd="1">(function () {
+  var M = window.SURD_GAME;
+  var table = M && M.split;
+  if (!table || !table.length) return;
+  var base = String(M.base || '').replace(/\/?$/, '/');
+  var byPath = {};
+  var i;
+  for (i = 0; i < table.length; i++) byPath[table[i].p] = table[i];
+  var blobs = {};
+  var urlOf = {};
+  var pending = {};
+  function partUrls(e) {
+    var out = [];
+    for (var k = 0; k < e.u.length; k++) out.push(base + e.u[k]);
+    return out;
+  }
+  function match(url) {
+    if (typeof url !== 'string') {
+      if (!url || typeof url.url !== 'string') return null;
+      url = url.url;
+    }
+    var q = url.split('#')[0].split('?')[0];
+    try { q = decodeURIComponent(q); } catch (e) {}
+    q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
+    var hit = exact(q);
+    return hit || virtualPart(q);
+  }
+  function exact(q) {
+    for (var p in byPath) {
+      if (q === p || q === base + p) return byPath[p];
+      if (q.length > p.length && q.slice(-(p.length + 1)) === '/' + p) return byPath[p];
+    }
+    return null;
+  }
+  var firstIdx = {};
+  var EMPTY = { p: ' empty', u: [], b: 0, m: 'application/octet-stream' };
+  function virtualPart(q) {
+    var m = q.match(/^(.*)\.part(\d+)$/i);
+    if (!m) return null;
+    var e = exact(m[1]);
+    if (!e || !e.v) return null;
+    var n = +m[2];
+    if (!(e.p in firstIdx)) firstIdx[e.p] = n;
+    return n === firstIdx[e.p] ? e : EMPTY;
+  }
+  function finish(e, parts) {
+    var blob = new Blob(parts, { type: e.m || 'application/octet-stream' });
+    if (e.b && blob.size !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + blob.size + ', expected ' + e.b);
+    var u = URL.createObjectURL(blob);
+    blobs[u] = blob; urlOf[e.p] = u;
+    return u;
+  }
+  function mirrorUrl(url) {
+    var m = /^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.*)$/.exec(url || '');
+    return m ? 'https://raw.githubusercontent.com/' + m[1] + '/' + m[2] + '/' + m[3] + '/' + m[4] : null;
+  }
+  var TRANSIENT = { 403: 1, 408: 1, 425: 1, 429: 1, 500: 1, 502: 1, 503: 1, 504: 1, 522: 1 };
+  function fetchPart(url, attempt) {
+    attempt = attempt || 1;
+    var alt = mirrorUrl(url);
+    var target = (alt && attempt % 2 === 0) ? alt : url;
+    return nativeFetch(target).then(function (r) {
+      if (r.ok) return r.blob();
+      var e = new Error('surd: ' + r.status + ' on ' + target);
+      e.status = r.status;
+      throw e;
+    })['catch'](function (err) {
+      var retryable = !err.status || TRANSIENT[err.status];
+      if (attempt >= 4 || (!retryable && attempt > 1)) throw err;
+      return new Promise(function (r) { setTimeout(r, Math.min(8000, 400 * attempt * attempt)); })
+        .then(function () { return fetchPart(url, attempt + 1); });
+    });
+  }
+  function assemble(e) {
+    if (urlOf[e.p]) return Promise.resolve(urlOf[e.p]);
+    if (pending[e.p]) return pending[e.p];
+    var urls = partUrls(e);
+    var got = new Array(urls.length);
+    var next = 0;
+    function lane() {
+      if (next >= urls.length) return Promise.resolve();
+      var n = next++;
+      return fetchPart(urls[n]).then(function (b) { got[n] = b; return lane(); });
+    }
+    var lanes = [];
+    for (var k = 0; k < Math.min(6, urls.length); k++) lanes.push(lane());
+    var p = Promise.all(lanes).then(function () { return finish(e, got); });
+    pending[e.p] = p;
+    return p;
+  }
+  function syncBytes(url) {
+    var x = new NativeXHR();
+    nativeOpen.call(x, 'GET', url, false);
+    if (x.overrideMimeType) x.overrideMimeType('text/plain; charset=x-user-defined');
+    nativeSend.call(x, null);
+    if (x.status && x.status !== 200 && x.status !== 0) throw new Error('surd: ' + x.status + ' on ' + url);
+    var s = x.responseText, n = s.length, a = new Uint8Array(n);
+    for (var k = 0; k < n; k++) a[k] = s.charCodeAt(k) & 0xff;
+    return a;
+  }
+  function assembleSync(e) {
+    if (urlOf[e.p]) return urlOf[e.p];
+    var urls = partUrls(e), got = [];
+    for (var k = 0; k < urls.length; k++) got.push(syncBytes(urls[k]));
+    var u = finish(e, got);
+    pending[e.p] = Promise.resolve(u);
+    return u;
+  }
+  var nativeFetch = window.fetch && window.fetch.bind(window);
+  if (nativeFetch) {
+    window.fetch = function (input, init) {
+      var e = match(typeof input === 'string' ? input : input);
+      if (!e) return nativeFetch(input, init);
+      if (init && init.method && String(init.method).toUpperCase() === 'HEAD') {
+        return Promise.resolve(new Response(null, { status: 200, headers: { 'Content-Length': String(e.b || 0) } }));
+      }
+      return assemble(e).then(function (u) { return nativeFetch(u); });
+    };
+  }
+  var NativeXHR = window.XMLHttpRequest;
+  var XP = NativeXHR.prototype;
+  var nativeOpen = XP.open, nativeSend = XP.send;
+  XP.open = function (method, url, async) {
+    var e = match(url);
+    this.__surdSplit = e || null;
+    if (e) {
+      this.__surdArgs = Array.prototype.slice.call(arguments);
+      this.__surdSync = async === false;
+      if (this.__surdSync) {
+        try { return nativeOpen.apply(this, [method, assembleSync(e), false].concat(Array.prototype.slice.call(arguments, 3))); }
+        catch (err) { this.__surdSplit = null; }
+      }
+    }
+    return nativeOpen.apply(this, arguments);
+  };
+  XP.send = function (body) {
+    var e = this.__surdSplit;
+    if (!e || this.__surdSync) return nativeSend.apply(this, arguments);
+    var self = this, args = this.__surdArgs;
+    assemble(e).then(function (u) {
+      args[1] = u;
+      nativeOpen.apply(self, args);
+      nativeSend.call(self, body);
+    })['catch'](function (err) {
+      try { if (self.onerror) self.onerror({ target: self, message: String(err && err.message || err) }); } catch (x) {}
+    });
+  };
+  function script(path) {
+    var e = byPath[path] || match(path);
+    if (!e) { throw new Error('surd: no split entry for script ' + path); }
+    var urls = partUrls(e), chunks = [], total = 0, k;
+    for (k = 0; k < urls.length; k++) { chunks.push(syncBytes(urls[k])); total += chunks[k].length; }
+    var all = new Uint8Array(total), at = 0;
+    for (k = 0; k < chunks.length; k++) { all.set(chunks[k], at); at += chunks[k].length; }
+    if (e.b && total !== e.b) throw new Error('surd: ' + e.p + ' reassembled to ' + total + ', expected ' + e.b);
+    var code = new TextDecoder('utf-8').decode(all);
+    (0, eval)(code + '\n//# sourceURL=' + base + e.p);
+  }
+  window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
+  var pf = [];
+  for (i = 0; i < table.length; i++) if (table[i].pf) pf.push(table[i]);
+  if (pf.length) {
+    var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
+    for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
+    window.SURD_PREFETCH = st;
+    var next = 0, LANES = 2;
+    var pump = function () {
+      if (next >= pf.length) return;
+      var e = pf[next++];
+      assemble(e)['catch'](function () { st.failed++; })
+        .then(function () { st.done++; st.doneBytes += e.b || 0; pump(); });
+    };
+    for (i = 0; i < LANES && i < pf.length; i++) pump();
+  }
+})();</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v53aeb7210d/runtime.js"></script>
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Wall Kickers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #ff8f00; --ink: #2b1400; --fg: #fff; --muted: #5a2e00; --accent: #fff; --panel: #2b1400; }
+  html, body { margin: 0; height: 100%; background: #000; color: var(--fg);
+    font: 16px/1.3 'Lilita One', 'Arial Black', Impact, sans-serif; overflow: hidden;
+    touch-action: none; user-select: none; -webkit-user-select: none; }
+  #stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; background: #000; outline: none; }
+  .overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px; background: var(--bg); z-index: 5; text-align: center; padding: 16px; }
+  .overlay h1 { margin: 0 0 6px; font-size: clamp(36px, 9vw, 56px); line-height: 1; font-weight: 400;
+    color: #fff; letter-spacing: .5px; }
+  .bar { width: min(220px, 60vw); height: 4px; border-radius: 2px; background: rgba(255,255,255,.3); overflow: hidden; }
+  .bar > div { height: 100%; width: 0; background: #fff; transition: width .15s linear; }
+  #status { color: rgba(255,255,255,.8); min-height: 1.3em; max-width: 90vw; white-space: pre-wrap;
+    font: 500 13px/1.3 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; letter-spacing: .3px; }
+  button.big { font: inherit; font-size: 20px; padding: 10px 26px; border: 0; border-radius: 6px;
+    background: #fff; color: #b35f00; cursor: pointer; }
+  #dialog { position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+    background: rgba(0,0,0,.55); z-index: 10; padding: 16px; }
+  #dialog .box { background: var(--bg); color: var(--ink); border-radius: 10px; padding: 18px; max-width: 360px; width: 100%; }
+  #dialog h2 { margin: 0 0 8px; font-size: 22px; font-weight: 400; }
+  #dialog p { margin: 0 0 16px; color: var(--muted); white-space: pre-wrap; }
+  #dialog .row { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+  #dialog button { font: inherit; padding: 8px 16px; border: 0; border-radius: 6px; cursor: pointer;
+    background: #c96a00; color: #fff; }
+  #dialog button.primary { background: #fff; color: var(--ink); }
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="canvas" tabindex="0"></canvas></div>
+<div class="overlay" id="loading">
+  <h1>Wall Kickers</h1>
+  <div class="bar"><div id="progress"></div></div>
+  <div id="status"></div>
+  <button class="big" id="play" hidden>Tap to play</button>
+</div>
+<div id="dialog"><div class="box"><h2 id="dlgTitle"></h2><p id="dlgText"></p><div class="row" id="dlgButtons"></div></div></div>
+<script>
+'use strict';
+const PKG_FILES = '/data/data/com.kumobius.android.walljumper/files';
+const USERDATA = PKG_FILES + '/userdata';
+const statusEl = document.getElementById('status');
+const progressEl = document.getElementById('progress');
+const canvas = document.getElementById('canvas');
+let M = null, running = false, crashed = false;
+
+function setStatus(text) { statusEl.textContent = text; }
+function fail(err) {
+  crashed = true; running = false;
+  console.error(err);
+  document.getElementById('loading').style.display = 'flex';
+  document.getElementById('play').hidden = true;
+  setStatus('The game stopped: ' + (err && err.message || err));
+}
+
+/* ---------------------------------------------------------------- assets zip */
+const zip = { bytes: null, entries: new Map() };
+function indexZip(bytes) {
+  zip.bytes = bytes;
+  const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  let eocd = bytes.length - 22;
+  while (eocd >= 0 && dv.getUint32(eocd, true) !== 0x06054b50) eocd--;
+  const count = dv.getUint16(eocd + 10, true);
+  let p = dv.getUint32(eocd + 16, true);
+  const dec = new TextDecoder();
+  for (let i = 0; i < count; i++) {
+    const method = dv.getUint16(p + 10, true), csize = dv.getUint32(p + 20, true);
+    const nlen = dv.getUint16(p + 28, true), xlen = dv.getUint16(p + 30, true), clen = dv.getUint16(p + 32, true);
+    const local = dv.getUint32(p + 42, true);
+    const name = dec.decode(bytes.subarray(p + 46, p + 46 + nlen));
+    zip.entries.set(name, { method, csize, local });
+    p += 46 + nlen + xlen + clen;
+  }
+}
+async function zipRead(path) {
+  path = path.replace(/^\/app\/base\.apk\//, '').replace(/^\/+/, '');
+  const e = zip.entries.get(path) || zip.entries.get('assets/' + path);
+  if (!e) throw new Error('missing asset ' + path);
+  const dv = new DataView(zip.bytes.buffer, zip.bytes.byteOffset);
+  const start = e.local + 30 + dv.getUint16(e.local + 26, true) + dv.getUint16(e.local + 28, true);
+  const data = zip.bytes.slice(start, start + e.csize);
+  if (e.method === 0) return data;
+  const stream = new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+
+/* ---------------------------------------------------------------- audio */
+const AC = window.AudioContext || window.webkitAudioContext;
+const audio = new AC();
+const master = audio.createGain(); master.connect(audio.destination);
+const sounds = new Map();      // name -> AudioBuffer | Promise
+const streams = new Map();     // id -> {src, gain, volume, pitch}
+let nextStream = 1;
+const music = { el: null, url: null, enabled: true, volume: 1, path: null };
+
+function loadSound(name, path) {
+  if (sounds.has(name)) return;
+  const p = zipRead(path).then((b) => audio.decodeAudioData(b.buffer)).then((buf) => { sounds.set(name, buf); return buf; })
+    .catch((e) => { console.warn('sound', name, path, e); sounds.delete(name); });
+  sounds.set(name, p);
+}
+function playSound(name, volume, pitch, loop) {
+  const buf = sounds.get(name);
+  if (!(buf instanceof AudioBuffer) || volume <= 0) return 0;
+  const src = audio.createBufferSource(), gain = audio.createGain();
+  src.buffer = buf;
+  src.playbackRate.value = pitch > 0 ? pitch : 1;
+  src.loop = loop !== 0;
+  gain.gain.value = volume;
+  src.connect(gain).connect(master);
+  const id = nextStream++;
+  const st = { src, gain, volume, pitch, playing: true };
+  if (loop > 0) { src.loop = true; setTimeout(() => { try { src.loop = false; } catch (e) {} }, buf.duration * 1000 * (loop + 1) / src.playbackRate.value); }
+  src.onended = () => { st.playing = false; streams.delete(id); };
+  streams.set(id, st);
+  src.start();
+  return id;
+}
+function playMusic(path, loop, enabled) {
+  stopMusic();
+  music.path = path;
+  music.enabled = !!enabled;
+  zipRead(path).then((b) => {
+    if (music.path !== path) return;
+    music.url = URL.createObjectURL(new Blob([b], { type: 'audio/mp4' }));
+    const el = new Audio(music.url);
+    el.loop = loop < 0 || loop > 1;
+    el.volume = Math.max(0, Math.min(1, music.volume));
+    music.el = el;
+    if (music.enabled) el.play().catch(() => {});
+  }).catch((e) => console.warn('music', path, e));
+}
+function stopMusic() {
+  if (music.el) { music.el.pause(); music.el = null; }
+  if (music.url) { URL.revokeObjectURL(music.url); music.url = null; }
+  music.path = null;
+}
+
+/* ---------------------------------------------------------------- prompts */
+const prompts = new Map();
+let nextPrompt = 1;
+function showDialog(title, text, buttons) {
+  const d = document.getElementById('dialog');
+  document.getElementById('dlgTitle').textContent = title || '';
+  document.getElementById('dlgText').textContent = text || '';
+  const row = document.getElementById('dlgButtons');
+  row.innerHTML = '';
+  for (const [label, primary, action] of buttons) {
+    if (!label) continue;
+    const b = document.createElement('button');
+    b.textContent = label;
+    if (primary) b.className = 'primary';
+    b.onclick = () => { d.style.display = 'none'; action(); canvas.focus(); };
+    row.appendChild(b);
+  }
+  d.style.display = 'flex';
+}
+
+/* ---------------------------------------------------------------- Java responder */
+let saveDirty = false;
+const responder = {
+  loadSound, unloadSound: (n) => sounds.delete(n),
+  playSound, stopSound: (id) => { const s = streams.get(id); if (s) { try { s.src.stop(); } catch (e) {} streams.delete(id); } },
+  setSoundVolume: (id, v) => { const s = streams.get(id); if (s) { s.volume = v; s.gain.gain.value = v; } },
+  setSoundPitch: (id, p) => { const s = streams.get(id); if (s) { s.pitch = p; s.src.playbackRate.value = p > 0 ? p : 1; } },
+  getSoundPlaying: (id) => !!(streams.get(id) && streams.get(id).playing),
+  getSoundVolume: (id) => (streams.get(id) ? streams.get(id).volume : 1),
+  getSoundPitch: (id) => (streams.get(id) ? streams.get(id).pitch : 1),
+  playMusic: (...a) => { badge.music = true; return playMusic(...a); }, stopMusic,
+  setMusicEnabled: (e) => { music.enabled = !!e; if (music.el) { if (music.enabled) music.el.play().catch(() => {}); else music.el.pause(); } },
+  setMusicVolume: (v) => { music.volume = v; if (music.el) music.el.volume = Math.max(0, Math.min(1, v)); },
+  getMusicSyncTime: () => -1,
+  playVoice: (path) => { zipRead(path).then((b) => audio.decodeAudioData(b.buffer)).then((buf) => {
+    const src = audio.createBufferSource(); src.buffer = buf; src.connect(master); src.start(); }).catch(() => {}); },
+  prompt: (title, text, yes, no) => {
+    const id = nextPrompt++;
+    prompts.set(id, -1);
+    showDialog(title, text, [[no, false, () => prompts.set(id, 0)], [yes, true, () => prompts.set(id, 1)]]);
+    return id;
+  },
+  checkPrompt: (id) => (prompts.has(id) ? prompts.get(id) : -2),
+  promptOpenURL: (title, text, yes, no, url) => showDialog(title, text, [[no, false, () => {}], [yes, true, () => window.open(url, '_blank')]]),
+  canOpenUrl: (u) => /^https?:/.test(u),
+  openUrl: (u) => { if (/^https?:/.test(u)) window.open(u, '_blank'); },
+  isAppInstalled: () => false,
+  isPlayingVideo: () => false,
+  playVideo: () => {},
+  exitGame: () => {},
+  adsGetSystemName: () => 'none',
+  adsGetIncentivisedAdsEnabled: () => false, adsGetIncentivisedAdReady: () => false, adsGetIncentivisedAdPlaying: () => false,
+  adsGetVideoAdsEnabled: () => false, adsGetVideoAdReady: () => false, adsGetVideoAdPlaying: () => false,
+  iapGetStatus: () => 0, iapGetError: () => '', iapCanPurchase: () => false,
+  iapGetName: () => '', iapGetDescription: () => '', iapGetPrice: () => '',
+  scoreIsLoggedIn: () => false, scoreCanLogInOut: () => false,
+};
+function wkJava(name, sig, args) {
+  const f = responder[name];
+  if (f) return f(...args);
+  if (window.WK_DEBUG) console.debug('java (unhandled)', name, sig, args);
+  const ret = sig.slice(sig.indexOf(')') + 1);
+  return ret === 'Z' ? false : ret === 'V' ? undefined : ret[0] === 'L' ? null : 0;
+}
+
+/* ---------------------------------------------------------------- layout + input */
+let viewW = 0, viewH = 0;
+function layout() {
+  const w = window.innerWidth, h = window.innerHeight;
+  let cw = w, ch = h;
+  if (w / h > 10 / 16) cw = Math.round(h * 9 / 16); // desktop: portrait column
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.style.width = cw + 'px';
+  canvas.style.height = ch + 'px';
+  const pw = Math.round(cw * dpr), ph = Math.round(ch * dpr);
+  if (pw !== viewW || ph !== viewH) {
+    viewW = canvas.width = pw;
+    viewH = canvas.height = ph;
+    if (running) call(() => M._wk_native_resized(viewW, viewH, 0, 0, 0, 0));
+  }
+}
+function call(fn) {
+  if (crashed) return;
+  try { fn(); M._wk_jni_release_locals(); } catch (e) { fail(e); }
+}
+/* Input goes to the engine immediately. A release that arrives before the engine has
+ * stepped a frame since the press would make a zero-length tap the game never sees,
+ * so it is held until right after the next frame. */
+let frameCount = 0;
+const downFrame = new Map(), heldUps = [];
+function pointerAt(kind, id, x, y) { call(() => M._wk_native_pointer(kind, id, x, y, 1)); }
+function pointer(kind, e) {
+  if (!running) return;
+  const r = canvas.getBoundingClientRect();
+  const x = (e.clientX - r.left) * canvas.width / r.width, y = (e.clientY - r.top) * canvas.height / r.height;
+  const id = e.pointerId & 0x7fffffff;
+  if (badge.inGame && badgeInput(kind, id, x, y)) return;
+  if (kind === 0 && badge.music) badge.inGame = true;
+  if (kind === 0) downFrame.set(id, frameCount);
+  if ((kind === 1 || kind === 3) && downFrame.get(id) === frameCount) { heldUps.push([kind, id, x, y]); return; }
+  if (kind === 1 || kind === 3) downFrame.delete(id);
+  pointerAt(kind, id, x, y);
+}
+function afterFrame() {
+  frameCount++;
+  while (heldUps.length) { const [k, id, x, y] = heldUps.shift(); downFrame.delete(id); pointerAt(k, id, x, y); }
+}
+function unlockAudio() {
+  audio.resume();
+  if (music.el && music.enabled && music.el.paused) music.el.play().catch(() => {});
+}
+canvas.addEventListener('pointerdown', (e) => { canvas.setPointerCapture(e.pointerId); pointer(0, e); unlockAudio(); e.preventDefault(); });
+canvas.addEventListener('pointermove', (e) => { if (e.buttons || e.pointerType === 'touch') pointer(2, e); });
+canvas.addEventListener('pointerup', (e) => pointer(1, e));
+canvas.addEventListener('pointercancel', (e) => pointer(3, e));
+canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+const keyDown = new Set();
+window.addEventListener('keydown', (e) => {
+  unlockAudio();
+  if (!running || e.repeat) return;
+  if (e.code === 'Escape' || e.code === 'Backspace') { call(() => M._wk_native_key(4, 1)); e.preventDefault(); }
+  else if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'Enter') {
+    keyDown.add(e.code);
+    call(() => M._wk_native_pointer(0, 1000, viewW / 2, viewH * 0.6, 1));
+    e.preventDefault();
+  }
+});
+window.addEventListener('keyup', (e) => {
+  if (!running) return;
+  if (e.code === 'Escape' || e.code === 'Backspace') call(() => M._wk_native_key(4, 0));
+  else if (keyDown.delete(e.code)) call(() => M._wk_native_pointer(1, 1000, viewW / 2, viewH * 0.6, 1));
+});
+window.addEventListener('resize', layout);
+
+/* ---------------------------------------------------------------- saves */
+/* The game keeps its progress in SQLite files under USERDATA and writes them when a run
+ * ends. Each write is pushed to IndexedDB shortly after, and mirrored synchronously into
+ * localStorage so closing the tab straight after a run can't lose it. */
+const SAVE_KEY = 'wallkickers-saves';
+let syncing = false, syncAgain = false, saveTimer = 0;
+function syncSaves() {
+  if (!M || !saveDirty) return;
+  if (syncing) { syncAgain = true; return; }
+  saveDirty = false;
+  syncing = true;
+  M.FS.syncfs(false, (err) => {
+    syncing = false;
+    if (err) console.warn('save sync', err);
+    if (syncAgain) { syncAgain = false; saveDirty = true; syncSaves(); }
+  });
+}
+function backupSaves() {
+  if (!M) return;
+  try {
+    const files = {};
+    for (const name of M.FS.readdir(USERDATA)) {
+      if (name === '.' || name === '..') continue;
+      const data = M.FS.readFile(USERDATA + '/' + name);
+      let bin = '';
+      for (let i = 0; i < data.length; i += 0x8000) bin += String.fromCharCode.apply(null, data.subarray(i, i + 0x8000));
+      files[name] = btoa(bin);
+    }
+    localStorage.setItem(SAVE_KEY, JSON.stringify({ t: Date.now(), files }));
+  } catch (e) { console.warn('save backup', e); }
+}
+/* Called after IndexedDB has loaded: use the localStorage copy if it is newer. */
+function restoreBackup(m) {
+  let backup = null;
+  try { backup = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); } catch (e) {}
+  if (!backup || !backup.files) return;
+  let newest = 0;
+  try {
+    for (const name of m.FS.readdir(USERDATA)) {
+      if (name !== '.' && name !== '..') newest = Math.max(newest, +m.FS.stat(USERDATA + '/' + name).mtime);
+    }
+  } catch (e) {}
+  if (backup.t <= newest) return;
+  for (const [name, b64] of Object.entries(backup.files)) {
+    const bin = atob(b64), data = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) data[i] = bin.charCodeAt(i);
+    m.FS.writeFile(USERDATA + '/' + name, data);
+  }
+  saveDirty = true;
+}
+function savesChanged() {
+  saveDirty = true;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => { saveTimer = 0; backupSaves(); syncSaves(); }, 250);
+}
+function watchSaves(m) {
+  const write = m.FS.write;
+  m.FS.write = function (stream) {
+    if (stream && stream.path && stream.path.startsWith(PKG_FILES)) savesChanged();
+    return write.apply(this, arguments);
+  };
+}
+function flushSaves() { if (saveTimer) { clearTimeout(saveTimer); saveTimer = 0; backupSaves(); } saveDirty = true; syncSaves(); }
+window.addEventListener('pagehide', flushSaves);
+window.addEventListener('beforeunload', flushSaves);
+setInterval(() => { saveDirty = true; syncSaves(); }, 10000);
+document.addEventListener('visibilitychange', () => {
+  if (!running) return;
+  if (document.hidden) { call(() => M._wk_native_deactivate()); flushSaves(); if (music.el) music.el.pause(); }
+  else { call(() => M._wk_native_activate()); if (music.el && music.enabled) music.el.play().catch(() => {}); }
+});
+
+/* ---------------------------------------------------------------- boot */
+/* Frame interval passed to the engine (Android passes 1/refreshRate): measured from
+ * rAF so 120/144 Hz displays run at the right speed and get their lower latency. */
+let lastFrame = 0, frameDt = 1 / 60;
+/* ---------------------------------------------------------------- credit badge (disabled)
+ * Small text drawn into the game's own WebGL frame (bottom centre) after the engine
+ * renders. GL state the engine relies on is saved and restored around the draw. */
+const badge = { inGame: false, music: false, text: '', gl: null, prog: null, buf: null, vao: null, tex: null, texKey: '',
+  size: [0, 0], loc: null, held: new Set(), fontReady: false };
+document.fonts && document.fonts.load('40px "Lilita One"').then(() => { badge.fontReady = true; badge.texKey = ''; }, () => {});
+function badgeRect() {
+  const [tw, th] = badge.size, W = canvas.width, H = canvas.height;
+  return [Math.round((W - tw) / 2), Math.round(H - th - H * 0.012), tw, th];
+}
+function badgeInput(kind, id, x, y) {
+  if (kind === 0) {
+    const [bx, by, bw, bh] = badgeRect();
+    if (!bw || x < bx || x > bx + bw || y < by || y > by + bh) return false;
+    badge.held.add(id);
+    return true;
+  }
+  if (!badge.held.has(id)) return false;
+  if (kind === 1 || kind === 3) {
+    badge.held.delete(id);
+    
+  }
+  return true;
+}
+/* Rasterised at the size it is shown, so it stays crisp at any resolution. */
+function badgeTexture(gl) {
+  const px = Math.max(12, Math.round(canvas.width * 0.04));
+  const key = px + (badge.fontReady ? 'f' : '');
+  if (key === badge.texKey) return;
+  badge.texKey = key;
+  const font = `${px}px "Lilita One", "Arial Black", sans-serif`;
+  const c = document.createElement('canvas'), g = c.getContext('2d');
+  g.font = font;
+  const pad = Math.ceil(px * 0.3), sh = Math.max(1, Math.round(px * 0.08));
+  c.width = Math.ceil(g.measureText(badge.text).width) + pad * 2;
+  c.height = Math.ceil(px * 1.25) + pad;
+  g.font = font;
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.fillStyle = 'rgba(0,0,0,0.45)';
+  g.fillText(badge.text, c.width / 2, c.height / 2 + sh);
+  g.fillStyle = '#ffffff';
+  g.fillText(badge.text, c.width / 2, c.height / 2);
+  badge.size = [c.width, c.height];
+  if (!badge.tex) badge.tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, badge.tex);
+  const flip = gl.getParameter(gl.UNPACK_FLIP_Y_WEBGL), pre = gl.getParameter(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, flip);
+  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, pre);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+}
+function badgeInit(gl) {
+  const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+  const prog = gl.createProgram();
+  gl.attachShader(prog, sh(gl.VERTEX_SHADER, 'attribute vec2 p;uniform vec4 r;varying vec2 uv;void main(){uv=p;gl_Position=vec4(r.xy+p*r.zw,0.0,1.0);}'));
+  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, 'precision mediump float;uniform sampler2D t;uniform float k;varying vec2 uv;void main(){gl_FragColor=texture2D(t,uv)*k;}'));
+  gl.bindAttribLocation(prog, 0, 'p');
+  gl.linkProgram(prog);
+  badge.prog = prog;
+  badge.loc = { r: gl.getUniformLocation(prog, 'r'), t: gl.getUniformLocation(prog, 't'), k: gl.getUniformLocation(prog, 'k') };
+  badge.buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, badge.buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]), gl.STATIC_DRAW);
+  if (gl.createVertexArray) {
+    badge.vao = gl.createVertexArray();
+    gl.bindVertexArray(badge.vao);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+  }
+}
+function drawBadge() { return;
+  if (!badge.inGame) return;
+  const gl = badge.gl || (badge.gl = canvas.getContext('webgl2') || canvas.getContext('webgl'));
+  if (!gl) return;
+  const P = gl.getParameter.bind(gl), gl2 = !!gl.createVertexArray;
+  const saved = {
+    prog: P(gl.CURRENT_PROGRAM), abuf: P(gl.ARRAY_BUFFER_BINDING), unit: P(gl.ACTIVE_TEXTURE),
+    fb: P(gl.FRAMEBUFFER_BINDING), vp: P(gl.VIEWPORT), vao: gl2 ? P(gl.VERTEX_ARRAY_BINDING) : null,
+    caps: [gl.BLEND, gl.DEPTH_TEST, gl.STENCIL_TEST, gl.SCISSOR_TEST, gl.CULL_FACE].map((c) => [c, gl.isEnabled(c)]),
+    blend: [P(gl.BLEND_SRC_RGB), P(gl.BLEND_DST_RGB), P(gl.BLEND_SRC_ALPHA), P(gl.BLEND_DST_ALPHA)],
+    eq: [P(gl.BLEND_EQUATION_RGB), P(gl.BLEND_EQUATION_ALPHA)],
+  };
+  gl.activeTexture(gl.TEXTURE0);
+  saved.tex = P(gl.TEXTURE_BINDING_2D);
+  let attr0 = null;
+  if (!gl2) attr0 = { on: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_ENABLED), buf: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING),
+    size: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_SIZE), type: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_TYPE),
+    norm: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_NORMALIZED), stride: gl.getVertexAttrib(0, gl.VERTEX_ATTRIB_ARRAY_STRIDE),
+    off: gl.getVertexAttribOffset(0, gl.VERTEX_ATTRIB_ARRAY_POINTER) };
+  if (!badge.prog) badgeInit(gl);
+  badgeTexture(gl);
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  for (const [c] of saved.caps) gl.disable(c);
+  gl.enable(gl.BLEND);
+  gl.blendEquation(gl.FUNC_ADD);
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  gl.useProgram(badge.prog);
+  if (gl2) gl.bindVertexArray(badge.vao);
+  else { gl.bindBuffer(gl.ARRAY_BUFFER, badge.buf); gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0); }
+  gl.bindTexture(gl.TEXTURE_2D, badge.tex);
+  gl.uniform1i(badge.loc.t, 0);
+  gl.uniform1f(badge.loc.k, badge.held.size ? 0.55 : 0.9);
+  const [bx, by, bw, bh] = badgeRect(), W = canvas.width, H = canvas.height;
+  gl.uniform4f(badge.loc.r, bx / W * 2 - 1, 1 - by / H * 2, bw / W * 2, -bh / H * 2);
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+  if (gl2) gl.bindVertexArray(saved.vao);
+  else {
+    gl.bindBuffer(gl.ARRAY_BUFFER, attr0.buf);
+    if (attr0.buf) gl.vertexAttribPointer(0, attr0.size, attr0.type, attr0.norm, attr0.stride, attr0.off);
+    if (!attr0.on) gl.disableVertexAttribArray(0);
+  }
+  gl.bindBuffer(gl.ARRAY_BUFFER, saved.abuf);
+  gl.bindTexture(gl.TEXTURE_2D, saved.tex);
+  gl.activeTexture(saved.unit);
+  gl.useProgram(saved.prog);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, saved.fb);
+  gl.viewport(saved.vp[0], saved.vp[1], saved.vp[2], saved.vp[3]);
+  gl.blendFuncSeparate(saved.blend[0], saved.blend[1], saved.blend[2], saved.blend[3]);
+  gl.blendEquationSeparate(saved.eq[0], saved.eq[1]);
+  for (const [c, on] of saved.caps) on ? gl.enable(c) : gl.disable(c);
+}
+function frame(now) {
+  if (!running) return;
+  if (lastFrame) {
+    const dt = (now - lastFrame) / 1000;
+    if (dt > 0.002 && dt < 0.1) frameDt += (dt - frameDt) * 0.1;
+  }
+  lastFrame = now;
+  call(() => M._wk_native_render(frameDt, 0));
+  drawBadge();
+  afterFrame();
+  requestAnimationFrame(frame);
+}
+/* Low-latency context: desynchronized skips the compositor queue where supported.
+ * Emscripten's context creation then reuses this context. */
+function createContext() {
+  const attrs = { alpha: false, depth: true, stencil: true, antialias: false, premultipliedAlpha: false,
+    preserveDrawingBuffer: false, powerPreference: 'high-performance',
+    desynchronized: new URLSearchParams(location.search).get('desync') === '1' };
+  return canvas.getContext('webgl2', attrs) || canvas.getContext('webgl', attrs);
+}
+function start() {
+  document.getElementById('play').hidden = true;
+  audio.resume();
+  layout();
+  setStatus('');
+  setTimeout(() => {
+    try {
+      createContext();
+      if (!M._wk_gl_init()) throw new Error('WebGL is not available');
+      if (M._wk_start()) throw new Error('startup failed (see console)');
+      const lang = (navigator.language || 'en-US').replace('-', '_');
+      M.ccall('wk_native_init', null,
+        ['string', 'string', 'number', 'number', 'number', 'number', 'number', 'number', 'string', 'string', 'number'],
+        ['/app/base.apk/assets', USERDATA, viewW, viewH, 0, 0, 0, 0, lang, ',touch,mobile,phone', 0]);
+      M._wk_jni_release_locals();
+      M._wk_native_resized(viewW, viewH, 0, 0, 0, 0);
+      M._wk_native_activate();
+      M._wk_jni_release_locals();
+      running = true;
+      document.getElementById('loading').style.display = 'none';
+      canvas.focus();
+      requestAnimationFrame(frame);
+    } catch (e) { fail(e); }
+  }, 30);
+}
+
+const script = document.createElement('script');
+script.src = 'app.js';
+script.onload = () => {
+  createPEModule({
+    canvas,
+    wkJava,
+    print: (t) => console.log(t),
+    printErr: (t) => console.warn(t),
+    setStatus: (t) => {
+      const m = /\((\d+(?:\.\d+)?)\/(\d+)\)/.exec(t);
+      if (m) { const pct = Math.floor(100 * m[1] / m[2]); progressEl.style.width = pct + '%'; setStatus(pct + '%'); }
+    },
+    monitorRunDependencies: () => {},
+    locateFile: (p) => p,
+    preRun: [(m) => {
+      m.FS.mkdirTree(PKG_FILES);
+      m.FS.mount(m.IDBFS, {}, PKG_FILES);
+      m.addRunDependency('saves');
+      m.FS.syncfs(true, (err) => {
+        if (err) console.warn('save load', err);
+        try { m.FS.mkdirTree(USERDATA); } catch (e) {}
+        try { restoreBackup(m); } catch (e) { console.warn('save restore', e); }
+        watchSaves(m);
+        m.removeRunDependency('saves');
+      });
+    }],
+    onAbort: (what) => fail(what),
+  }).then((m) => {
+    M = m;
+    window.M = m;
+    progressEl.style.width = '100%';
+    indexZip(m.FS.readFile('/app/base.apk'));
+    start(); /* audio unlocks on the first tap/key (browsers require a gesture) */
+  }).catch(fail);
+};
+script.onerror = () => fail('could not load app.js');
+layout();
+document.body.appendChild(script);
+</script>
+</body>
+</html>
